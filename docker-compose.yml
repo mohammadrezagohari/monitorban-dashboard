@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  publish:
+    build:
+      context: .
+      target: production-stage
+    ports:
+      - 8080:80
+    restart: always
+
+  dev:
+    build:
+      context: .
+      target: development-stage
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    command: npm start
+    environment:
+      - CHOKIDAR_USEPOLLING=true
