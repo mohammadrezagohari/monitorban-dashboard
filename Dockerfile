@@ -1,5 +1,5 @@
 # Development stage
-FROM node:22 as development-stage
+FROM node:latest as development-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -7,7 +7,7 @@ COPY . .
 CMD ["npm", "start"]
 
 # Production stage
-FROM node:22 as production-stage
+FROM node:latest as production-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
