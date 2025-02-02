@@ -46,7 +46,6 @@ const Login: React.FC = () => {
     console.log('Username:', username);
     console.log('Password:', password);
   };
-
   return (
     <Container maxWidth="xs">
       <Box

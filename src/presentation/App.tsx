@@ -8,22 +8,24 @@ function isAuthenticated(): boolean {
 
 export default function App() {
     return (
-        <Router>
-            <Routes>
-                {routes.map((route, index) => (
-                    <Route
-                        key={index}
-                        path={route.path}
-                        element={
-                            <RouteWithAuth
-                                requiresAuth={route.requiresAuth}
-                                component={route.component}
-                            />
-                        }
-                    />
-                ))}
-            </Routes>
-        </Router>
+        <div dir='rtl'>
+            <Router>
+                <Routes>
+                    {routes.map((route, index) => (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={
+                                <RouteWithAuth
+                                    requiresAuth={route.requiresAuth}
+                                    component={route.component}
+                                />
+                            }
+                        />
+                    ))}
+                </Routes>
+            </Router>
+        </div>
     );
 }
 
