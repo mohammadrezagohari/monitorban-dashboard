@@ -1,6 +1,8 @@
 // App.tsx
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { routes } from './routes/routes';
+import './App.css'
+import { Box } from '@mui/material';
 function isAuthenticated(): boolean {
     // اینجا باید منطق احراز هویت خود را بنویسید
     return true; // برای مثال
@@ -8,7 +10,7 @@ function isAuthenticated(): boolean {
 
 export default function App() {
     return (
-        <div dir='rtl'>
+        <Box dir='rtl' sx={{backgroundColor: 'background.default' }}>
             <Router>
                 <Routes>
                     {routes.map((route, index) => (
@@ -25,7 +27,7 @@ export default function App() {
                     ))}
                 </Routes>
             </Router>
-        </div>
+        </Box>
     );
 }
 
