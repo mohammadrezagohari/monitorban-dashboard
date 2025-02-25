@@ -50,118 +50,103 @@ export const ButtonComp: React.FC<IButton> = ({
 
   const colors = {
     contained: {
-      // primary: {
-      //   textColor: "#F7F5FA",
-      //   backgroundColor: palette[paletteColor]?.[500],
-      //   borderColor: "none",
-      //   textHoverColor: "#F7F5FA",
-      //   backgroundHoverColor: palette[paletteColor]?.[700],
-      //   borderHoverColor: "none",
-      // },
-      secondary: {
+      primary: {
         textColor: "#F7F5FA",
-        backgroundColor:
-          palette[paletteColor]?.[500] ?? palette["primary"]?.[500],
+        backgroundColor: palette[paletteColor]?.[500],
         borderColor: "none",
         textHoverColor: "#F7F5FA",
-        backgroundHoverColor:
-          palette[paletteColor]?.[600] ?? palette["primary"]?.[700],
+        backgroundHoverColor: palette[paletteColor]?.[700],
+        borderHoverColor: "none",
+      },
+      secondary: {
+        textColor: "#F7F5FA",
+        backgroundColor: palette[paletteColor]?.[500],
+        borderColor: "none",
+        textHoverColor: "#F7F5FA",
+        backgroundHoverColor: palette[paletteColor]?.[600],
         borderHoverColor: "none",
       },
       error: {
         textColor: "#F7F5FA",
-        backgroundColor:
-          palette[paletteColor]?.[400] ?? palette["primary"]?.[500],
+        backgroundColor: palette[paletteColor]?.[400],
         borderColor: "none",
         textHoverColor: "#F7F5FA",
-        backgroundHoverColor:
-          palette[paletteColor]?.[600] ?? palette["primary"]?.[700],
+        backgroundHoverColor: palette[paletteColor]?.[600],
         borderHoverColor: "none",
       },
       success: {
         textColor: "#F7F5FA",
-        backgroundColor:
-          palette[paletteColor]?.[400] ?? palette["primary"]?.[500],
+        backgroundColor: palette[paletteColor]?.[400],
         borderColor: "none",
         textHoverColor: "#F7F5FA",
-        backgroundHoverColor:
-          palette[paletteColor]?.[600] ?? palette["primary"]?.[700],
+        backgroundHoverColor: palette[paletteColor]?.[600],
         borderHoverColor: "none",
       },
     },
     outlined: {
-      // primary: {
-      //   textColor: "#7F6A95",
-      //   backgroundColor: "none",
-      //   borderColor: "#7F6A95",
-      //   textHoverColor: palette["primary"]?.[100],
-      //   backgroundHoverColor: "none",
-      //   borderHoverColor: palette["primary"]?.[100],
-      // },
-      secondary: {
-        textColor: palette[paletteColor]?.[200] ?? "#7F6A95",
+      primary: {
+        textColor: "#7F6A95",
         backgroundColor: "none",
-        borderColor: palette[paletteColor]?.[500] ?? "#7F6A95",
-        textHoverColor:
-          palette[paletteColor]?.[200] ?? palette["primary"]?.[100],
-        backgroundHoverColor: palette[paletteColor]?.[800] ?? "#333",
-        borderHoverColor:
-          palette[paletteColor]?.[500] ?? palette["primary"]?.[100],
+        borderColor: "#7F6A95",
+        textHoverColor: palette["primary"]?.[100],
+        backgroundHoverColor: "none",
+        borderHoverColor: palette["primary"]?.[100],
+      },
+      secondary: {
+        textColor: palette[paletteColor]?.[200],
+        backgroundColor: "none",
+        borderColor: palette[paletteColor]?.[500],
+        textHoverColor: palette[paletteColor]?.[200],
+        backgroundHoverColor: palette[paletteColor]?.[800],
+        borderHoverColor: palette[paletteColor]?.[500],
       },
       error: {
-        textColor: palette[paletteColor]?.[400] ?? "#7F6A95",
+        textColor: palette[paletteColor]?.[400],
         backgroundColor: "none",
-        borderColor: palette[paletteColor]?.[400] ?? "#7F6A95",
-        textHoverColor:
-          palette[paletteColor]?.[400] ?? palette["primary"]?.[100],
-        backgroundHoverColor: palette[paletteColor]?.[800] ?? "#333",
-        borderHoverColor:
-          palette[paletteColor]?.[400] ?? palette["primary"]?.[100],
+        borderColor: palette[paletteColor]?.[400],
+        textHoverColor: palette[paletteColor]?.[400],
+        backgroundHoverColor: palette[paletteColor]?.[800],
+        borderHoverColor: palette[paletteColor]?.[400],
       },
       success: {
-        textColor: palette[paletteColor]?.[400] ?? "#7F6A95",
+        textColor: palette[paletteColor]?.[400],
         backgroundColor: "none",
-        borderColor: palette[paletteColor]?.[400] ?? "#7F6A95",
-        textHoverColor:
-          palette[paletteColor]?.[400] ?? palette["primary"]?.[100],
-        backgroundHoverColor: palette[paletteColor]?.[800] ?? "#333",
-        borderHoverColor:
-          palette[paletteColor]?.[400] ?? palette["primary"]?.[100],
+        borderColor: palette[paletteColor]?.[400],
+        textHoverColor: palette[paletteColor]?.[400],
+        backgroundHoverColor: palette[paletteColor]?.[800],
+        borderHoverColor: palette[paletteColor]?.[400],
       },
     },
     text: {
-      // primary: {
-      //   textColor: palette["primary"]?.[200],
-      //   backgroundColor: "none",
-      //   borderColor: "none",
-      //   textHoverColor: palette["primary"]?.[100],
-      //   backgroundHoverColor: "none",
-      //   borderHoverColor: "none",
-      // },
-      secondary: {
-        textColor: palette[paletteColor]?.[200] ?? palette["primary"]?.[200],
+      primary: {
+        textColor: palette["primary"]?.[200],
         backgroundColor: "none",
         borderColor: "none",
-        textHoverColor:
-          palette[paletteColor]?.[50] ?? palette["primary"]?.[100],
+        textHoverColor: palette["primary"]?.[100],
+        backgroundHoverColor: "none",
+        borderHoverColor: "none",
+      },
+      secondary: {
+        textColor: palette[paletteColor]?.[200],
+        backgroundColor: "none",
+        borderColor: "none",
+        textHoverColor: palette[paletteColor]?.[50],
         backgroundHoverColor: "none",
         borderHoverColor: "none",
       },
       error: {
-        textColor: palette[paletteColor]?.[400] ?? palette["primary"]?.[200],
+        textColor: palette[paletteColor]?.[400],
         backgroundColor: "none",
         borderColor: "none",
-        textHoverColor:
-          palette[paletteColor]?.[200] ?? palette["primary"]?.[100],
+        textHoverColor: palette[paletteColor]?.[200],
         backgroundHoverColor: "none",
         borderHoverColor: "none",
       },
       success: {
-        textColor: palette[paletteColor]?.[400] ?? palette["primary"]?.[200],
+        textColor: palette[paletteColor]?.[400],
         backgroundColor: "none",
         borderColor: "none",
-        textHoverColor:
-          palette[paletteColor]?.[200] ?? palette["primary"]?.[100],
+        textHoverColor: palette[paletteColor]?.[200],
         backgroundHoverColor: "none",
         borderHoverColor: "none",
       },
@@ -179,23 +164,20 @@ export const ButtonComp: React.FC<IButton> = ({
         backgroundColor: colors[variant]?.[color]?.["backgroundColor"],
         borderColor: colors[variant]?.[color]?.["borderColor"],
         "&:hover": {
-          color: colors[variant][color]["textHoverColor"],
-          background: colors[variant][color]["backgroundHoverColor"],
-          borderColor: colors[variant][color]["borderHoverColor"],
+          color: colors[variant]?.[color]?.["textHoverColor"],
+          background: colors[variant]?.[color]?.["backgroundHoverColor"],
+          borderColor: colors[variant]?.[color]?.["borderHoverColor"],
         },
         "&:disabled": {
-          color:
-            colors[variant]?.[color]?.["textColor"] !== "#F7F5FA"
-              ? "#5B5266"
-              : "#F7F5FA",
+          color: variant !== "contained" ? "#5B5266" : "#F7F5FA",
           backgroundColor:
-            colors[variant]?.[color]?.["backgroundColor"] !== "none"
-              ? "#5B5266"
-              : null,
+            colors[variant]?.[color]?.["backgroundColor"] === "none"
+              ? ""
+              : "#5B5266",
           borderColor:
-            colors[variant]?.[color]?.["borderColor"] !== "none"
-              ? "#5B5266"
-              : null,
+            colors[variant]?.[color]?.["borderColor"] === "none"
+              ? ""
+              : "#5B5266",
         },
       }}
       disabled={disabled}
