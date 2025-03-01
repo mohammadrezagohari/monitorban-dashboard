@@ -18,7 +18,9 @@ declare module "@mui/material/styles" {
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#0B1437',
+            main: '#8C32D9',
+            dark: "#7F6A95",
+            light: "rgba(0,0,0,0)",
             contrastText: "#A3AED0",
             50: '#E0DAE5',
             100: '#D5C3E5',
@@ -31,7 +33,8 @@ const theme = createTheme({
             800: '#220F33',
         },
         secondary: {
-            main: '#dc004e',
+            main: '#E8890C',
+            light: "rgba(0,0,0,0)",
             50: '#FCF4E9',
             100: '#F7DDBA',
             200: '#F5C789',
@@ -43,8 +46,8 @@ const theme = createTheme({
             800: '#342111',
         },
         error: {
-            main: '#dc004e',
-
+            main: '#E8383B',
+            light: "rgba(0,0,0,0)",
             50: '#F6CACC',
             100: '#F1A7A9',
             200: '#EC8385',
@@ -56,7 +59,8 @@ const theme = createTheme({
             800: '#290607',
         },
         success: {
-            main: '#dc004e',
+            main: '#0FD36A',
+            light: "rgba(0,0,0,0)",
             50: '#CAFBE1',
             100: '#95F8C3',
             200: '#5FF4A5',
@@ -68,7 +72,7 @@ const theme = createTheme({
             800: '#021F10',
         },
         yellow: {
-            main: '#dc004e',
+            main: '#FFD029',
             50: '#FFFBEB',
             100: '#FFF2C2',
             200: '#FFE68F',
@@ -80,7 +84,7 @@ const theme = createTheme({
             800: '#292000',
         },
         neutral: {
-            main: '#dc004e',
+            main: '#F7F5FA',
             50: '#F7F5FA',
             100: '#D5D0DB',
             200: '#B7B0BF',
