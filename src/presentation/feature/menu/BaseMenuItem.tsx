@@ -11,12 +11,10 @@ const BaseMenuItem: React.FC<MenuItemProps> = ({
   active,
   disabled,
 }) => {
-  // const Component = href ? RouterLink : "div";
   return (
     <StyledMenuItem
       as={href ? RouterLink : "div"}
       {...(href ? { to: href } : {})}
-      //   to={href ?? "#"}
       active={active}
       disabled={disabled}
     >

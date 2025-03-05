@@ -18,7 +18,7 @@ export const StyledMenuItem = styled(ListItemButton, { shouldForwardProp: prop =
             backgroundColor: active ? "#373040" : "transparent",
         },
         "&.Mui-disabled": {
-            color: "#5B5266"
+            color: "#5B5266" // برای حالت غیرفعال 
         },
     }))
 
