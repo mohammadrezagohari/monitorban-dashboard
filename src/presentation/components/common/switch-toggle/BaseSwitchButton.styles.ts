@@ -1,11 +1,11 @@
 import { styled, Switch } from "@mui/material";
 
-const SwitchButtonStyles = styled(Switch)(({ theme, disabled }) => ({
+const StyledSwitchButton = styled(Switch)(({ theme, disabled }) => ({
     width: 44,
     height: 24,
     padding: 0,
     display: "flex",
-    border: `1px solid ${!disabled ? theme.palette.neutral.main : "#5B5266"}`, //TODO
+    border: `1px solid ${!disabled ? theme.palette.neutral[100] : theme.palette.text.disabled}`, //TODO
     borderRadius: 50,
     transition: "border-color 0.3s ease",
     "&.checked": {
@@ -27,7 +27,7 @@ const SwitchButtonStyles = styled(Switch)(({ theme, disabled }) => ({
         },
     },
     "& .MuiSwitch-thumb": {
-        color: !disabled ? theme.palette.neutral.main : "#5B5266",//TODO
+        color: !disabled ? theme.palette.neutral.main : theme.palette.text.disabled,//TODO
         boxShadow: "none",
         width: 20,
         height: 20,
@@ -43,4 +43,4 @@ const SwitchButtonStyles = styled(Switch)(({ theme, disabled }) => ({
     },
 }));
 
-export default SwitchButtonStyles
+export default StyledSwitchButton

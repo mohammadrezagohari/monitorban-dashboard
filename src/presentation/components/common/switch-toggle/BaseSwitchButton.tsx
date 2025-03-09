@@ -1,32 +1,35 @@
 import React, { useState } from "react";
-import SwitchButtonStyles from "./switchButton.styles";
+import { Typography } from "@mui/material";
 import { SwitchButtonProps } from "./ISwitchButton";
+import StyledSwitchButton from "./BaseSwitchButton.styles";
 
-const CustomSwitchButton: React.FC<SwitchButtonProps> = ({
-  disabled,
-  title,
-}) => {
+const BaseSwitchButton: React.FC<SwitchButtonProps> = ({ disabled, title }) => {
   const [checked, setChecked] = useState(false);
+
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
         gap: 8,
-        fontSize: 16,
-        fontWeight: 600,
-        color: checked ? "#F7F5FA" : "#B7B0BF",
       }}
     >
-      <SwitchButtonStyles
+      <StyledSwitchButton
         checked={checked}
         onChange={() => setChecked(!checked)}
         className={checked ? "checked" : ""}
         disabled={disabled}
       />
-      <p>{title}</p>
+      <Typography
+        variant="body1"
+        sx={{
+          color: checked ? "neutral.50" : "neutral.200",
+        }}
+      >
+        {title}
+      </Typography>
     </div>
   );
 };
 
-export default CustomSwitchButton;
+export default BaseSwitchButton;
