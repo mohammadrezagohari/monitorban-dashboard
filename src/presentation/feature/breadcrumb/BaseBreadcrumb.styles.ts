@@ -1,20 +1,18 @@
 import { Breadcrumbs, styled } from "@mui/material";
 
-export const StyledBreadcrumbs = styled(Breadcrumbs)({
-    fontSize: "14px",
+export const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
     "& a": {
         textDecoration: 'none',
-        fontWeight: 500,
-        color: '#D5D0DB', //TODO:: should be changed color value after added theme palette
+        color: theme.palette.neutral[200], //TODO:: should be debugged error
         "&:hover": {
-            color: "#F7F5FA",
+            color: theme.palette.neutral[50],
         },
     },
     "& .MuiTypography-root": {
-        color: '#D5D0DB'
+        color: theme.palette.neutral[200]
     },
     "& .MuiBreadcrumbs-separator": {
         color: "#B7B0BF",
         fontWeight: 500
     }
-})
+}))

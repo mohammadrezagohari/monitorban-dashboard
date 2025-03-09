@@ -9,9 +9,11 @@ const BaseBreadCrumb: React.FC<BaseBreadcrumbProps> = ({ paths }) => {
         const isLast = index === paths.length - 1;
 
         return isLast ? (
-          <Typography key={index}>{item.label}</Typography>
+          <Typography variant="body2" key={index}>
+            {item.label}
+          </Typography>
         ) : (
-          <Link key={index} href={item.href}>
+          <Link variant="body2" key={index} href={item.href}>
             {item.label}
           </Link>
         );
