@@ -18,7 +18,7 @@ const BaseMenuItem: React.FC<MenuItemProps> = ({
       active={active}
       disabled={disabled}
     >
-      <ListItemIcon sx={{ color: active ? "#F7F5FA" : "#B7B0BF", minWidth: 0 }}>
+      <ListItemIcon sx={{ color: active ? "neutral.50" : "neutral.200", minWidth: 0 }}>
         {icon}
       </ListItemIcon>
       <ListItemText primary={label} />

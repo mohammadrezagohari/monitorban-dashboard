@@ -2,7 +2,7 @@ import { ListItemButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledMenuItem = styled(ListItemButton, { shouldForwardProp: prop => prop !== "active" })<{ active?: boolean }>(
-    ({ active }) => ({
+    ({ active, theme }) => ({
         padding: "16px",
         display: "flex",
         gap: "8px",
@@ -10,15 +10,15 @@ export const StyledMenuItem = styled(ListItemButton, { shouldForwardProp: prop =
         alignItems: "center",
         textAlign: "right",
         borderRadius: "15px",
-        backgroundColor: active ? "#373040" : "transparent",
-        color: active ? "#F7F5FA" : "#B7B0BF",
+        backgroundColor: active ? theme.palette.neutral[600] : "transparent", //TODO
+        color: active ? theme.palette.neutral[50] : theme.palette.neutral[200],
         transition: "color 0.3s ease",
         "&:hover": {
-            color: "#F7F5FA",
-            backgroundColor: active ? "#373040" : "transparent",
+            color: theme.palette.neutral[50],
+            backgroundColor: active ? theme.palette.neutral[600] : "transparent",
         },
         "&.Mui-disabled": {
-            color: "#5B5266" // برای حالت غیرفعال 
+            color: theme.palette.text.disabled // برای حالت غیرفعال 
         },
     }))
 
