@@ -1,63 +1,68 @@
 import { Box, styled, TextField, Typography } from "@mui/material";
 import { BaseInputStatus } from "./IBaseInput";
 
-export const Container = styled(Box)<{ status?: BaseInputStatus }>(({ status }) => ({
-    display: "flex",
-    flexDirection: "column",
-    gap: "8px",
-    position: 'relative',
-    // borderColor: status === "error"
-    //     ? "#E8383B"
-    //     : status === "accept"
-    //         ? "#0FD36A"
-    //         : "#5B5266",
+export const Container = styled(Box)(() => ({
+    margin: '20px 0'
 }))
 
-export const StyledLabel = styled(Typography)(() => ({
-    fontSize: "16px",
-    fontWeight: 600,
+export const StyledLabel = styled(Typography)(({ theme }) => ({
     textAlign: "right",
-    color: "#B7B0BF",
+    color: theme.palette.text.secondary,
 }))
 
-export const StyledCaption = styled(Typography)<{ status?: BaseInputStatus }>(({ status }) => ({
-    fontSize: "12px",
-    fontWeight: 500,
-    textAlign: "right",
-    color: status === "error"
-        ? "#E8383B"
-        : status === "accept"
-            ? "#0FD36A"
-            : "#B7B0BF",
-}))
 
-export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ status }) => ({
-    "& .MuiOutlineInput-root": {
-        borderRadius: "15px",
-        backgroundColor: "#1C1926",
-        border: "none ",
-        color: "#C3C8D5",
-        "& .MuiInputBase-input": {
-            width: "100%",
-            padding: 0
+export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ status, theme }) => ({
+
+    "& .MuiOutlinedInput-root": {
+        "& fieldset": {
+            border: `1px solid ${status === "error"
+                ? theme.palette.error.main
+                : status === "accept"
+                    ? theme.palette.success.main : theme.palette.text.disabled}`,
+        },
+        "&.Mui-focused fieldset": {
+            border: `1px solid ${status === "error"
+                ? theme.palette.error.main
+                : status === "accept"
+                    ? theme.palette.success.main : theme.palette.text.disabled}`,
+        },
+        "&:hover fieldset": {
+            border: `1px solid ${status === "error"
+                ? theme.palette.error.main
+                : status === "accept"
+                    ? theme.palette.success.main : theme.palette.text.disabled}`,
+        },
+        "& ::placeholder": {
+            color: "text.disabled",
         }
-        /*
-         "& fieldset": {
-             borderColor: status === "error"
-                 ? "#E8383B"
-                 : status === "accept"
-                     ? "#0FD36A"
-                     : "#5B5266",
-         },
- */
+
+    },
+    "& .MuiFormHelperText-root": {
+        fontSize: "12px",
+        fontWeight: 500,
+        marginTop: "8px",
+        textAlign: "right",
+        color: status === "error"
+            ? theme.palette.error.main
+            : status === "accept"
+                ? theme.palette.success.main
+                : theme.palette.text.secondary,
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: status === "error"
+            ? theme.palette.error.main
+            : status === "accept"
+                ? theme.palette.success.main
+                : theme.palette.text.disabled,
+    },
+    "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderWidth: "1px",
+        borderColor: "#5B5266",
+        borderStyle: "solid",
     }
 }))
 
 export const IconWrraper = styled("div")(() => ({
-    // position: "absolute",
-    // left: "16px",
-    // top: "50%",
-    // transform: "translateY(-50%)",
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
