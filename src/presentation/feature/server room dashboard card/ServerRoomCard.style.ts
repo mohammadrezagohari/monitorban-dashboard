@@ -1,19 +1,5 @@
 import { Box, styled, Typography } from "@mui/material";
-import { CardContainerProps } from "./IDashboardCard";
 
-export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) => ({
-    backgroundColor: theme.palette.neutral[600],
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.5rem",
-    borderRadius: "16px",
-    padding: "16px",
-    width: width,
-    border: `1px solid transparent`,
-    "&:hover": {
-        borderColor: theme.palette.neutral[300]
-    }
-}))
 
 export const InfoGrid = styled(Box)(() => ({
     display: "grid",
@@ -43,7 +29,7 @@ export const City = styled(Typography)(({ theme }) => ({
 }))
 
 export const Divider = styled("hr")(({ theme }) => ({
-    // margin: "8px 0",
+    margin: "8px 0",
     border: `1px solid ${theme.palette.text.disabled}`
 }))
 

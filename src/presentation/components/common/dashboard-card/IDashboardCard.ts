@@ -1,7 +1,13 @@
+import { Theme } from "@mui/material";
+
 export interface IDashboardCardProps {
-    title: string;
-    icon: React.ReactNode;
-    city: string;
-    sensor?: number;
-    rack?: number;
+    divider?: boolean;
+    topContent?: React.ReactNode;
+    bottomContent?: React.ReactNode;
+    width?: string;
+}
+
+export interface CardContainerProps {
+    width?: string;
+    theme?: Theme;
 }
