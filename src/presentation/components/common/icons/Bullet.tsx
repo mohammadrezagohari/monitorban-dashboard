@@ -1,7 +1,7 @@
 import React from "react";
 import { CustomSvgProps } from "./ISvg";
 
-export const BulletIcon: React.FC<CustomSvgProps> = ({ fill, stroke, size = 12 }) => {
+export const BulletIcon: React.FC<CustomSvgProps> = ({ fill, size = 12 }) => {
   return (
     <svg
       width={size}

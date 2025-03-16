@@ -2,6 +2,7 @@ import React from "react";
 import ServerRoomCard from "../server room dashboard card/ServerRoomCard";
 import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
 import SensorSituationCard from "../sensor situation card/SensorSituationCard";
+import SensorCategoryCard from "../sensor category card/SensorCategoryCard";
 
 const Test = () => {
   return (
@@ -50,6 +51,7 @@ const Test = () => {
           data={3526}
           name="بالا TCL01"
         />
+        <SensorCategoryCard icon={<MobileIcon/>} title="اتاق سرور معاونت" normalSensor={8} warningSensor={6} dangerSensor={4} />
       </div>
     </div>
   );

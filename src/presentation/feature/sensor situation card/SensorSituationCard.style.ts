@@ -1,5 +1,5 @@
 import { Box, styled, Typography } from "@mui/material"
-import { IconWrapperProps } from "./ISensorSituationCard"
+import { IconWrapperProps, TextProps } from "./ISensorSituationCard"
 
 export const DataContainer = styled(Box)(() => ({
     display: "flex",
@@ -7,8 +7,8 @@ export const DataContainer = styled(Box)(() => ({
     justifyContent: "space-between",
 }))
 
-export const Text = styled(Typography)(({ color, fontStyle }) => ({
-    typography: fontStyle,
+export const Text = styled(Typography)<TextProps>(({ color, fontStyle }) => ({
+    variant: fontStyle,
     color: color,
     display: "flex",
     alignItems: "center",
