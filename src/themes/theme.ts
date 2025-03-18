@@ -17,6 +17,7 @@ declare module "@mui/material/styles" {
 
 const theme = createTheme({
     palette: {
+        mode: 'dark',
         primary: {
             main: '#8C32D9',
             dark: "#7F6A95",
@@ -100,10 +101,62 @@ const theme = createTheme({
         text: {
             primary: '#ffffff', // رنگ متن اصلی (سفید)
             secondary: '#000000', // رنگ متن ثانویه (مشکی)
+            disabled: '#5B5266', //
         },
         background: {
             default: '#0B1437', // رنگ پس‌زمینه اصلی (بنفش)
             paper: '#ffffff', // رنگ پس‌زمینه دوم (سفید)
+        },
+    },
+    typography: {
+        fontFamily: 'Dana',
+        h1: {
+            fontSize: '3rem', // 48px
+            fontWeight: 900, //black
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        h2: {
+            fontSize: '2rem', // 32px
+            fontWeight: 800, //extra bold
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        h3: {
+            fontSize: '1.5rem', // 24px
+            fontWeight: 700, //bold
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        h4: {
+            fontSize: '1.25rem', // 20px
+            fontWeight: 700, //bold
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        body1: {
+            fontSize: '1rem', // 16px
+            fontWeight: 600, //semibold
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        body2: {
+            fontSize: '0.875rem', // 14px
+            fontWeight: 500, //medium
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        caption: {
+            fontSize: '0.75rem', // 12px
+            fontWeight: 400, //regular
+            lineHeight: '100%',
+            letterSpacing: '-2%',
+        },
+        overline: {
+            fontSize: '0.625rem', // 10px
+            fontWeight: 400, //regular
+            lineHeight: '100%',
+            letterSpacing: '-2%',
         },
     },
 });
