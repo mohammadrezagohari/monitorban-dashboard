@@ -34,8 +34,6 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
 
   const { icon: iconBgColor, text: textColor } = getStatusColors(status);
 
-  console.log("teeeeeest:::", iconBgColor, textColor);
-
   return (
     <BaseDashboardCard
       width="350px"
