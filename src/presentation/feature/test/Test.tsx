@@ -27,14 +27,14 @@ const Test = () => {
           rack={10}
           sensor={10}
         />
-        <SensorSituationCard
+        {/* <SensorSituationCard
           icon={<MobileIcon />}
           hour="6"
           data={3526}
           name="بالا TCL01"
-        />
+        /> */}
         <SensorSituationCard
-          status="accept"
+          // status="accept"
           icon={<MobileIcon />}
           hour="6"
           data={3526}
@@ -54,7 +54,7 @@ const Test = () => {
           data={3526}
           name="بالا TCL01"
         />
-        <TemperatureCard
+        {/* <TemperatureCard
           // status="accept"
           icon={<MobileIcon />}
           hour="6"
@@ -62,7 +62,7 @@ const Test = () => {
           percentData={67}
           incrementData={33}
           decrementData={1}
-        />
+        /> */}
         <TemperatureCard
           status="accept"
           icon={<MobileIcon />}

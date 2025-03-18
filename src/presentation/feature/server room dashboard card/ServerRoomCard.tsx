@@ -1,15 +1,13 @@
 import React from "react";
 import {
-  City,
   IconWrapper,
-  InfoGrid,
-  StatItem,
   StatsContainer,
-  Title,
-} from "./ServerRoomCard.style";
+  Text,
+} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { ServerRoomCardProps } from "./IServerRoomCard";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
 import { BulletIcon } from "src/presentation/components/common/icons/Bullet";
+import { Box } from "@mui/material";
 
 const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
   title,
@@ -22,22 +20,28 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
     <BaseDashboardCard
       width="220px"
       topContent={
-        <InfoGrid>
-          <IconWrapper>{icon}</IconWrapper>
-          <Title>{title}</Title>
-          <City>{city}</City>
-        </InfoGrid>
+        <Text>
+          <IconWrapper bgcolor="#4D4259">{icon}</IconWrapper>
+          <Box>
+            <Text color="neutral.100" variant="body1">
+              {title}
+            </Text>
+            <Text color="neutral.200" variant="body2">
+              {city}
+            </Text>
+          </Box>
+        </Text>
       }
       bottomContent={
         <StatsContainer>
-          <StatItem>
+          <Text color="neutral.200" variant="body2">
             <BulletIcon fill="#C480FF" size={12} />
             {rack} رک
-          </StatItem>
-          <StatItem>
+          </Text>
+          <Text color="neutral.200" variant="body2">
             <BulletIcon fill="#F6B155" size={12} />
             {sensor} سنسور
-          </StatItem>
+          </Text>
         </StatsContainer>
       }
     />

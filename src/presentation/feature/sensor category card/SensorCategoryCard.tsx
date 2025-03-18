@@ -1,12 +1,12 @@
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
 import React from "react";
+import { SensorCategoryCardProps } from "./ISensorCategoryCard";
+import { LeftArrowIcon } from "src/presentation/components/common/icons/LeftArrow";
 import {
   DataContainer,
   IconWrapper,
   Text,
-} from "../sensor situation card/SensorSituationCard.style";
-import { SensorCategoryCardProps } from "./SensorCategoryCard.style";
-import { LeftArrowIcon } from "src/presentation/components/common/icons/LeftArrow";
+} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 
 const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
   icon,
@@ -19,11 +19,11 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
 
   return (
     <BaseDashboardCard
-      width="351px"
+      width="350px"
       topContent={
         <DataContainer>
           <Text color="neutral.100" variant="h4">
-            <IconWrapper bgColor="#F7F5FA26">{icon}</IconWrapper>
+            <IconWrapper bgcolor="#F7F5FA26">{icon}</IconWrapper>
             {title}
           </Text>
         </DataContainer>

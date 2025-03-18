@@ -1,5 +1,5 @@
 import { Box, styled, Typography } from "@mui/material";
-import { CardContainerProps } from "./IDashboardCard";
+import { CardContainerProps, IColors, IconWrapperProps, TextProps } from "./IDashboardCard";
 
 export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) => ({
     backgroundColor: theme.palette.neutral[600],
@@ -15,18 +15,11 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
     }
 }))
 
-export const InfoGrid = styled(Box)(() => ({
-    display: "grid",
-    gridTemplateColumns: "3rem auto",
-    rowGap: "4px",
-    columnGap: "8px",
-}))
-
-export const IconWrapper = styled(Box)(({ theme }) => ({
+export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = "#4D4259" }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: theme.palette.neutral[550],
+    backgroundColor: bgcolor,
     padding: "12px",
     borderRadius: "50px",
     gridRow: "1/3",
@@ -34,16 +27,7 @@ export const IconWrapper = styled(Box)(({ theme }) => ({
     height: "24px",
 }))
 
-export const Title = styled(Typography)(({ theme }) => ({
-    color: theme.palette.neutral[100],
-}))
-
-export const City = styled(Typography)(({ theme }) => ({
-    color: theme.palette.neutral[200],
-}))
-
 export const Divider = styled("hr")(({ theme }) => ({
-    // margin: "8px 0",
     border: `1px solid ${theme.palette.text.disabled}`
 }))
 
@@ -53,9 +37,37 @@ export const StatsContainer = styled(Box)(() => ({
     gap: "16px",
 }))
 
-export const StatItem = styled(Typography)(({ theme }) => ({
+export const DataContainer = styled(Box)(() => ({
     display: "flex",
     alignItems: "center",
-    gap: "4px",
-    color: theme.palette.neutral[200]
+    justifyContent: "space-between",
 }))
+
+export const Text = styled(Typography)<TextProps>(({ theme, color, variant }) => ({
+    color: color,
+    display: "flex",
+    alignItems: "center",
+    gap: "8px"
+}))
+
+export const getStatusColors = (status: "accept" | "warning" | "danger" | "default" = "default") => {
+    const colors: IColors = {
+        accept: {
+            icon: "#0B9D4E", // "success.500",
+            text: "#0FD36A", //"success.main",
+        },
+        warning: {
+            icon: "#F6C000", // "waning.500",
+            text: "#F6C000", // "waning.500",
+        },
+        danger: {
+            icon: "#D02224", // "error.500",
+            text: "#E8383B", // "error.main",
+        },
+        default: {
+            icon: "#F7F5FA26",
+            text: "#8C32D9" // "primary.main",
+        },
+    }
+    return colors[status]
+}
