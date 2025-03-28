@@ -15,7 +15,7 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
     }
 }))
 
-export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = "#4D4259" }) => ({
+export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = "#4D4259", size = 24 }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -23,8 +23,8 @@ export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = 
     padding: "12px",
     borderRadius: "50px",
     gridRow: "1/3",
-    width: "24px",
-    height: "24px",
+    width: `${size}px`,
+    height: `${size}px`,
 }))
 
 export const Divider = styled("hr")(({ theme }) => ({

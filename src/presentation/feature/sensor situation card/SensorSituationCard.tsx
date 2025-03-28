@@ -36,7 +36,7 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
 
   return (
     <BaseDashboardCard
-      width="350px"
+      width="316px"
       topContent={
         <DataContainer>
           <Text color="neutral.100" variant="body1">
