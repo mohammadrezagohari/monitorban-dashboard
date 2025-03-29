@@ -5,100 +5,84 @@ import {
 import { Box, Button, Container, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { ServerRoomListProps } from "./IServerRoomListCard";
+import { getServerRoomListCardStatus } from "./ServerRoomListCard.style";
 // import ButtonErrorSmallOutlined from "../buttons/ButtonErrorSmallOutlined";
-// import ButtonPrimarySmallOutlined from "../buttons/ButtonPrimarySmallOutlined"; 
+// import ButtonPrimarySmallOutlined from "../buttons/ButtonPrimarySmallOutlined";
 
 const ServerRoomList: React.FC<ServerRoomListProps> = ({
   icon,
   title,
   city,
+  status = "normal",
+  sensors,
 }) => {
-  const containerRef = useRef(null);
-  const sensorRefs = useRef(new Map<number, HTMLSpanElement>());
-  const [visibleCount, setVisibleCount] = useState(0);
+  const {
+    text: statusText,
+    textColor: statusColor,
+    bgColor: statusBgColor,
+  } = getServerRoomListCardStatus(status);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [visibleItems, setVisibleItems] = useState<string[]>([]);
+  const [remainingCount, setRimainingCount] = useState(0);
 
-  const [sensors, setSensors] = useState([
-    "سنسور دمای اتاق",
-    "سنسور رطوبت اتاق",
-    "سنسور دمای رک",
-    "سنسور دمای نشتی آب",
-    "سنسور دمای کولر",
-    "سنسور وضعیت برق",
-    "سنسور وضعیت کولر",
-    "سنسور اعتبار سیمکارت",
-  ]);
-
-  const updateVisibleCount = () => {
-    if (!containerRef.current) return;
-    // const containerWidth = containerRef.current.offsetWidth;
-    const containerWidth = 600;
-    let totalWidth = 0;
-    let count = 0;
-    // console.log("containerWidth: ", containerWidth);
-    // console.log("sensorRefs: ", sensorRefs);
-    for (let i = 0; i < sensors.length; i++) {
-      const sensorWidth = sensorRefs.current.get(i)?.offsetWidth || 0;
-      if (totalWidth + sensorWidth <= containerWidth) {
-        totalWidth += sensorWidth;
-        count++;
-      } else {
-        break;
-      }
-    }
-    setVisibleCount(count);
-  };
   useEffect(() => {
-    setTimeout(updateVisibleCount, 0);
-    window.addEventListener("resize", updateVisibleCount);
+    const updateVisibleCount = () => {
+      if (!containerRef.current) return;
+
+      const containerWidth = containerRef.current.offsetWidth;
+
+      let usedWidth = 0; // عرض آیتم های نمایش داده شده
+      let padding = 2 * 10; // پدینگ آیتم ها
+      let gap = 8; // گپ بین آیتم ها
+
+      const canvasText = document.createElement("canvas").getContext("2d");
+      if (!canvasText) return;
+
+      canvasText.font = "14px Dana"; // فونت مورد استفاده برای محاسبه عرض
+
+      let tempVisibleItems: string[] = [];
+      let tempRemainingCount = 0;
+
+      const remainingText = `+${sensors.length} سنسور`;
+      const remainingTextWidth =
+        canvasText.measureText(remainingText).width + padding + gap;
+
+      for (let i = 0; i < sensors.length; i++) {
+        const sensorWidth =
+          canvasText.measureText(sensors[i]).width + padding + gap;
+
+        if (usedWidth + sensorWidth + remainingTextWidth <= containerWidth) {
+          tempVisibleItems.push(sensors[i]);
+          usedWidth += sensorWidth;
+        } else {
+          tempRemainingCount = sensors.length - i;
+          break;
+        }
+      }
+
+      if (tempRemainingCount === 1) {
+        const lastItemWidth =
+          canvasText.measureText(sensors[sensors.length - 1]).width +
+          padding +
+          gap;
+        if (usedWidth + lastItemWidth <= containerWidth) {
+          tempVisibleItems.push(sensors[sensors.length - 1]);
+          tempRemainingCount = 0;
+        }
+      }
+
+      setVisibleItems(tempVisibleItems);
+      setRimainingCount(tempRemainingCount);
+    };
+
+    updateVisibleCount();
+    window.addEventListener("resize", () => {
+      updateVisibleCount();
+    });
     return () => {
       window.removeEventListener("resize", updateVisibleCount);
     };
   }, [sensors]);
-
-  const renderSensors = () => {
-    const visibleSensors = sensors.slice(0, 2);
-    const remainingCount = sensors.length - 2;
-
-    return (
-      <>
-        {visibleSensors.map((sensor, index) => (
-          <Typography
-            className="sensor"
-            key={index}
-            typography="body2"
-            ref={(el) => {
-              if (el) {
-                sensorRefs.current.set(index, el);
-              }
-            }}
-            sx={{
-              color: "#C480FF",
-              bgcolor: "#4D4259",
-              borderRadius: "10px",
-              padding: "10px",
-              lineHeight: "1",
-              width: "max-content",
-            }}
-          >
-            {sensor}
-          </Typography>
-        ))}
-        {remainingCount > 0 && (
-          <Typography
-            sx={{
-              lineHeight: "1",
-              color: "#C480FF",
-              bgcolor: "#4D4259",
-              borderRadius: "10px",
-              padding: "10px",
-            }}
-          >
-            +{remainingCount} سنسور
-          </Typography>
-        )}
-      </>
-    );
-  };
 
   return (
     <Container
@@ -107,120 +91,146 @@ const ServerRoomList: React.FC<ServerRoomListProps> = ({
         bgcolor: "#373040",
         padding: "16px",
         borderRadius: "15px",
-        display: "flex",
+        // display: "flex",
+        // justifyContent: "space-between",
         alignItems: "center",
-        justifyContent: "space-between",
+        display: "grid",
+        gridTemplateColumns: "264px auto 198px",
       }}
     >
-      {/* Contents */}
-      <Box sx={{ display: "flex", alignItems: "center", gap: "32px" }}>
-        {/* Server Room Name */}
+      {/* Server Room Name */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          width: "264px",
+          flexShrink: 0,
+        }}
+      >
+        <IconWrapper bgcolor="#4D4259">{icon}</IconWrapper>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <Text color="neutral.50" variant="h4">
+            {title}
+          </Text>
+          <Text color="neutral.200" variant="body2">
+            {city}
+          </Text>
+        </Box>
+      </Box>
+
+      {/* Sensors List */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "16px",
+          // width: "650px",
+        }}
+      >
+        {/* situation  */}
         <Box
           sx={{
             display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            width: "264px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "4px",
           }}
         >
-          <IconWrapper bgcolor="#4D4259">{icon}</IconWrapper>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-            <Text color="neutral.50" variant="h4">
-              {title}
-            </Text>
-            <Text color="neutral.200" variant="body2">
-              {city}
-            </Text>
-          </Box>
+          <Typography sx={{ color: "#B7B0BF", width: "max-content" }}>
+            وضعیت کلی:
+          </Typography>
+          <Typography
+            sx={{
+              color: statusColor,
+              bgcolor: statusBgColor,
+              padding: "10px",
+              borderRadius: "10px",
+              width: "fit-content",
+              typography: "body2",
+              lineHeight: "100%",
+            }}
+          >
+            {statusText}
+          </Typography>
         </Box>
 
-        {/* Sensors List */}
+        {/* sensors  */}
         <Box
           sx={{
             display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            width: "650px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "4px",
+            width: "100%",
           }}
         >
+          <Typography sx={{ color: "#B7B0BF" }}>سنسور ها:</Typography>
           <Box
+            className="sensorContainer"
             sx={{
+              overflow: "hidden",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "4px",
+              alignItems: "center",
+              flexWrap: "nowrap",
+              gap: "10px",
+              width: "100%  ",
             }}
+            ref={containerRef}
           >
-            <Typography sx={{ color: "#B7B0BF", width: "max-content" }}>
-              وضعیت کلی:
-            </Typography>
-            <Typography
-              sx={{
-                color: "#0FD36A",
-                bgcolor: "#42594B",
-                padding: "10px",
-                borderRadius: "10px",
-                width: "fit-content",
-                typography: "body2",
-                lineHeight: "100%",
-              }}
-            >
-              نرمال
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "4px",
-              width: "100%",
-            }}
-          >
-            <Typography sx={{ color: "#B7B0BF" }}>سنسور ها:</Typography>
-            <Box
-              className="sensorContainer"
-              sx={{
-                // display: "grid",
-                // gridTemplateColumns: "repeat(4, auto)",
-                overflow: "hidden",
-                display: "flex",
-                alignItems: "center",
-                flexWrap: "nowrap",
-                gap: "10px",
-                // width: "100%  ",
-              }}
-              ref={containerRef}
-            >
-              {/* {sensors.map((sensor) => (
-                <Typography
-                  className="sensorElem"
-                  key={sensor}
-                  sx={{
-                    color: "#C480FF",
-                    bgcolor: "#4D4259",
-                    borderRadius: "10px",
-                    padding: "10px",
-                    width: "max-content",
-                  }}
-                >
-                  {sensor}
-                </Typography>
-              ))} */}
-              {renderSensors()}
-            </Box>
+            {visibleItems.map((sensor, index) => (
+              <Typography
+                key={index}
+                variant="body2"
+                sx={{
+                  color: "#C480FF",
+                  bgcolor: "#4D4259",
+                  borderRadius: "10px",
+                  padding: "10px",
+                  width: "max-content",
+                }}
+              >
+                {sensor}
+              </Typography>
+            ))}
+            {remainingCount > 0 && (
+              <Typography
+                variant="body2"
+                sx={{
+                  whiteSpace: "nowrap",
+                  color: "#C480FF",
+                  bgcolor: "#4D4259",
+                  borderRadius: "10px",
+                  padding: "10px",
+                  width: "max-content",
+                }}
+              >
+                + {remainingCount} سنسور
+              </Typography>
+            )}
           </Box>
         </Box>
       </Box>
 
       {/* Buttons */}
-      <Box sx={{ display: "flex", gap: "12px", alignItems: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "12px",
+          alignItems: "center",
+          justifySelf: "end",
+          flexShrink: 0,
+        }}
+      >
         {/* TODO:: باتن ها باید با کامپوننت باتن هایی که قبلا ساختیم جایگزین بشه(بعد از مرج شدن) */}
-        <Button variant="outlined">حذف</Button>
+        <Button variant="outlined" color="error">
+          حذف
+        </Button>
         <Button variant="outlined">ویرایش</Button>
         {/* <ButtonErrorSmallOutlined>حذف</ButtonErrorSmallOutlined>
         <ButtonPrimarySmallOutlined>ویرایش</ButtonPrimarySmallOutlined> */}
       </Box>
+      {/* </Box> */}
     </Container>
   );
 };
