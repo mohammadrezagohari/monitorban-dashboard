@@ -3,5 +3,7 @@ export interface MenuItemProps {
     icon: React.ReactNode;
     href?: string;
     active?: boolean;
+    selected?: boolean;
     disabled?: boolean;
+    onClick?: () => void
 }

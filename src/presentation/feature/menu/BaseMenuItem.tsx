@@ -9,6 +9,8 @@ const BaseMenuItem: React.FC<MenuItemProps> = ({
   icon,
   href,
   active,
+  selected,
+  onClick,
   disabled,
 }) => {
   return (
@@ -16,9 +18,13 @@ const BaseMenuItem: React.FC<MenuItemProps> = ({
       as={href ? RouterLink : "div"}
       {...(href ? { to: href } : {})}
       active={active}
+      selected={selected}
       disabled={disabled}
+      onClick={onClick}
     >
-      <ListItemIcon sx={{ color: active ? "neutral.50" : "neutral.200", minWidth: 0 }}>
+      <ListItemIcon
+        sx={{ color: active ? "neutral.50" : "neutral.200", minWidth: 0 }}
+      >
         {icon}
       </ListItemIcon>
       <ListItemText primary={label} />

@@ -60,21 +60,135 @@ import ButtonSuccessMdText from "../buttons/ButtonSuccessMediumText";
 import ButtonSuccessSmText from "../buttons/ButtonSuccessSmallText";
 import ButtonSuccessXsText from "../buttons/ButtonSuccessXsmallText";
 import ButtonSuccessXxsText from "../buttons/ButtonSuccessXxsmallText";
+import Main from "./MainPage";
+import BaseBreadCrumb from "../breadcrumb/BaseBreadcrumb";
+import Sidebar from "src/presentation/components/sidebar/Sidebar";
+import { Outlet } from "react-router-dom";
+import ButtonPrimarySmallText from "../buttons/ButtonPrimarySmallText";
+import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRightIcon";
+import { DashboardIcon } from "src/presentation/components/common/icons/DashboardIcon";
+import { SensorIcon } from "src/presentation/components/common/icons/SensorIcon";
+import { AirConditionerIcon } from "src/presentation/components/common/icons/AirConditionerIcon";
+import { ComplaintIcon } from "src/presentation/components/common/icons/ComplaintIcon";
+import { UsersIcon } from "src/presentation/components/common/icons/UsersIcon";
+import { VideoIcon } from "src/presentation/components/common/icons/VideoIcon";
+import { SupportIcon } from "src/presentation/components/common/icons/SupportIcon";
+import { SettingIcon } from "src/presentation/components/common/icons/SettingIcon";
 
 export const Test = () => {
+  const navItems = [
+    {
+      label: "داشبورد",
+      icon: <DashboardIcon />,
+      href: "/test/dashboard",
+      // path: [{ label: "داشبورد", href: "/test/dashboard" }],
+    },
+    {
+      label: "سنسورها",
+      icon: <SensorIcon />,
+      href: "/test/sensors",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "سنسورها", href: "/test/sensors" },
+      // ],
+    },
+    {
+      label: "اتاق سرور",
+      icon: <AirConditionerIcon />,
+      href: "/test/server-room",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "اتاق سرور", href: "/test/server-room" },
+      // ],
+    },
+    {
+      label: "گزارشات",
+      icon: <ComplaintIcon />,
+      href: "/test/reports",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "گزارشات", href: "/test/reports" },
+      // ],
+    },
+    {
+      label: "مدیریت کاربران",
+      icon: <UsersIcon />,
+      href: "/test/user-managment",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "مدیریت کاربران", href: "/test/user-managment" },
+      // ],
+    },
+    {
+      label: "آموزش ها",
+      icon: <VideoIcon />,
+      href: "/test/educations",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "آموزش ها", href: "/test/educations" },
+      // ],
+    },
+    {
+      label: "پشتیبانی",
+      icon: <SupportIcon />,
+      href: "/test/support",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "پشتیبانی", href: "/test/support" },
+      // ],
+    },
+    {
+      label: "تنظیمات",
+      icon: <SettingIcon />,
+      href: "/test/settings",
+      // path: [
+      //   { label: "داشبورد", href: "/test/dashboard" },
+      //   { label: "تنظیمات", href: "/test/settings" },
+      // ],
+    },
+  ];
+
   return (
     <div
       style={{
         display: "flex",
         gap: "1.5rem",
-        alignItems: "center",
+        // alignItems: "center",
         padding: "2rem",
         flexWrap: "wrap",
         backgroundColor: "#222",
+        minHeight: "100vh",
       }}
     >
+      <div
+        style={{
+          display: "flex",
+          // display: "grid",
+          // gridTemplateColumns: "1fr auto",
+          gap: "24px",
+        }}
+      >
+        <Sidebar items={navItems} />
+
+        <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "1rem",
+            }}
+          >
+            <ButtonPrimarySmallText rightIcon={<ArrowRightIcon />}>
+              بازگشت
+            </ButtonPrimarySmallText>
+            {/* <BaseBreadCrumb paths={navItems} /> */}
+          </div>
+          <Outlet />
+        </div>
+        {/* <Main /> */}
+      </div>
       {/* Prime */}
-      <span
+      {/* <span
         style={{
           display: "flex",
           flexDirection: "column",
@@ -213,9 +327,9 @@ export const Test = () => {
         >
           عنوان دکمه
         </ButtonPrimaryXxsText>
-      </span>
+      </span> */}
       {/* Second */}
-      <span
+      {/* <span
         style={{
           display: "flex",
           flexDirection: "column",
@@ -354,9 +468,9 @@ export const Test = () => {
         >
           عنوان دکمه
         </ButtonSecondaryXxsText>
-      </span>
+      </span> */}
       {/* Error */}
-      <span
+      {/* <span
         style={{
           display: "flex",
           flexDirection: "column",
@@ -495,9 +609,9 @@ export const Test = () => {
         >
           عنوان دکمه
         </ButtonErrorXxsText>
-      </span>
+      </span> */}
       {/* Success */}
-      <span
+      {/* <span
         style={{
           display: "flex",
           flexDirection: "column",
@@ -636,7 +750,7 @@ export const Test = () => {
         >
           عنوان دکمه
         </ButtonSuccessXxsText>
-      </span>
+      </span> */}
     </div>
   );
 };
