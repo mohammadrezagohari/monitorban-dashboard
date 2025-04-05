@@ -45,20 +45,21 @@ const Sidebar: React.FC<SiderbarProps> = ({ items }) => {
         </Box>
 
         <List>
-          {items.map((item, index) => (
-            <BaseMenuItem
-              key={item.label}
-              label={item.label}
-              icon={item.icon}
-              active={selectedIndex === index}
-              onClick={() => handleMenuItemClick(index)}
-              href={item.href}
-            />
-            // <ListItem key={item.label} component={Link} to={item.href}>
-            //   <ListItemIcon>{item.icon}</ListItemIcon>
-            //   <ListItemText primary={item.label} />
-            // </ListItem>
-          ))}
+          {items &&
+            items.map((item, index) => (
+              <BaseMenuItem
+                key={item.label}
+                label={item.label}
+                icon={item.icon}
+                active={selectedIndex === index}
+                onClick={() => handleMenuItemClick(index)}
+                href={item.href}
+              />
+              // <ListItem key={item.label} component={Link} to={item.href}>
+              //   <ListItemIcon>{item.icon}</ListItemIcon>
+              //   <ListItemText primary={item.label} />
+              // </ListItem>
+            ))}
         </List>
       </Drawer>
       {/* <div>

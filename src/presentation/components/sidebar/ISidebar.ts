@@ -1,3 +1,3 @@
 export interface SiderbarProps {
-    items: []
+    items?: { label: string, icon: React.JSX.Element, href: string }[]
 }

@@ -62,14 +62,14 @@ export const ButtonCustom: React.FC<IButton> = ({
       onClick={onClick}
       sx={buttonStyles}
     >
-      {leftIcon &&
-        React.cloneElement(leftIcon, {
+      {rightIcon &&
+        React.cloneElement(rightIcon, {
           color: textColor,
           size: iconSize,
         })}
       {children}
-      {rightIcon &&
-        React.cloneElement(rightIcon, {
+      {leftIcon &&
+        React.cloneElement(leftIcon, {
           color: textColor,
           size: iconSize,
         })}
