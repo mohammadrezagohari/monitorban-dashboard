@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
 export const StyledSidebarContainer = styled("div")(() => ({
     backgroundColor: "#1C1926",
@@ -15,3 +15,15 @@ export const StyledDrawer = {
         border: "none",
     }
 }
+
+export const LogoContainer = styled(Box)(() => ({
+    marginBottom: "27px",
+}))
+
+export const ProfileContainer = styled(Box)(() => ({
+    marginBottom: "64px",
+    backgroundColor: "red",
+    height: "113px",
+    borderRadius: "15px",
+    padding: "10px",
+}))

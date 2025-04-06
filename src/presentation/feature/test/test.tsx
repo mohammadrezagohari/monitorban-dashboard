@@ -1,5 +1,5 @@
 import { Eye } from "src/presentation/components/common/icons/Eye";
-import React from "react";
+import React, { useState } from "react";
 import ButtonPrimaryLgFilled from "../buttons/ButtonPrimaryLargeFilled";
 import ButtonPrimaryMdFilled from "../buttons/ButtonPrimaryMediumFilled";
 import ButtonPrimarySmFilled from "../buttons/ButtonPrimarySmallFilled";
@@ -60,7 +60,6 @@ import ButtonSuccessMdText from "../buttons/ButtonSuccessMediumText";
 import ButtonSuccessSmText from "../buttons/ButtonSuccessSmallText";
 import ButtonSuccessXsText from "../buttons/ButtonSuccessXsmallText";
 import ButtonSuccessXxsText from "../buttons/ButtonSuccessXxsmallText";
-import Main from "./MainPage";
 import BaseBreadCrumb from "../breadcrumb/BaseBreadcrumb";
 import Sidebar from "src/presentation/components/sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
@@ -81,72 +80,44 @@ export const Test = () => {
       label: "داشبورد",
       icon: <DashboardIcon />,
       href: "/test/dashboard",
-      // path: [{ label: "داشبورد", href: "/test/dashboard" }],
     },
     {
       label: "سنسورها",
       icon: <SensorIcon />,
       href: "/test/sensors",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "سنسورها", href: "/test/sensors" },
-      // ],
     },
     {
       label: "اتاق سرور",
       icon: <AirConditionerIcon />,
       href: "/test/server-room",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "اتاق سرور", href: "/test/server-room" },
-      // ],
     },
     {
       label: "گزارشات",
       icon: <ComplaintIcon />,
       href: "/test/reports",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "گزارشات", href: "/test/reports" },
-      // ],
     },
     {
       label: "مدیریت کاربران",
       icon: <UsersIcon />,
       href: "/test/user-managment",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "مدیریت کاربران", href: "/test/user-managment" },
-      // ],
     },
     {
       label: "آموزش ها",
       icon: <VideoIcon />,
       href: "/test/educations",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "آموزش ها", href: "/test/educations" },
-      // ],
     },
     {
       label: "پشتیبانی",
       icon: <SupportIcon />,
       href: "/test/support",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "پشتیبانی", href: "/test/support" },
-      // ],
     },
     {
       label: "تنظیمات",
       icon: <SettingIcon />,
       href: "/test/settings",
-      // path: [
-      //   { label: "داشبورد", href: "/test/dashboard" },
-      //   { label: "تنظیمات", href: "/test/settings" },
-      // ],
     },
   ];
+  const [pageIndex, setPageIndex] = useState(0);
 
   return (
     <div
@@ -168,7 +139,11 @@ export const Test = () => {
           gap: "24px",
         }}
       >
-        <Sidebar items={navItems} />
+        <Sidebar
+          items={navItems}
+          pageIndex={pageIndex}
+          setPageIndex={setPageIndex}
+        />
 
         <div>
           <div

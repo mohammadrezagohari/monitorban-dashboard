@@ -11,38 +11,41 @@ import { LogoIcon } from "src/presentation/components/common/icons/LogoIcon";
 import { LogoText } from "src/presentation/components/common/icons/LogoText";
 // import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { StyledDrawer, StyledSidebarContainer } from "./Sidebar.style";
+import {
+  LogoContainer,
+  ProfileContainer,
+  StyledDrawer,
+  StyledSidebarContainer,
+} from "./Sidebar.style";
 import { SiderbarProps } from "./ISidebar";
 
-const Sidebar: React.FC<SiderbarProps> = ({ items }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+const Sidebar: React.FC<SiderbarProps> = ({
+  items,
+  pageIndex,
+  setPageIndex,
+}) => {
+  // const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleMenuItemClick = (
     // event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index: number
   ) => {
-    setSelectedIndex(index);
+    setPageIndex(index);
     console.log(index);
   };
 
   return (
     <StyledSidebarContainer>
       <Drawer variant="permanent" sx={StyledDrawer}>
-        <div>
+        <LogoContainer>
           <LogoIcon />
           <LogoText />
-        </div>
+        </LogoContainer>
 
-        <Box
-          sx={{
-            bgcolor: "red",
-            height: "113px",
-            borderRadius: "15px",
-            padding: "10px",
-          }}
-        >
+        <ProfileContainer>
+          {/* TODO:: should be added dashboard card */}
           Profile
-        </Box>
+        </ProfileContainer>
 
         <List>
           {items &&
@@ -51,7 +54,7 @@ const Sidebar: React.FC<SiderbarProps> = ({ items }) => {
                 key={item.label}
                 label={item.label}
                 icon={item.icon}
-                active={selectedIndex === index}
+                active={pageIndex === index}
                 onClick={() => handleMenuItemClick(index)}
                 href={item.href}
               />
