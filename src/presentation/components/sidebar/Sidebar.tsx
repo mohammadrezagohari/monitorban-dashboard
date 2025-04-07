@@ -18,6 +18,7 @@ import {
   StyledSidebarContainer,
 } from "./Sidebar.style";
 import { SiderbarProps } from "./ISidebar";
+import { Link } from "react-router-dom";
 
 const Sidebar: React.FC<SiderbarProps> = ({
   items,
@@ -38,8 +39,10 @@ const Sidebar: React.FC<SiderbarProps> = ({
     <StyledSidebarContainer>
       <Drawer variant="permanent" sx={StyledDrawer}>
         <LogoContainer>
-          <LogoIcon />
-          <LogoText />
+          <Link to="dashboard">
+            <LogoIcon />
+            <LogoText />
+          </Link>
         </LogoContainer>
 
         <ProfileContainer>
