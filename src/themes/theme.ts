@@ -3,14 +3,12 @@ import { createTheme } from '@mui/material/styles';
 
 declare module "@mui/material/styles" {
     interface Palette {
-        yellow: Palette['primary'];
         // neutral: Palette['primary'];
-        neutral: Palette['primary'] & { 550?: string };
+        neutral: Palette['primary'] //& { 550?: string };
     }
 
     interface PaletteOptions {
-        yellow?: PaletteOptions["primary"];
-        neutral?: PaletteOptions["primary"] & { 550?: string };
+        neutral?: PaletteOptions["primary"]// & { 550?: string };
     }
 }
 
@@ -72,7 +70,7 @@ const theme = createTheme({
             700: '#42594B',
             800: '#021F10',
         },
-        yellow: {
+        warning: {
             main: '#FFD029',
             50: '#FFFBEB',
             100: '#FFF2C2',
