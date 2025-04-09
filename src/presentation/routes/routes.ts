@@ -11,7 +11,7 @@ import UserManagment from '../feature/test/UserManagmentPage';
 import Educations from '../feature/test/EducationsPage';
 import Support from '../feature/test/SupportPage';
 import Settings from '../feature/test/SettingsPage';
-import Test from '../feature/test/test';
+import Test from '../feature/test/Test';
 
 export const routes = [
     {

@@ -1,731 +1,270 @@
-import React, { useState } from "react";
-// import { Eye } from "src/presentation/components/common/icons/Eye";
-// import ButtonPrimaryLgFilled from "../buttons/ButtonPrimaryLargeFilled";
-// import ButtonPrimaryMdFilled from "../buttons/ButtonPrimaryMediumFilled";
-// import ButtonPrimarySmFilled from "../buttons/ButtonPrimarySmallFilled";
-// import ButtonPrimaryXsFilled from "../buttons/ButtonPrimaryXsmallFilled";
-// import ButtonPrimaryXxsFilled from "../buttons/ButtonPrimaryXxsmallFilled";
-// import ButtonPrimaryLgOutlined from "../buttons/ButtonPrimaryLargeOutlined";
-// import ButtonPrimaryMdOutlined from "../buttons/ButtonPrimaryMediumOutlined";
-// import ButtonPrimarySmOutlined from "../buttons/ButtonPrimarySmallOutlined";
-// import ButtonPrimaryXsOutlined from "../buttons/ButtonPrimaryXsmallOutlined";
-// import ButtonPrimaryXxsOutlined from "../buttons/ButtonPrimaryXxsmallOutlined";
-// import ButtonPrimaryLgText from "../buttons/ButtonPrimaryLargeText";
-// import ButtonPrimaryMdText from "../buttons/ButtonPrimaryMediumText";
-// import ButtonPrimarySmText from "../buttons/ButtonPrimarySmallText";
-// import ButtonPrimaryXsText from "../buttons/ButtonPrimaryXsmallText";
-// import ButtonPrimaryXxsText from "../buttons/ButtonPrimaryXxsmallText";
-// import ButtonSecondaryLgFilled from "../buttons/ButtonSecondaryLargeFilled";
-// import ButtonSecondaryMdFilled from "../buttons/ButtonSecondaryMediumFilled";
-// import ButtonSecondarySmFilled from "../buttons/ButtonSecondarySmallFilled";
-// import ButtonSecondaryXsFilled from "../buttons/ButtonSecondaryXsmallFilled";
-// import ButtonSecondaryXxsFilled from "../buttons/ButtonSecondaryXxsmallFilled";
-// import ButtonSecondaryLgOutlined from "../buttons/ButtonSecondaryLargeOutlined";
-// import ButtonSecondaryMdOutlined from "../buttons/ButtonSecondaryMediumOutlined";
-// import ButtonSecondarySmOutlined from "../buttons/ButtonSecondarySmallOutlined";
-// import ButtonSecondaryXsOutlined from "../buttons/ButtonSecondaryXsmallOutlined";
-// import ButtonSecondaryXxsOutlined from "../buttons/ButtonSecondaryXxsmallOutlined";
-// import ButtonSecondaryLgText from "../buttons/ButtonSecondaryLargeText";
-// import ButtonSecondaryMdText from "../buttons/ButtonSecondaryMediumText";
-// import ButtonSecondarySmText from "../buttons/ButtonSecondarySmallText";
-// import ButtonSecondaryXsText from "../buttons/ButtonSecondaryXsmallText";
-// import ButtonSecondaryXxsText from "../buttons/ButtonSecondaryXxsmallText";
-// import ButtonErrorLgFilled from "../buttons/ButtonErrorLargeFilled";
-// import ButtonErrorMdFilled from "../buttons/ButtonErrorMediumFilled";
-// import ButtonErrorSmFilled from "../buttons/ButtonErrorSmallFilled";
-// import ButtonErrorXsFilled from "../buttons/ButtonErrorXsmallFilled";
-// import ButtonErrorXxsFilled from "../buttons/ButtonErrorXxsmallFilled";
-// import ButtonErrorLgOutlined from "../buttons/ButtonErrorLargeOutlined";
-// import ButtonErrorMdOutlined from "../buttons/ButtonErrorMediumOutlined";
-// import ButtonErrorSmOutlined from "../buttons/ButtonErrorSmallOutlined";
-// import ButtonErrorXsOutlined from "../buttons/ButtonErrorXsmallOutlined";
-// import ButtonErrorXxsOutlined from "../buttons/ButtonErrorXxsmallOutlined";
-// import ButtonErrorLgText from "../buttons/ButtonErrorLargeText";
-// import ButtonErrorMdText from "../buttons/ButtonErrorMediumText";
-// import ButtonErrorSmText from "../buttons/ButtonErrorSmallText";
-// import ButtonErrorXsText from "../buttons/ButtonErrorXsmallText";
-// import ButtonErrorXxsText from "../buttons/ButtonErrorXxsmallText";
-// import ButtonSuccessLgFilled from "../buttons/ButtonSuccessLargeFilled";
-// import ButtonSuccessMdFilled from "../buttons/ButtonSuccessMediumFilled";
-// import ButtonSuccessSmFilled from "../buttons/ButtonSuccessSmallFilled";
-// import ButtonSuccessXsFilled from "../buttons/ButtonSuccessXsmallFilled";
-// import ButtonSuccessXxsFilled from "../buttons/ButtonSuccessXxsmallFilled";
-// import ButtonSuccessLgOutlined from "../buttons/ButtonSuccessLargeOutlined";
-// import ButtonSuccessMdOutlined from "../buttons/ButtonSuccessMediumOutlined";
-// import ButtonSuccessSmOutlined from "../buttons/ButtonSuccessSmallOutlined";
-// import ButtonSuccessXsOutlined from "../buttons/ButtonSuccessXsmallOutlined";
-// import ButtonSuccessXxsOutlined from "../buttons/ButtonSuccessXxsmallOutlined";
-// import ButtonSuccessLgText from "../buttons/ButtonSuccessLargeText";
-// import ButtonSuccessMdText from "../buttons/ButtonSuccessMediumText";
-// import ButtonSuccessSmText from "../buttons/ButtonSuccessSmallText";
-// import ButtonSuccessXsText from "../buttons/ButtonSuccessXsmallText";
-// import ButtonSuccessXxsText from "../buttons/ButtonSuccessXxsmallText";
-// import BaseBreadCrumb from "../breadcrumb/BaseBreadcrumb";
-import Sidebar from "src/presentation/components/sidebar/Sidebar";
-import { Outlet } from "react-router-dom";
-import ButtonPrimarySmallText from "../buttons/ButtonPrimarySmallText";
-import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRightIcon";
-import { DashboardIcon } from "src/presentation/components/common/icons/DashboardIcon";
-import { SensorIcon } from "src/presentation/components/common/icons/SensorIcon";
-import { AirConditionerIcon } from "src/presentation/components/common/icons/AirConditionerIcon";
-import { ComplaintIcon } from "src/presentation/components/common/icons/ComplaintIcon";
-import { UsersIcon } from "src/presentation/components/common/icons/UsersIcon";
-import { VideoIcon } from "src/presentation/components/common/icons/VideoIcon";
-import { SupportIcon } from "src/presentation/components/common/icons/SupportIcon";
-import { SettingIcon } from "src/presentation/components/common/icons/SettingIcon";
+import React, { useEffect, useRef, useState } from "react";
+import ServerRoomCard from "../server room dashboard card/ServerRoomCard";
+import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
+import SensorSituationCard from "../sensor situation card/SensorSituationCard";
+import SensorCategoryCard from "../sensor category card/SensorCategoryCard";
+import TemperatureCard from "../temperature card/TemperatureCard";
+import ServerRoomList from "../sensor room list/ServerRoomListCard";
+import { Box, Typography } from "@mui/material";
 
-export default function Test() {
-  const navItems = [
-    {
-      label: "داشبورد",
-      icon: <DashboardIcon />,
-      href: "/test/dashboard",
-    },
-    {
-      label: "سنسورها",
-      icon: <SensorIcon />,
-      href: "/test/sensors",
-    },
-    {
-      label: "اتاق سرور",
-      icon: <AirConditionerIcon />,
-      href: "/test/server-room",
-    },
-    {
-      label: "گزارشات",
-      icon: <ComplaintIcon />,
-      href: "/test/reports",
-    },
-    {
-      label: "مدیریت کاربران",
-      icon: <UsersIcon />,
-      href: "/test/user-managment",
-    },
-    {
-      label: "آموزش ها",
-      icon: <VideoIcon />,
-      href: "/test/educations",
-    },
-    {
-      label: "پشتیبانی",
-      icon: <SupportIcon />,
-      href: "/test/support",
-    },
-    {
-      label: "تنظیمات",
-      icon: <SettingIcon />,
-      href: "/test/settings",
-    },
-  ];
-  const [pageIndex, setPageIndex] = useState(0);
+interface Props {
+  items: string[];
+}
 
+const items = [
+  "سنسور دمای اتاق",
+  "سنسور رطوبت اتاق",
+  "سنسور دمای رک",
+  "سنسور دمای نشتی آب",
+  "سنسور دمای کولر",
+  "سنسور وضعیت برق",
+  "سنسور وضعیت کولر",
+  "سنسور اعتبار سیمکارت",
+];
+
+const LimitedDisplay: React.FC<Props> = ({ items }) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [visibleItems, setVisibleItems] = useState<string[]>([]);
+  const [remainingCount, setRemainingCount] = useState(0);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (!containerRef.current) return;
+
+      const containerWidth = containerRef.current.offsetWidth; // عرض باکس
+      let usedWidth = 0; // عرضی استفاده شده
+      const padding = 8; // فاصله بین آیتم‌ها
+
+      const ctx = document.createElement("canvas").getContext("2d");
+      if (!ctx) return;
+
+      ctx.font = "14px Dana"; // فونت مورد استفاده برای محاسبه عرض
+
+      let tempVisibleItems: string[] = [];
+      let tempRemainingCount = 0;
+
+      // محاسبه عرض واقعی "+X آیتم دیگر"
+      const remainingText = `+${items.length} سنسور`;
+      const remainingTextWidth =
+        ctx.measureText(remainingText).width + 20 + padding;
+
+      for (let i = 0; i < items.length; i++) {
+        const textWidth = ctx.measureText(items[i]).width + 20 + padding;
+        // console.log("textWidth:: ", textWidth, items[i]);
+
+        // اگر این آیتم اضافه شود، آیا هنوز "+X آیتم دیگر" جا می‌شود؟
+        if (usedWidth + textWidth + remainingTextWidth <= containerWidth) {
+          tempVisibleItems.push(items[i]);
+          usedWidth += textWidth;
+        } else {
+          tempRemainingCount = items.length - i;
+          break;
+        }
+        // console.log("usedWidth::", usedWidth);
+      }
+
+      // **اصلاح نمایش آخرین آیتم**
+      // اگر فقط یک آیتم باقی مانده و جا می‌شود، دیگر نیازی به "+X آیتم دیگر" نیست
+      if (tempRemainingCount === 1) {
+        const lastItemWidth =
+          ctx.measureText(items[items.length - 1]).width + 20 + padding;
+        if (usedWidth + lastItemWidth <= containerWidth) {
+          tempVisibleItems.push(items[items.length - 1]);
+          tempRemainingCount = 0;
+        }
+      }
+
+      setVisibleItems(tempVisibleItems);
+      setRemainingCount(tempRemainingCount);
+    };
+
+    console.log("__remainingCount__test__", remainingCount);
+    
+
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleCount);
+    };
+  }, [items]);
+
+  return (
+    <Box
+      ref={containerRef}
+      display="flex"
+      gap={1}
+      overflow="hidden"
+      bgcolor="red"
+    >
+      {visibleItems.map((item, index) => (
+        <Typography
+          key={index}
+          variant="body2"
+          sx={{
+            whiteSpace: "nowrap",
+            padding: "10px",
+            bgcolor: "green",
+            borderRadius: "10px",
+            color: "#eee",
+          }}
+        >
+          {item}
+        </Typography>
+      ))}
+      {remainingCount > 0 && (
+        <Typography
+          variant="body2"
+          sx={{
+            whiteSpace: "nowrap",
+            padding: "10px",
+            bgcolor: "green",
+            borderRadius: "10px",
+            color: "#eee",
+          }}
+        >
+          +{remainingCount} سنسور
+        </Typography>
+      )}
+    </Box>
+  );
+};
+
+const Test = () => {
   return (
     <div
       style={{
-        display: "flex",
-        gap: "1.5rem",
-        // alignItems: "center",
-        padding: "2rem",
-        flexWrap: "wrap",
-        backgroundColor: "#222",
         minHeight: "100vh",
+        backgroundColor: "#222",
+        padding: "100px 0",
       }}
     >
+      <div style={{ padding: "20px" }}>
+        <LimitedDisplay items={items} />
+      </div>
+      <div
+        style={{
+          // display: "flex",
+          // flexDirection: "column",
+          // gap: "16px",
+          // justifyContent: "center",
+          // alignItems: "center",
+          // minHeight: "100vh",
+          padding: "20px",
+        }}
+      >
+        <ServerRoomList
+          icon={<MobileIcon />}
+          title="اتاق سرور معاونت"
+          city="ساری"
+          sensors={items}
+        />
+        <ServerRoomList
+          icon={<MobileIcon />}
+          title="اتاق سرور معاونت"
+          city="ساری"
+          sensors={items}
+          status="warning"
+          />
+        <ServerRoomList
+          icon={<MobileIcon />}
+          title="اتاق سرور معاونت"
+          city="ساری"
+          sensors={items}
+          status="error"
+        />
+      </div>
       <div
         style={{
           display: "flex",
-          // display: "grid",
-          // gridTemplateColumns: "1fr auto",
-          gap: "24px",
+          flexDirection: "column",
+          gap: "16px",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "20px 0",
         }}
       >
-        <Sidebar
-          items={navItems}
-          pageIndex={pageIndex}
-          setPageIndex={setPageIndex}
+        <ServerRoomCard
+          icon={<MobileIcon />}
+          title="معاونت درمان"
+          city="ساری"
+          rack={10}
+          sensor={10}
+        />
+        {/* <SensorSituationCard
+          icon={<MobileIcon />}
+          hour="6"
+          data={3526}
+          name="بالا TCL01"
+        /> */}
+        <SensorSituationCard
+          // status="accept"
+          icon={<MobileIcon />}
+          hour="6"
+          data={3526}
+          name="بالا TCL01"
+        />
+        <SensorSituationCard
+          status="danger"
+          icon={<MobileIcon />}
+          hour="6"
+          data={3526}
+          name="بالا TCL01"
+        />
+        <SensorSituationCard
+          status="warning"
+          icon={<MobileIcon />}
+          hour="6"
+          data={3526}
+          name="بالا TCL01"
+        />
+        {/* <TemperatureCard
+          // status="accept"
+          icon={<MobileIcon />}
+          hour="6"
+          name="نام سنسور"
+          percentData={67}
+          incrementData={33}
+          decrementData={1}
+        /> */}
+        <TemperatureCard
+          status="accept"
+          icon={<MobileIcon />}
+          hour="6"
+          name="نام سنسور"
+          percentData={67}
+          incrementData={33}
+          decrementData={1}
+        />
+        <TemperatureCard
+          status="warning"
+          icon={<MobileIcon />}
+          hour="6"
+          name="نام سنسور"
+          percentData={67}
+          incrementData={33}
+          decrementData={1}
+        />
+        <TemperatureCard
+          status="danger"
+          icon={<MobileIcon />}
+          hour="6"
+          name="نام سنسور"
+          percentData={67}
+          incrementData={33}
+          decrementData={1}
         />
 
-        <div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "1rem",
-            }}
-          >
-            <ButtonPrimarySmallText rightIcon={<ArrowRightIcon />}>
-              بازگشت
-            </ButtonPrimarySmallText>
-            {/* <BaseBreadCrumb paths={navItems} /> */}
-          </div>
-          <Outlet />
-        </div>
-        {/* <Main /> */}
+        <SensorCategoryCard
+          icon={<MobileIcon />}
+          title="اتاق سرور معاونت"
+          normalSensor={8}
+          warningSensor={6}
+          dangerSensor={4}
+        />
       </div>
-      {/* Prime */}
-      {/* <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonPrimaryLgFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonPrimaryLgFilled>
-        <ButtonPrimaryMdFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryMdFilled>
-        <ButtonPrimarySmFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimarySmFilled>
-        <ButtonPrimaryXsFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryXsFilled>
-        <ButtonPrimaryXxsFilled
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryXxsFilled>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonPrimaryLgOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonPrimaryLgOutlined>
-        <ButtonPrimaryMdOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryMdOutlined>
-        <ButtonPrimarySmOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimarySmOutlined>
-        <ButtonPrimaryXsOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryXsOutlined>
-        <ButtonPrimaryXxsOutlined
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryXxsOutlined>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonPrimaryLgText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonPrimaryLgText>
-        <ButtonPrimaryMdText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryMdText>
-        <ButtonPrimarySmText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimarySmText>
-        <ButtonPrimaryXsText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryXsText>
-        <ButtonPrimaryXxsText
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonPrimaryXxsText>
-      </span> */}
-      {/* Second */}
-      {/* <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonSecondaryLgFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonSecondaryLgFilled>
-        <ButtonSecondaryMdFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryMdFilled>
-        <ButtonSecondarySmFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondarySmFilled>
-        <ButtonSecondaryXsFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryXsFilled>
-        <ButtonSecondaryXxsFilled
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryXxsFilled>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonSecondaryLgOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonSecondaryLgOutlined>
-        <ButtonSecondaryMdOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryMdOutlined>
-        <ButtonSecondarySmOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondarySmOutlined>
-        <ButtonSecondaryXsOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryXsOutlined>
-        <ButtonSecondaryXxsOutlined
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryXxsOutlined>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonSecondaryLgText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonSecondaryLgText>
-        <ButtonSecondaryMdText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryMdText>
-        <ButtonSecondarySmText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondarySmText>
-        <ButtonSecondaryXsText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryXsText>
-        <ButtonSecondaryXxsText
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSecondaryXxsText>
-      </span> */}
-      {/* Error */}
-      {/* <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonErrorLgFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonErrorLgFilled>
-        <ButtonErrorMdFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorMdFilled>
-        <ButtonErrorSmFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorSmFilled>
-        <ButtonErrorXsFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorXsFilled>
-        <ButtonErrorXxsFilled
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorXxsFilled>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonErrorLgOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonErrorLgOutlined>
-        <ButtonErrorMdOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorMdOutlined>
-        <ButtonErrorSmOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorSmOutlined>
-        <ButtonErrorXsOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorXsOutlined>
-        <ButtonErrorXxsOutlined
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorXxsOutlined>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonErrorLgText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonErrorLgText>
-        <ButtonErrorMdText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorMdText>
-        <ButtonErrorSmText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorSmText>
-        <ButtonErrorXsText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorXsText>
-        <ButtonErrorXxsText
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonErrorXxsText>
-      </span> */}
-      {/* Success */}
-      {/* <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonSuccessLgFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonSuccessLgFilled>
-        <ButtonSuccessMdFilled
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessMdFilled>
-        <ButtonSuccessSmFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessSmFilled>
-        <ButtonSuccessXsFilled
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessXsFilled>
-        <ButtonSuccessXxsFilled
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessXxsFilled>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonSuccessLgOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonSuccessLgOutlined>
-        <ButtonSuccessMdOutlined
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessMdOutlined>
-        <ButtonSuccessSmOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessSmOutlined>
-        <ButtonSuccessXsOutlined
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessXsOutlined>
-        <ButtonSuccessXxsOutlined
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessXxsOutlined>
-      </span>
-
-      <span
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-          alignItems: "center",
-          padding: "2rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <ButtonSuccessLgText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled
-        >
-          عنوان دکمه
-        </ButtonSuccessLgText>
-        <ButtonSuccessMdText
-          leftIcon={<Eye size="24" />}
-          rightIcon={<Eye size="24" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessMdText>
-        <ButtonSuccessSmText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessSmText>
-        <ButtonSuccessXsText
-          leftIcon={<Eye size="20" />}
-          rightIcon={<Eye size="20" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessXsText>
-        <ButtonSuccessXxsText
-          leftIcon={<Eye size="16" />}
-          rightIcon={<Eye size="16" />}
-          disabled={false}
-        >
-          عنوان دکمه
-        </ButtonSuccessXxsText>
-      </span> */}
     </div>
   );
-}
+};
+
+export default Test;

@@ -1,6 +1,5 @@
 import BaseMenuItem from "src/presentation/feature/menu/BaseMenuItem";
 import {
-  Box,
   Drawer,
   List,
   // ListItem,
