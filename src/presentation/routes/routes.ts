@@ -1,10 +1,8 @@
 // routes.ts
-import Test from '../feature/test/Test';
 import { LoginPage } from '../pages/auth/Login';
 import { RegisterPage } from '../pages/auth/Register';
 import { DashboardPage } from '../pages/dashboard';
 import HomePage from '../pages/HomePage';
-// import { Test } from '../feature/test/test';
 import Sensors from '../feature/test/SensorsPage';
 import Dashboard from '../feature/test/DashboardPage';
 import ServerRoom from '../feature/test/ServerRoomPage';
@@ -13,6 +11,7 @@ import UserManagment from '../feature/test/UserManagmentPage';
 import Educations from '../feature/test/EducationsPage';
 import Support from '../feature/test/SupportPage';
 import Settings from '../feature/test/SettingsPage';
+import Test from '../feature/test/Test';
 
 export const routes = [
     {

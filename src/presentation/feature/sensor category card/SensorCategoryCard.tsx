@@ -19,7 +19,7 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
 
   return (
     <BaseDashboardCard
-      width="316px"
+      width="350px"
       topContent={
         <DataContainer>
           <Text color="neutral.100" variant="h4">

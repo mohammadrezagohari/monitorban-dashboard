@@ -47,7 +47,8 @@ export const Text = styled(Typography)<TextProps>(({ theme, color, variant }) =>
     color: color,
     display: "flex",
     alignItems: "center",
-    gap: "8px"
+    gap: "8px",
+    whiteSpace: "nowrap",
 }))
 
 export const getStatusColors = (status: "accept" | "warning" | "danger" | "default" = "default") => {

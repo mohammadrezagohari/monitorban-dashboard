@@ -40,7 +40,7 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
 
   return (
     <BaseDashboardCard
-      width="316px"
+      width="350px"
       topContent={
         <DataContainer>
           <Text color="neutral.100" variant="body1">

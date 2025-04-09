@@ -1,9 +1,9 @@
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
 import {
   Box,
-  FormControl,
-  MenuItem,
-  Select,
+  // FormControl,
+  // MenuItem,
+  // Select,
   SelectChangeEvent,
   styled,
   Typography,
@@ -12,6 +12,8 @@ import { useState } from "react";
 import ButtonSecondaryXxsmallOutlined from "../buttons/ButtonSecondaryXxsmallOutlined";
 import { SensorIcon } from "src/presentation/components/common/icons/SensorIcon";
 import Map from "./Map";
+import ServerRoomCard from "../server room dashboard card/ServerRoomCard";
+import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
 
 const announceItems = [
   {
@@ -53,6 +55,44 @@ const announceItems = [
     name: "سنسور رطوبت اتاق",
     report: "کلینیک رازی  نشتی آب 3403  ",
     icon: <SensorIcon color="#E8383B" />,
+  },
+];
+
+const serverRoomItems = [
+  {
+    title: "معاونت درمان",
+    icon: <MobileIcon />,
+    city: "ساری",
+    sensor: 3,
+    rack: 12,
+  },
+  {
+    title: "دانشگاه علوم پزشکی",
+    icon: <MobileIcon />,
+    city: "ساری",
+    sensor: 5,
+    rack: 3,
+  },
+  {
+    title: "دانشگاه پیامبر اعظم",
+    icon: <MobileIcon />,
+    city: "ساری",
+    sensor: 8,
+    rack: 9,
+  },
+  {
+    title: "بیمارستان رازی",
+    icon: <MobileIcon />,
+    city: "قائمشهر",
+    sensor: 6,
+    rack: 4,
+  },
+  {
+    title: "درمانگاه ولایت",
+    icon: <MobileIcon />,
+    city: "ساری",
+    sensor: 5,
+    rack: 10,
   },
 ];
 
@@ -224,7 +264,26 @@ export default function Dashboard() {
         </Box>
       </Box>
       {/* اتاق سرور  */}
-      <Box></Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          width: "calc(100vw - 338px)",
+          overflow: "auto",
+        }}
+      >
+        {serverRoomItems.map((item) => (
+          <ServerRoomCard
+            title={item.title}
+            icon={item.icon}
+            city={item.city}
+            sensor={item.sensor}
+            rack={item.rack}
+            key={item.title}
+          />
+        ))}
+      </Box>
     </div>
   );
 }

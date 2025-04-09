@@ -18,7 +18,7 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
 }) => {
   return (
     <BaseDashboardCard
-      width="186px"
+      width="220px"
       topContent={
         <Text>
           <IconWrapper bgcolor="#4D4259">{icon}</IconWrapper>
