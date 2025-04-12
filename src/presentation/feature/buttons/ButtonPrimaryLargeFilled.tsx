@@ -34,7 +34,7 @@ const ButtonPrimaryLargeFilled: React.FC<IButtons> = ({
       iconSize={24}
       padding="12px 24px"
       disabled={disabled}
-      onClick={() => onClick}
+      onClick={onClick}
     >
       {children}
     </ButtonCustom>

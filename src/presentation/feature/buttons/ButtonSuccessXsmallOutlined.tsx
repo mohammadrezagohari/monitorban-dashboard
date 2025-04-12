@@ -33,7 +33,7 @@ const ButtonSuccessXsmallOutlined: React.FC<IButtons> = ({
       iconSize={16}
       padding="12px 24px"
       disabled={disabled}
-      onClick={() => onClick}
+      onClick={onClick}
     >
       {children}
     </ButtonCustom>

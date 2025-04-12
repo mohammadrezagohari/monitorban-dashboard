@@ -33,7 +33,7 @@ const ButtonSecondarySmallOutlined: React.FC<IButtons> = ({
       iconSize={20}
       padding="12px 24px"
       disabled={disabled}
-      onClick={() => onClick}
+      onClick={onClick}
     >
       {children}
     </ButtonCustom>

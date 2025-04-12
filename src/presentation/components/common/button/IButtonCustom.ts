@@ -4,7 +4,7 @@ export interface IButton {
     children: string,
     size?: number,
     variant?: "text" | "contained" | "outlined",
-    onClick?: () => void,
+    onClick?: (event: MouseEvent) => void,
     disabled?: boolean,
     textColor?: string,
     textHoverColor?: string,
