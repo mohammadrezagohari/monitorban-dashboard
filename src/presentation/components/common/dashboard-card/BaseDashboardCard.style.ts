@@ -15,7 +15,7 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
     }
 }))
 
-export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = "#4D4259", size = 24 }) => ({
+export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = "#4D4259", size = 48 }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -25,6 +25,7 @@ export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = 
     gridRow: "1/3",
     width: `${size}px`,
     height: `${size}px`,
+    flexShrink: 0,
 }))
 
 export const Divider = styled("hr")(({ theme }) => ({
@@ -49,7 +50,24 @@ export const Text = styled(Typography)<TextProps>(({ theme, color, variant }) =>
     alignItems: "center",
     gap: "8px",
     whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
 }))
+
+export const TextSpan = styled(Typography)<TextProps>(({ color }) => ({
+    color: color,
+    display: "block",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+}))
+
+export const TextBox = styled("span")(() => ({
+    display: "flex",
+    alignItems: "center",
+    gap: "4px"
+}))
+
 
 export const getStatusColors = (status: "accept" | "warning" | "danger" | "default" = "default") => {
     const colors: IColors = {
