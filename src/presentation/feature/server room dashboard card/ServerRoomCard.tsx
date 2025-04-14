@@ -3,6 +3,7 @@ import {
   IconWrapper,
   StatsContainer,
   Text,
+  TextSpan,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { ServerRoomCardProps } from "./IServerRoomCard";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
@@ -22,10 +23,10 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
       topContent={
         <Text>
           <IconWrapper bgcolor="#4D4259">{icon}</IconWrapper>
-          <Box>
-            <Text color="neutral.100" variant="body1">
+          <Box sx={{ overflow: "hidden", maxWidth: "130px" }}>
+            <TextSpan color="neutral.100" variant="body1">
               {title}
-            </Text>
+            </TextSpan>
             <Text color="neutral.200" variant="body2">
               {city}
             </Text>
