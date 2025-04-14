@@ -3,7 +3,8 @@ import { Box, styled } from "@mui/material";
 export const StyledSidebarContainer = styled("div")(() => ({
     backgroundColor: "#1C1926",
     borderRadius: "25px",
-    height: "100%",
+    // height: "100%",
+    height: "max-content", //TODO:: چطوری باید ارتفاع سایدبار را مدیریت کنم؟ اینطوری درسته؟
     padding: "32px 16px",
     width: "250px",
 }))

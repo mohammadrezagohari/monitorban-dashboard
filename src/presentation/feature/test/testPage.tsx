@@ -125,7 +125,7 @@ export default function Test() {
         display: "flex",
         gap: "1.5rem",
         // alignItems: "center",
-        padding: "2rem",
+        padding: "1.5rem 0.625vw 1.5rem 1.66vw",
         flexWrap: "wrap",
         backgroundColor: "#222",
         minHeight: "100vh",
@@ -145,7 +145,12 @@ export default function Test() {
           setPageIndex={setPageIndex}
         />
 
-        <div>
+        <div
+          style={{
+            width: "calc(100vw - 322px)",
+            // width: "100%",
+          }}
+        >
           <div
             style={{
               display: "flex",

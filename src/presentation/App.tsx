@@ -9,6 +9,9 @@ import {
 import { routes } from "./routes/routes";
 import "./App.css";
 import { Box } from "@mui/material";
+
+import "swiper/css"
+
 function isAuthenticated(): boolean {
   // اینجا باید منطق احراز هویت خود را بنویسید
   return true; // برای مثال

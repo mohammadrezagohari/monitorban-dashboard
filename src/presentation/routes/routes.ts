@@ -4,7 +4,7 @@ import { RegisterPage } from '../pages/auth/Register';
 import { DashboardPage } from '../pages/dashboard';
 import HomePage from '../pages/HomePage';
 import Sensors from '../feature/test/SensorsPage';
-import Dashboard from '../feature/test/DashboardPage';
+import Dashboard from '../feature/test/dashboard/DashboardPage';
 import ServerRoom from '../feature/test/ServerRoomPage';
 import Reports from '../feature/test/ReportsPage';
 import UserManagment from '../feature/test/UserManagmentPage';

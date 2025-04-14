@@ -6,7 +6,9 @@ import {
   DataContainer,
   IconWrapper,
   Text,
+  TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { Box } from "@mui/material";
 
 const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
   icon,
@@ -30,21 +32,55 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
       }
       bottomContent={
         <DataContainer>
-          <Text variant="caption" color="neutral.100">
+          {/* <Text variant="caption" color="neutral.100">
             کل <Text variant="body2">{totalSensor}</Text>
-            نرمال{" "}
+            نرمال
             <Text variant="body2" color="success.main">
               {normalSensor}
             </Text>
-            اخطار{" "}
+            اخطار
             <Text variant="body2" color="warning.500">
               {warningSensor}
             </Text>
-            بحران{" "}
+            بحران
             <Text variant="body2" color="error.main">
               {dangerSensor}
             </Text>
-          </Text>
+          </Text> */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <TextBox>
+              <Text variant="caption" color="neutral.100">
+                کل
+              </Text>
+              <Text variant="body2" color="neutral.main">
+                {totalSensor}
+              </Text>
+            </TextBox>
+            <TextBox>
+              <Text variant="caption" color="neutral.100">
+                نرمال
+              </Text>
+              <Text variant="body2" color="success.main">
+                {normalSensor}
+              </Text>
+            </TextBox>
+            <TextBox>
+              <Text variant="caption" color="neutral.100">
+                اخطار
+              </Text>
+              <Text variant="body2" color="warning.500">
+                {warningSensor}
+              </Text>
+            </TextBox>
+            <TextBox>
+              <Text variant="caption" color="neutral.100">
+                بحران
+              </Text>
+              <Text variant="body2" color="error.main">
+                {dangerSensor}
+              </Text>
+            </TextBox>
+          </Box>
           <button
             style={{
               border: "1px solid #7F6A95",

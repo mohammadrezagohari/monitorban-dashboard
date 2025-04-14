@@ -20,9 +20,9 @@ export const ButtonCustom: React.FC<IButton> = ({
   fontSize,
   onClick,
 }) => {
-  console.log(typeof bgHoverColor);
-  console.log(disabled);
-  console.log(bgColor);
+  // console.log(typeof bgHoverColor);
+  // console.log(disabled);
+  // console.log(bgColor);
 
   const buttonStyles = {
     display: "flex",
