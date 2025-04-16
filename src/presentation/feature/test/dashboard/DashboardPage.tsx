@@ -1,11 +1,7 @@
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
 import {
   Box,
-  Icon,
   IconButton,
-  // FormControl,
-  // MenuItem,
-  // Select,
   SelectChangeEvent,
   styled,
   Typography,
@@ -16,7 +12,6 @@ import Map from "../Map";
 import ServerRoomCard from "../../server room dashboard card/ServerRoomCard";
 import SensorCard from "../../sensor-card/SensorCard";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import ServerCardSlider from "./ServerCardSlider";
 import {
   HeaderContainer,
   MainContainer,
@@ -26,9 +21,14 @@ import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRightIcon";
 import { ArrowLeftIcon } from "src/presentation/components/common/icons/ArrowLeftIcon";
 import ButtonPrimaryXxsmallOutlined from "../../buttons/ButtonPrimaryXxsmallOutlined";
-import { ArrowUpIcon } from "src/presentation/components/common/icons/ArrowUpIcon";
-import { announceItems, sensorsItems, serverRoomItems } from "../data";
+import {
+  announceItems,
+  sensorsItems,
+  serverRoomItems,
+  usersInfo,
+} from "../data";
 import Statistic from "./Statistic";
+import UserCard from "../../user-card/UserCard";
 
 export const Divider = styled("hr")(({ theme }) => ({
   border: `1px solid ${theme.palette.text.disabled}`,
@@ -252,7 +252,7 @@ export default function Dashboard() {
           gridTemplateColumns: "1fr 1fr",
           height: "100%",
           width: "100%",
-          gap: "24px",
+          gap: "22px",
           // justifyContent: "space-between",
           marginBottom: "2rem",
         }}
@@ -274,7 +274,7 @@ export default function Dashboard() {
           <MainContainer
             sx={{
               display: "grid",
-              gridTemplateColumns: "auto auto",
+              gridTemplateColumns: "repeat(2, 1fr)",
               gap: "1rem",
               overflow: "scroll",
               height: "calc(100% - 55px)",
@@ -329,7 +329,7 @@ export default function Dashboard() {
               <MainContainer
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: "auto auto",
+                  gridTemplateColumns: "repeat(2, 1fr)",
                   gap: "1rem",
                   overflow: "scroll",
                   height: "calc(100% - 55px)",
@@ -343,13 +343,11 @@ export default function Dashboard() {
                 "&::-webkit-scrollbar": { display: "none" },
               }}
             > */}
-                {sensorsItems.map((item) => (
-                  <SensorCard
-                    icon={item.icon}
-                    title={item.name}
-                    normalSensor={item.normalSensor}
-                    warningSensor={item.warningSensor}
-                    dangerSensor={item.dangerSensor}
+                {usersInfo.map((item) => (
+                  <UserCard
+                    avatar={item.image}
+                    fullName={item.fullName}
+                    position={item.position}
                   />
                 ))}
                 {/* </Box> */}

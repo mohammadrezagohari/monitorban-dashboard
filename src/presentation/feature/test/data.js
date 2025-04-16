@@ -218,3 +218,12 @@ export const sensorsItems = [
     icon: <SupportIcon />,
   },
 ];
+
+export const usersInfo = [
+  { fullName: "کاربر 1", image: "/assets/images/profile-images/image.webp", position: "اپراتور آی تی" },
+  { fullName: "کاربر 2", image: "/assets/images/profile-images/image.webp", position: "اپراتور آی تی" },
+  { fullName: "کاربر 3", image: "/assets/images/profile-images/image.webp", position: "اپراتور آی تی" },
+  { fullName: "کاربر 4", image: "/assets/images/profile-images/image.webp", position: "اپراتور آی تی" },
+  { fullName: "کاربر 5", image: "/assets/images/profile-images/image.webp", position: "اپراتور آی تی" },
+  { fullName: "کاربر 6", image: "/assets/images/profile-images/image.webp", position: "اپراتور آی تی" },
+];
