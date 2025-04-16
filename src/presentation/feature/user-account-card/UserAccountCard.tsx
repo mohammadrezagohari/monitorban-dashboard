@@ -11,13 +11,13 @@ import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDow
 import ButtonPrimaryXxsmallText from "../buttons/ButtonPrimaryXxsmallText";
 import { LoginIcon } from "src/presentation/components/common/icons/LoginIcon";
 
-export const ProfileContainer = styled(Box)(() => ({
-  marginBottom: "64px",
-  backgroundColor: "red",
-  height: "113px",
-  borderRadius: "15px",
-  padding: "10px",
-}));
+// export const ProfileContainer = styled(Box)(() => ({
+//   marginBottom: "64px",
+//   backgroundColor: "red",
+//   height: "113px",
+//   borderRadius: "15px",
+//   padding: "10px",
+// }));
 
 const UserAccountCard = ({ user }) => {
   const theme = useTheme();

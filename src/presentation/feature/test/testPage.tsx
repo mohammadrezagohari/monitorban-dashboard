@@ -73,50 +73,10 @@ import { UsersIcon } from "src/presentation/components/common/icons/UsersIcon";
 import { VideoIcon } from "src/presentation/components/common/icons/VideoIcon";
 import { SupportIcon } from "src/presentation/components/common/icons/SupportIcon";
 import { SettingIcon } from "src/presentation/components/common/icons/SettingIcon";
+import { navItems } from "./data";
 
 export default function Test() {
-  const navItems = [
-    {
-      label: "داشبورد",
-      icon: <DashboardIcon />,
-      href: "/test/dashboard",
-    },
-    {
-      label: "سنسورها",
-      icon: <SensorIcon />,
-      href: "/test/sensors",
-    },
-    {
-      label: "اتاق سرور",
-      icon: <AirConditionerIcon />,
-      href: "/test/server-room",
-    },
-    {
-      label: "گزارشات",
-      icon: <ComplaintIcon />,
-      href: "/test/reports",
-    },
-    {
-      label: "مدیریت کاربران",
-      icon: <UsersIcon />,
-      href: "/test/user-managment",
-    },
-    {
-      label: "آموزش ها",
-      icon: <VideoIcon />,
-      href: "/test/educations",
-    },
-    {
-      label: "پشتیبانی",
-      icon: <SupportIcon />,
-      href: "/test/support",
-    },
-    {
-      label: "تنظیمات",
-      icon: <SettingIcon />,
-      href: "/test/settings",
-    },
-  ];
+  
   const [pageIndex, setPageIndex] = useState(0);
 
   return (

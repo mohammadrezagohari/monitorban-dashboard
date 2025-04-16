@@ -74,18 +74,6 @@ export default function Dashboard() {
         }}
       >
         {/* Announcements */}
-        {/* <Box
-          sx={{
-            // display: "flex",
-            // width: "350px",
-            // height: "344px",
-            // padding: "16px",
-            // borderRadius: "25px",
-            // bgcolor: "#1C1926",
-            // overflow: "hidden",
-            // flexShrink: 0,
-          }}
-        > */}
         <SectionContainer width={350} height={334}>
           <HeaderContainer>
             <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
@@ -105,7 +93,6 @@ export default function Dashboard() {
                 height: "calc(100% - 55px)",
                 "&::-webkit-scrollbar": { display: "none" },
               }}
-              // className="scrolbar-hidden"
             >
               <ul style={{}}>
                 {announceItems.map((item, index) => (

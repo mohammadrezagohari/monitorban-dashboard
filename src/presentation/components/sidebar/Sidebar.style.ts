@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 
-export const StyledSidebarContainer = styled("div")(() => ({
+export const StyledSidebarContainer = styled(Box)(() => ({
     backgroundColor: "#1C1926",
     borderRadius: "25px",
     // height: "100%",
