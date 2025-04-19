@@ -1,14 +1,27 @@
 import { LogoIcon } from "src/presentation/components/common/icons/LogoIcon";
 import { LogoText } from "src/presentation/components/common/icons/LogoText";
-import { Box, FormControl, Typography } from "@mui/material";
+import {
+  Box,
+  //  FormControl,
+  Typography,
+} from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import BaseInput from "../input/BaseInput";
-import ButtonPrimaryLargeFilled from "../buttons/ButtonPrimaryLargeFilled";
+// import BaseInput from "../input/BaseInput";
+// import ButtonPrimaryLargeFilled from "../buttons/ButtonPrimaryLargeFilled";
+import LoginForm from "./LoginForm";
+import { useState } from "react";
+import OtpForm from "./OtpForm";
 
 const LoginPage = () => {
+  const [phoneNumber, setPhoneNumber] = useState("09115712075");
+  const [step, setStep] = useState<"phone" | "OTP">("phone");
+
   function onSubmit(event: any) {
     event.preventDefault();
     console.log(event);
+    setPhoneNumber(event.target[0].value);
+    setStep("OTP");
+    console.log(phoneNumber);
   }
   return (
     <Grid
@@ -42,20 +55,25 @@ const LoginPage = () => {
               fontFamily="Dana-ExtraLight"
               fontSize={20}
               fontWeight={200}
+              marginBottom={1.5}
             >
               ورود به سامانه مونیتورینگ اتاق سرور
             </Typography>
           </Box>
-          <FormControl component="form" onSubmit={(e) => onSubmit(e)}>
+          {step === "phone" ? (
+            <LoginForm onSubmit={onSubmit} />
+          ) : (
+            <OtpForm phoneNumber={phoneNumber} />
+          )}
+          {/* <FormControl component="form" onSubmit={(e) => onSubmit(e)}>
             <BaseInput
               label="برای شروع شماره موبایلت رو وارد کن"
               placeholder="مثال : 09353500145"
             />
-            {/* <ButtonCustom variant="contained">مرحله بعد - وارد کردن کد</ButtonCustom> */}
             <ButtonPrimaryLargeFilled type="submit">
               مرحله بعد - وارد کردن کد
             </ButtonPrimaryLargeFilled>
-          </FormControl>
+          </FormControl> */}
         </Box>
       </Grid>
       <Grid

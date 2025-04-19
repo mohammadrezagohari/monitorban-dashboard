@@ -11,7 +11,7 @@ import Educations from '../feature/test/EducationsPage';
 import Support from '../feature/test/SupportPage';
 import Settings from '../feature/test/SettingsPage';
 import Test from '../feature/test/testPage';
-import LoginPage from '../feature/login/Login';
+import LoginPage from '../feature/login/LoginWithOTP';
 import { LoginPage2 } from '../pages/auth/Login';
 
 export const routes = [
