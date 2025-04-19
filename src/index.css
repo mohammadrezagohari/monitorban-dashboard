@@ -1,6 +1,28 @@
 @font-face {
-  font-family: Dana;
+  font-family: Dana-Regular;
   src: url(../public/assets/fonts/Dana/Dana-FaNum-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Dana-Light;
+  src: url(../public/assets/fonts/Dana/Dana-FaNum-Light.ttf);
+  /* font-weight: 200; */
+}
+@font-face {
+  font-family: Dana-ExtraLight;
+  src: url(../public/assets/fonts/Dana/Dana-FaNum-ExtraLight.ttf);
+  /* font-weight: 200; */
+}
+@font-face {
+  font-family: Dana-Thin;
+  src: url(../public/assets/fonts/Dana/Dana-FaNum-Thin.ttf);
+  /* font-weight: 200; */
+}
+@font-face {
+  font-family: Dana-Bold;
+  src: url(../public/assets/fonts/Dana/Dana-FaNum-Bold.ttf);
+  /* font-weight: 200; */
 }
 
 body {

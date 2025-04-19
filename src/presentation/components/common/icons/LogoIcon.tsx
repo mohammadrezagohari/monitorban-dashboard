@@ -1,13 +1,13 @@
 import { CustomSvgProps } from "./IIcons";
 
 export const LogoIcon: React.FC<CustomSvgProps> = ({
-  size,
+  size = 44, // sidebar: 44, login: 31
   color = "#C480FF",
 }) => {
   return (
     <svg
-      width="44"
-      height="37"
+      width={size}
+      height={size / 1.21}
       viewBox="0 0 44 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
