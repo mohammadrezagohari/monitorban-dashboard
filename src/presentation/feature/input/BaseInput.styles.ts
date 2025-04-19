@@ -7,7 +7,8 @@ export const Container = styled(Box)(() => ({
 
 export const StyledLabel = styled(Typography)(({ theme }) => ({
     textAlign: "right",
-    color: theme.palette.text.secondary,
+    color: theme.palette.neutral[200],
+    marginBottom: "0.5rem"
 }))
 
 
@@ -34,6 +35,7 @@ export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>((
         },
         "& ::placeholder": {
             color: "text.disabled",
+            typography: "body2",
         }
 
     },
