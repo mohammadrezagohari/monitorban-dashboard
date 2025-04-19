@@ -17,6 +17,7 @@ export interface IButton {
     iconSize?: number,
     padding?: string,
     fontSize?: number,
+    type?: string,
 }
 
 // 'primary' | 'error' | 'secondary' | 'success' | 'warning',

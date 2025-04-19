@@ -6,6 +6,7 @@ const ButtonSuccessMediumOutlined: React.FC<IButtons> = ({
   leftIcon,
   rightIcon,
   disabled,
+  type = "button",
   onClick,
 }) => {
   const textColor = "success.400";
@@ -19,6 +20,7 @@ const ButtonSuccessMediumOutlined: React.FC<IButtons> = ({
 
   return (
     <ButtonCustom
+      type={type}
       variant="outlined"
       textColor={!disabled ? textColor : disabledColor}
       textHoverColor={textHoverColor}

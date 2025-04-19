@@ -18,6 +18,7 @@ export const ButtonCustom: React.FC<IButton> = ({
   padding,
   variant,
   fontSize,
+  type,
   onClick,
 }) => {
   // console.log(typeof bgHoverColor);
@@ -57,6 +58,7 @@ export const ButtonCustom: React.FC<IButton> = ({
 
   return (
     <Button
+      type={type}
       variant={variant}
       disabled={disabled}
       onClick={onClick}

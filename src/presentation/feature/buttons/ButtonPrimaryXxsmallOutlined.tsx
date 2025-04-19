@@ -6,6 +6,7 @@ const ButtonPrimaryXxsmallOutlined: React.FC<IButtons> = ({
   leftIcon,
   rightIcon,
   disabled,
+  type = "button",
   onClick,
 }) => {
   const textColor = "primary.dark";
@@ -19,6 +20,7 @@ const ButtonPrimaryXxsmallOutlined: React.FC<IButtons> = ({
 
   return (
     <ButtonCustom
+      type={type}
       variant="outlined"
       textColor={!disabled ? textColor : disabledColor}
       textHoverColor={textHoverColor}

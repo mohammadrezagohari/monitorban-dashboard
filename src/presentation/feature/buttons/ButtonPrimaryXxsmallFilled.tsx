@@ -6,6 +6,7 @@ const ButtonPrimaryXxsmallFilled: React.FC<IButtons> = ({
   leftIcon,
   rightIcon,
   disabled,
+  type = "button",
   onClick,
 }) => {
   const textColor = "neutral.50";
@@ -19,6 +20,7 @@ const ButtonPrimaryXxsmallFilled: React.FC<IButtons> = ({
 
   return (
     <ButtonCustom
+      type={type}
       variant="contained"
       textColor={!disabled ? textColor : textHoverColor}
       textHoverColor={textHoverColor}

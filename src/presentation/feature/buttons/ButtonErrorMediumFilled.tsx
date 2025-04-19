@@ -6,6 +6,7 @@ const ButtonErrorMediumFilled: React.FC<IButtons> = ({
   leftIcon,
   rightIcon,
   disabled,
+  type = "button",
   onClick,
 }) => {
   const textColor = "neutral.50";
@@ -19,6 +20,7 @@ const ButtonErrorMediumFilled: React.FC<IButtons> = ({
 
   return (
     <ButtonCustom
+      type={type}
       variant="contained"
       textColor={textColor}
       textHoverColor={textHoverColor}
