@@ -107,7 +107,7 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Dana',
+        fontFamily: 'Dana-Regular',
         h1: {
             fontSize: '3rem', // 48px
             fontWeight: 900, //black
@@ -132,9 +132,14 @@ const theme = createTheme({
             // lineHeight: '100%',
             // letterSpacing: '-2%',
         },
+        h5: {
+            fontSize: '1.25rem', // 20px
+            fontWeight: 700, //bold
+
+        },
         body1: {
             fontSize: '1rem', // 16px
-            fontWeight: 600, //semibold
+            fontWeight: 600, //demibold
             // lineHeight: '100%',
             // letterSpacing: '-2%',
         },
