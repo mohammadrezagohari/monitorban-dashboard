@@ -1,15 +1,9 @@
 import BaseMenuItem from "src/presentation/feature/menu/BaseMenuItem";
-import {
-  Box,
-  Drawer,
-  List,
-} from "@mui/material";
+import { Box, Drawer, List } from "@mui/material";
 import { LogoIcon } from "src/presentation/components/common/icons/LogoIcon";
 import { LogoText } from "src/presentation/components/common/icons/LogoText";
-import { useState } from "react";
 import {
   LogoContainer,
-  ProfileContainer,
   StyledDrawer,
   StyledSidebarContainer,
 } from "./Sidebar.style";
@@ -23,11 +17,7 @@ const Sidebar: React.FC<SiderbarProps> = ({
   pageIndex,
   setPageIndex,
 }) => {
-
-  const handleMenuItemClick = (
-    // event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    index: number
-  ) => {
+  const handleMenuItemClick = (index: number) => {
     setPageIndex(index);
     console.log(index);
   };
@@ -45,10 +35,6 @@ const Sidebar: React.FC<SiderbarProps> = ({
         <Box marginBottom={8}>
           <UserAccountCard user={usersInfo[0]} />
         </Box>
-        {/* <ProfileContainer> 
-          TODO:: should be added dashboard card
-           Profile
-        </ProfileContainer> */}
 
         <List>
           {items &&
