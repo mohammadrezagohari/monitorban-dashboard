@@ -1,7 +1,7 @@
 // import { ReactNode } from "react";
 
 export interface IButton {
-    children: string,
+    children: string | number,
     size?: number,
     variant?: "text" | "contained" | "outlined",
     onClick?: (event: MouseEvent) => void,
