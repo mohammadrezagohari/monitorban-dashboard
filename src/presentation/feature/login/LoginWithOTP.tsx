@@ -13,16 +13,9 @@ import { useState } from "react";
 import OtpForm from "./OtpForm";
 
 const LoginPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState("09115712075");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [step, setStep] = useState<"phone" | "OTP">("phone");
 
-  function onSubmit(event: any) {
-    event.preventDefault();
-    console.log(event);
-    setPhoneNumber(event.target[0].value);
-    setStep("OTP");
-    console.log(phoneNumber);
-  }
   return (
     <Grid
       container
@@ -61,9 +54,13 @@ const LoginPage = () => {
             </Typography>
           </Box>
           {step === "phone" ? (
-            <LoginForm onSubmit={onSubmit} />
+            <LoginForm
+              phoneNumber={phoneNumber}
+              setPhoneNumber={setPhoneNumber}
+              setStep={setStep}
+            />
           ) : (
-            <OtpForm phoneNumber={phoneNumber} />
+            <OtpForm setStep={setStep} phoneNumber={phoneNumber} />
           )}
           {/* <FormControl component="form" onSubmit={(e) => onSubmit(e)}>
             <BaseInput
