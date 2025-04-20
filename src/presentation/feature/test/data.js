@@ -230,31 +230,37 @@ export const usersInfo = [
     fullName: "کاربر 1",
     image: "/assets/images/profile-images/image.webp",
     position: "اپراتور آی تی",
+    phone: "09110001111",
   },
   {
     fullName: "کاربر 2",
     image: "/assets/images/profile-images/image.webp",
     position: "اپراتور آی تی",
+    phone: "09110002222",
   },
   {
     fullName: "کاربر 3",
     image: "/assets/images/profile-images/image.webp",
     position: "اپراتور آی تی",
+    phone: "09110003333",
   },
   {
     fullName: "کاربر 4",
     image: "/assets/images/profile-images/image.webp",
     position: "اپراتور آی تی",
+    phone: "09110004444",
   },
   {
     fullName: "کاربر 5",
     image: "/assets/images/profile-images/image.webp",
     position: "اپراتور آی تی",
+    phone: "09110005555",
   },
   {
     fullName: "کاربر 6",
     image: "/assets/images/profile-images/image.webp",
     position: "اپراتور آی تی",
+    phone: "09110006666",
   },
 ];
 
