@@ -10,6 +10,7 @@ import {
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
 import ButtonPrimaryXxsmallText from "../buttons/ButtonPrimaryXxsmallText";
 import { LoginIcon } from "src/presentation/components/common/icons/LoginIcon";
+import { useNavigate } from "react-router-dom";
 
 // export const ProfileContainer = styled(Box)(() => ({
 //   marginBottom: "64px",
@@ -21,6 +22,13 @@ import { LoginIcon } from "src/presentation/components/common/icons/LoginIcon";
 
 const UserAccountCard = ({ user }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const handleCloseAccount = () => {
+    // logic of removed active account
+
+    navigate("/login");
+  };
 
   const Top = () => {
     return (
@@ -59,7 +67,10 @@ const UserAccountCard = ({ user }) => {
   const Bottom = () => {
     return (
       <Box>
-        <ButtonPrimaryXxsmallText rightIcon={<LoginIcon />}>
+        <ButtonPrimaryXxsmallText
+          onClick={handleCloseAccount}
+          rightIcon={<LoginIcon />}
+        >
           خروج از حساب
         </ButtonPrimaryXxsmallText>
       </Box>
