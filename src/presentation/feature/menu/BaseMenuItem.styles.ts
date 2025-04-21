@@ -1,7 +1,7 @@
-import { ListItemButton } from "@mui/material";
+import { ListItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const StyledMenuItem = styled(ListItemButton, { shouldForwardProp: prop => prop !== "active" })<{ active?: boolean }>(
+export const StyledMenuItem = styled(ListItem, { shouldForwardProp: prop => prop !== "active" })<{ active?: boolean }>(
     ({ active, theme }) => ({
         padding: "16px",
         display: "flex",

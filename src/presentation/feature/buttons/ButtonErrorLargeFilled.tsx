@@ -6,6 +6,7 @@ const ButtonErrorLargeFilled: React.FC<IButtons> = ({
   leftIcon,
   rightIcon,
   disabled,
+  type = "button",
   onClick,
 }) => {
   const textColor = "neutral.50";
@@ -19,6 +20,7 @@ const ButtonErrorLargeFilled: React.FC<IButtons> = ({
 
   return (
     <ButtonCustom
+      type={type}
       variant="contained"
       textColor={textColor}
       textHoverColor={textHoverColor}
@@ -33,7 +35,7 @@ const ButtonErrorLargeFilled: React.FC<IButtons> = ({
       iconSize={24}
       padding="12px 24px"
       disabled={disabled}
-      onClick={() => onClick}
+      onClick={onClick}
     >
       {children}
     </ButtonCustom>

@@ -1,10 +1,10 @@
 // import { ReactNode } from "react";
 
 export interface IButton {
-    children: string,
+    children: string | number,
     size?: number,
     variant?: "text" | "contained" | "outlined",
-    onClick?: () => void,
+    onClick?: (event: MouseEvent) => void,
     disabled?: boolean,
     textColor?: string,
     textHoverColor?: string,
@@ -17,6 +17,7 @@ export interface IButton {
     iconSize?: number,
     padding?: string,
     fontSize?: number,
+    type?: string,
 }
 
 // 'primary' | 'error' | 'secondary' | 'success' | 'warning',

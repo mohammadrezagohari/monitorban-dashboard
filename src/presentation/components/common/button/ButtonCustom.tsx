@@ -18,11 +18,12 @@ export const ButtonCustom: React.FC<IButton> = ({
   padding,
   variant,
   fontSize,
+  type,
   onClick,
 }) => {
-  console.log(typeof bgHoverColor);
-  console.log(disabled);
-  console.log(bgColor);
+  // console.log(typeof bgHoverColor);
+  // console.log(disabled);
+  // console.log(bgColor);
 
   const buttonStyles = {
     display: "flex",
@@ -57,19 +58,20 @@ export const ButtonCustom: React.FC<IButton> = ({
 
   return (
     <Button
+      type={type}
       variant={variant}
       disabled={disabled}
       onClick={onClick}
       sx={buttonStyles}
     >
-      {leftIcon &&
-        React.cloneElement(leftIcon, {
+      {rightIcon &&
+        React.cloneElement(rightIcon, {
           color: textColor,
           size: iconSize,
         })}
       {children}
-      {rightIcon &&
-        React.cloneElement(rightIcon, {
+      {leftIcon &&
+        React.cloneElement(leftIcon, {
           color: textColor,
           size: iconSize,
         })}

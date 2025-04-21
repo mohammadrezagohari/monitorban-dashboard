@@ -3,14 +3,12 @@ import { createTheme } from '@mui/material/styles';
 
 declare module "@mui/material/styles" {
     interface Palette {
-        yellow: Palette['primary'];
         // neutral: Palette['primary'];
-        neutral: Palette['primary'] & { 550?: string };
+        neutral: Palette['primary'] //& { 550?: string };
     }
 
     interface PaletteOptions {
-        yellow?: PaletteOptions["primary"];
-        neutral?: PaletteOptions["primary"] & { 550?: string };
+        neutral?: PaletteOptions["primary"]// & { 550?: string };
     }
 }
 
@@ -72,7 +70,7 @@ const theme = createTheme({
             700: '#42594B',
             800: '#021F10',
         },
-        yellow: {
+        warning: {
             main: '#FFD029',
             50: '#FFFBEB',
             100: '#FFF2C2',
@@ -109,54 +107,59 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Dana',
+        fontFamily: 'Dana-Regular',
         h1: {
             fontSize: '3rem', // 48px
             fontWeight: 900, //black
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
         h2: {
             fontSize: '2rem', // 32px
             fontWeight: 800, //extra bold
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
         h3: {
             fontSize: '1.5rem', // 24px
             fontWeight: 700, //bold
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
         h4: {
             fontSize: '1.25rem', // 20px
             fontWeight: 700, //bold
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
+        },
+        h5: {
+            fontSize: '1.25rem', // 20px
+            fontWeight: 700, //bold
+
         },
         body1: {
             fontSize: '1rem', // 16px
-            fontWeight: 600, //semibold
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            fontWeight: 600, //demibold
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
         body2: {
             fontSize: '0.875rem', // 14px
             fontWeight: 500, //medium
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
         caption: {
             fontSize: '0.75rem', // 12px
             fontWeight: 400, //regular
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
         overline: {
             fontSize: '0.625rem', // 10px
             fontWeight: 400, //regular
-            lineHeight: '100%',
-            letterSpacing: '-2%',
+            // lineHeight: '100%',
+            // letterSpacing: '-2%',
         },
     },
 });

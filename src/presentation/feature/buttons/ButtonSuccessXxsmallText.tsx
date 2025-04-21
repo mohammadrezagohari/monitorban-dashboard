@@ -6,6 +6,7 @@ const ButtonSuccessXxsmallText: React.FC<IButtons> = ({
   leftIcon,
   rightIcon,
   disabled,
+  type = "button",
   onClick,
 }) => {
   const textColor = "success.400";
@@ -19,6 +20,7 @@ const ButtonSuccessXxsmallText: React.FC<IButtons> = ({
 
   return (
     <ButtonCustom
+      type={type}
       variant="text"
       textColor={!disabled ? textColor : disabledColor}
       textHoverColor={textHoverColor}
@@ -33,7 +35,7 @@ const ButtonSuccessXxsmallText: React.FC<IButtons> = ({
       iconSize={16}
       padding="8px 12px"
       disabled={disabled}
-      onClick={() => onClick}
+      onClick={onClick}
     >
       {children}
     </ButtonCustom>
