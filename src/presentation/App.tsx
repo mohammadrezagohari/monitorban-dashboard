@@ -7,8 +7,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import { routes } from "./routes/routes";
-import "./App.css";
 import { Box } from "@mui/material";
+import "./App.css";
 
 import "swiper/css"
 

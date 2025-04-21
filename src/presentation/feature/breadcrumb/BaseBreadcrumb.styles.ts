@@ -3,7 +3,7 @@ import { Breadcrumbs, styled } from "@mui/material";
 export const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
     "& a": {
         textDecoration: 'none',
-        color: theme.palette.neutral[200], //TODO:: should be debugged error
+        color: theme.palette.neutral[200], 
         "&:hover": {
             color: theme.palette.neutral[50],
         },

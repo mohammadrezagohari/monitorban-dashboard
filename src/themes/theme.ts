@@ -1,17 +1,38 @@
-// src/theme.ts
-import { createTheme } from '@mui/material/styles';
+// import { createTheme } from '@mui/material/styles';
+// import { PaletteColor } from '@mui/material/styles/createPalette';
 
-declare module "@mui/material/styles" {
+// declare module "@mui/material/styles" {
+//     interface Palette {
+//         // neutral: Palette['primary'];
+//         neutral: Palette['primary'] //& { 550?: string };
+//     }
+
+//     interface PaletteOptions {
+//         neutral?: PaletteOptions["primary"]// & { 550?: string };
+//     }
+// }
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { PaletteColor } from '@mui/material/styles/createPalette';
+
+// Define the ExtendedPaletteColor interface
+interface ExtendedPaletteColor {
+    main: string;
+    light: string; // Add light property
+    dark: string;  // Add dark property
+    contrastText: string; // Add contrastText property
+    [key: string]: string; // Allow other properties as well
+}
+
+// Extend the Palette interface
+declare module '@mui/material/styles/createPalette' {
     interface Palette {
-        // neutral: Palette['primary'];
-        neutral: Palette['primary'] //& { 550?: string };
+        neutral: ExtendedPaletteColor; // Add your custom property here
     }
 
     interface PaletteOptions {
-        neutral?: PaletteOptions["primary"]// & { 550?: string };
+        neutral: ExtendedPaletteColor; // Add your custom property here
     }
 }
-
 
 const theme = createTheme({
     palette: {
@@ -84,13 +105,16 @@ const theme = createTheme({
         },
         neutral: {
             main: '#F7F5FA',
+            light: '#E0D7E9', // Define light variant
+            dark: '#C4B9C9',  // Define dark variant
+            contrastText: '#000000', // Define contrast text color
             50: '#F7F5FA',
             100: '#D5D0DB',
             200: '#B7B0BF',
             300: '#9B92A6',
             400: '#81778C',
             500: '#5B5266',
-            550: '#4D4259',
+            // 550: '#4D4259',
             600: '#373040',
             700: '#1C1926',
             800: '#0E0C15',

@@ -5,7 +5,16 @@ export const StyledOTPContainer = styled(Box)(() => ({
     flexDirection: "column"
 }))
 
-export const StyledOTPInput = styled(TextField)(({ theme, isError }) => ({
+
+interface StyledOTPInputProps {
+    theme?: any;
+    isError?: boolean; 
+}
+
+export const StyledOTPInput = styled(TextField,
+    {
+        shouldForwardProp: (prop)=>prop !== "theme" 
+        && prop !== "isError"})<StyledOTPInputProps>(({ theme, isError }) => ({
 
     "& .MuiOutlinedInput-root": {
         fontSize: 24,

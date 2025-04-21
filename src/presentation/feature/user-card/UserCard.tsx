@@ -1,8 +1,9 @@
 import { ArrowLeftIcon } from "src/presentation/components/common/icons/ArrowLeftIcon";
-import { Avatar, Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Avatar, Box, IconButton, Typography } from "@mui/material";
 import { UserCardProps } from "./IUserCard";
 import { StyledUserCard } from "./UserCard.style";
 import { usersInfo } from "../test/data";
+import { useTheme } from '@mui/material/styles';
 
 const UserCard: React.FC<UserCardProps> = ({ avatar, fullName, position }) => {
   const theme = useTheme();

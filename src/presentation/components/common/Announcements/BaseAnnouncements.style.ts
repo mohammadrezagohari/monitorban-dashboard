@@ -9,7 +9,7 @@ export const StyledContainer = styled(Container)(() => ({
 }))
 
 export const StyledImgContainer = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.neutral[600], //TODO
+    backgroundColor: "neutral.600", //theme.palette.neutral[600], //TODO
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

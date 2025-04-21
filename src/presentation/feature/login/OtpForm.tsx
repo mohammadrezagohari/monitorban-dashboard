@@ -11,8 +11,11 @@ import { useNavigate } from "react-router-dom";
 const OTP_LENGHT = 5;
 const OTP_CODE = "11111";
 const RESEND_TIMEOUT = 120;
-
-const OtpForm = ({ phoneNumber, setStep }) => {
+interface IOtpForm{
+    phoneNumber?: string
+    setStep?: React.Dispatch<React.SetStateAction<"phone" | "OTP">>
+}
+const OtpForm = ({ phoneNumber, setStep }:IOtpForm) => {
   const [otpValues, setOtpValues] = useState<string[]>(
     Array(OTP_LENGHT).fill("")
   );
@@ -105,7 +108,9 @@ const OtpForm = ({ phoneNumber, setStep }) => {
   };
 
   const handleEdit = () => {
-    setStep("phone");
+    if(setStep){
+        setStep("phone") // TODO::check i think it has problems
+    }
   };
 
   const handleResend = () => {

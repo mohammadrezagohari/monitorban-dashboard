@@ -58,7 +58,7 @@ export const ButtonCustom: React.FC<IButton> = ({
 
   return (
     <Button
-      type={type}
+    //   type={type}
       variant={variant}
       disabled={disabled}
       onClick={onClick}

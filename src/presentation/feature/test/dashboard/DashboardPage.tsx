@@ -16,7 +16,7 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRightIcon";
 import { ArrowLeftIcon } from "src/presentation/components/common/icons/ArrowLeftIcon";
@@ -204,8 +204,8 @@ export default function Dashboard() {
                 prevEl: prevBtn.current,
                 nextEl: nextBtn.current,
               }}
-              onBeforeInit={(swiper) => {
-                if (typeof swiper.params.navigation !== "boolean") {
+              onBeforeInit={(swiper:SwiperClass) => {
+                if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
                   swiper.params.navigation.nextEl = nextBtn.current;
                   swiper.params.navigation.prevEl = prevBtn.current;
                 }

@@ -1,10 +1,12 @@
 // import { ReactNode } from "react";
 
+import { MouseEventHandler } from "react";
+
 export interface IButton {
     children: string | number,
     size?: number,
     variant?: "text" | "contained" | "outlined",
-    onClick?: (event: MouseEvent) => void,
+    onClick?: MouseEventHandler | undefined,
     disabled?: boolean,
     textColor?: string,
     textHoverColor?: string,

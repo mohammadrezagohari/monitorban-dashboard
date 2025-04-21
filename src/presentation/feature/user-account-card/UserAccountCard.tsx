@@ -20,7 +20,17 @@ import { useNavigate } from "react-router-dom";
 //   padding: "10px",
 // }));
 
-const UserAccountCard = ({ user }) => {
+interface IUser{
+    image?:string
+    fullName?:string
+    position?:string
+}
+
+interface UserAccountCardProps {
+    user: IUser; 
+}
+
+const UserAccountCard: React.FC<UserAccountCardProps> = ({ user }) => {
   const theme = useTheme();
   const navigate = useNavigate();
 

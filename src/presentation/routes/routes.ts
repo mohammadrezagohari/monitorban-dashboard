@@ -72,7 +72,7 @@ export const routes = [
     },
     {
         path: '/',
-        component: HomePage,
+        component: Dashboard,
         requiresAuth: true,
     },
 

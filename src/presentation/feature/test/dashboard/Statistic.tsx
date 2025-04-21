@@ -7,9 +7,17 @@ import {
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
 import { Typography } from "@mui/material";
 
-export default function Statistic(props) {
-  const { title, value, isIncrese, diferentValue } = props;
-  return (
+interface IStatistic{
+    title:string
+    value?:number
+    isIncrese:boolean
+    diferentValue?:number
+}
+
+
+export default function Statistic({ title, value, isIncrese, diferentValue }:IStatistic) {
+
+    return (
     <SectionContainer width="100%" height={184}>
       <HeaderContainer>
         <Typography variant="h3" color="neutral.main" lineHeight={1.6}>

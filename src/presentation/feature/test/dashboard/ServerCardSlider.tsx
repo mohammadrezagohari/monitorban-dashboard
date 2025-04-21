@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRightIcon";
 import { useRef } from "react";
 import { ArrowLeftIcon } from "src/presentation/components/common/icons/ArrowLeftIcon";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -148,10 +148,12 @@ export default function ServerCardSlider() {
             prevEl: prevBtn.current,
             nextEl: nextBtn.current,
           }}
-          onBeforeInit={(swiper) => {
-            if (typeof swiper.params.navigation !== "boolean") {
-              swiper.params.navigation.nextEl = nextBtn.current;
-              swiper.params.navigation.prevEl = prevBtn.current;
+          onBeforeInit={(swiper : SwiperClass) => {
+            if(swiper.params.navigation){
+                if (typeof swiper.params.navigation !== "boolean") {
+                  swiper.params.navigation.nextEl = nextBtn.current;
+                  swiper.params.navigation.prevEl = prevBtn.current;
+                }
             }
           }}
           freeMode={{ enabled: true }}

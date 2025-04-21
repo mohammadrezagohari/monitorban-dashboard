@@ -1,7 +1,17 @@
 import { ListItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const StyledMenuItem = styled(ListItem, { shouldForwardProp: prop => prop !== "active" })<{ active?: boolean }>(
+interface StyledMenuItemProps {
+    active?: boolean;
+    selected?: boolean; // اضافه کردن ویژگی selected
+    disabled?: boolean; // اگر نیاز به پشتیبانی از disabled دارید
+}
+
+
+export const StyledMenuItem = styled(ListItem, 
+    {
+        shouldForwardProp: prop => prop !== "active" && prop !== "selected",
+    })<StyledMenuItemProps>(
     ({ active, theme }) => ({
         padding: "16px",
         display: "flex",

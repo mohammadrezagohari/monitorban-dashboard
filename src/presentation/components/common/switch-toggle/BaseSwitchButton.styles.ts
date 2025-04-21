@@ -5,7 +5,7 @@ const StyledSwitchButton = styled(Switch)(({ theme, disabled }) => ({
     height: 24,
     padding: 0,
     display: "flex",
-    border: `1px solid ${!disabled ? theme.palette.neutral[100] : theme.palette.text.disabled}`, //TODO
+    border: `1px solid ${!disabled ? theme.palette.neutral[100] : theme.palette.text.disabled}`, 
     borderRadius: 50,
     transition: "border-color 0.3s ease",
     "&.checked": {
