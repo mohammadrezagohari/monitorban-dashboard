@@ -39,6 +39,11 @@ const BaseInput: React.FC<BaseInputProps> = ({
               borderRadius: "15px",
               width: "343px",
               typography: "body2",
+              padding: 0,
+              "& input": {
+                padding: "16px 12px",
+                width: "calc(100% - 24px)",
+              },
             },
           },
         }}

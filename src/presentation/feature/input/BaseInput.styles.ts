@@ -14,6 +14,15 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
 
 export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ status, theme }) => ({
 
+    autoComplete: "off",
+    "& .MuiInputBase-root": {
+        display: "block"
+    },
+    "& input:-webkit-autofill": {
+        boxShadow: "0 0 0 1000px #1e1e2d inset",
+        WebkitTextFillColor: "#fff",
+        transition: "background-color 5000s ease-in-out 0s"
+    },
     "& .MuiOutlinedInput-root": {
         "& fieldset": {
             border: `1px solid ${status === "error"

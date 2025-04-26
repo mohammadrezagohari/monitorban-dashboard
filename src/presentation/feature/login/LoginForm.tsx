@@ -39,8 +39,8 @@ const LoginForm = ({
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
       />
-      {/* <ButtonCustom variant="contained">مرحله بعد - وارد کردن کد</ButtonCustom> */}
-      <ButtonPrimaryLargeFilled type="submit">
+      {/* TODO:: چطور میتونم تایپ باتن رو تعریف کنم؟ */}
+      <ButtonPrimaryLargeFilled>
         مرحله بعد - وارد کردن کد
       </ButtonPrimaryLargeFilled>
     </FormControl>
