@@ -13,6 +13,7 @@ import Settings from '../feature/test/SettingsPage';
 import Test from '../feature/test/testPage';
 import LoginPage from '../feature/login/LoginWithOTP';
 import { LoginPage2 } from '../pages/auth/Login';
+import CitySensorsInfo from '../feature/test/dashboard/CitySensorsInfo';
 
 export const routes = [
     {
@@ -34,6 +35,10 @@ export const routes = [
             {
                 path: "dashboard",
                 component: Dashboard,
+            },
+            {
+                path: "CitySensorsInfo",
+                component: CitySensorsInfo,
             },
             {
                 path: "sensors",
@@ -72,7 +77,7 @@ export const routes = [
     },
     {
         path: '/',
-        component: Dashboard,
+        component: LoginPage,
         requiresAuth: true,
     },
 
