@@ -9,7 +9,7 @@ const BaseDashboardCard: React.FC<IDashboardCardProps> = ({
   width,
 }) => {
   return (
-    <CardContainer width={width}>
+    <CardContainer maxWidth={width} width="100%">
       {topContent}
       {divider && <Divider />}
       {bottomContent}
