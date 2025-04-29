@@ -55,13 +55,11 @@ export default function Dashboard() {
   }
   return (
     <div>
-      <Typography
-        variant="h2"
-        color="neutral.main"
-        sx={{ marginBottom: "1rem" }}
-      >
-        داشبورد
-      </Typography>
+      <Box mb={2.5}>
+        <Typography variant="h2" color="neutral.main">
+          داشبورد
+        </Typography>
+      </Box>
 
       {/* اعلانات و نقشه */}
       <Box
@@ -204,8 +202,11 @@ export default function Dashboard() {
                 prevEl: prevBtn.current,
                 nextEl: nextBtn.current,
               }}
-              onBeforeInit={(swiper:SwiperClass) => {
-                if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+              onBeforeInit={(swiper: SwiperClass) => {
+                if (
+                  swiper.params.navigation &&
+                  typeof swiper.params.navigation !== "boolean"
+                ) {
                   swiper.params.navigation.nextEl = nextBtn.current;
                   swiper.params.navigation.prevEl = prevBtn.current;
                 }
