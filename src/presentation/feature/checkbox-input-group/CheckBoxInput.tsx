@@ -4,19 +4,39 @@ import { CheckBoxInputProps } from "./ICheckBoxInput";
 import { useState } from "react";
 import { FormControlLabelStyled } from "./CheckboxInput.styles";
 
-const CheckBoxInput: React.FC<CheckBoxInputProps> = ({ options, label }) => {
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+const CheckBoxInput: React.FC<CheckBoxInputProps> = ({
+  options,
+  label,
+  selectedValues,
+  onChange,
+}) => {
+  // const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const handleChange = (value: string) => {
-    setSelectedValues((prevValue) =>
-      prevValue.includes(value)
-        ? prevValue.filter((val) => val !== value)
-        : [...prevValue, value]
-    );
+    // setSelectedValues((prevValue) =>
+    //   prevValue.includes(value)
+    //     ? prevValue.filter((val) => val !== value)
+    //     : [...prevValue, value]
+    // );
+    const newValues = selectedValues.includes(value)
+      ? selectedValues.filter((val) => val !== value)
+      : [...selectedValues, value];
+
+    onChange(newValues);
   };
   return (
     <FormControl component="fieldset">
-      {label && <FormLabel component="legend">{label}</FormLabel>}
+      {label && (
+        <FormLabel
+          component="legend"
+          sx={{
+            color: "neutral.100",
+            "&.Mui-focused": { color: "neutral.100" },
+          }}
+        >
+          {label}
+        </FormLabel>
+      )}
       <FormGroup>
         {options.map((option) => (
           <FormControlLabelStyled
