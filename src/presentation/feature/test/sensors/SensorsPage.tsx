@@ -16,21 +16,23 @@ import {
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { useRef, useState } from "react";
-import { sensorsData } from "./data";
-import SensorCard from "../sensor-card/SensorCard";
+import { sensorsData } from "../data";
+import SensorCard from "../../sensor-card/SensorCard";
 import { DashboardIcon } from "src/presentation/components/common/icons/DashboardIcon";
-import SensorCategoryCard from "../sensor category card/SensorCategoryCard";
-import ButtonPrimaryLargeOutlined from "../buttons/ButtonPrimaryLargeOutlined";
+import SensorCategoryCard from "../../sensor category card/SensorCategoryCard";
+import ButtonPrimaryLargeOutlined from "../../buttons/ButtonPrimaryLargeOutlined";
 import { FilterIcon } from "src/presentation/components/common/icons/ّFilterIcon";
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
-import ButtonPrimarySmallFilled from "../buttons/ButtonPrimarySmallFilled";
-import ButtonPrimarySmallOutlined from "../buttons/ButtonPrimarySmallOutlined";
+import ButtonPrimarySmallFilled from "../../buttons/ButtonPrimarySmallFilled";
+import ButtonPrimarySmallOutlined from "../../buttons/ButtonPrimarySmallOutlined";
 import { Divider } from "src/presentation/components/common/divider/CustomDivider.style";
 import { ArrowUpIcon } from "src/presentation/components/common/icons/ArrowUpIcon";
-import CheckBoxInput from "../checkbox-input-group/CheckBoxInput";
-import SensorSituationCard from "../sensor situation card/SensorSituationCard";
-import TemperatureCard from "../temperature card/TemperatureCard";
+import CheckBoxInput from "../../checkbox-input-group/CheckBoxInput";
+import SensorSituationCard from "../../sensor situation card/SensorSituationCard";
+import TemperatureCard from "../../temperature card/TemperatureCard";
 import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
+import { FilterSquareIcon } from "src/presentation/components/common/icons/ّFilterSquareIcon";
+import { PlusIcon } from "src/presentation/components/common/icons/PlusIcon";
 
 // const StyledSelect = styled(Select)(() => ({
 //   "& .MuiOutlinedInput-input": {
@@ -131,9 +133,11 @@ export default function SensorsPage() {
 
   return (
     <div>
-      <Typography variant="h2" color="neutral.main" marginBottom={2}>
-        {selectedCenter ? selectedCenter.centerName : "سنسورها"}
-      </Typography>
+      <Box mb={2.5}>
+        <Typography variant="h2" color="neutral.main">
+          {selectedCenter ? selectedCenter.centerName : "سنسورها"}
+        </Typography>
+      </Box>
       <Box>
         <SectionContainer>
           {!selectedCenter && (
@@ -227,15 +231,40 @@ export default function SensorsPage() {
               // TODO::
               <>
                 <Box sx={{ mb: 2, position: "relative" }}>
-                  <ButtonPrimaryLargeOutlined
-                    onClick={handleFilterButton}
-                    leftIcon={
-                      isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
-                    }
-                    rightIcon={<FilterIcon />}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
                   >
-                    فیلتر
-                  </ButtonPrimaryLargeOutlined>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                      <ButtonPrimaryLargeOutlined
+                        onClick={handleFilterButton}
+                        leftIcon={
+                          isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                        }
+                        rightIcon={<FilterIcon />}
+                      >
+                        فیلتر
+                      </ButtonPrimaryLargeOutlined>
+                      <ButtonPrimaryLargeOutlined
+                        onClick={() => console.log("sort button clicked")}
+                        leftIcon={
+                          isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                        }
+                        rightIcon={<FilterSquareIcon />}
+                      >
+                        مرتب سازی
+                      </ButtonPrimaryLargeOutlined>
+                    </Box>
+                    <ButtonPrimaryLargeOutlined
+                      onClick={() => console.log("add button clicked")}
+                      rightIcon={<PlusIcon />}
+                    >
+                      افزودن سنسور جدید
+                    </ButtonPrimaryLargeOutlined>
+                  </Box>
                   <button onClick={() => handleShowSensors(null)}>Back</button>
 
                   {isFilterOpen && (
