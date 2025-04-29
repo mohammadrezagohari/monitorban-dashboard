@@ -1,9 +1,7 @@
 import { Box, styled, TextField, Typography } from "@mui/material";
 import { BaseInputStatus } from "./IBaseInput";
 
-export const Container = styled(Box)(() => ({
-    margin: '20px 0'
-}))
+export const Container = styled(Box)(() => ({}))
 
 export const StyledLabel = styled(Typography)(({ theme }) => ({
     textAlign: "right",
@@ -15,6 +13,9 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
 export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ status, theme }) => ({
 
     autoComplete: "off",
+    "&.MuiFormControl-root": {
+        width: "100%"
+    },
     "& .MuiInputBase-root": {
         display: "block"
     },

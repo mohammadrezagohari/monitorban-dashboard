@@ -1,4 +1,4 @@
-import { InputAdornment } from "@mui/material";
+import { Box, InputAdornment } from "@mui/material";
 import { Container, StyledLabel, StyledTextField } from "./BaseInput.styles";
 import { BaseInputProps } from "./IBaseInput";
 import { useState } from "react";
@@ -14,7 +14,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
   const [value, setValue] = useState("");
 
   return (
-    <Container>
+    <Box>
       <StyledLabel variant="body1" mb={2}>
         {label}
       </StyledLabel>
@@ -37,7 +37,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
             sx: {
               bgcolor: "#1C1926",
               borderRadius: "15px",
-              width: "343px",
+              width: "100%",
               typography: "body2",
               padding: 0,
               "& input": {
@@ -54,7 +54,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
         placeholder={placeholder}
         {...props}
       />
-    </Container>
+    </Box>
   );
 };
 
