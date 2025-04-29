@@ -8,7 +8,7 @@ import {
   Text,
   TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 
 const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
   icon,
@@ -16,6 +16,7 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
   normalSensor,
   warningSensor,
   dangerSensor,
+  onClick,
 }) => {
   const totalSensor = normalSensor + warningSensor + dangerSensor;
 
@@ -81,7 +82,7 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
               </Text>
             </TextBox>
           </Box>
-          <button
+          {/* <button
             style={{
               border: "1px solid #7F6A95",
               borderRadius: "10px",
@@ -94,7 +95,22 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
             }}
           >
             <LeftArrowIcon stroke="#7F6A95" size={16} />
-          </button>
+          </button> */}
+          <IconButton
+            sx={{
+              border: "1px solid #7F6A95",
+              borderRadius: "10px",
+              width: "32px",
+              height: "32px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "transparent",
+            }}
+            onClick={onClick}
+          >
+            <LeftArrowIcon stroke="#7F6A95" size={16} />
+          </IconButton>
         </DataContainer>
       }
     />
