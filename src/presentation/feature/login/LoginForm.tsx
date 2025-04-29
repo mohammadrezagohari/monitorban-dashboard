@@ -32,7 +32,11 @@ const LoginForm = ({
   }
 
   return (
-    <FormControl component="form" onSubmit={handleSubmit}>
+    <FormControl
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{ display: "flex", flexDirection: "column", gap: 3 }}
+    >
       <BaseInput
         label="برای شروع شماره موبایلت رو وارد کن"
         placeholder="مثال : 09353500145"

@@ -48,7 +48,7 @@ const LoginPage = () => {
               fontFamily="Dana-ExtraLight"
               fontSize={20}
               fontWeight={200}
-              marginBottom={1.5}
+              marginBottom={3}
             >
               ورود به سامانه مونیتورینگ اتاق سرور
             </Typography>
