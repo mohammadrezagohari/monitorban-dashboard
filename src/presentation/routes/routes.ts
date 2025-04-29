@@ -2,7 +2,7 @@
 import { RegisterPage } from '../pages/auth/Register';
 import { DashboardPage } from '../pages/dashboard';
 import HomePage from '../pages/HomePage';
-import Sensors from '../feature/test/SensorsPage';
+import Sensors from '../feature/test/sensors/SensorsPage';
 import Dashboard from '../feature/test/dashboard/DashboardPage';
 import ServerRoom from '../feature/test/ServerRoomPage';
 import Reports from '../feature/test/ReportsPage';
@@ -14,6 +14,7 @@ import Test from '../feature/test/testPage';
 import LoginPage from '../feature/login/LoginWithOTP';
 import { LoginPage2 } from '../pages/auth/Login';
 import CitySensorsInfo from '../feature/test/dashboard/CitySensorsInfo';
+import AddNewSensor from '../feature/test/sensors/AddNewSensor';
 
 export const routes = [
     {
@@ -43,6 +44,10 @@ export const routes = [
             {
                 path: "sensors",
                 component: Sensors,
+            },
+            {
+                path: "add-new-sensor",
+                component: AddNewSensor,
             },
             {
                 path: "server-room",
