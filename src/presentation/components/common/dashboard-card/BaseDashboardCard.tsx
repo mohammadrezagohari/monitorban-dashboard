@@ -7,9 +7,10 @@ const BaseDashboardCard: React.FC<IDashboardCardProps> = ({
   bottomContent,
   divider = true,
   width,
+  onHandleClick,
 }) => {
   return (
-    <CardContainer maxWidth={width} width="100%">
+    <CardContainer maxWidth={width} width="100%" onClick={onHandleClick}>
       {topContent}
       {divider && <Divider />}
       {bottomContent}

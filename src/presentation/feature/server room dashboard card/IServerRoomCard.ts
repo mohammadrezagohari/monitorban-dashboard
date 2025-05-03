@@ -4,4 +4,5 @@ export interface ServerRoomCardProps {
     city: string;
     sensor?: number;
     rack?: number;
+    onHandleClick?: () => void;
 }

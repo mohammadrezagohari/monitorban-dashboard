@@ -16,9 +16,11 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
   city,
   sensor = 0,
   rack = 0,
+  onHandleClick,
 }) => {
   return (
     <BaseDashboardCard
+      onHandleClick={onHandleClick}
       width="220px"
       topContent={
         <Text>

@@ -6,6 +6,7 @@ export interface IDashboardCardProps {
     topContent?: React.ReactNode;
     bottomContent?: React.ReactNode;
     width?: string;
+    onHandleClick?: () => void;
 }
 
 export interface CardContainerProps {
