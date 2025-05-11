@@ -1,8 +1,8 @@
 import { CustomSvgProps } from "./IIcons";
 
-export const FilterIcon: React.FC<CustomSvgProps> = ({
+export const HouseIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color = "#F7F5FA", // "neutral.main"
+  color = "neutral.main", // "#F7F5FA"
 }) => {
   return (
     <svg
@@ -13,47 +13,43 @@ export const FilterIcon: React.FC<CustomSvgProps> = ({
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M22 6.5H16"
+        d="M2 22H22"
         stroke={color}
-        strokeWidth="1.5"
+        strokeWidth="1.2"
         strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M6 6.5H2"
+        d="M2.9502 22L3.00019 9.96999C3.00019 9.35999 3.2902 8.78004 3.7702 8.40004L10.7702 2.95003C11.4902 2.39003 12.5002 2.39003 13.2302 2.95003L20.2302 8.39003C20.7202 8.77003 21.0002 9.34999 21.0002 9.96999V22"
         stroke={color}
-        strokeWidth="1.5"
+        strokeWidth="1.2"
         strokeMiterlimit="10"
-        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M10 10C11.933 10 13.5 8.433 13.5 6.5C13.5 4.567 11.933 3 10 3C8.067 3 6.5 4.567 6.5 6.5C6.5 8.433 8.067 10 10 10Z"
+        d="M13 17H11C10.17 17 9.5 17.67 9.5 18.5V22H14.5V18.5C14.5 17.67 13.83 17 13 17Z"
         stroke={color}
-        strokeWidth="1.5"
+        strokeWidth="1.2"
         strokeMiterlimit="10"
-        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M22 17.5H18"
+        d="M9.5 13.75H7.5C6.95 13.75 6.5 13.3 6.5 12.75V11.25C6.5 10.7 6.95 10.25 7.5 10.25H9.5C10.05 10.25 10.5 10.7 10.5 11.25V12.75C10.5 13.3 10.05 13.75 9.5 13.75Z"
         stroke={color}
         strokeWidth="1.5"
         strokeMiterlimit="10"
-        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M8 17.5H2"
+        d="M16.5 13.75H14.5C13.95 13.75 13.5 13.3 13.5 12.75V11.25C13.5 10.7 13.95 10.25 14.5 10.25H16.5C17.05 10.25 17.5 10.7 17.5 11.25V12.75C17.5 13.3 17.05 13.75 16.5 13.75Z"
         stroke={color}
         strokeWidth="1.5"
         strokeMiterlimit="10"
-        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M14 21C15.933 21 17.5 19.433 17.5 17.5C17.5 15.567 15.933 14 14 14C12.067 14 10.5 15.567 10.5 17.5C10.5 19.433 12.067 21 14 21Z"
+        d="M19.0003 7L18.9703 4H14.5703"
         stroke={color}
         strokeWidth="1.5"
         strokeMiterlimit="10"
