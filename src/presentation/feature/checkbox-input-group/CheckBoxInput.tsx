@@ -3,6 +3,8 @@ import { FormControl, FormGroup, FormLabel } from "@mui/material";
 import { CheckBoxInputProps } from "./ICheckBoxInput";
 import { useState } from "react";
 import { FormControlLabelStyled } from "./CheckboxInput.styles";
+import { CheckIcon } from "src/presentation/components/common/icons/CheckIcon";
+import { UncheckedIcon } from "src/presentation/components/common/icons/UncheckIcon";
 
 const CheckBoxInput: React.FC<CheckBoxInputProps> = ({
   options,
@@ -13,11 +15,6 @@ const CheckBoxInput: React.FC<CheckBoxInputProps> = ({
   // const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const handleChange = (value: string) => {
-    // setSelectedValues((prevValue) =>
-    //   prevValue.includes(value)
-    //     ? prevValue.filter((val) => val !== value)
-    //     : [...prevValue, value]
-    // );
     const newValues = selectedValues.includes(value)
       ? selectedValues.filter((val) => val !== value)
       : [...selectedValues, value];
@@ -43,6 +40,8 @@ const CheckBoxInput: React.FC<CheckBoxInputProps> = ({
             key={option.value}
             control={
               <CustomCheckBox
+                icon={<UncheckedIcon />}
+                checkedIcon={<CheckIcon />}
                 checked={selectedValues.includes(option.value)}
                 onChange={() => handleChange(option.value)}
                 disabled={option.disabled}
