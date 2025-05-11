@@ -2,16 +2,19 @@ import { Select, styled } from "@mui/material";
 import { StyledSelectProps } from "./IBaseSelect";
 
 export const StyledSelect = styled(Select)<StyledSelectProps>(
-    ({ selectedTextColor, selectedBorderColor }) => ({
+    ({ value, selectedTextColor, selectedBorderColor = "neutral.500" }) => ({
         fontFamily: "Dana",
         // width: "85px",
-        fontSize: "12px",
-        fontWeight: 500,
+        height: 48,
+        width: "100%",
+        // fontSize: "12px",
+        // fontWeight: 500,
         "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
-            paddingRight: "12px",
             paddingLeft: "40px",
-            paddingBlock: "8px",
-            color: selectedTextColor,
+
+            color: value ? selectedTextColor : "#5B5266",
+            height: "100%",
+            boxSizing: "border-box"
         },
         "& .MuiSelect-icon": {
             left: "10px",
@@ -24,7 +27,7 @@ export const StyledSelect = styled(Select)<StyledSelectProps>(
         },
         "& .MuiOutlinedInput-notchedOutline": {
             border: `1px solid ${selectedBorderColor}`,
-            borderRadius: "10px",
+
         },
         "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: selectedBorderColor,
@@ -36,5 +39,8 @@ export const StyledSelect = styled(Select)<StyledSelectProps>(
             borderColor: selectedBorderColor,
             borderWidth: "1px",
         },
+        // "& .MuiSelect-select:not([data-placeholder])": {
+        //     color: "#212121"
+        // }
     })
 );

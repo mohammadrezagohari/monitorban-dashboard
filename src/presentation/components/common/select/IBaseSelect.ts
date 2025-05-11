@@ -1,10 +1,10 @@
-import { SelectProps } from "@mui/material";
+import { SelectChangeEvent, SelectProps } from "@mui/material";
 
 export interface Option {
     label: string;
     value: string;
     disabled?: boolean;
-    color: { text: string; border: string };
+    color?: { text: string; border: string };
 }
 
 
@@ -12,7 +12,7 @@ export interface BaseSelectProps
     extends Omit<SelectProps, "value" | "onChange"> {
     options: Option[];
     value: string;
-    onChange: (value: string) => void;
+    onChange: (event: any) => void;
     placeholder?: string;
     icon?: React.ReactNode;
     iconColor?: string;
