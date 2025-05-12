@@ -6,33 +6,54 @@ import {
 } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
 import { Typography } from "@mui/material";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 
-interface IStatistic{
-    title:string
-    value?:number
-    isIncrese:boolean
-    diferentValue?:number
+interface IStatistic {
+  title: string;
+  value?: number;
+  isIncrese: boolean;
+  diferentValue?: number;
 }
 
-
-export default function Statistic({ title, value, isIncrese, diferentValue }:IStatistic) {
-
-    return (
-    <SectionContainer width="100%" height={184}>
-      <HeaderContainer>
-        <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
+export default function Statistic({
+  title,
+  value,
+  isIncrese,
+  diferentValue,
+}: IStatistic) {
+  return (
+    <SectionContainer width="100%" height="100%">
+      {/* <HeaderContainer> */}
+      {/* <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
           {title}
-        </Typography>
-      </HeaderContainer>
+        </Typography> */}
+      {/* </HeaderContainer> */}
       <MainContainer>
-        <Typography variant="h1" color="#C480FF" lineHeight={1.6}>
+        <SectionTitle>{title}</SectionTitle>
+        <Typography
+          variant="caption"
+          color="#C480FF"
+          lineHeight={1.6}
+          sx={{
+            fontSize: { xs: 30, md: 48 },
+            fontWeight: { xs: 800, md: 900 },
+          }}
+        >
           {value}
         </Typography>
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            color: "#D5D0DB",
+          }}
+        >
           {isIncrese ? (
-            <ArrowUpIcon color="#D5D0DB" />
+            <ArrowUpIcon color="#D5D0DB" size={16} />
           ) : (
-            <ArrowDownIcon color="#D5D0DB" />
+            <ArrowDownIcon color="#D5D0DB" size={16} />
           )}
           <div
             style={{
@@ -43,12 +64,19 @@ export default function Statistic({ title, value, isIncrese, diferentValue }:ISt
           >
             <Typography
               variant="body2"
-              color={isIncrese ? "#0FD36A" : "#E8383B"}
+              sx={{
+                color: isIncrese ? "#0FD36A" : "#E8383B",
+                fontSize: { xs: 12, md: 14 },
+              }}
             >
               {diferentValue}
               {isIncrese ? "+" : "-"}
             </Typography>
-            <Typography variant="body2" color="#B7B0BF">
+            <Typography
+              variant="body2"
+              color="#B7B0BF"
+              sx={{ fontSize: { xs: 12, md: 14 } }}
+            >
               {isIncrese ? "اضافه" : "کم"} شده
             </Typography>
           </div>
