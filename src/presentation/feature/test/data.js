@@ -7,8 +7,9 @@ import { VideoIcon } from "src/presentation/components/common/icons/VideoIcon";
 import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
 import { SensorIcon } from "src/presentation/components/common/icons/SensorIcon";
 import { SupportIcon } from "src/presentation/components/common/icons/SupportIcon";
+// import { Option } from "src/presentation/components/common/select/IBaseSelect";
 
-export const announceItems = [
+export const announceItemsInit = [
   {
     name: "سنسور رطوبت اتاق",
     report: "کلینیک رازی  نشتی آب 3403  ",
@@ -604,4 +605,69 @@ export const sensorsData = [
       },
     ],
   },
+];
+
+export const annouceSelectOptions = [
+  {
+    value: "normal",
+    label: "نرمال",
+    color: { text: "#0FD36A", border: "#0FD36A" },
+  },
+  {
+    value: "warning",
+    label: "اخطار",
+    color: { text: "#E8383B", border: "#E8383B" },
+  },
+  {
+    value: "danger",
+    label: "بحرانی",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+];
+
+export const serverRoomOptions = Array.from({ length: 15 }, (_, i) => {
+  return { label: `اتاق سرور ${i + 1}`, value: `serverRoom${i + 1}` };
+});
+
+export const sensorTypeOptions = Array.from({ length: 11 }, (_, i) => {
+  return { label: `سنسور نوع ${i + 1}`, value: `sensorType${i + 1}` };
+});
+
+export const unitOptions = Array.from({ length: 7 }, (_, i) => {
+  return { label: `واحد اندازه گیری ${i + 1}`, value: `unit${i + 1}` };
+});
+
+export const notifTypeOptions = Array.from({ length: 10 }, (_, i) => {
+  return { label: `نوع اعلان ${i + 1}`, value: `notifType${i + 1}` };
+});
+
+export const sensorTypeFeatureOptions = Array.from({ length: 8 }, (_, i) => {
+  return { label: `نوع ${i + 1}`, value: `sensorTypeFeature${i + 1}` };
+});
+
+export const notifDurationOptions = Array.from({ length: 4 }, (_, i) => {
+  return { label: `${i + 1} ساعت`, value: `notifDuration${i + 1}` };
+});
+
+export const returnNotifToNormalOptions = Array.from({ length: 6 }, (_, i) => {
+  return { label: `حالت ${i + 1}`, value: `returnNotifToNormal${i + 1}` };
+});
+
+export const recordableChangesOptions = Array.from({ length: 12 }, (_, i) => {
+  return { label: `تغییرات نوع ${i + 1}`, value: `recordableChanges${i + 1}` };
+});
+
+export const minimumRecordOptions = Array.from({ length: 5 }, (_, i) => {
+  return { label: `تعداد ${2 * (i + 1)} ثبت`, value: `minimumRecord${i + 1}` };
+});
+
+export const filterOptions = [
+  "دمای اتاق",
+  "رطوبت اتاق",
+  "دمای رک",
+  "نشتی آب",
+  "وضعیت برق",
+  "دمای کولر",
+  "وضعیت کولر",
+  "اعتبار سیمکارت",
 ];
