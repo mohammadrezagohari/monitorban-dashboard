@@ -1,10 +1,13 @@
 import { Box, styled } from "@mui/material";
 
-export const StyledSensorCard = styled(Box)(() => ({
+export const StyledSensorCard = styled(Box)(({ theme }) => ({
     backgroundColor: "#373040",
     borderRadius: "25px",
     padding: "12px",
-    maxWidth: "250px",
+    [theme.breakpoints.up("md")]: {
+        maxWidth: "250px",
+    },
+    // maxWidth: "250px",
     display: "flex",
     alignItems: "center",
     gap: "4px",

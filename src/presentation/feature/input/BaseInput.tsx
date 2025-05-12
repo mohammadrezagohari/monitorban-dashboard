@@ -15,9 +15,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
 
   return (
     <Box>
-      <StyledLabel variant="body1" mb={2}>
-        {label}
-      </StyledLabel>
+      <StyledLabel variant="body1">{label}</StyledLabel>
       <StyledTextField
         slotProps={{
           input: {
@@ -41,8 +39,10 @@ const BaseInput: React.FC<BaseInputProps> = ({
               typography: "body2",
               padding: 0,
               "& input": {
+                boxSizing: "inherit",
                 padding: "16px 12px",
-                width: "calc(100% - 24px)",
+                width: "100%",
+                height: "100%",
               },
             },
           },
