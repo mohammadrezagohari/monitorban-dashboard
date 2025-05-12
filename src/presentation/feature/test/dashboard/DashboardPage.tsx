@@ -1,13 +1,5 @@
-import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
-import {
-  Box,
-  IconButton,
-  SelectChangeEvent,
-  styled,
-  Typography,
-} from "@mui/material";
-import { useRef, useState } from "react";
-import ButtonSecondaryXxsmallOutlined from "../../buttons/ButtonSecondaryXxsmallOutlined";
+import { Box, IconButton, SelectChangeEvent, Typography } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 import Map from "../Map";
 import ServerRoomCard from "../../server room dashboard card/ServerRoomCard";
 import SensorCard from "../../sensor-card/SensorCard";
@@ -22,39 +14,35 @@ import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRi
 import { ArrowLeftIcon } from "src/presentation/components/common/icons/ArrowLeftIcon";
 import ButtonPrimaryXxsmallOutlined from "../../buttons/ButtonPrimaryXxsmallOutlined";
 import {
-  announceItems,
+  announceItemsInit,
   sensorsItems,
   serverRoomItems,
   usersInfo,
 } from "../data";
 import Statistic from "./Statistic";
 import UserCard from "../../user-card/UserCard";
-
-export const Divider = styled("hr")(({ theme }) => ({
-  border: `1px solid ${theme.palette.text.disabled}`,
-  // display: "block",
-  margin: "8px 0",
-}));
+import CustomSelect1 from "src/presentation/components/common/select/CustomSelect1";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import CustomDivider from "src/presentation/components/common/divider/CustomDivider";
 
 export default function Dashboard() {
+  const [selectValue, setSelectValue] = useState("danger");
   const [status, setStatus] = useState("error");
-
+  const [announceItems, setAnnounceItems] = useState(announceItemsInit);
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
 
-  const color =
-    status === "normal"
-      ? { border: "#0FD36A", textColor: "#0FD36A", text: "نرمال" }
-      : status === "warning"
-      ? { border: "#E8383B", textColor: "#E8383B", text: "اخطار" }
-      : { border: "#E8890C", textColor: "#F5C789", text: "بحرانی" };
+  // function handleChange(val: SelectChangeEvent) {
+  //   setStatus(val.target.value);
+  //   console.log(val);
+  // }
 
-  function handleChange(val: SelectChangeEvent) {
-    setStatus(val.target.value);
-    console.log(val);
-  }
+  useEffect(function () {
+    // for get announce items from API. (setAnnounceItems)
+  }, []);
+
   return (
-    <div>
+    <Box>
       <Box mb={2.5}>
         <Typography variant="h2" color="neutral.main">
           داشبورد
@@ -65,73 +53,88 @@ export default function Dashboard() {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           height: "100%",
-          width: "100%",
-          gap: "24px",
-          marginBottom: "2rem",
+          // width: "100%",
+          // // maxWidth: 350,
+          gap: { md: 3, xs: 2 },
+          marginBottom: { xs: 3, md: 4 },
         }}
       >
         {/* Announcements */}
-        <SectionContainer width={350} height={334}>
-          <HeaderContainer>
-            <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-              اعلانات
-            </Typography>
-
-            <ButtonSecondaryXxsmallOutlined //TODO:: should be changed by Select component
-              leftIcon={<ArrowDownIcon color={color.textColor} size={16} />}
-            >
-              {color.text}
-            </ButtonSecondaryXxsmallOutlined>
-          </HeaderContainer>
-          <MainContainer height="100%">
-            <Box
+        <Box
+          sx={{
+            width: "100%",
+            maxWidth: 350,
+          }}
+        >
+          <SectionContainer width="100%" height={334}>
+            <HeaderContainer>
+              {/* <Typography
+              variant="h3"
+              color="neutral.main"
+              lineHeight={1.6}
               sx={{
-                overflow: "scroll",
-                height: "calc(100% - 55px)",
-                "&::-webkit-scrollbar": { display: "none" },
+                fontSize: { md: 24, xs: 18 },
               }}
             >
-              <ul style={{}}>
-                {announceItems.map((item, index) => (
-                  <>
-                    <li
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                      }}
-                    >
-                      <div
+              اعلانات
+            </Typography> */}
+              <SectionTitle>اعلانات</SectionTitle>
+
+              <Box width={85}>
+                <CustomSelect1
+                  selectValue={selectValue}
+                  setSelectValue={setSelectValue}
+                />
+              </Box>
+            </HeaderContainer>
+            <MainContainer height="100%">
+              <Box
+                sx={{
+                  overflow: "scroll",
+                  height: "calc(100% - 55px)",
+                  "&::-webkit-scrollbar": { display: "none" },
+                }}
+              >
+                <ul style={{}}>
+                  {announceItems.map((item, index) => (
+                    <>
+                      <li
                         style={{
-                          backgroundColor: "#373040",
-                          borderRadius: "50%",
-                          padding: "12px",
-                          width: "48px",
-                          height: "48px",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
                         }}
                       >
-                        {item.icon}
-                      </div>
-                      <div>
-                        <Typography variant="body1" sx={{ color: "#D5D0DB" }}>
-                          {item.name}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: "#B7B0BF" }}>
-                          {item.report}
-                        </Typography>
-                      </div>
-                    </li>
-                    {console.log("index: ", index)}
-                    {console.log("length::", announceItems.length)}
-                    {index !== announceItems.length - 1 && <Divider />}
-                  </>
-                ))}
-              </ul>
-            </Box>
-          </MainContainer>
-        </SectionContainer>
-
+                        <div
+                          style={{
+                            backgroundColor: "#373040",
+                            borderRadius: "50%",
+                            padding: "12px",
+                            width: "48px",
+                            height: "48px",
+                          }}
+                        >
+                          {item.icon}
+                        </div>
+                        <div>
+                          <Typography variant="body1" sx={{ color: "#D5D0DB" }}>
+                            {item.name}
+                          </Typography>
+                          <Typography variant="body2" sx={{ color: "#B7B0BF" }}>
+                            {item.report}
+                          </Typography>
+                        </div>
+                      </li>
+                      {index !== announceItems.length - 1 && <CustomDivider />}
+                    </>
+                  ))}
+                </ul>
+              </Box>
+            </MainContainer>
+          </SectionContainer>
+        </Box>
         {/* </Box> */}
 
         {/* Map */}
@@ -161,9 +164,10 @@ export default function Dashboard() {
       >
         <SectionContainer width="100%" height="100%">
           <HeaderContainer>
-            <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
+            {/* <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
               اتاق سرور ها
-            </Typography>
+            </Typography> */}
+            <SectionTitle>اتاق سرور ها</SectionTitle>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <ButtonPrimaryXxsmallOutlined
                 leftIcon={<ArrowLeftIcon />}
@@ -225,6 +229,7 @@ export default function Dashboard() {
                     city={item.city}
                     sensor={item.sensor}
                     rack={item.rack}
+                    onHandleClick={() => console.log(item)}
                   />
                 </SwiperSlide>
               ))}
@@ -237,230 +242,124 @@ export default function Dashboard() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
           height: "100%",
           width: "100%",
-          gap: "22px",
+          gap: "16px 22px",
           // justifyContent: "space-between",
           marginBottom: "2rem",
         }}
       >
-        <SectionContainer width="100%" height="446px">
-          <HeaderContainer>
-            <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
+        {/* Sensors details */}
+        <Box sx={{ gridRow: "1/3" }}>
+          <SectionContainer width="100%" height="446px">
+            <HeaderContainer>
+              {/* <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
               سنسور ها
-            </Typography>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            </Typography> */}
+              <SectionTitle>سنسورها</SectionTitle>
+
               <ButtonPrimaryXxsmallOutlined
                 leftIcon={<ArrowLeftIcon />}
                 onClick={() => console.log("سنسورها")}
               >
                 مشاهده همه
               </ButtonPrimaryXxsmallOutlined>
-            </div>
-          </HeaderContainer>
-          <MainContainer
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: "1rem",
-              overflow: "scroll",
-              height: "calc(100% - 55px)",
-              "&::-webkit-scrollbar": { display: "none" },
-            }}
-          >
-            {/* <Box
+            </HeaderContainer>
+            <MainContainer
+              sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
+                gap: "1rem",
+                overflow: "scroll",
+                height: "calc(100% - 55px)",
+                "&::-webkit-scrollbar": { display: "none" },
+              }}
+            >
+              {/* <Box
               sx={{
                 overflow: "scroll",
                 height: "calc(100% - 55px)",
                 "&::-webkit-scrollbar": { display: "none" },
               }}
             > */}
-            {sensorsItems.map((item) => (
-              <SensorCard
-                icon={item.icon}
-                title={item.name}
-                normalSensor={item.normalSensor}
-                warningSensor={item.warningSensor}
-                dangerSensor={item.dangerSensor}
-              />
-            ))}
-            {/* </Box> */}
-          </MainContainer>
-        </SectionContainer>
-
-        <div
+              {sensorsItems.map((item) => (
+                <SensorCard
+                  icon={item.icon}
+                  title={item.name}
+                  normalSensor={item.normalSensor}
+                  warningSensor={item.warningSensor}
+                  dangerSensor={item.dangerSensor}
+                />
+              ))}
+              {/* </Box> */}
+            </MainContainer>
+          </SectionContainer>
+        </Box>
+        {/* <div
           style={{
             width: "100%",
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
             gap: "1rem",
           }}
-        >
-          <div style={{ gridColumn: " 1/-1" }}>
-            <SectionContainer width="100%" height={246}>
-              <HeaderContainer>
-                <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-                  آخرین کاربران
-                </Typography>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <ButtonPrimaryXxsmallOutlined
-                    leftIcon={<ArrowLeftIcon />}
-                    onClick={() => console.log("آخرین کاربران")}
-                  >
-                    مشاهده همه
-                  </ButtonPrimaryXxsmallOutlined>
-                </div>
-              </HeaderContainer>
-              <MainContainer
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2, 1fr)",
-                  gap: "1rem",
-                  overflow: "scroll",
-                  height: "calc(100% - 55px)",
-                  "&::-webkit-scrollbar": { display: "none" },
-                }}
+        > */}
+        {/* Latest Users */}
+        <Box>
+          <SectionContainer width="100%" height={246}>
+            <HeaderContainer>
+              <SectionTitle>آخرین کاربران</SectionTitle>
+
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}
               >
-                {/* <Box
+                <ButtonPrimaryXxsmallOutlined
+                  leftIcon={<ArrowLeftIcon />}
+                  onClick={() => console.log("آخرین کاربران")}
+                >
+                  مشاهده همه
+                </ButtonPrimaryXxsmallOutlined>
+              </div>
+            </HeaderContainer>
+            <MainContainer
+              sx={{
+                display: "grid",
+                gridTemplateColumns: { md: "repeat(2, 1fr)" },
+                gap: "1rem",
+                overflow: "scroll",
+                height: "calc(100% - 55px)",
+                "&::-webkit-scrollbar": { display: "none" },
+              }}
+            >
+              {/* <Box
               sx={{
                 overflow: "scroll",
                 height: "calc(100% - 55px)",
                 "&::-webkit-scrollbar": { display: "none" },
               }}
             > */}
-                {usersInfo.map((item) => (
-                  <UserCard
-                    avatar={item.image}
-                    fullName={item.fullName}
-                    position={item.position}
-                  />
-                ))}
-                {/* </Box> */}
-              </MainContainer>
-            </SectionContainer>
-          </div>
-
-          {/* <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              padding: "1rem",
-              backgroundColor: "#1C1926",
-              borderRadius: "25px",
-            }}
-          >
-            <Typography variant="h3">سنسور</Typography>
-            <Typography variant="h1">145</Typography>
-            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-              <ArrowUpIcon color="#D5D0DB" />
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "2px" }}
-              >
-                <Typography variant="body2" color="#0FD36A">
-                  +3
-                </Typography>
-                <Typography variant="body2" color="#B7B0BF">
-                  اضافه شده
-                </Typography>
-              </div>
-            </div>
-          </div> */}
-          {/* <SectionContainer width="100%" height={184}>
-            <HeaderContainer>
-              <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-                سنسور
-              </Typography>
-            </HeaderContainer>
-            <MainContainer>
-              <Typography variant="h1" color="#C480FF" lineHeight={1.6}>
-                145
-              </Typography>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "4px" }}
-              >
-                <ArrowUpIcon color="#D5D0DB" />
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2px",
-                  }}
-                >
-                  <Typography variant="body2" color="#0FD36A">
-                    +3
-                  </Typography>
-                  <Typography variant="body2" color="#B7B0BF">
-                    اضافه شده
-                  </Typography>
-                </div>
-              </div>
+              {usersInfo.map((item) => (
+                <UserCard
+                  avatar={item.image}
+                  fullName={item.fullName}
+                  position={item.position}
+                />
+              ))}
+              {/* </Box> */}
             </MainContainer>
           </SectionContainer>
-          <SectionContainer width="100%" height={184}>
-            <HeaderContainer>
-              <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-                کاربر
-              </Typography>
-            </HeaderContainer>
-            <MainContainer>
-              <Typography variant="h1" color="#C480FF" lineHeight={1.6}>
-                31
-              </Typography>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "4px" }}
-              >
-                <ArrowDownIcon color="#D5D0DB" />
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2px",
-                  }}
-                >
-                  <Typography variant="body2" color="#E8383B">
-                    -5
-                  </Typography>
-                  <Typography variant="body2" color="#B7B0BF">
-                    کم شده
-                  </Typography>
-                </div>
-              </div>
-            </MainContainer>
-          </SectionContainer> */}
-          {/* <SectionContainer width="100%" height={184}>
-            <HeaderContainer>
-              <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-                اتاق سرور
-              </Typography>
-            </HeaderContainer>
-            <MainContainer>
-              <Typography variant="h1" color="#C480FF" lineHeight={1.6}>
-                12
-              </Typography>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "4px" }}
-              >
-                <ArrowUpIcon color="#D5D0DB" />
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2px",
-                  }}
-                >
-                  <Typography variant="body2" color="#0FD36A">
-                    +3
-                  </Typography>
-                  <Typography variant="body2" color="#B7B0BF">
-                    اضافه شده
-                  </Typography>
-                </div>
-              </div>
-            </MainContainer>
-          </SectionContainer> */}
+        </Box>
+
+        {/* Statistic */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: { xs: 1.5, md: 2 },
+          }}
+        >
           <Statistic
             title="سنسور"
             value={145}
@@ -479,7 +378,8 @@ export default function Dashboard() {
             isIncrese={true}
             diferentValue={3}
           />
-        </div>
+        </Box>
+        {/* </div> */}
       </Box>
 
       {/* <Box margin="20px 0">
@@ -501,6 +401,6 @@ export default function Dashboard() {
         />
       </div> */}
       {/* <div style={{ backgroundColor: "orange" }}>text</div> */}
-    </div>
+    </Box>
   );
 }
