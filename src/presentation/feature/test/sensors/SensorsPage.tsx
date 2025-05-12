@@ -1,23 +1,21 @@
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   Box,
+  Button,
   ClickAwayListener,
   Grow,
-  MenuItem,
-  OutlinedInput,
+  IconButton,
   Paper,
   Popper,
-  Select,
-  styled,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sensorsData } from "../data";
-import SensorCard from "../../sensor-card/SensorCard";
 import { DashboardIcon } from "src/presentation/components/common/icons/DashboardIcon";
 import SensorCategoryCard from "../../sensor category card/SensorCategoryCard";
 import ButtonPrimaryLargeOutlined from "../../buttons/ButtonPrimaryLargeOutlined";
@@ -25,14 +23,15 @@ import { FilterIcon } from "src/presentation/components/common/icons/ّFilterIco
 import { ArrowDownIcon } from "src/presentation/components/common/icons/ArrowDownIcon";
 import ButtonPrimarySmallFilled from "../../buttons/ButtonPrimarySmallFilled";
 import ButtonPrimarySmallOutlined from "../../buttons/ButtonPrimarySmallOutlined";
-import { Divider } from "src/presentation/components/common/divider/CustomDivider.style";
 import { ArrowUpIcon } from "src/presentation/components/common/icons/ArrowUpIcon";
 import CheckBoxInput from "../../checkbox-input-group/CheckBoxInput";
-import SensorSituationCard from "../../sensor situation card/SensorSituationCard";
 import TemperatureCard from "../../temperature card/TemperatureCard";
 import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
 import { FilterSquareIcon } from "src/presentation/components/common/icons/ّFilterSquareIcon";
 import { PlusIcon } from "src/presentation/components/common/icons/PlusIcon";
+import { useNavigate } from "react-router-dom";
+import theme from "src/themes/theme";
+import ButtonPrimaryXxsmallOutlined from "../../buttons/ButtonPrimaryXxsmallOutlined";
 
 // const StyledSelect = styled(Select)(() => ({
 //   "& .MuiOutlinedInput-input": {
@@ -105,14 +104,24 @@ const filterOptions: FilterOption[] = [
 ];
 
 export default function SensorsPage() {
-  const [selectValue, setSelectValue] = useState("");
+  // const [selectValue, setSelectValue] = useState("");
   const [sensorsList, setSensorsList] = useState(sensorsData);
-  const [sortBy, setSortBy] = useState("server-room");
+  const [sortBy, setSortBy] = useState("server-room"); // برای بخش فیلتر که دیتا را براساس گزینه های انتخابی کاربر فیلتر و نمایش دهد
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [selectedCenter, setSelectedCenter] = useState<
     (typeof sensorsData)[number] | null
   >(null);
+  const anchorRef = useRef<HTMLButtonElement>(null);
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const navigate = useNavigate();
+
+  const handleAddSensorBtn = () => {
+    navigate("/test/add-new-sensor");
+  };
 
   const handleFilterButton = () => {
     setIsFilterOpen((prev) => !prev);
@@ -129,10 +138,15 @@ export default function SensorsPage() {
     console.log("center:: ", center);
   };
 
-  console.log("sensorsList:: ", sensorsList);
+  // console.log("sensorsList:: ", sensorsList);
+
+  useEffect(function () {
+    // for get each sensors detail from API. (setSensorsList)
+  }, []);
 
   return (
     <div>
+      {/* TODO:: should be create a component for page title. */}
       <Box mb={2.5}>
         <Typography variant="h2" color="neutral.main">
           {selectedCenter ? selectedCenter.centerName : "سنسورها"}
@@ -168,7 +182,19 @@ export default function SensorsPage() {
             {!selectedCenter ? (
               <>
                 <Box sx={{ mb: 2, position: "relative" }}>
-                  <ButtonPrimaryLargeOutlined
+                  <Button
+                    variant="outlined"
+                    endIcon={isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                    sx={{
+                      padding: "8px 20px",
+                    }}
+                    onClick={handleFilterButton}
+                    ref={anchorRef}
+                  >
+                    Filter
+                  </Button>
+                  {/* <ButtonPrimaryLargeOutlined
+                    ref={anchorRef}
                     onClick={handleFilterButton}
                     leftIcon={
                       isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
@@ -176,9 +202,10 @@ export default function SensorsPage() {
                     rightIcon={<FilterIcon />}
                   >
                     فیلتر
-                  </ButtonPrimaryLargeOutlined>
+                  </ButtonPrimaryLargeOutlined> */}
                   {isFilterOpen && (
                     <Filter
+                      anchorRef={anchorRef}
                       options={filterOptions}
                       selectedOptions={selectedOptions}
                       onChange={setSelectedOptions}
@@ -196,7 +223,7 @@ export default function SensorsPage() {
                     gridTemplateColumns: {
                       xl: "repeat(4, 1fr)",
                       lg: "repeat(3, 1fr)",
-                      md: "repeat(2, 1fr)",
+                      sm: "repeat(2, 1fr)",
                     },
                     gap: 2,
                     justifyItems: "center",
@@ -238,37 +265,86 @@ export default function SensorsPage() {
                       justifyContent: "space-between",
                     }}
                   >
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <ButtonPrimaryLargeOutlined
-                        onClick={handleFilterButton}
-                        leftIcon={
-                          isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
-                        }
-                        rightIcon={<FilterIcon />}
-                      >
-                        فیلتر
-                      </ButtonPrimaryLargeOutlined>
-                      <ButtonPrimaryLargeOutlined
-                        onClick={() => console.log("sort button clicked")}
-                        leftIcon={
-                          isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
-                        }
-                        rightIcon={<FilterSquareIcon />}
-                      >
-                        مرتب سازی
-                      </ButtonPrimaryLargeOutlined>
-                    </Box>
-                    <ButtonPrimaryLargeOutlined
-                      onClick={() => console.log("add button clicked")}
-                      rightIcon={<PlusIcon />}
-                    >
-                      افزودن سنسور جدید
-                    </ButtonPrimaryLargeOutlined>
+                    {isDesktop ? (
+                      <>
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 2 }}
+                        >
+                          <ButtonPrimaryLargeOutlined
+                            ref={anchorRef}
+                            onClick={handleFilterButton}
+                            leftIcon={
+                              isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                            }
+                            rightIcon={<FilterIcon />}
+                          >
+                            فیلتر
+                          </ButtonPrimaryLargeOutlined>
+                          <ButtonPrimaryLargeOutlined
+                            onClick={() => console.log("sort button clicked")}
+                            leftIcon={
+                              isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                            }
+                            rightIcon={<FilterSquareIcon />}
+                          >
+                            مرتب سازی
+                          </ButtonPrimaryLargeOutlined>
+                        </Box>
+
+                        <ButtonPrimaryLargeOutlined
+                          // onClick={() => console.log("add button clicked")}
+                          onClick={handleAddSensorBtn}
+                          rightIcon={<PlusIcon />}
+                        >
+                          افزودن سنسور جدید
+                        </ButtonPrimaryLargeOutlined>
+                      </>
+                    ) : (
+                      <>
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 2 }}
+                        >
+                          <ButtonPrimaryXxsmallOutlined
+                            ref={anchorRef}
+                            onClick={handleFilterButton}
+                            leftIcon={
+                              isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                            }
+                            rightIcon={<FilterIcon />}
+                          >
+                            فیلتر
+                          </ButtonPrimaryXxsmallOutlined>
+                          <ButtonPrimaryXxsmallOutlined
+                            onClick={() => console.log("sort button clicked")}
+                            leftIcon={
+                              isSortOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                            }
+                            rightIcon={<FilterSquareIcon />}
+                          >
+                            مرتب سازی
+                          </ButtonPrimaryXxsmallOutlined>
+                        </Box>
+
+                        <IconButton
+                          sx={{
+                            border: `1px solid ${theme.palette.primary.dark}`,
+                            borderRadius: "10px",
+                          }}
+                          onClick={handleAddSensorBtn}
+                        >
+                          <PlusIcon
+                            color={theme.palette.primary.dark}
+                            size={16}
+                          />
+                        </IconButton>
+                      </>
+                    )}
                   </Box>
                   <button onClick={() => handleShowSensors(null)}>Back</button>
 
                   {isFilterOpen && (
                     <Filter
+                      anchorRef={anchorRef}
                       options={filterOptions}
                       selectedOptions={selectedOptions}
                       onChange={setSelectedOptions}
@@ -286,14 +362,15 @@ export default function SensorsPage() {
                     gridTemplateColumns: {
                       xl: "repeat(4, 1fr)",
                       lg: "repeat(3, 1fr)",
-                      md: "repeat(2, 1fr)",
+                      sm: "repeat(2, 1fr)",
                     },
                     gap: 2,
                     justifyItems: "center",
                   }}
                 >
-                  {selectedCenter.sensors.map((sensor) => (
+                  {selectedCenter.sensors.map((sensor, index) => (
                     <TemperatureCard
+                      key={index}
                       status={sensor.status}
                       name={sensor.name}
                       icon={<MobileIcon />}
@@ -332,9 +409,8 @@ const Filter: React.FC<FilterPopoverProps> = ({
   onChange,
   onApply,
   onClose,
+  anchorRef,
 }) => {
-  const anchorRef = useRef<HTMLButtonElement>(null);
-
   const handleToggle = (value: string) => {
     const currentIndex = selectedOptions.indexOf(value);
     const newSelected = [...selectedOptions];
@@ -389,6 +465,7 @@ const Filter: React.FC<FilterPopoverProps> = ({
       transition
       placement="bottom-start"
       disablePortal
+      // sx={{ position: "absolute" }}
     >
       {({ TransitionProps }) => (
         <Grow {...TransitionProps}>
@@ -397,7 +474,7 @@ const Filter: React.FC<FilterPopoverProps> = ({
               mt: 1,
               p: 2,
               borderRadius: "12px",
-              bgcolor: "#2b2b2b",
+              bgcolor: "#373040",
               color: "neutral.main",
               width: 300,
             }}
