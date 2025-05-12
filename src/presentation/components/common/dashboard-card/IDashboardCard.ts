@@ -14,10 +14,10 @@ export interface CardContainerProps {
     theme?: Theme;
 }
 
-export interface IconWrapperProps {
-    bgcolor?: string,
-    size?: number,
-}
+// export interface IconWrapperProps {
+//     bgcolor?: string,
+//     size?: number,
+// }
 
 export interface TextProps {
     color?: string,

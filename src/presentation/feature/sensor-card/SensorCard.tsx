@@ -1,11 +1,11 @@
 import {
-  IconWrapper,
   Text,
   TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { Box } from "@mui/material";
 import { StyledSensorCard } from "./SensorCard.style";
 import { SensorCardProps } from "./ISensorCard";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
 const SensorCard: React.FC<SensorCardProps> = ({
   icon,

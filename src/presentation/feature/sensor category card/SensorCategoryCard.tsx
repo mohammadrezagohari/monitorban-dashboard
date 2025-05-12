@@ -4,11 +4,11 @@ import { SensorCategoryCardProps } from "./ISensorCategoryCard";
 import { LeftArrowIcon } from "src/presentation/components/common/icons/LeftArrow";
 import {
   DataContainer,
-  IconWrapper,
   Text,
   TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { Box, IconButton } from "@mui/material";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
 const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
   icon,

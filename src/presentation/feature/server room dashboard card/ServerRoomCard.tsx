@@ -1,14 +1,14 @@
 import React from "react";
 import {
-  IconWrapper,
   StatsContainer,
   Text,
   TextSpan,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { ServerRoomCardProps } from "./IServerRoomCard";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { BulletIcon } from "src/presentation/components/common/icons/Bullet";
+import { BulletIcon } from "src/presentation/components/common/icons/BulletIcon";
 import { Box } from "@mui/material";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
 const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
   title,
@@ -38,11 +38,11 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
       bottomContent={
         <StatsContainer>
           <Text color="neutral.200" variant="body2">
-            <BulletIcon fill="#C480FF" size={12} />
+            <BulletIcon color="#C480FF" size={12} />
             {rack} رک
           </Text>
           <Text color="neutral.200" variant="body2">
-            <BulletIcon fill="#F6B155" size={12} />
+            <BulletIcon color="#F6B155" size={12} />
             {sensor} سنسور
           </Text>
         </StatsContainer>

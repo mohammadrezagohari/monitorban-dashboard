@@ -13,11 +13,14 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
 export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ status, theme }) => ({
 
     autoComplete: "off",
+    // height: 48,
     "&.MuiFormControl-root": {
         width: "100%"
     },
     "& .MuiInputBase-root": {
-        display: "block"
+        display: "block",
+        height: 48,
+
     },
     "& input:-webkit-autofill": {
         boxShadow: "0 0 0 1000px #1e1e2d inset",
@@ -74,10 +77,10 @@ export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>((
     }
 }))
 
-export const IconWrraper = styled("div")(() => ({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: "24px",
-    height: "24px",
-}))
+// export const IconWrraper = styled("div")(() => ({
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     width: "24px",
+//     height: "24px",
+// }))

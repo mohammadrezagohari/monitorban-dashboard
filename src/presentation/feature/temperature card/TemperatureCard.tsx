@@ -1,14 +1,14 @@
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { BulletIcon } from "src/presentation/components/common/icons/Bullet";
+import { BulletIcon } from "src/presentation/components/common/icons/BulletIcon";
 import {
   DataContainer,
   getStatusColors,
-  IconWrapper,
   Text,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { IncrementIcon } from "src/presentation/components/common/icons/IncrementIcon";
 import { DecrementIcon } from "src/presentation/components/common/icons/DecrementIcon";
 import { TemperatureCardProps } from "./ITemperatureCard";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
 const TemperatureCard: React.FC<TemperatureCardProps> = ({
   status = "default", // default, accept, warning, danger
@@ -47,9 +47,7 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
             <IconWrapper bgcolor={iconBgColor}>{icon}</IconWrapper>
             {name}:
           </Text>
-          <Text color={textColor}>
-            {percentData}%
-          </Text>
+          <Text color={textColor}>{percentData}%</Text>
         </DataContainer>
       }
       bottomContent={

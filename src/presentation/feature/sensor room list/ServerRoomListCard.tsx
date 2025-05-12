@@ -1,11 +1,9 @@
-import {
-  IconWrapper,
-  Text,
-} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { ServerRoomListProps } from "./IServerRoomListCard";
 import { getServerRoomListCardStatus } from "./ServerRoomListCard.style";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 // import ButtonErrorSmallOutlined from "../buttons/ButtonErrorSmallOutlined";
 // import ButtonPrimarySmallOutlined from "../buttons/ButtonPrimarySmallOutlined";
 

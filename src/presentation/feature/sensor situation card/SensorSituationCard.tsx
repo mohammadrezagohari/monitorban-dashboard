@@ -1,12 +1,12 @@
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
 import { SensorSituationCardProps } from "./ISensorSituationCard";
-import { BulletIcon } from "src/presentation/components/common/icons/Bullet";
+import { BulletIcon } from "src/presentation/components/common/icons/BulletIcon";
 import {
   DataContainer,
   getStatusColors,
-  IconWrapper,
   Text,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
 const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
   status = "default", // default, accept, warning, danger
