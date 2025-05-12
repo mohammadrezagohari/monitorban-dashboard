@@ -126,7 +126,7 @@ const theme = createTheme({
             disabled: '#5B5266', //
         },
         background: {
-            default: '#0B1437', // رنگ پس‌زمینه اصلی (بنفش)
+            default: '#0E0C15', // رنگ پس‌زمینه اصلی (بنفش)
             paper: '#ffffff', // رنگ پس‌زمینه دوم (سفید)
         },
     },
