@@ -1,6 +1,7 @@
 import React from "react";
 import { IDashboardCardProps } from "./IDashboardCard";
-import { CardContainer, Divider } from "./BaseDashboardCard.style";
+import { CardContainer } from "./BaseDashboardCard.style";
+import CustomDivider from "../divider/CustomDivider";
 
 const BaseDashboardCard: React.FC<IDashboardCardProps> = ({
   topContent,
@@ -12,7 +13,7 @@ const BaseDashboardCard: React.FC<IDashboardCardProps> = ({
   return (
     <CardContainer maxWidth={width} width="100%" onClick={onHandleClick}>
       {topContent}
-      {divider && <Divider />}
+      {divider && <CustomDivider />}
       {bottomContent}
     </CardContainer>
   );

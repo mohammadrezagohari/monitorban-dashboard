@@ -1,7 +1,7 @@
-import { Divider } from "./CustomDivider.style";
+import { StyledDivider } from "./CustomDivider.style";
 
 const CustomDivider = () => {
-  return <Divider />;
+  return <StyledDivider />;
 };
 
 export default CustomDivider;

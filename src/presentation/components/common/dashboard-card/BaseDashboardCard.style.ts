@@ -1,11 +1,10 @@
 import { Box, styled, Typography } from "@mui/material";
-import { CardContainerProps, IColors, IconWrapperProps, TextProps } from "./IDashboardCard";
+import { CardContainerProps, IColors, TextProps } from "./IDashboardCard";
 
 export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) => ({
     backgroundColor: theme.palette.neutral[600],
     display: "flex",
     flexDirection: "column",
-    gap: "0.5rem",
     borderRadius: "16px",
     padding: "16px",
     width: width,
@@ -28,9 +27,7 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
 //     flexShrink: 0,
 // }))
 
-export const Divider = styled("hr")(({ theme }) => ({
-    border: `1px solid ${theme.palette.text.disabled}`
-}))
+
 
 export const StatsContainer = styled(Box)(() => ({
     display: "flex",

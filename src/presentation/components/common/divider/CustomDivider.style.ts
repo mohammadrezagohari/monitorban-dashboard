@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-export const Divider = styled("hr")(({ theme }) => ({
+export const StyledDivider = styled("hr")(({ theme }) => ({
     border: `1px solid ${theme.palette.text.disabled}`,
-    marginBlock: 1
+    marginBlock: 8,
 }))
