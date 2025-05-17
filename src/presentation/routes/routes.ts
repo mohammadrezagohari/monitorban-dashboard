@@ -6,7 +6,7 @@ import Sensors from '../feature/test/sensors/SensorsPage';
 import Dashboard from '../feature/test/dashboard/DashboardPage';
 import ServerRoom from '../feature/test/ServerRoomPage';
 import Reports from '../feature/test/ReportsPage';
-import UserManagment from '../feature/test/UserManagmentPage';
+import UserManagement from '../feature/test/UserManagementPage';
 import Educations from '../feature/test/EducationsPage';
 import Support from '../feature/test/SupportPage';
 import Test from '../feature/test/testPage';
@@ -14,7 +14,7 @@ import LoginPage from '../feature/login/LoginWithOTP';
 import { LoginPage2 } from '../pages/auth/Login';
 import CitySensorsInfo from '../feature/test/dashboard/CityServersInfo';
 import AddNewSensor from '../feature/test/sensors/AddNewSensor';
-import ContentManagment from '../feature/test/ContentManagmentPage';
+import ContentManagement from '../feature/test/ContentManagementPage';
 
 export const routes = [
     {
@@ -58,8 +58,8 @@ export const routes = [
                 component: Reports,
             },
             {
-                path: "user-managment",
-                component: UserManagment,
+                path: "user-management",
+                component: UserManagement,
             },
             {
                 path: "educations",
@@ -70,8 +70,8 @@ export const routes = [
                 component: Support,
             },
             {
-                path: "content-managment",
-                component: ContentManagment,
+                path: "content-management",
+                component: ContentManagement,
             },
         ]
     },

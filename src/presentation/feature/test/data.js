@@ -290,7 +290,7 @@ export const navItems = [
   {
     label: "مدیریت کاربران",
     icon: <UsersIcon color={theme.palette.neutral[500]} />,
-    href: "/test/user-managment",
+    href: "/test/user-management",
   },
   {
     label: "آموزش ها",
@@ -305,7 +305,7 @@ export const navItems = [
   {
     label: "مدیرت محتوا",
     icon: <SettingIcon color={theme.palette.neutral[500]} />,
-    href: "/test/content-managment",
+    href: "/test/content-management",
   },
 ];
 
