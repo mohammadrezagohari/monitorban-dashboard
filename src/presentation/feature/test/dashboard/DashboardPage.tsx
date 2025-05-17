@@ -36,6 +36,7 @@ import SectionTitle from "src/presentation/components/common/section-title/Secti
 import CustomDivider from "src/presentation/components/common/divider/CustomDivider";
 import { Eye } from "src/presentation/components/common/icons/Eye";
 import BarChartjs from "./BarChartjs";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 
 export default function Dashboard() {
   const [selectValue, setSelectValue] = useState("danger");
@@ -59,10 +60,8 @@ export default function Dashboard() {
 
   return (
     <Box>
-      <Box mb={2.5}>
-        <Typography variant="h2" color="neutral.main">
-          داشبورد
-        </Typography>
+      <Box mb={2}>
+        <PageTitle>داشبورد</PageTitle>
       </Box>
 
       {/* اعلانات و نقشه */}

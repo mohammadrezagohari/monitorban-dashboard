@@ -27,6 +27,7 @@ import { IconWrapper } from "src/presentation/components/common/icons/IconWrappe
 import { HouseIcon } from "src/presentation/components/common/icons/HouseIcon";
 import { DeleteIcon } from "src/presentation/components/common/icons/DeleteIcon";
 import { initialSensorState, sensorFormReducer } from "./SensorReducerFunction";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 
 const AddNewSensor = () => {
   // const [serverRoomValue, setServerRoomValue] = useState("");
@@ -57,19 +58,11 @@ const AddNewSensor = () => {
           flexDirection: { xs: "column", sm: "row" },
           alignItems: { md: "center" },
           justifyContent: "space-between",
-          mb: 2.5,
+          mb: 2,
           gap: 2,
         }}
       >
-        <Typography
-          variant="h2"
-          color="neutral.main"
-          sx={{
-            fontSize: { xs: 24, md: 32 },
-          }}
-        >
-          افزودن سنسور جدید
-        </Typography>
+        <PageTitle>افزودن سنسور جدید</PageTitle>
         {isDesktop ? (
           <Box
             sx={{

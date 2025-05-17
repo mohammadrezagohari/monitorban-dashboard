@@ -34,6 +34,7 @@ import theme from "src/themes/theme";
 import ButtonPrimaryXxsmallOutlined from "../../buttons/ButtonPrimaryXxsmallOutlined";
 import CustomDivider from "src/presentation/components/common/divider/CustomDivider";
 import FormSelect from "src/presentation/components/common/select/FormSelect";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 
 // const StyledSelect = styled(Select)(() => ({
 //   "& .MuiOutlinedInput-input": {
@@ -149,10 +150,10 @@ export default function SensorsPage() {
   return (
     <div>
       {/* TODO:: should be create a component for page title. */}
-      <Box mb={2.5}>
-        <Typography variant="h2" color="neutral.main">
+      <Box mb={2}>
+        <PageTitle>
           {selectedCenter ? selectedCenter.centerName : "سنسورها"}
-        </Typography>
+        </PageTitle>
       </Box>
       <Box>
         <SectionContainer>

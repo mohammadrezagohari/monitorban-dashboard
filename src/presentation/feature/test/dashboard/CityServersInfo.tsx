@@ -6,6 +6,8 @@ import {
 import { Box, Typography } from "@mui/material";
 import SensorSituationCard from "../../sensor situation card/SensorSituationCard";
 import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 
 const sensors = [
   {
@@ -217,12 +219,14 @@ const amolServers = [
   },
 ];
 
-const CityServersInfo = ({ city, servers }: { city: string }) => {
+const CityServersInfo = ({ city = "ساری", servers }: { city: string }) => {
   return (
     <Box>
-      <Typography variant="h2" color="neutral.main" marginBottom="1rem">
-        اطلاعات سنسور شهر <span>{city}</span>
-      </Typography>
+      <Box mb={2}>
+        <PageTitle>
+          اطلاعات سنسور شهر <span>{city}</span>
+        </PageTitle>
+      </Box>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         {amolServers.map((server) => (
           <SectionContainer>
