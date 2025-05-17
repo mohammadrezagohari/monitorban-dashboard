@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 
-export default function Settings() {
+export default function ContentManagment() {
   return (
     <div>
       <Typography variant="h2" color="neutral.main">
-        تنظیمات
+        مدیریت محتوا
       </Typography>
     </div>
   );

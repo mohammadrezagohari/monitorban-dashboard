@@ -217,11 +217,11 @@ const amolServers = [
   },
 ];
 
-const CitySensorsInfo: React.FC = () => {
+const CityServersInfo = ({ city, servers }: { city: string }) => {
   return (
     <Box>
       <Typography variant="h2" color="neutral.main" marginBottom="1rem">
-        اطلاعات سنسور شهر آمل
+        اطلاعات سنسور شهر <span>{city}</span>
       </Typography>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         {amolServers.map((server) => (
@@ -258,4 +258,4 @@ const CitySensorsInfo: React.FC = () => {
   );
 };
 
-export default CitySensorsInfo;
+export default CityServersInfo;
