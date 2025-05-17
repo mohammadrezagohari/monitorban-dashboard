@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-const MyChartjs = () => {
+const BarChartjs = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const BarChartData = {
@@ -76,4 +76,4 @@ const MyChartjs = () => {
   );
 };
 
-export default MyChartjs;
+export default BarChartjs;
