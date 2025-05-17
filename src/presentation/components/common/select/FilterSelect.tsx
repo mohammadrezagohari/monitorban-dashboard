@@ -1,12 +1,24 @@
-import { annouceSelectOptions } from "src/presentation/feature/test/data";
 import BaseSelect from "./BaseSelect";
+import { Option } from "./IBaseSelect";
+import { SelectChangeEvent } from "@mui/material";
 
-const CustomSelect1 = ({ selectValue, setSelectValue }) => {
+const FilterSelect = ({
+  value,
+  setValue,
+  options,
+}: {
+  value: string;
+  options: Option[];
+  setValue: (val: string) => void;
+}) => {
+  function handleSelectChange(e: SelectChangeEvent) {
+    setValue(e.target.value);
+  }
   return (
     <BaseSelect
-      value={selectValue}
-      onChange={(val: string) => setSelectValue(val)}
-      options={annouceSelectOptions}
+      value={value}
+      onChange={handleSelectChange}
+      options={options}
       sx={{
         // mt: 2,
         // mb: 1,
@@ -41,4 +53,4 @@ const CustomSelect1 = ({ selectValue, setSelectValue }) => {
   );
 };
 
-export default CustomSelect1;
+export default FilterSelect;

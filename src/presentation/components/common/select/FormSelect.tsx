@@ -1,17 +1,17 @@
 import { SelectChangeEvent } from "@mui/material";
 import BaseSelect from "./BaseSelect";
 
-const CustomSelect2 = ({
+const FormSelect = ({
+  options,
   value,
-  onChange,
-  serverRoomOptions,
   label,
   placeholder,
+  onChange,
 }: {
   value: string;
   label: string;
-  placeholder: string;
-  serverRoomOptions: { label: string; value: string }[];
+  placeholder?: string;
+  options: { label: string; value: string }[];
   onChange: (event: SelectChangeEvent) => void;
 }) => {
   return (
@@ -20,7 +20,7 @@ const CustomSelect2 = ({
       value={value}
       placeholder={placeholder}
       onChange={onChange}
-      options={serverRoomOptions}
+      options={options}
       sx={{
         typography: "body2",
         "& .MuiOutlinedInput-notchedOutline": {
@@ -50,4 +50,4 @@ const CustomSelect2 = ({
   );
 };
 
-export default CustomSelect2;
+export default FormSelect;
