@@ -11,6 +11,8 @@ const RadioInputGroup: React.FC<RadioInputGroupProps> = ({
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
+  //  console.log(state);
+    
   };
   return (
     <FormControl>

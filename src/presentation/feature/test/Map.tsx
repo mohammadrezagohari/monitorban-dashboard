@@ -23,7 +23,7 @@ export default function Map() {
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* <a xlink:href="#" xlink:title="ساری" onclick="ShowCitinfo(1);"> */}
-        <Link onClick={() => console.log("sari")} to="">
+        <Link onClick={() => console.log("sari")} to="CitySensorsInfo">
           <path
             // class="path-city path-city-g1"
             id="map1"
@@ -31,6 +31,8 @@ export default function Map() {
             strokeWidth="5.2631578947368425"
             strokeOpacity="1"
             transform="matrix(0.38,0,0,0.38,0,0)"
+            stroke="#0FD36A"
+            fill="#0FD36A"
           ></path>
         </Link>
         {/* </a> */}

@@ -92,15 +92,15 @@ import { LogoIcon } from "src/presentation/components/common/icons/LogoIcon";
 
 export default function Test() {
   const theme = useTheme();
-  const [pageIndex, setPageIndex] = useState(0);
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const [pageIndex, setPageIndex] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((open) => !open);
   };
 
-  const handleMenuClick = (index) => {
+  const handleMenuClick = (index: number) => {
     setPageIndex(index);
     setMobileOpen(false);
   };

@@ -32,6 +32,8 @@ import { PlusIcon } from "src/presentation/components/common/icons/PlusIcon";
 import { useNavigate } from "react-router-dom";
 import theme from "src/themes/theme";
 import ButtonPrimaryXxsmallOutlined from "../../buttons/ButtonPrimaryXxsmallOutlined";
+import CustomDivider from "src/presentation/components/common/divider/CustomDivider";
+import FormSelect from "src/presentation/components/common/select/FormSelect";
 
 // const StyledSelect = styled(Select)(() => ({
 //   "& .MuiOutlinedInput-input": {
@@ -283,7 +285,7 @@ export default function SensorsPage() {
                           <ButtonPrimaryLargeOutlined
                             onClick={() => console.log("sort button clicked")}
                             leftIcon={
-                              isFilterOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
+                              isSortOpen ? <ArrowUpIcon /> : <ArrowDownIcon />
                             }
                             rightIcon={<FilterSquareIcon />}
                           >
@@ -411,6 +413,8 @@ const Filter: React.FC<FilterPopoverProps> = ({
   onClose,
   anchorRef,
 }) => {
+  const [filterSelectValue, setFilterSelectValue] = useState("");
+
   const handleToggle = (value: string) => {
     const currentIndex = selectedOptions.indexOf(value);
     const newSelected = [...selectedOptions];
@@ -481,8 +485,18 @@ const Filter: React.FC<FilterPopoverProps> = ({
           >
             <ClickAwayListener onClickAway={onClose}>
               <Box>
-                <Typography variant="h3">فیلتر</Typography>
+                <Typography component="h5" variant="h3" mb={2}>
+                  فیلتر
+                </Typography>
                 <Box>
+                  <FormSelect
+                    label="بر اساس نوع"
+                    options={filterOptions}
+                    value={filterSelectValue}
+                    onChange={(e) => setFilterSelectValue(e.target.value)}
+                    MenuProps={{ disablePortal: true }}
+                  />
+                  <CustomDivider />
                   <CheckBoxInput
                     options={options}
                     label="بر اساس مرکز :"

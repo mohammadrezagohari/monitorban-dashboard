@@ -10,7 +10,7 @@ import {
 } from "src/presentation/components/common/section-container/SectionContainer.style";
 import BaseInput from "../../input/BaseInput";
 import { useReducer } from "react";
-import CustomSelect2 from "src/presentation/components/common/select/CustomSelect2";
+import FormSelect from "src/presentation/components/common/select/FormSelect";
 import {
   minimumRecordOptions,
   notifDurationOptions,
@@ -27,8 +27,6 @@ import { IconWrapper } from "src/presentation/components/common/icons/IconWrappe
 import { HouseIcon } from "src/presentation/components/common/icons/HouseIcon";
 import { DeleteIcon } from "src/presentation/components/common/icons/DeleteIcon";
 import { initialSensorState, sensorFormReducer } from "./SensorReducerFunction";
-
-
 
 const AddNewSensor = () => {
   // const [serverRoomValue, setServerRoomValue] = useState("");
@@ -135,22 +133,22 @@ const AddNewSensor = () => {
                 }
               />
 
-              <CustomSelect2
+              <FormSelect
                 label="اتاق سرور"
                 value={state.server_room}
                 onChange={(e) =>
                   dispatch({ type: "SET_SERVER_ROOM", payload: e.target.value })
                 }
-                serverRoomOptions={serverRoomOptions}
+                options={serverRoomOptions}
                 placeholder="یک اتاق سرور را انتخاب کنید"
               />
-              <CustomSelect2
+              <FormSelect
                 label="نوع سنسور"
                 value={state.sensor_type}
                 onChange={(e) =>
                   dispatch({ type: "SET_SENSOR_TYPE", payload: e.target.value })
                 }
-                serverRoomOptions={sensorTypeOptions}
+                options={sensorTypeOptions}
                 placeholder="یک نوع سنسور را انتخاب کنید"
               />
             </Box>
@@ -195,7 +193,7 @@ const AddNewSensor = () => {
                   })
                 }
               />
-              <CustomSelect2
+              <FormSelect
                 label="نوع سنسور"
                 value={state.sensor_type_feature}
                 onChange={(e) =>
@@ -204,16 +202,16 @@ const AddNewSensor = () => {
                     payload: e.target.value,
                   })
                 }
-                serverRoomOptions={sensorTypeFeatureOptions}
+                options={sensorTypeFeatureOptions}
                 placeholder="یک نوع سنسور را انتخاب کنید"
               />
-              <CustomSelect2
+              <FormSelect
                 label="واحد اندازه گیری"
                 value={state.unit}
                 onChange={(e) =>
                   dispatch({ type: "SET_UNIT", payload: e.target.value })
                 }
-                serverRoomOptions={unitOptions}
+                options={unitOptions}
                 placeholder="یک واحد اندازه گیری را انتخاب کنید"
               />
               <BaseInput
@@ -226,7 +224,7 @@ const AddNewSensor = () => {
                   })
                 }
               />
-              <CustomSelect2
+              <FormSelect
                 label="نوع اعلان"
                 value={state.notification_type}
                 onChange={(e) =>
@@ -235,7 +233,7 @@ const AddNewSensor = () => {
                     payload: e.target.value,
                   })
                 }
-                serverRoomOptions={notifTypeOptions}
+                options={notifTypeOptions}
                 placeholder="یک نوع اعلان را انتخاب کنید"
               />
               <BaseInput
@@ -248,7 +246,7 @@ const AddNewSensor = () => {
                   })
                 }
               />
-              <CustomSelect2
+              <FormSelect
                 label="فواصل بین اعلان"
                 value={state.notification_interval}
                 onChange={(e) =>
@@ -257,10 +255,10 @@ const AddNewSensor = () => {
                     payload: e.target.value,
                   })
                 }
-                serverRoomOptions={notifDurationOptions}
+                options={notifDurationOptions}
                 placeholder="یک بازه را انتخاب کنید"
               />
-              <CustomSelect2
+              <FormSelect
                 label="اعلان بازگشت به حالت نرمال"
                 value={state.return_to_normal_situation}
                 onChange={(e) =>
@@ -269,10 +267,10 @@ const AddNewSensor = () => {
                     payload: e.target.value,
                   })
                 }
-                serverRoomOptions={returnNotifToNormalOptions}
+                options={returnNotifToNormalOptions}
                 placeholder="یک حالت را انتخاب کنید"
               />
-              <CustomSelect2
+              <FormSelect
                 label="تغییرات قابل ثبت"
                 value={state.recordable_changes}
                 onChange={(e) =>
@@ -281,10 +279,10 @@ const AddNewSensor = () => {
                     payload: e.target.value,
                   })
                 }
-                serverRoomOptions={recordableChangesOptions}
+                options={recordableChangesOptions}
                 placeholder="یک تغییر را انتخاب کنید"
               />
-              <CustomSelect2
+              <FormSelect
                 label="حداقل ثبت روزانه"
                 value={state.minimum_daily_record}
                 onChange={(e) =>
@@ -293,7 +291,7 @@ const AddNewSensor = () => {
                     payload: e.target.value,
                   })
                 }
-                serverRoomOptions={minimumRecordOptions}
+                options={minimumRecordOptions}
                 placeholder="یک گزینه را انتخاب کنید"
               />
               <BaseInput

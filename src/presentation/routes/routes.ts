@@ -9,12 +9,12 @@ import Reports from '../feature/test/ReportsPage';
 import UserManagment from '../feature/test/UserManagmentPage';
 import Educations from '../feature/test/EducationsPage';
 import Support from '../feature/test/SupportPage';
-import Settings from '../feature/test/SettingsPage';
 import Test from '../feature/test/testPage';
 import LoginPage from '../feature/login/LoginWithOTP';
 import { LoginPage2 } from '../pages/auth/Login';
-import CitySensorsInfo from '../feature/test/dashboard/CitySensorsInfo';
+import CitySensorsInfo from '../feature/test/dashboard/CityServersInfo';
 import AddNewSensor from '../feature/test/sensors/AddNewSensor';
+import ContentManagment from '../feature/test/ContentManagmentPage';
 
 export const routes = [
     {
@@ -70,8 +70,8 @@ export const routes = [
                 component: Support,
             },
             {
-                path: "settings",
-                component: Settings,
+                path: "content-managment",
+                component: ContentManagment,
             },
         ]
     },

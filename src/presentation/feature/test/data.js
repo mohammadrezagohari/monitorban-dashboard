@@ -7,6 +7,7 @@ import { VideoIcon } from "src/presentation/components/common/icons/VideoIcon";
 import { MobileIcon } from "src/presentation/components/common/icons/MobileIcon";
 import { SensorIcon } from "src/presentation/components/common/icons/SensorIcon";
 import { SupportIcon } from "src/presentation/components/common/icons/SupportIcon";
+import theme from "src/themes/theme";
 // import { Option } from "src/presentation/components/common/select/IBaseSelect";
 
 export const announceItemsInit = [
@@ -268,49 +269,50 @@ export const usersInfo = [
 export const navItems = [
   {
     label: "داشبورد",
-    icon: <DashboardIcon />,
+    icon: <DashboardIcon color={theme.palette.neutral[500]} />,
     href: "/test/dashboard",
   },
   {
     label: "سنسورها",
-    icon: <SensorIcon />,
+    icon: <SensorIcon color={theme.palette.neutral[500]} />,
     href: "/test/sensors",
   },
   {
     label: "اتاق سرور",
-    icon: <AirConditionerIcon />,
+    icon: <AirConditionerIcon color={theme.palette.neutral[500]} />,
     href: "/test/server-room",
   },
   {
     label: "گزارشات",
-    icon: <ComplaintIcon />,
+    icon: <ComplaintIcon color={theme.palette.neutral[500]} />,
     href: "/test/reports",
   },
   {
     label: "مدیریت کاربران",
-    icon: <UsersIcon />,
+    icon: <UsersIcon color={theme.palette.neutral[500]} />,
     href: "/test/user-managment",
   },
   {
     label: "آموزش ها",
-    icon: <VideoIcon />,
+    icon: <VideoIcon color={theme.palette.neutral[500]} />,
     href: "/test/educations",
   },
   {
     label: "پشتیبانی",
-    icon: <SupportIcon />,
+    icon: <SupportIcon color={theme.palette.neutral[500]} />,
     href: "/test/support",
   },
   {
-    label: "تنظیمات",
-    icon: <SettingIcon />,
-    href: "/test/settings",
+    label: "مدیرت محتوا",
+    icon: <SettingIcon color={theme.palette.neutral[500]} />,
+    href: "/test/content-managment",
   },
 ];
 
 export const sensorsData = [
   {
     centerName: "دیتا سنتر خاتم بهشهر",
+    city: "behshahr",
     sensors: [
       {
         name: "دمای اتاق",
@@ -370,6 +372,7 @@ export const sensorsData = [
   },
   {
     centerName: "دیتا سنتر دانشگاه",
+    city: "sari",
     sensors: [
       {
         name: "دمای اتاق",
@@ -489,6 +492,7 @@ export const sensorsData = [
   },
   {
     centerName: "دیتا سنتر بوعلی",
+    city: "sari",
     sensors: [
       {
         name: "دمای اتاق",
@@ -548,6 +552,187 @@ export const sensorsData = [
   },
   {
     centerName: "دیتا سنتر زیرآب",
+    city: "zirab",
+    sensors: [
+      {
+        name: "دمای اتاق",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "warning",
+      },
+      {
+        name: "بالای رک",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "accept",
+      },
+      {
+        name: "دمای اتاق",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "accept",
+      },
+      {
+        name: "رطوبت اتاق",
+        data: 29,
+        category: "Humidity Sensor",
+        status: "warning",
+      },
+      {
+        name: "خروجی UPS",
+        data: true,
+        category: "Electricity Sensor",
+        status: "accept",
+      },
+      {
+        name: "ورودی UPS",
+        data: false,
+        category: "Electricity Sensor",
+        status: "accept",
+      },
+      {
+        name: "نشتی آب",
+        data: "normal",
+        category: "Water Sensor",
+        status: "danger",
+      },
+      {
+        name: "دتکتور دود",
+        data: "normal",
+        category: "Smoke Sensor",
+        status: "accept",
+      },
+      {
+        name: "9924823437",
+        data: 198254,
+        category: "Credit Sensor",
+        status: "accept",
+      },
+    ],
+  },
+  {
+    centerName: "کلینیک رازی",
+    city: "amol",
+    sensors: [
+      {
+        name: "دمای اتاق",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "warning",
+      },
+      {
+        name: "بالای رک",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "accept",
+      },
+      {
+        name: "دمای اتاق",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "accept",
+      },
+      {
+        name: "رطوبت اتاق",
+        data: 29,
+        category: "Humidity Sensor",
+        status: "warning",
+      },
+      {
+        name: "خروجی UPS",
+        data: true,
+        category: "Electricity Sensor",
+        status: "accept",
+      },
+      {
+        name: "ورودی UPS",
+        data: false,
+        category: "Electricity Sensor",
+        status: "accept",
+      },
+      {
+        name: "نشتی آب",
+        data: "normal",
+        category: "Water Sensor",
+        status: "danger",
+      },
+      {
+        name: "دتکتور دود",
+        data: "normal",
+        category: "Smoke Sensor",
+        status: "accept",
+      },
+      {
+        name: "9924823437",
+        data: 198254,
+        category: "Credit Sensor",
+        status: "accept",
+      },
+    ],
+  },
+  {
+    centerName: "دیتا سنتر امام رضا آمل",
+    city: "amol",
+    sensors: [
+      {
+        name: "دمای اتاق",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "warning",
+      },
+      {
+        name: "بالای رک",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "accept",
+      },
+      {
+        name: "دمای اتاق",
+        data: 22.2,
+        category: "Temperature Sensor",
+        status: "accept",
+      },
+      {
+        name: "رطوبت اتاق",
+        data: 29,
+        category: "Humidity Sensor",
+        status: "warning",
+      },
+      {
+        name: "خروجی UPS",
+        data: true,
+        category: "Electricity Sensor",
+        status: "accept",
+      },
+      {
+        name: "ورودی UPS",
+        data: false,
+        category: "Electricity Sensor",
+        status: "accept",
+      },
+      {
+        name: "نشتی آب",
+        data: "normal",
+        category: "Water Sensor",
+        status: "danger",
+      },
+      {
+        name: "دتکتور دود",
+        data: "normal",
+        category: "Smoke Sensor",
+        status: "accept",
+      },
+      {
+        name: "9924823437",
+        data: 198254,
+        category: "Credit Sensor",
+        status: "accept",
+      },
+    ],
+  },
+  {
+    centerName: "دیتا سنتر بیمارستان امام",
+    city: "sari",
     sensors: [
       {
         name: "دمای اتاق",
@@ -625,6 +810,39 @@ export const annouceSelectOptions = [
   },
 ];
 
+export const chartSelectOptions = [
+  {
+    value: "annual",
+    label: "نمایش سالانه",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+  {
+    value: "six months",
+    label: "نمایش شش ماهه",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+  {
+    value: "three months",
+    label: "نمایش سه ماهه",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+  {
+    value: "last month",
+    label: "نمایش ماه گذشته",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+  {
+    value: "last week",
+    label: "نمایش هفته گذشته",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+  {
+    value: "today",
+    label: "نمایش امروز",
+    color: { text: "#F5C789", border: "#E8890C" },
+  },
+];
+
 export const serverRoomOptions = Array.from({ length: 15 }, (_, i) => {
   return { label: `اتاق سرور ${i + 1}`, value: `serverRoom${i + 1}` };
 });
@@ -662,12 +880,12 @@ export const minimumRecordOptions = Array.from({ length: 5 }, (_, i) => {
 });
 
 export const filterOptions = [
-  "دمای اتاق",
-  "رطوبت اتاق",
-  "دمای رک",
-  "نشتی آب",
-  "وضعیت برق",
-  "دمای کولر",
-  "وضعیت کولر",
-  "اعتبار سیمکارت",
+  { label: "دمای اتاق", value: "room_temp" },
+  { label: "رطوبت اتاق", value: "room_humidity" },
+  { label: "دمای رک", value: "rack_temp" },
+  { label: "نشتی آب", value: "water_leak" },
+  { label: "وضعیت برق", value: "electricity" },
+  { label: "دمای کولر", value: "cooler_temp" },
+  { label: "وضعیت کولر", value: "cooler_situation" },
+  { label: "اعتبار سیمکارت", value: "sim_card" },
 ];
