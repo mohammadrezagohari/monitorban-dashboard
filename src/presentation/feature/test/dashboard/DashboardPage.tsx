@@ -1,5 +1,13 @@
-import { Box, IconButton, SelectChangeEvent, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import React from "react";
+import {
+  Box,
+  IconButton,
+  SelectChangeEvent,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Map from "../Map";
 import ServerRoomCard from "../../server room dashboard card/ServerRoomCard";
 import SensorCard from "../../sensor-card/SensorCard";
@@ -14,23 +22,31 @@ import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRi
 import { ArrowLeftIcon } from "src/presentation/components/common/icons/ArrowLeftIcon";
 import ButtonPrimaryXxsmallOutlined from "../../buttons/ButtonPrimaryXxsmallOutlined";
 import {
+  annouceSelectOptions,
   announceItemsInit,
+  chartSelectOptions,
   sensorsItems,
   serverRoomItems,
   usersInfo,
 } from "../data";
 import Statistic from "./Statistic";
 import UserCard from "../../user-card/UserCard";
-import CustomSelect1 from "src/presentation/components/common/select/CustomSelect1";
+import FilterSelect from "src/presentation/components/common/select/FilterSelect";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import CustomDivider from "src/presentation/components/common/divider/CustomDivider";
+import { Eye } from "src/presentation/components/common/icons/Eye";
+import BarChartjs from "./BarChartjs";
 
 export default function Dashboard() {
   const [selectValue, setSelectValue] = useState("danger");
+  const [chartSelectValue, setChartSelectValue] = useState("annual");
   const [status, setStatus] = useState("error");
   const [announceItems, setAnnounceItems] = useState(announceItemsInit);
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   // function handleChange(val: SelectChangeEvent) {
   //   setStatus(val.target.value);
@@ -65,7 +81,7 @@ export default function Dashboard() {
         <Box
           sx={{
             width: "100%",
-            maxWidth: 350,
+            maxWidth: { md: 350 },
           }}
         >
           <SectionContainer width="100%" height={334}>
@@ -83,9 +99,10 @@ export default function Dashboard() {
               <SectionTitle>اعلانات</SectionTitle>
 
               <Box width={85}>
-                <CustomSelect1
-                  selectValue={selectValue}
-                  setSelectValue={setSelectValue}
+                <FilterSelect
+                  options={annouceSelectOptions}
+                  value={selectValue}
+                  setValue={setSelectValue}
                 />
               </Box>
             </HeaderContainer>
@@ -169,32 +186,47 @@ export default function Dashboard() {
             </Typography> */}
             <SectionTitle>اتاق سرور ها</SectionTitle>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <ButtonPrimaryXxsmallOutlined
-                leftIcon={<ArrowLeftIcon />}
-                onClick={() => console.log("اتاق سرور ها")}
-              >
-                مشاهده همه
-              </ButtonPrimaryXxsmallOutlined>
-              <IconButton
-                sx={{
-                  bgColor: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-                ref={prevBtn}
-              >
-                <ArrowRightIcon color="#D5D0DB" />
-              </IconButton>
-              <IconButton
-                sx={{
-                  bgColor: "transparent",
-                  border: "none",
-                  // cursor: "pointer",
-                }}
-                ref={nextBtn}
-              >
-                <ArrowLeftIcon color="#D5D0DB" />
-              </IconButton>
+              {isDesktop ? (
+                <ButtonPrimaryXxsmallOutlined
+                  leftIcon={<ArrowLeftIcon />}
+                  onClick={() => console.log("اتاق سرور ها")}
+                >
+                  مشاهده همه
+                </ButtonPrimaryXxsmallOutlined>
+              ) : (
+                <IconButton
+                  sx={{
+                    border: `1px solid ${theme.palette.primary.dark}`,
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Eye size={16} color={theme.palette.primary.dark} />
+                </IconButton>
+              )}
+              {isDesktop && (
+                <>
+                  <IconButton
+                    sx={{
+                      bgColor: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    ref={prevBtn}
+                  >
+                    <ArrowRightIcon color="#D5D0DB" />
+                  </IconButton>
+                  <IconButton
+                    sx={{
+                      bgColor: "transparent",
+                      border: "none",
+                      // cursor: "pointer",
+                    }}
+                    ref={nextBtn}
+                  >
+                    <ArrowLeftIcon color="#D5D0DB" />
+                  </IconButton>
+                </>
+              )}
             </div>
           </HeaderContainer>
           <MainContainer>
@@ -259,12 +291,23 @@ export default function Dashboard() {
             </Typography> */}
               <SectionTitle>سنسورها</SectionTitle>
 
-              <ButtonPrimaryXxsmallOutlined
-                leftIcon={<ArrowLeftIcon />}
-                onClick={() => console.log("سنسورها")}
-              >
-                مشاهده همه
-              </ButtonPrimaryXxsmallOutlined>
+              {isDesktop ? (
+                <ButtonPrimaryXxsmallOutlined
+                  leftIcon={<ArrowLeftIcon />}
+                  onClick={() => console.log("سنسورها")}
+                >
+                  مشاهده همه
+                </ButtonPrimaryXxsmallOutlined>
+              ) : (
+                <IconButton
+                  sx={{
+                    border: `1px solid ${theme.palette.primary.dark}`,
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Eye size={16} color={theme.palette.primary.dark} />
+                </IconButton>
+              )}
             </HeaderContainer>
             <MainContainer
               sx={{
@@ -283,8 +326,9 @@ export default function Dashboard() {
                 "&::-webkit-scrollbar": { display: "none" },
               }}
             > */}
-              {sensorsItems.map((item) => (
+              {sensorsItems.map((item, index) => (
                 <SensorCard
+                  key={index}
                   icon={item.icon}
                   title={item.name}
                   normalSensor={item.normalSensor}
@@ -296,14 +340,6 @@ export default function Dashboard() {
             </MainContainer>
           </SectionContainer>
         </Box>
-        {/* <div
-          style={{
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            gap: "1rem",
-          }}
-        > */}
         {/* Latest Users */}
         <Box>
           <SectionContainer width="100%" height={246}>
@@ -313,12 +349,23 @@ export default function Dashboard() {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "8px" }}
               >
-                <ButtonPrimaryXxsmallOutlined
-                  leftIcon={<ArrowLeftIcon />}
-                  onClick={() => console.log("آخرین کاربران")}
-                >
-                  مشاهده همه
-                </ButtonPrimaryXxsmallOutlined>
+                {isDesktop ? (
+                  <ButtonPrimaryXxsmallOutlined
+                    leftIcon={<ArrowLeftIcon />}
+                    onClick={() => console.log("آخرین کاربران")}
+                  >
+                    مشاهده همه
+                  </ButtonPrimaryXxsmallOutlined>
+                ) : (
+                  <IconButton
+                    sx={{
+                      border: `1px solid ${theme.palette.primary.dark}`,
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <Eye size={16} color={theme.palette.primary.dark} />
+                  </IconButton>
+                )}
               </div>
             </HeaderContainer>
             <MainContainer
@@ -331,21 +378,14 @@ export default function Dashboard() {
                 "&::-webkit-scrollbar": { display: "none" },
               }}
             >
-              {/* <Box
-              sx={{
-                overflow: "scroll",
-                height: "calc(100% - 55px)",
-                "&::-webkit-scrollbar": { display: "none" },
-              }}
-            > */}
-              {usersInfo.map((item) => (
+              {usersInfo.map((item, index) => (
                 <UserCard
+                  key={index}
                   avatar={item.image}
                   fullName={item.fullName}
                   position={item.position}
                 />
               ))}
-              {/* </Box> */}
             </MainContainer>
           </SectionContainer>
         </Box>
@@ -379,28 +419,21 @@ export default function Dashboard() {
             diferentValue={3}
           />
         </Box>
-        {/* </div> */}
       </Box>
-
-      {/* <Box margin="20px 0">
-        <SensorCard
-          icon={<MobileIcon />}
-          title="سنسور دمای اتاق"
-          normalSensor={5}
-          warningSensor={5}
-          dangerSensor={5}
-        />
-      </Box> */}
-      {/* <div>
-        <SensorCategoryCard
-          icon={<MobileIcon />}
-          title="سنسور دمای اتاق"
-          normalSensor={5}
-          warningSensor={5}
-          dangerSensor={5}
-        />
-      </div> */}
-      {/* <div style={{ backgroundColor: "orange" }}>text</div> */}
+      {/* Bar Chart */}
+      <SectionContainer>
+        <HeaderContainer>
+          <SectionTitle>نمودار دمای اتاق</SectionTitle>
+          <FilterSelect
+            options={chartSelectOptions}
+            value={chartSelectValue}
+            setValue={setChartSelectValue}
+          />
+        </HeaderContainer>
+        <MainContainer>
+          <BarChartjs />
+        </MainContainer>
+      </SectionContainer>
     </Box>
   );
 }
