@@ -47,7 +47,7 @@ export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>((
                     ? theme.palette.success.main : theme.palette.text.disabled}`,
         },
         "& ::placeholder": {
-            color: "text.disabled",
+            color: theme.palette.neutral[300],
             typography: "body2",
         }
 

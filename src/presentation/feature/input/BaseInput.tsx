@@ -40,7 +40,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
               padding: 0,
               "& input": {
                 boxSizing: "inherit",
-                padding: "16px 12px",
+                padding: "12px 16px",
                 width: "100%",
                 height: "100%",
               },

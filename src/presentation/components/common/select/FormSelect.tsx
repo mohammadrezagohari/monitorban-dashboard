@@ -29,6 +29,8 @@ const FormSelect = ({
         "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
           paddingRight: "16px",
           paddingBlock: "12px",
+          display: "flex",
+          alignItems: "center",
         },
       }}
       MenuProps={{

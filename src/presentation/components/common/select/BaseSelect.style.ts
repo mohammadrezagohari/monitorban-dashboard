@@ -13,6 +13,7 @@ export const StyledSelect = styled(Select)<StyledSelectProps>(
             paddingLeft: "40px",
 
             color: value ? selectedTextColor : "#5B5266",
+            typography: "body2",
             height: "100%",
             boxSizing: "border-box"
         },

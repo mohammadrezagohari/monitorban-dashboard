@@ -42,12 +42,30 @@ const BaseSelect: React.FC<BaseSelectProps> = ({
         {...rest}
       >
         {placeholder && (
-          <MenuItem value="" sx={{ color: "#9B92A6" }}>
+          <MenuItem
+            value=""
+            sx={{
+              color: "#9B92A6",
+              typography: "body2",
+              "&.Mui-selected": { bgcolor: "unset" },
+              "&.Mui-selected:hover": { bgcolor: "rgba(255,255,255,0.08)" },
+              "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
+            }}
+          >
             {placeholder}
           </MenuItem>
         )}
         {options.map((opt) => (
-          <MenuItem key={opt.value} value={opt.value} disabled={opt.disabled}>
+          <MenuItem
+            key={opt.value}
+            value={opt.value}
+            disabled={opt.disabled}
+            sx={{
+              "&.Mui-selected": { bgcolor: "unset" },
+              "&.Mui-selected:hover": { bgcolor: "rgba(255,255,255,0.08)" },
+              "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
+            }}
+          >
             {opt.label}
           </MenuItem>
         ))}
