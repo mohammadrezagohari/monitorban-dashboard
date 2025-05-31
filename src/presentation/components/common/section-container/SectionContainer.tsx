@@ -12,12 +12,14 @@ const SectionContainer: React.FC<ISectionContainerProps> = ({
   children,
   width,
   height,
+  sx,
 }) => {
   return (
     <StyledSectionContainer
       // sx={{ width: `${width}`, height: `${height}` }}
       width={width}
       height={height}
+      sx={sx}
     >
       {/* <HeaderContainer>{header}</HeaderContainer>
       <MainContainer>{main}</MainContainer> */}

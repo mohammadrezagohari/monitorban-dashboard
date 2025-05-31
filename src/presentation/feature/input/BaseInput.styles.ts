@@ -15,7 +15,8 @@ export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>((
     autoComplete: "off",
     // height: 48,
     "&.MuiFormControl-root": {
-        width: "100%"
+        width: "100%",
+        maxWidth: 350,
     },
     "& .MuiInputBase-root": {
         display: "block",

@@ -10,9 +10,9 @@ import {
 import { SiderbarProps } from "./ISidebar";
 import { Link } from "react-router-dom";
 import UserAccountCard from "src/presentation/feature/user-account-card/UserAccountCard";
-import { usersInfo } from "src/presentation/feature/test/data";
 
 const Sidebar: React.FC<SiderbarProps> = ({
+  activedUser,
   items,
   pageIndex,
   setPageIndex,
@@ -33,7 +33,7 @@ const Sidebar: React.FC<SiderbarProps> = ({
         </LogoContainer>
 
         <Box marginBottom={8}>
-          <UserAccountCard user={usersInfo[0]} />
+          <UserAccountCard user={activedUser} />
         </Box>
 
         <List>

@@ -6,6 +6,7 @@ export interface BaseInputProps extends Omit<TextFieldProps, "variant" | "error"
     label?: string;
     placeholder?: string;
     caption?: string;
+    type?: string;
     error?: boolean;
     status?: BaseInputStatus;
     primaryIcon?: React.ReactNode;

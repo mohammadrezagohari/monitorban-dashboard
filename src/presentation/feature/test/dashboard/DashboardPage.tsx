@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   IconButton,
-  SelectChangeEvent,
   Typography,
   useMediaQuery,
   useTheme,
@@ -158,7 +157,6 @@ export default function Dashboard() {
           sx={{
             bgcolor: "#1C1926",
             borderRadius: "25px",
-            padding: "1rem",
             width: "100%",
             flexGrow: 1,
             minWidth: 0,

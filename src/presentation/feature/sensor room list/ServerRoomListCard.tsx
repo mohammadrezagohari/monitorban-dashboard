@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { ServerRoomListProps } from "./IServerRoomListCard";
 import { getServerRoomListCardStatus } from "./ServerRoomListCard.style";
 import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
-// import ButtonErrorSmallOutlined from "../buttons/ButtonErrorSmallOutlined";
-// import ButtonPrimarySmallOutlined from "../buttons/ButtonPrimarySmallOutlined";
+import ButtonErrorSmallOutlined from "../buttons/ButtonErrorSmallOutlined";
+import ButtonPrimarySmallOutlined from "../buttons/ButtonPrimarySmallOutlined";
 
 const ServerRoomList: React.FC<ServerRoomListProps> = ({
   icon,
@@ -71,12 +71,11 @@ const ServerRoomList: React.FC<ServerRoomListProps> = ({
 
       setVisibleItems(tempVisibleItems);
       setRimainingCount(tempRemainingCount);
+      // console.log("-*-",containerWidth);
     };
 
-    updateVisibleCount();
-    window.addEventListener("resize", () => {
-      updateVisibleCount();
-    });
+    setTimeout(updateVisibleCount, 1000);
+    window.addEventListener("resize", updateVisibleCount);
     return () => {
       window.removeEventListener("resize", updateVisibleCount);
     };
@@ -94,6 +93,9 @@ const ServerRoomList: React.FC<ServerRoomListProps> = ({
         alignItems: "center",
         display: "grid",
         gridTemplateColumns: "264px auto 198px",
+        "&.MuiContainer-root": {
+          p: 2,
+        },
       }}
     >
       {/* Server Room Name */}
@@ -220,15 +222,9 @@ const ServerRoomList: React.FC<ServerRoomListProps> = ({
           flexShrink: 0,
         }}
       >
-        {/* TODO:: باتن ها باید با کامپوننت باتن هایی که قبلا ساختیم جایگزین بشه(بعد از مرج شدن) */}
-        <Button variant="outlined" color="error">
-          حذف
-        </Button>
-        <Button variant="outlined">ویرایش</Button>
-        {/* <ButtonErrorSmallOutlined>حذف</ButtonErrorSmallOutlined>
-        <ButtonPrimarySmallOutlined>ویرایش</ButtonPrimarySmallOutlined> */}
+        <ButtonErrorSmallOutlined>حذف</ButtonErrorSmallOutlined>
+        <ButtonPrimarySmallOutlined>ویرایش</ButtonPrimarySmallOutlined>
       </Box>
-      {/* </Box> */}
     </Container>
   );
 };

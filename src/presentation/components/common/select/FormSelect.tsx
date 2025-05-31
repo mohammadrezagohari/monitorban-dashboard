@@ -22,6 +22,7 @@ const FormSelect = ({
       onChange={onChange}
       options={options}
       sx={{
+        maxWidth: { md: 350 },
         typography: "body2",
         "& .MuiOutlinedInput-notchedOutline": {
           borderRadius: "15px",

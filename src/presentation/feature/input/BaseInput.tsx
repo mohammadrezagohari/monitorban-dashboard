@@ -8,10 +8,14 @@ const BaseInput: React.FC<BaseInputProps> = ({
   placeholder,
   caption,
   status = "default",
+  type = "text",
   ...props
 }) => {
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState("");
+  // const [type, setType] = useState(props.type);
+
+  const isPassword = type === "password";
 
   return (
     <Box>
@@ -27,7 +31,14 @@ const BaseInput: React.FC<BaseInputProps> = ({
                     setVisible(!visible);
                   }
                 }}
-                sx={{ cursor: "pointer" }}
+                sx={{
+                  cursor: "pointer",
+                  m: 0,
+                  position: "absolute",
+                  left: "1rem",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                }}
               >
                 {!visible ? props.primaryIcon : props.secondaryIcon}
               </InputAdornment>
@@ -52,6 +63,8 @@ const BaseInput: React.FC<BaseInputProps> = ({
         onChange={(event) => setValue(event.target.value)}
         helperText={caption}
         placeholder={placeholder}
+        type={isPassword ? (visible ? "text" : "password") : type}
+        // type="password"
         {...props}
       />
     </Box>

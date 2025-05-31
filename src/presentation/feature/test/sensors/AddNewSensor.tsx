@@ -354,16 +354,15 @@ const AddNewSensor = () => {
                   <ButtonPrimaryXxsmallOutlined>
                     بارگذاری عکس
                   </ButtonPrimaryXxsmallOutlined>
-                  <span
-                    style={{
+                  <IconButton
+                    sx={{
                       border: "1px solid #E8383B",
                       borderRadius: "10px",
+                      p: "7px",
                     }}
                   >
-                    <IconButton>
-                      <DeleteIcon size={16} color="#E8383B" />
-                    </IconButton>
-                  </span>
+                    <DeleteIcon size={16} color="#E8383B" />
+                  </IconButton>
                 </Box>
               </Box>
             </Box>
