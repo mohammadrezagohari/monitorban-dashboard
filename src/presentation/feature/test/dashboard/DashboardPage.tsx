@@ -44,7 +44,6 @@ export default function Dashboard() {
   const [announceItems, setAnnounceItems] = useState(announceItemsInit);
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
-
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -52,6 +51,18 @@ export default function Dashboard() {
   //   setStatus(val.target.value);
   //   console.log(val);
   // }
+
+  // useEffect(function () {
+  //   async function fetchAnnounce() {
+  //     const res = await fetch(`http://localhost:7000/announceItemsInit`);
+  //     const data = await res.json();
+  //     console.log("data::", data);
+  //     setTest([...data]);
+  //     console.log("test::", test);
+  //   }
+
+  //   fetchAnnounce();
+  // }, []);
 
   useEffect(function () {
     // for get announce items from API. (setAnnounceItems)
@@ -113,9 +124,11 @@ export default function Dashboard() {
                 }}
               >
                 <ul style={{}}>
+                  {/* {test.map((item, index) => ( */}
                   {announceItems.map((item, index) => (
                     <>
                       <li
+                        key={index}
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -143,6 +156,7 @@ export default function Dashboard() {
                         </div>
                       </li>
                       {index !== announceItems.length - 1 && <CustomDivider />}
+                      {/* {index !== test.length - 1 && <CustomDivider />} */}
                     </>
                   ))}
                 </ul>

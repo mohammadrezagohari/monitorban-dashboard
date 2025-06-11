@@ -2,10 +2,10 @@ import { LogoIcon } from "src/presentation/components/common/icons/LogoIcon";
 import { LogoText } from "src/presentation/components/common/icons/LogoText";
 import {
   Box,
+  Grid,
   //  FormControl,
   Typography,
 } from "@mui/material";
-import Grid from "@mui/material/Grid2";
 // import BaseInput from "../input/BaseInput";
 // import ButtonPrimaryLargeFilled from "../buttons/ButtonPrimaryLargeFilled";
 import LoginForm from "./LoginForm";

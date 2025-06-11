@@ -9,7 +9,7 @@ import { SensorIcon } from "src/presentation/components/common/icons/SensorIcon"
 import { SupportIcon } from "src/presentation/components/common/icons/SupportIcon";
 import theme from "src/themes/theme";
 // import { Option } from "src/presentation/components/common/select/IBaseSelect";
-
+// "@mui/material": "^6.4.11",
 export const announceItemsInit = [
   {
     name: "سنسور رطوبت اتاق",
@@ -60,6 +60,7 @@ export const serverRoomItems = [
     city: "ساری",
     sensor: 3,
     rack: 12,
+    id: "11111",
   },
   {
     title: "دانشگاه علوم پزشکی",
@@ -67,6 +68,7 @@ export const serverRoomItems = [
     city: "ساری",
     sensor: 5,
     rack: 3,
+    id: "22222",
   },
   {
     title: "دانشگاه پیامبر اعظم",
@@ -74,6 +76,7 @@ export const serverRoomItems = [
     city: "ساری",
     sensor: 8,
     rack: 9,
+    id: "33333",
   },
   {
     title: "بیمارستان رازی",
@@ -81,6 +84,7 @@ export const serverRoomItems = [
     city: "قائمشهر",
     sensor: 6,
     rack: 4,
+    id: "44444",
   },
   {
     title: "درمانگاه ولایت",
@@ -88,6 +92,7 @@ export const serverRoomItems = [
     city: "ساری",
     sensor: 5,
     rack: 10,
+    id: "55555",
   },
   {
     title: "معاونت درمان",
@@ -95,34 +100,7 @@ export const serverRoomItems = [
     city: "ساری",
     sensor: 3,
     rack: 12,
-  },
-  {
-    title: "دانشگاه علوم پزشکی",
-    icon: <MobileIcon />,
-    city: "ساری",
-    sensor: 5,
-    rack: 3,
-  },
-  {
-    title: "دانشگاه پیامبر اعظم",
-    icon: <MobileIcon />,
-    city: "ساری",
-    sensor: 8,
-    rack: 9,
-  },
-  {
-    title: "بیمارستان رازی",
-    icon: <MobileIcon />,
-    city: "قائمشهر",
-    sensor: 6,
-    rack: 4,
-  },
-  {
-    title: "درمانگاه ولایت",
-    icon: <MobileIcon />,
-    city: "ساری",
-    sensor: 5,
-    rack: 10,
+    id: "66666",
   },
 ];
 
@@ -982,5 +960,42 @@ export const rolesArray = [
     title: "اپراتور دانشگاه",
     serverRoom: "اتاق سرور دانشگاه پیامبر اعظم",
     accesses: accessesTemplate,
+  },
+];
+
+export const sensorsTreeItem = [
+  {
+    id: "roomTemp",
+    name: "سنسور دمای اتاق",
+    sensors: [
+      { id: "roomTemp001", name: "سنسور دمای اتاق شماره یک" },
+      { id: "roomTemp002", name: "سنسور دمای اتاق شماره دو" },
+      { id: "roomTemp003", name: "سنسور دمای اتاق شماره سه" },
+      { id: "roomTemp004", name: "سنسور دمای اتاق شماره چهار" },
+    ],
+  },
+  {
+    id: "coolerTemp",
+    name: "سنسور دمای کولر",
+    sensors: [
+      { id: "coolerTemp001", name: "سنسور دمای کولر شماره یک" },
+      { id: "coolerTemp002", name: "سنسور دمای کولر شماره دو" },
+      { id: "coolerTemp003", name: "سنسور دمای کولر شماره سه" },
+      { id: "coolerTemp004", name: "سنسور دمای کولر شماره چهار" },
+    ],
+  },
+  {
+    id: "rackTemp",
+    name: "سنسور دمای رک",
+    sensors: [
+      { id: "rackUpTemp001", name: "سنسور دمای بالا رک شماره یک" },
+      { id: "rackDownTemp001", name: "سنسور دمای پایین رک شماره یک" },
+      { id: "rackUpTemp002", name: "سنسور دمای بالا رک شماره دو" },
+      { id: "rackDownTemp002", name: "سنسور دمای پایین رک شماره دو" },
+      { id: "rackUpTemp003", name: "سنسور دمای بالا رک شماره سه" },
+      { id: "rackDownTemp003", name: "سنسور دمای پایین رک شماره سه" },
+      { id: "rackUpTemp004", name: "سنسور دمای بالا رک شماره چهار" },
+      { id: "rackDownTemp004", name: "سنسور دمای پایین رک شماره چهار" },
+    ],
   },
 ];

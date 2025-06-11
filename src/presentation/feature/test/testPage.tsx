@@ -62,7 +62,7 @@ import React, { useState } from "react";
 // import ButtonSuccessXxsText from "../buttons/ButtonSuccessXxsmallText";
 // import BaseBreadCrumb from "../breadcrumb/BaseBreadcrumb";
 import Sidebar from "src/presentation/components/sidebar/Sidebar";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import ButtonPrimarySmallText from "../buttons/ButtonPrimarySmallText";
 import { ArrowRightIcon } from "src/presentation/components/common/icons/ArrowRightIcon";
 import { DashboardIcon } from "src/presentation/components/common/icons/DashboardIcon";
@@ -89,12 +89,27 @@ import BaseMenuItem from "../menu/BaseMenuItem";
 import { MenuIcon } from "src/presentation/components/common/icons/MenuIcon";
 import { CloseIcon } from "src/presentation/components/common/icons/CloseIcon";
 import { LogoIcon } from "src/presentation/components/common/icons/LogoIcon";
+import Users from "./user-management/UsersPage";
+import UserPage from "./user-management/UserPage";
+import ChangePasswordPage from "./user-management/ChangePasswordPage";
+import RolesPage from "./user-management/RolesPage";
+import UserManagement from "./user-management/UserManagementPage";
+import EditRolePage from "./user-management/EditRolePage";
+import CustomSteper from "src/presentation/components/common/stepper/CustomStepper";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import AddAccesses from "./user-management/AddAccesses";
+import BaseCheckbox from "../base-checkbox/BaseCheckbox";
+import { CheckedIcon } from "src/presentation/components/common/icons/CheckedIcon";
+import { UncheckedIcon } from "src/presentation/components/common/icons/UncheckedIcon";
 
 export default function Test() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const [pageIndex, setPageIndex] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const logedInUser = usersInfo[0];
+
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen((open) => !open);
@@ -190,6 +205,7 @@ export default function Test() {
                   height: 40,
                   borderRadius: "50%",
                   bgcolor: "#373040",
+                  color: "#F7F5FA",
                 }}
               >
                 <CloseIcon size={20} />
@@ -214,6 +230,7 @@ export default function Test() {
               items={navItems}
               pageIndex={pageIndex}
               setPageIndex={setPageIndex}
+              activedUser={logedInUser}
             />
           )}
         </Box>
@@ -233,12 +250,27 @@ export default function Test() {
               marginBottom: "1rem",
             }}
           >
-            <ButtonPrimarySmallText rightIcon={<ArrowRightIcon />}>
+            <ButtonPrimarySmallText
+              rightIcon={<ArrowRightIcon />}
+              onClick={() => navigate(-1)}
+            >
               بازگشت
             </ButtonPrimarySmallText>
             {/* <BaseBreadCrumb paths={navItems} /> */}
           </Box>
-          <Outlet />
+          {/* <Outlet /> */}
+          <AddAccesses />
+          {/* 
+          <Box mb={5}>
+            <SectionContainer>
+              <CustomSteper />
+            </SectionContainer>
+          </Box>
+            <EditRolePage />
+          <RolesPage />
+          <ChangePasswordPage />
+          <Users />
+          <UserPage activedUser={logedInUser} /> */}
         </Box>
         {/* <Main /> */}
       </Box>
