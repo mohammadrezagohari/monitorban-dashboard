@@ -2,10 +2,12 @@ import { CustomSvgProps } from "./IIcons";
 
 export const ArrowLeftIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color = "neutral.main", // "#F7F5FA"
+  className,
+  color, // = "neutral.main", // "#F7F5FA"
 }) => {
   return (
     <svg
+      className={className}
       width={size}
       height={size}
       viewBox="0 0 24 24"
@@ -14,7 +16,7 @@ export const ArrowLeftIcon: React.FC<CustomSvgProps> = ({
     >
       <path
         d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.07996"
-        stroke={color}
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"

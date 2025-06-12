@@ -3,7 +3,7 @@ import { CustomSvgProps } from "./IIcons";
 export const ArrowDownIcon: React.FC<CustomSvgProps> = ({
   className,
   size = 16,
-  color = "neutral.main", // "#F7F5FA"
+  color, //= "neutral.main", // "#F7F5FA"
   ...rest
 }) => {
   return (
@@ -19,7 +19,7 @@ export const ArrowDownIcon: React.FC<CustomSvgProps> = ({
       <path
         d="M19.9201 8.94995L13.4001 15.47C12.6301 16.24 11.3701 16.24 10.6001 15.47L4.08008 8.94995"
         // stroke={color}
-        stroke="currentColor"
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"

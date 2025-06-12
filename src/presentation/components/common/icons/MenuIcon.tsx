@@ -2,10 +2,12 @@ import { CustomSvgProps } from "./IIcons";
 
 export const MenuIcon: React.FC<CustomSvgProps> = ({
   size = 20,
-  color = "#F7F5FA", // "neutral.main"
+  color, // = "#F7F5FA", // "neutral.main"
+  className,
 }) => {
   return (
     <svg
+      className={className}
       width={size}
       height={size}
       viewBox="0 0 20 20"
@@ -14,13 +16,13 @@ export const MenuIcon: React.FC<CustomSvgProps> = ({
     >
       <path
         d="M2.5 7H17.5"
-        stroke={color}
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeLinecap="round"
       />
       <path
         d="M10 12.1666L18 12.1666"
-        stroke={color}
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeLinecap="round"
       />

@@ -2,10 +2,12 @@ import { CustomSvgProps } from "./IIcons";
 
 export const LoginIcon: React.FC<CustomSvgProps> = ({
   size,
-  color = "#F7F5FA",
+  color, // = "#F7F5FA",
+  className,
 }) => {
   return (
     <svg
+      className={className}
       width="27"
       height="24"
       viewBox="0 0 27 24"
@@ -14,7 +16,7 @@ export const LoginIcon: React.FC<CustomSvgProps> = ({
     >
       <path
         d="M12.7725 14.62L15.572 12.06L12.7725 9.5"
-        stroke={color}
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"
@@ -22,7 +24,7 @@ export const LoginIcon: React.FC<CustomSvgProps> = ({
       />
       <path
         d="M4.37402 12.0601H15.4956"
-        stroke={color}
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"
@@ -30,7 +32,7 @@ export const LoginIcon: React.FC<CustomSvgProps> = ({
       />
       <path
         d="M13.123 4C17.9566 4 21.8716 7 21.8716 12C21.8716 17 17.9566 20 13.123 20"
-        stroke={color}
+        stroke={color || "currentColor"}
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"
