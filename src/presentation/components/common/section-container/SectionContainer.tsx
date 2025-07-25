@@ -1,28 +1,16 @@
-import {
-  HeaderContainer,
-  MainContainer,
-  StyledSectionContainer,
-} from "./SectionContainer.style";
 import React from "react";
+
 import { ISectionContainerProps } from "./ISectionContainer";
+import { StyledSectionContainer } from "./SectionContainer.style";
 
 const SectionContainer: React.FC<ISectionContainerProps> = ({
-  // header,
-  //  main,
   children,
   width,
   height,
-  sx,
+  ...props
 }) => {
   return (
-    <StyledSectionContainer
-      // sx={{ width: `${width}`, height: `${height}` }}
-      width={width}
-      height={height}
-      sx={sx}
-    >
-      {/* <HeaderContainer>{header}</HeaderContainer>
-      <MainContainer>{main}</MainContainer> */}
+    <StyledSectionContainer width={width} height={height} {...props}>
       {children}
     </StyledSectionContainer>
   );

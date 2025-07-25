@@ -7,10 +7,11 @@ import {
   useLocation,
 } from "react-router-dom";
 import { routes } from "./routes/routes";
-import { Box } from "@mui/material";
 import "./App.css";
 
-import "swiper/css"
+import "swiper/css";
+import AppLayout from "./layout/appLayout/AppLayout";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function isAuthenticated(): boolean {
   // اینجا باید منطق احراز هویت خود را بنویسید
@@ -19,40 +20,39 @@ function isAuthenticated(): boolean {
 
 export default function App() {
   return (
-    <Box dir="rtl" sx={{ backgroundColor: "background.default" }}>
-      <Router>
-        <Routes>
-          {routes.map((route, index) =>
-            route.children ? (
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<RouteWithAuth component={AppLayout} />}>
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          {routes.map(
+            (route, index) =>
+              route.requiresAuth && (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={
+                    <RouteWithAuth
+                      requiresAuth={route.requiresAuth}
+                      component={route.component}
+                    />
+                  }
+                />
+              )
+          )}
+        </Route>
+        {routes.map(
+          (route, index) =>
+            !route.requiresAuth && (
               <Route
                 key={index}
                 path={route.path}
-                element={<route.component />}
-              >
-                {route.children?.map((child, childIndex) => (
-                  <Route
-                    key={childIndex}
-                    path={child.path}
-                    element={<child.component />}
-                  />
-                ))}
-              </Route>
-            ) : (
-              <Route
-                key={index}
-                path={route.path}
-                element={
-                  <RouteWithAuth
-                    requiresAuth={route.requiresAuth}
-                    component={route.component}
-                  />
-                }
+                element={<RouteWithAuth component={route.component} />}
               />
             )
-          )}
-        </Routes>
-      </Router>
-    </Box>
+        )}
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,90 +1,81 @@
 // routes.ts
-import { RegisterPage } from '../pages/auth/Register';
-import { DashboardPage } from '../pages/dashboard';
-import HomePage from '../pages/HomePage';
-import Sensors from '../feature/test/sensors/SensorsPage';
-import Dashboard from '../feature/test/dashboard/DashboardPage';
-import ServerRoom from '../feature/test/ServerRoomPage';
-import Reports from '../feature/test/ReportsPage';
-import Educations from '../feature/test/EducationsPage';
-import Support from '../feature/test/SupportPage';
-import Test from '../feature/test/testPage';
-import LoginPage from '../feature/login/LoginWithOTP';
-import { LoginPage2 } from '../pages/auth/Login';
-import CitySensorsInfo from '../feature/test/dashboard/CityServersInfo';
-import AddNewSensor from '../feature/test/sensors/AddNewSensor';
-import UserManagement from '../feature/test/user-management/UserManagementPage';
-import ContentManagement from '../feature/test/ContentManagementPage';
+import Login from "../pages/auth/Login";
+import Sensors from "../pages/sensors/Sensors";
+import Reports from "../pages/reports/Reports";
+import Support from "../pages/support/SupportPage";
+import Tutorial from "../pages/tutorial/Tutorial";
+import Dashboard from "../pages/dashboard/Dashboard";
+import ServerRoom from "../pages/server-room/ServerRoomPage";
+import AddNewSensor from "../feature/sensors/components/AddNewSensor";
+import CenterDetails from "../feature/sensors/components/CenterDetails";
+import UsersManagement from "../pages/users-management/UsersManagement";
+import CitySensorsInfo from "../feature/dashboard/components/CitySensorsInfo";
+import { RegisterPage } from "../pages/auth/Register";
+import ContentManagement from "../pages/content-management/ContentManagement";
 
 export const routes = [
     {
         path: '/login',
-        component: LoginPage,
-    },
-    {
-        path: '/login2',
-        component: LoginPage2,
+        component: Login,
     },
     {
         path: '/register',
         component: RegisterPage,
     },
     {
-        path: '/test',
-        component: Test,
-        children: [
-            {
-                path: "dashboard",
-                component: Dashboard,
-                
-            },
-            {
-                path: "CitySensorsInfo",
-                component: CitySensorsInfo,
-            },
-            {
-                path: "sensors",
-                component: Sensors,
-            },
-            {
-                path: "add-new-sensor",
-                component: AddNewSensor,
-            },
-            {
-                path: "server-room",
-                component: ServerRoom,
-            },
-            {
-                path: "reports",
-                component: Reports,
-            },
-            {
-                path: "user-management",
-                component: UserManagement,
-            },
-            {
-                path: "educations",
-                component: Educations,
-            },
-            {
-                path: "support",
-                component: Support,
-            },
-            {
-                path: "content-management",
-                component: ContentManagement,
-            },
-        ]
-    },
-    {
         path: '/dashboard',
-        component: DashboardPage,
+        component: Dashboard,
         requiresAuth: true,
     },
     {
-        path: '/',
-        component: LoginPage,
+        path: '/city-sensors-info',
+        component: CitySensorsInfo,
+        requiresAuth: true,
+    },
+    {
+        path: '/sensors',
+        component: Sensors,
+        requiresAuth: true,
+    },
+    {
+        path: '/sensors/:centerName',
+        component: CenterDetails,
+        requiresAuth: true,
+    },
+    {
+        path: '/sensors/add-new-sensor',
+        component: AddNewSensor,
+        requiresAuth: true,
+    },
+    {
+        path: '/server-room',
+        component: ServerRoom,
+        requiresAuth: true,
+    },
+    {
+        path: '/reports',
+        component: Reports,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management',
+        component: UsersManagement,
+        requiresAuth: true,
+    },
+    {
+        path: '/tutorials',
+        component: Tutorial,
+        requiresAuth: true,
+    },
+    {
+        path: '/support',
+        component: Support,
         requiresAuth: true,
     },
 
+    {
+        path: "content-management",
+        component: ContentManagement,
+        requiresAuth: true,
+    },
 ];

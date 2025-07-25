@@ -1,10 +1,10 @@
 import { Box, Container, styled } from "@mui/material";
 
-export const StyledContainer = styled(Container)(() => ({
+export const StyledContainer = styled(Container)(({ theme }) => ({
     component: "section",
     display: "flex",
     alignItems: "center",
-    gap: "8px",
+    gap: theme.spacing(1),
     height: "50px",
 }))
 
@@ -14,13 +14,13 @@ export const StyledImgContainer = styled(Box)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "50px",
-    padding: "12px",
+    padding: theme.spacing(1.5),
 }))
 
-export const StyledContextContainer = styled(Box)(() => ({
+export const StyledContextContainer = styled(Box)(({ theme }) => ({
     component: "div",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    gap: "4px",
+    gap: theme.spacing(0.5),
 }))

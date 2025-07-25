@@ -1,4 +1,4 @@
-import { Box, styled, Typography } from "@mui/material";
+import { Box, styled, Typography, TypographyProps } from "@mui/material";
 import { CardContainerProps, IColors, TextProps } from "./IDashboardCard";
 
 export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) => ({
@@ -6,33 +6,21 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
     display: "flex",
     flexDirection: "column",
     borderRadius: "16px",
-    padding: "16px",
+    padding: theme.spacing(1.5),
     width: width,
     border: `1px solid transparent`,
     "&:hover": {
         borderColor: theme.palette.neutral[300]
+    },
+    [theme.breakpoints.up("md")]: {
+        padding: theme.spacing(2),
     }
 }))
 
-// export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, bgcolor = "#4D4259", size = 48 }) => ({
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     backgroundColor: bgcolor,
-//     padding: "12px",
-//     borderRadius: "50px",
-//     gridRow: "1/3",
-//     width: `${size}px`,
-//     height: `${size}px`,
-//     flexShrink: 0,
-// }))
-
-
-
-export const StatsContainer = styled(Box)(() => ({
+export const StatsContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
-    gap: "16px",
+    gap: theme.spacing(2),
 }))
 
 export const DataContainer = styled(Box)(() => ({
@@ -41,11 +29,11 @@ export const DataContainer = styled(Box)(() => ({
     justifyContent: "space-between",
 }))
 
-export const Text = styled(Typography)<TextProps>(({ theme, color, variant }) => ({
+export const Text = styled(Typography)<TypographyProps>(({ theme, color }) => ({
     color: color,
     display: "flex",
     alignItems: "center",
-    gap: "8px",
+    gap: theme.spacing(1),
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -59,10 +47,10 @@ export const TextSpan = styled(Typography)<TextProps>(({ color }) => ({
     textOverflow: "ellipsis",
 }))
 
-export const TextBox = styled("span")(() => ({
+export const TextBox = styled("span")(({ theme }) => ({
     display: "flex",
     alignItems: "center",
-    gap: "4px"
+    gap: theme.spacing(0.5)
 }))
 
 

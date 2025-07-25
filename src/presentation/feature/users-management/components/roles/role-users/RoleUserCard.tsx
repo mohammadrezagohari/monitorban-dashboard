@@ -1,0 +1,158 @@
+import { Avatar, Box } from "@mui/material";
+
+import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import { UserIcon } from "src/presentation/assets/icons/UserIcon";
+import Button from "src/presentation/components/common/buttons/Button";
+import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
+import Tag from "src/presentation/components/common/tag/Tag";
+import { RoleUserCardProps } from "./IRoleUsers";
+import CustomCheckbox from "src/presentation/components/common/old/checkbox-input/CustomCheckBoxInput";
+
+function RoleUserCard({ user, ROLE, type, selectable }) {
+  const { image: avatar, fullName: userName, phone, roles, groups } = user;
+
+  const isIncluded = roles.includes(ROLE);
+  console.log(isIncluded);
+
+  const visibleRoles = roles.length > 2 ? roles.slice(1, 3) : roles;
+  const visibleGroups = groups?.length > 2 ? groups.slice(1, 3) : groups;
+
+  return (
+    <Box
+      sx={{
+        padding: 2,
+        backgroundColor: (theme) => theme.palette.neutral[600], //"#373040",
+        borderRadius: "15px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 2,
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          gap: "2rem",
+          width: "100%",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            width: "240px",
+            flexShrink: 0,
+          }}
+        >
+          {selectable && <CustomCheckbox size={24} />}
+          {avatar ? (
+            <Avatar src={avatar} sx={{ width: 48, height: 48 }} />
+          ) : (
+            <IconWrapper>
+              <UserIcon size={24} color="#F7F5FA" />
+            </IconWrapper>
+          )}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
+            <Text color="neutral.50" variant="h4">
+              {userName}
+            </Text>
+            <Text color="neutral.200" variant="body2">
+              {phone}
+            </Text>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: { xs: "flex-start", md: "center" },
+            gap: 2,
+            width: "100%",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0.5,
+            }}
+          >
+            <TagHeading>نقش :</TagHeading>
+            <Box
+              sx={{
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                flexWrap: "nowrap",
+                gap: 1.25,
+              }}
+            >
+              {visibleRoles.map((role, index) => (
+                <Tag key={index}>{role}</Tag>
+              ))}
+            </Box>
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0.5,
+              width: "100%",
+            }}
+          >
+            <TagHeading>گروه :</TagHeading>
+            <Box
+              className="sensorContainer"
+              sx={{
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                flexWrap: "nowrap",
+                gap: 1.25,
+                width: "100%  ",
+              }}
+            >
+              {visibleGroups?.map((group, index) => (
+                <Tag key={index}>{group}</Tag>
+              ))}
+              {/* {remainingCount > 0 && (
+                <Tag>{`+ ${remainingCount} گروه دیگر`}</Tag>
+                //   + {remainingCount} گروه دیگر
+                // </Tag>
+              )} */}
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        {type === "all" &&
+          (isIncluded ? (
+            <Button variant="text" size="small" colorType="primary">
+              دارای این نقش
+            </Button>
+          ) : (
+            <Button variant="outlined" size="small" colorType="success">
+              افزودن به نقش
+            </Button>
+          ))}
+        {type === "assigned" && (
+          <Button variant="outlined" size="small" colorType="error">
+            حذف
+          </Button>
+        )}
+        <Button variant="outlined" size="small" colorType="primary">
+          مشاهده
+        </Button>
+      </Box>
+    </Box>
+  );
+}
+
+export default RoleUserCard;

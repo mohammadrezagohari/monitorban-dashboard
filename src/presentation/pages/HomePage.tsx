@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Paper, styled, Typography } from '@mui/material';
-import BaseForm from '../components/common/form';
+import BaseForm from '../components/common/old/form';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
-import TextInput from '../components/common/text-input/text-input';
+import TextInput from '../components/common/old/text-input/text-input';
 
 const HomePage: React.FC = () => {
     const onSubmit = (data: any) => {
