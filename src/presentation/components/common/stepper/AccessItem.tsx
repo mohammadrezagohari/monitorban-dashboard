@@ -3,7 +3,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { StyledAccessItem } from "./AddAccesses.styles";
+import { StyledAccessItem } from "../../../feature/users-management/components/roles/add-accesses/AddAccesses.styles";
 
 const AccessItem = ({
   item,

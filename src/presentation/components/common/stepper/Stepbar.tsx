@@ -1,5 +1,5 @@
 import Stepper from "src/presentation/components/common/old/stepper/Stepper";
-import { StepbarProps } from "./IAddAccesses";
+import { StepbarProps } from "../../../feature/users-management/components/roles/add-accesses/IAddAccesses";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 

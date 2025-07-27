@@ -1,65 +1,20 @@
 import { useState } from "react";
 
-import Stepbar from "./Stepbar";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import AccessType from "./AccessType";
-import SensorSelection from "./SensorSelection";
-import { AccessTypeKey } from "./IAddAccesses";
-import ServerRoomSelection from "./ServerRoomSelection";
 import { serverRoomItems } from "src/presentation/data/data";
 import { StyledAddAccessesContainer } from "./AddAccesses.styles";
+import Stepper from "src/presentation/components/common/stepper/Stepper";
 
-const steps = ["نوع دسترسی", "اتاق سرور", "انتخاب سنسور"];
 
 export default function AddAccesses() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [accessTypesChecked, setAccessTypesChecked] = useState<
-    Record<string, boolean>
-  >({
-    panels: false,
-    sensors: false,
-  });
-  const [accessServerRoom, setAccessServerRoom] = useState(
-    serverRoomItems.reduce((acc, item) => {
-      acc[item.title] = false;
-      return acc;
-    }, {} as Record<string, boolean>)
-  );
-
-  const handleAccessTypes = (key: string) => {
-    setAccessTypesChecked((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
-  const handleServerRoomAccess = (key: string) => {
-    setAccessServerRoom((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  
 
   return (
     <>
       <PageTitle title="افزودن دسترسی" />
 
       <StyledAddAccessesContainer>
-        <Stepbar
-          steps={steps}
-          activeStep={activeStep}
-          setActiveStep={setActiveStep}
-        />
-
-        {activeStep === 0 && (
-          <AccessType
-            accessTypesChecked={accessTypesChecked}
-            handleAccessTypes={handleAccessTypes}
-          />
-        )}
-
-        {activeStep === 1 && (
-          <ServerRoomSelection
-            accessServerRoom={accessServerRoom}
-            handleServerRoomAccess={handleServerRoomAccess}
-          />
-        )}
-
-        {activeStep === 2 && <SensorSelection />}
+        <Stepper />
       </StyledAddAccessesContainer>
     </>
   );

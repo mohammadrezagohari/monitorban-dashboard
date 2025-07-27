@@ -17,9 +17,26 @@ import { GridBox } from "src/presentation/components/common/GridBox";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import Input from "src/presentation/components/common/input/Input";
 import Select from "src/presentation/components/common/select/Select";
+import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
 
 function CreateRole() {
-  const [accesses, setAccesses] = useState<string[]>([]);
+  const [accesses, setAccesses] = useState<string[]>([
+    "مدیریت کاربران",
+    "مدیریت منو",
+    "مدیریت رنگ ها",
+    "مدیریت کاربران",
+    "مدیریت منو",
+    "مدیریت رنگ ها",
+    "مدیریت کاربران",
+    "مدیریت منو",
+    "مدیریت رنگ ها",
+    "مدیریت کاربران",
+    "مدیریت منو",
+    "مدیریت رنگ ها",
+    "مدیریت کاربران",
+    "مدیریت منو",
+    "مدیریت رنگ ها",
+  ]);
 
   const { control } = useForm();
 
@@ -93,33 +110,36 @@ function CreateRole() {
               افزودن دسترسی
             </Button>
           </HeaderContainer>
-          <MainContainer
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          >
+          <MainContainer>
             {accesses.length > 0 ? (
-              accesses.map((access, index) => (
-                <Tag key={index}>
-                  <IconButton
-                    sx={{ p: 0, color: "inherit" }}
-                    onClick={() => deleteAccess(access)}
-                  >
-                    <CloseIcon size={20} />
-                  </IconButton>
-                  {access}
-                </Tag>
-              ))
-            ) : (
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Typography variant="body2" color="neutral.200">
-                  در حال حاضر هیچ دسترسی اضافه نشده است !
-                </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: 1,
+                }}
+              >
+                {accesses.map((access, index) => (
+                  <Tag key={index}>
+                    <IconButton
+                      sx={{ p: 0, color: "inherit" }}
+                      onClick={() => deleteAccess(access)}
+                    >
+                      <CloseIcon size={20} />
+                    </IconButton>
+                    {access}
+                  </Tag>
+                ))}
               </Box>
+            ) : (
+              // <Box sx={{ display: "flex", justifyContent: "center" }}>
+              //   <Typography variant="body2" color="neutral.200">
+              //     در حال حاضر هیچ دسترسی اضافه نشده است !
+              //   </Typography>
+              // </Box>
+              <EmptyData label="دسترسی" />
             )}
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="outlined" size="small" colorType="secondary">
-                افزودن دسترسی
-              </Button>
-            </Box>
           </MainContainer>
         </SectionContainer>
       </Box>

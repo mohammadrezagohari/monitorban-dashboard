@@ -8,7 +8,7 @@ import RoleInfo from "./RoleInfo";
 import Accesses from "./Accesses";
 import { StyledEditRolePageContainer } from "./EditRolePage.styles";
 
-export default function EditRolePage() {
+export default function EditRolePage({ role }) {
   const [select, setSelect] = useState("");
   const [accesses, setAccesses] = useState(accessesTemplate);
 

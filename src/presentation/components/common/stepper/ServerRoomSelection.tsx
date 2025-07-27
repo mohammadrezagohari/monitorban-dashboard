@@ -3,7 +3,7 @@ import SectionTitle from "src/presentation/components/common/section-title/Secti
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { serverRoomItems } from "src/presentation/data/data";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
-import { ServerRoomSelectionMainContainer } from "./AddAccesses.styles";
+import { ServerRoomSelectionMainContainer } from "../../../feature/users-management/components/roles/add-accesses/AddAccesses.styles";
 
 function ServerRoomSelection({ accessServerRoom, handleServerRoomAccess }) {
   return (

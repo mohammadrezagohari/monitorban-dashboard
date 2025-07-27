@@ -1,7 +1,7 @@
 import UsersManagementPage from "src/presentation/feature/users-management/UsersManagementPage";
 
 // Should be deleted
-import { usersInfo } from "src/presentation/data/data";
+import { groupsList, usersInfo } from "src/presentation/data/data";
 import UserPage from "src/presentation/feature/users-management/components/users/user-page/UserPage";
 import Users from "src/presentation/feature/users-management/components/users/Users";
 import Input from "src/presentation/components/common/input/Input";
@@ -16,6 +16,9 @@ import CreateGroup from "src/presentation/feature/users-management/components/ro
 import AccessesPage from "src/presentation/feature/users-management/components/roles/accesses/AccessesPage";
 import CreateRole from "src/presentation/feature/users-management/components/roles/create-role/CreateRole";
 import GroupsPage from "src/presentation/feature/users-management/components/groups/GroupsPage";
+import EditGroupPage from "src/presentation/feature/users-management/components/groups/edit-group-page/EditGroupPage";
+import AddMember from "src/presentation/feature/users-management/components/groups/add-member/AddMember";
+import AddAccessGroup from "src/presentation/feature/users-management/components/groups/add-access-group/AddAccessGroup";
 
 function UsersManagement() {
   return (
@@ -37,7 +40,10 @@ function UsersManagement() {
       {/* <CreateGroup /> */}
       {/* <AccessesPage /> */}
       {/* <CreateRole /> */}
-      <GroupsPage />
+      {/* <GroupsPage /> */}
+      {/* <EditGroupPage group={groupsList[0]} /> */}
+      {/* <AddMember /> */}
+      <AddAccessGroup />
     </>
   );
 }

@@ -2,7 +2,7 @@ import AccessItem from "./AccessItem";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
-import { AccessTypeMainContainer } from "./AddAccesses.styles";
+import { AccessTypeMainContainer } from "./Stepper.styles";
 
 function AccessType({ accessTypesChecked, handleAccessTypes }) {
   return (

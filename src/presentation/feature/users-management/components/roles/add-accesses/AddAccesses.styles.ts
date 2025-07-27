@@ -8,15 +8,7 @@ export const StyledAddAccessesContainer = styled(Box)(({ theme }) => ({
     gap: theme.spacing(4),
 }))
 
-export const AccessTypeMainContainer = styled(MainContainer)(({ theme }) => ({
-    display: "grid",
-    gridTemplateColumns: "(1fr)",
-    color: theme.palette.neutral.main,
-    gap: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-        gridTemplateColumns: "repeat(2, 1fr)",
-    }
-}))
+
 
 
 export const ServerRoomSelectionMainContainer = styled(MainContainer)(({ theme }) => ({
