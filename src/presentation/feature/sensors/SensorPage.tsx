@@ -93,7 +93,7 @@ function SensorsPage() {
           </Box>
           <GridBox>
             {sensorsList.map((item) => (
-              <SensorsCategoryItem category={item} />
+              <SensorsCategoryItem category={item} key={item.id} />
             ))}
           </GridBox>
         </MainContainer>

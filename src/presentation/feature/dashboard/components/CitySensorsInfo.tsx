@@ -10,6 +10,7 @@ import {
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
 import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
+import { GridBox } from "src/presentation/components/common/GridBox";
 
 const sensors = [
   {
@@ -65,9 +66,11 @@ const sensors = [
 
 const amolServers = [
   {
+    id: 1,
     server_name: "کلینیک راضی",
     sensors: [
       {
+        id: 1,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -75,6 +78,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 2,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -82,6 +86,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 3,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -89,6 +94,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 4,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -96,6 +102,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 5,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -103,6 +110,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 6,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -112,9 +120,11 @@ const amolServers = [
     ],
   },
   {
+    id: 2,
     server_name: "دیتا سنتر آمل امام رضا",
     sensors: [
       {
+        id: 1,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -122,6 +132,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 2,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -129,6 +140,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 3,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -136,6 +148,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 4,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -143,6 +156,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 5,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -150,6 +164,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 6,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -157,6 +172,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 7,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -164,6 +180,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 8,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -171,6 +188,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 9,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -178,6 +196,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 10,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -187,9 +206,11 @@ const amolServers = [
     ],
   },
   {
+    id: 3,
     server_name: "دیتا سنتر رازی قائمشهر",
     sensors: [
       {
+        id: 1,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -197,6 +218,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 2,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -204,6 +226,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 3,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -211,6 +234,7 @@ const amolServers = [
         hour: "6",
       },
       {
+        id: 4,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
         icon: <MobileIcon />,
@@ -230,19 +254,20 @@ const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
 
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         {amolServers.map((server) => (
-          <SectionContainer>
+          <SectionContainer key={server.id}>
             <HeaderContainer>
               <SectionTitle>{server.server_name}</SectionTitle>
             </HeaderContainer>
             <MainContainer>
-              <Box
+              {/* <Box
                 sx={{
                   display: "flex",
                   flexWrap: "wrap",
                   //   justifyContent: "space-between"
                   gap: 2,
                 }}
-              >
+              > */}
+              <GridBox>
                 {server.sensors.map((sensor) => (
                   <SensorSituationCard
                     status={sensor.status}
@@ -250,9 +275,11 @@ const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
                     icon={sensor.icon}
                     data={sensor.data}
                     hour={sensor.hour}
+                    key={sensor.id}
                   />
                 ))}
-              </Box>
+              </GridBox>
+              {/* </Box> */}
             </MainContainer>
           </SectionContainer>
         ))}

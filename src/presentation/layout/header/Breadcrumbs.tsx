@@ -2,8 +2,8 @@ import { Link, Typography } from "@mui/material";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { StyledBreadcrumbs } from "./Header.styles";
 
-const pathMap: Record<string, string> = {
-  dashboard: "",
+const pathMap: Record<string, string | null> = {
+  // dashboard: null,
   sensors: "سنسورها",
   "server-room": "اتاق سرور",
   reports: "گزارشات",
@@ -16,7 +16,7 @@ const pathMap: Record<string, string> = {
 };
 
 function Breadcrumbs() {
- const location = useLocation();
+  const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
@@ -29,6 +29,9 @@ function Breadcrumbs() {
         const isLast = index === pathnames.length - 1;
         const label = pathMap[path];
         //|| decodeURIComponent(path);
+        console.log("to:: ", to);
+
+        if (path === "dashboard") return null;
 
         return isLast ? (
           <Typography variant="body2" key={index}>

@@ -8,7 +8,7 @@ export default function AnnounceItem(props) {
 
   const { item, isLastItem, announceStatus } = props;
   const ItemIcon = iconsMap[item.icon as keyof typeof iconsMap];
-  console.log(item, isLastItem);
+  // console.log(item, isLastItem);
 
   const colors = {
     warning: theme.palette.error.main,
