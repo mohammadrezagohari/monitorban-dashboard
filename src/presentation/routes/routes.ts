@@ -12,6 +12,7 @@ import UsersManagement from "../pages/users-management/UsersManagement";
 import CitySensorsInfo from "../feature/dashboard/components/CitySensorsInfo";
 import { RegisterPage } from "../pages/auth/Register";
 import ContentManagement from "../pages/content-management/ContentManagement";
+import VideoDetails from "../feature/tutorial/components/VideoDetails";
 
 export const routes = [
     {
@@ -65,6 +66,11 @@ export const routes = [
     {
         path: '/tutorials',
         component: Tutorial,
+        requiresAuth: true,
+    },
+    {
+        path: '/tutorials/videos/:id',
+        component: VideoDetails,
         requiresAuth: true,
     },
     {

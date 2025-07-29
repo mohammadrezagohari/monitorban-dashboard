@@ -15,12 +15,20 @@ export const LeftArrowIcon: React.FC<CustomSvgProps> = ({
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.07996"
+        d="M9.57 5.93005L3.5 12.0001L9.57 18.0701"
         stroke={color || "currentColor"}
-        strokeWidth="1.5"
-        strokeMiterlimit="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M20.4999 12H3.66992"
+        stroke={color || "currentColor"}
+        stroke-width="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );
