@@ -1,8 +1,9 @@
 import { ReactNode, useState } from "react";
+import { IconButton, InputAdornment } from "@mui/material";
+
 import { StyledInput } from "./Form.styles";
 import { HiddenEyeIcon } from "src/presentation/assets/icons/HiddenEyeIcon";
 import { VisibleEyeIcon } from "src/presentation/assets/icons/VisibleEyeIcon";
-import { IconButton, InputAdornment } from "@mui/material";
 
 function Input({
   id,

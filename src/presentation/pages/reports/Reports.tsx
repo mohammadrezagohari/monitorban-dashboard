@@ -1,4 +1,4 @@
-import ReportsPage from "src/presentation/feature/reports/Reports";
+import ReportsPage from "src/presentation/feature/reports/ReportsPage";
 
 function Reports() {
   return <ReportsPage />;

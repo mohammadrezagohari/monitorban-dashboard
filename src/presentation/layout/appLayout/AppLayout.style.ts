@@ -2,7 +2,6 @@ import { Box, BoxProps, styled } from "@mui/material";
 
 export const StyledAppLayout = styled(Box)<BoxProps>(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
-    // gridTemplateColumns: "1fr",
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(2),
@@ -14,5 +13,5 @@ export const StyledAppLayout = styled(Box)<BoxProps>(({ theme }) => ({
         padding: theme.spacing(3),
     },
     minHeight: "100vh",
-    padding: theme.spacing(9, 1.5),
+    padding: theme.spacing(9, 1.5, 3),
 }))
