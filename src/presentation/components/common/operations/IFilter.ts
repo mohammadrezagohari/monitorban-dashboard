@@ -4,9 +4,9 @@ export interface FilterOption {
 }
 
 export interface FilterPopoverProps {
-    options: FilterOption[];
-    selectedOptions: string[];
-    onChange: (selected: string[]) => void;
-    onApply: () => void;
-    onClose: () => void;
+    options?: FilterOption[];
+    selectedOptions?: string[];
+    onChange?: (selected: string[]) => void;
+    onApply?: () => void;
+    onClose?: () => void;
 }

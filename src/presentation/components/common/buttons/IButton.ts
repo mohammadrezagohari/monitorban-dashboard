@@ -17,4 +17,5 @@ export interface ButtonProps extends Omit<MuiButtonProps, "size" | "variant" | "
     variant: "contained" | "outlined" | "text";
     size?: ButtonSize;
     colorType?: "primary" | "secondary" | "success" | "error";
+    to?: string;
 }

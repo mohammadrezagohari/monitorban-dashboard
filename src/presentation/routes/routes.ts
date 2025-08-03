@@ -5,14 +5,16 @@ import Reports from "../pages/reports/Reports";
 import Support from "../pages/support/Support";
 import Tutorial from "../pages/tutorial/Tutorial";
 import Dashboard from "../pages/dashboard/Dashboard";
-import ServerRoom from "../pages/server-room/ServerRoomPage";
+import ServerRoom from "../pages/server-room/ServerRoom";
 import AddNewSensor from "../feature/sensors/components/AddNewSensor";
+import VideoDetails from "../feature/tutorial/components/VideoDetails";
 import CenterDetails from "../feature/sensors/components/CenterDetails";
 import UsersManagement from "../pages/users-management/UsersManagement";
 import CitySensorsInfo from "../feature/dashboard/components/CitySensorsInfo";
 import { RegisterPage } from "../pages/auth/Register";
+import CreateServerRoom from "../feature/server-room/components/create-server-room/CreateServerRoom";
 import ContentManagement from "../pages/content-management/ContentManagement";
-import VideoDetails from "../feature/tutorial/components/VideoDetails";
+import EditServerRoom from "../feature/server-room/components/edit-server-room/EditServerRoom";
 
 export const routes = [
     {
@@ -39,7 +41,7 @@ export const routes = [
         requiresAuth: true,
     },
     {
-        path: '/sensors/:centerName',
+        path: '/sensors/:centerName',//
         component: CenterDetails,
         requiresAuth: true,
     },
@@ -51,6 +53,16 @@ export const routes = [
     {
         path: '/server-room',
         component: ServerRoom,
+        requiresAuth: true,
+    },
+    {
+        path: '/server-room/create-server-room',
+        component: CreateServerRoom,
+        requiresAuth: true,
+    },
+    {
+        path: '/server-room/edit-server-room/:roomId',
+        component: EditServerRoom,
         requiresAuth: true,
     },
     {

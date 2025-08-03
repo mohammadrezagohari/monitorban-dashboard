@@ -27,7 +27,7 @@ export const StyledRow = styled(Box, {
         display: "grid",
         gap: theme.spacing(2),
         gridTemplateColumns: "1fr",
-        [theme.breakpoints.up("md")]: {
+        [theme.breakpoints.up("lg")]: {
             gap: theme.spacing(2, 3),
             gridTemplateColumns: "repeat(2, 1fr)",
             gridTemplateRows: "246px 1fr",

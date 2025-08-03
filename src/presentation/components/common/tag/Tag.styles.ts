@@ -1,7 +1,7 @@
 import { styled, Typography } from "@mui/material";
 
 
-export const StyledTag = styled(Typography)<{ $type?: "primary" | "secondary" }>(({ theme, $type = "primary" }) => ({
+export const StyledTag = styled(Typography)<{ $type?: "primary" | "secondary" | "normal" | "warning" | "danger" }>(({ theme, $type = "primary" }) => ({
     borderRadius: "10px",
     display: "flex",
     alignItems: "center",
@@ -16,7 +16,19 @@ export const StyledTag = styled(Typography)<{ $type?: "primary" | "secondary" }>
     ...($type === "secondary" && {
         color: theme.palette.secondary[200],
         backgroundColor: theme.palette.secondary[800],
-    })
+    }),
+    ...($type === "normal" && {
+        color: theme.palette.success.main,
+        backgroundColor: theme.palette.success[700],
+    }),
+    ...($type === "warning" && {
+        color: theme.palette.warning[500],
+        backgroundColor: theme.palette.warning[800],
+    }),
+    ...($type === "danger" && {
+        color: theme.palette.error.main,
+        backgroundColor: theme.palette.error[800],
+    }),
 }))
 
 export const StyledTagWithBullet = styled(Typography)(({ theme }) => ({

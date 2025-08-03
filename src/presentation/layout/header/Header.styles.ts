@@ -18,6 +18,7 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
         color: theme.palette.neutral[200],
         "&:hover": {
             color: theme.palette.neutral[50],
+            textDecoration: 'none',
         },
         fontSize: 14,
         fontWeight: 500,

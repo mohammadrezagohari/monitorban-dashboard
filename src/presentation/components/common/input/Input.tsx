@@ -9,9 +9,11 @@ function Input({
   id,
   icon,
   type = "text",
+  placeholder,
   ...props
 }: {
   id: string;
+  placeholder?: string;
   icon?: boolean | ReactNode;
   type?: string;
 }) {
@@ -19,6 +21,7 @@ function Input({
 
   return (
     <StyledInput
+      placeholder={placeholder}
       id={id}
       {...props}
       type={type === "password" ? (showPassword ? "text" : "password") : type}

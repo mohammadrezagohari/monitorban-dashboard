@@ -5,7 +5,7 @@ export const StyledSensorCard = styled(Box)(({ theme }) => ({
     borderRadius: "10px",
     padding: theme.spacing(1.5),
     [theme.breakpoints.up("md")]: {
-        maxWidth: "200px",
+        // maxWidth: "200px",
         borderRadius: "25px",
     },
     [theme.breakpoints.up("lg")]: {

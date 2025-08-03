@@ -4,20 +4,29 @@ import { StyledBreadcrumbs } from "./Header.styles";
 
 const pathMap: Record<string, string | null> = {
   // dashboard: null,
+  "city-sensors-info": "اطلاعات سنسور ها",
   sensors: "سنسورها",
+  "add-new-sensor": "افزودن سنسور جدید",
   "server-room": "اتاق سرور",
+  "create-server-room": "افزودن اتاق سرور",
+  "edit-server-room": "ویرایش اتاق سرور",
   reports: "گزارشات",
   "users-management": "مدیریت کاربران",
   tutorials: "آموزش‌ ها",
   support: "پشتیبانی",
   "content-management": "مدیریت محتوا",
-  "add-new-sensor": "افزودن سنسور جدید",
-  "city-sensors-info": "اطلاعات سنسور ها",
 };
+
+function isDynamicParam(value: string) {
+  return !(value in pathMap);
+}
 
 function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+
+  const hasIdAtEnd =
+    pathnames.length > 0 && isDynamicParam(pathnames[pathnames.length - 1]);
 
   return (
     <StyledBreadcrumbs aria-label="breadcrumb">
@@ -28,12 +37,15 @@ function Breadcrumbs() {
         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1;
         const label = pathMap[path];
-        //|| decodeURIComponent(path);
-        console.log("to:: ", to);
+        const isIdParam = Number(path);
 
         if (path === "dashboard") return null;
 
-        return isLast ? (
+        if (isIdParam || !label) return null;
+
+        const isBeforeId = hasIdAtEnd && index === pathnames.length - 2;
+
+        return isLast || isBeforeId ? (
           <Typography variant="body2" key={index}>
             {label}
           </Typography>
