@@ -1,14 +1,14 @@
-import { styled, Typography, useTheme } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import { StyledAnnounceItem } from "./Announcements.styles";
 
 export default function AnnounceItem(props) {
   const theme = useTheme();
 
   const { item, isLastItem, announceStatus } = props;
   const ItemIcon = iconsMap[item.icon as keyof typeof iconsMap];
-  // console.log(item, isLastItem);
 
   const colors = {
     warning: theme.palette.error.main,
@@ -16,23 +16,8 @@ export default function AnnounceItem(props) {
     danger: theme.palette.warning.main,
   };
 
-  const StyledLi = styled("li")(() => ({
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-
-    padding: "8px 0",
-  }));
-
   return (
-    <StyledLi
-      key={item.id}
-      sx={{
-        borderBottom: isLastItem
-          ? "none"
-          : `1px solid ${theme.palette.text.disabled}`,
-      }}
-    >
+    <StyledAnnounceItem key={item.id} isLastItem={isLastItem}>
       {/* <div
         style={{
           backgroundColor: "#373040",
@@ -55,6 +40,6 @@ export default function AnnounceItem(props) {
           {item.report}
         </Typography>
       </div>
-    </StyledLi>
+    </StyledAnnounceItem>
   );
 }

@@ -5,8 +5,13 @@ import { StyledEditGroupPageContainer } from "./EditGroupPage.styles";
 import GroupInfo from "./GroupInfo";
 import GroupMembers from "./GroupMembers";
 import GroupAccesses from "./GroupAccesses";
+import { useLocation } from "react-router-dom";
 
-function EditGroupPage({ group }) {
+function EditGroupPage() {
+  const location = useLocation();
+  const group = location.state.group;
+  console.log(group);
+
   return (
     <>
       <PageTitle title="ویرایش گروه">

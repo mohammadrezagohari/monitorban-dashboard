@@ -7,10 +7,13 @@ import { accessesTemplate, filterOptions } from "src/presentation/data/data";
 import RoleInfo from "./RoleInfo";
 import Accesses from "./Accesses";
 import { StyledEditRolePageContainer } from "./EditRolePage.styles";
+import { useLocation } from "react-router-dom";
 
-export default function EditRolePage({ role }) {
+export default function EditRolePage() {
   const [select, setSelect] = useState("");
   const [accesses, setAccesses] = useState(accessesTemplate);
+  const location = useLocation();
+  const role = location.state?.role;
 
   const handleGroupsDelete = (selectedItem: string) => {
     console.log(selectedItem);
@@ -18,9 +21,12 @@ export default function EditRolePage({ role }) {
       prevItems.filter((item: string) => item !== selectedItem)
     );
   };
+
+  console.log(role);
+
   return (
     <>
-      <PageTitle title="نقش ها">
+      <PageTitle title="ویرایش نقش">
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Button variant="outlined" size="small" colorType="primary">
             انصراف
@@ -32,7 +38,7 @@ export default function EditRolePage({ role }) {
       </PageTitle>
 
       <StyledEditRolePageContainer>
-        <RoleInfo />
+        <RoleInfo role={role} />
 
         <Accesses accesses={accesses} onClick={handleGroupsDelete} />
       </StyledEditRolePageContainer>

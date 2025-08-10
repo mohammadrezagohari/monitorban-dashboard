@@ -11,8 +11,8 @@ import { filterOptions } from "src/presentation/data/data";
 import { RoleInfoMainContainer } from "./EditRolePage.styles";
 import { GridBox } from "src/presentation/components/common/GridBox";
 
-function RoleInfo() {
-  const { control } = useForm();
+function RoleInfo({ role }) {
+  const { control, register } = useForm({ defaultValues: role });
 
   return (
     <SectionContainer>
@@ -23,7 +23,7 @@ function RoleInfo() {
         <Form>
           <GridBox>
             <FormRow label="نام نقش">
-              <Input id="roleName" />
+              <Input id="roleName" {...register("roleName")} />
             </FormRow>
             <FormRow label="اتاق سرور">
               <Controller

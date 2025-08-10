@@ -1,6 +1,6 @@
 import { CustomSvgProps } from "./IIcons";
 
-export const TwoUserIcon: React.FC<CustomSvgProps> = ({
+export const TwoUsersIcon: React.FC<CustomSvgProps> = ({
   size = 24,
   color, // = "#F7F5FA", //"neutral.main"
   className,

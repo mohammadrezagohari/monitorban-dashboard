@@ -7,14 +7,14 @@ import {
 } from "@mui/material";
 import { VideoCardProps } from "./IVideoCard";
 import { Card } from "./VideoCard.styles";
-import Button from "../buttons/Button";
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { LeftArrowIcon } from "src/presentation/assets/icons/LeftArrowIcon";
 import { VideoIcon } from "src/presentation/assets/icons/VideoIcon";
 import { VideoCardButton } from "../buttons/VideoCardButton";
 import { Link } from "react-router-dom";
 
-function VideoCard({ id, title, thumbnail }: VideoCardProps) {
+function VideoCard({ video }: VideoCardProps) {
+  const { id, title, thumbnail } = video;
+
   const theme = useTheme();
 
   return (

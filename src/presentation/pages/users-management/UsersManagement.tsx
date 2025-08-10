@@ -10,7 +10,7 @@ import ChangePasswordPage from "src/presentation/feature/users-management/compon
 import RolesPage from "src/presentation/feature/users-management/components/roles/RolesPage";
 import EditRolePage from "src/presentation/feature/users-management/components/roles/edit-role-page/EditRolePage";
 import AddAccesses from "src/presentation/feature/users-management/components/roles/add-accesses/AddAccesses";
-import UserCard from "src/presentation/feature/users-management/components/user-management-item/UserManagementItem";
+// import UserCard from "src/presentation/feature/users-management/components/user-management-item/LinearCard";
 import RoleUsers from "src/presentation/feature/users-management/components/roles/role-users/RoleUsers";
 import CreateGroup from "src/presentation/feature/users-management/components/roles/create-group/CreateGroup";
 import AccessesPage from "src/presentation/feature/users-management/components/roles/accesses/AccessesPage";
@@ -23,7 +23,7 @@ import AddAccessGroup from "src/presentation/feature/users-management/components
 function UsersManagement() {
   return (
     <>
-      {/* <UsersManagementPage /> */}
+      <UsersManagementPage />
 
       {/* TODO ::  Should be deleted */}
       {/* <Users /> */}
@@ -43,7 +43,7 @@ function UsersManagement() {
       {/* <GroupsPage /> */}
       {/* <EditGroupPage group={groupsList[0]} /> */}
       {/* <AddMember /> */}
-      <AddAccessGroup />
+      {/* <AddAccessGroup /> */}
     </>
   );
 }

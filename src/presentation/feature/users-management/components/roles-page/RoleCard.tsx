@@ -6,7 +6,7 @@ import Divider from "src/presentation/components/common/divider/Divider";
 import { ListIcon } from "src/presentation/assets/icons/ListIcon";
 import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { TwoUserIcon } from "src/presentation/assets/icons/TwoUsersIcon";
+import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import RoleAccessibility from "./RoleAccessibility";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
@@ -18,6 +18,7 @@ import {
   StyledMainContainer,
   StyledRoleCardContainer,
 } from "../roles/RolesPage.styles";
+import { useNavigate } from "react-router-dom";
 
 export default function RoleCard({
   roleObj,
@@ -25,18 +26,28 @@ export default function RoleCard({
 }: {
   roleObj: {
     id: string;
-    title: string;
+    roleName: string;
     serverRoom: string;
     accesses: string[];
   };
   onDeleteRole: () => void;
 }) {
-  const { title, serverRoom, accesses } = roleObj;
+  const { id, roleName, serverRoom, accesses } = roleObj;
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
   //   const [deleteBackdrop, setDeleteBackdrop] = useState(false);
 
-  function handleAccess() {
+  function handleAccessToggle() {
     setVisible((visible) => !visible);
+  }
+
+  function handleEdit() {
+    console.log("edit", id);
+    navigate("edit-role", { state: { role: roleObj } });
+  }
+
+  function handleAccess() {
+    navigate("access");
   }
 
   return (
@@ -47,7 +58,7 @@ export default function RoleCard({
             <ListIcon size={24} />
           </IconWrapper>
           <Typography variant="h4" color="neutral.main">
-            {title}
+            {roleName}
           </Typography>
         </Box>
 
@@ -69,6 +80,7 @@ export default function RoleCard({
             size="small"
             colorType="success"
             startIcon={<MessageEditIcon size={20} />}
+            onClick={handleEdit}
           >
             ویرایش
           </Button>
@@ -76,7 +88,8 @@ export default function RoleCard({
             variant="outlined"
             size="small"
             colorType="primary"
-            startIcon={<TwoUserIcon size={20} />}
+            startIcon={<TwoUsersIcon size={20} />}
+            onClick={() => navigate("users")}
           >
             کاربران
           </Button>
@@ -85,6 +98,7 @@ export default function RoleCard({
             size="small"
             colorType="primary"
             startIcon={<ComplaintIcon size={20} />}
+            onClick={handleAccess}
           >
             دسترسی ها
           </Button>
@@ -107,7 +121,7 @@ export default function RoleCard({
             variant="outlined"
             size="small"
             colorType="primary"
-            onClick={handleAccess}
+            onClick={handleAccessToggle}
             endIcon={
               visible ? <ArrowUpIcon size={20} /> : <ArrowDownIcon size={20} />
             }

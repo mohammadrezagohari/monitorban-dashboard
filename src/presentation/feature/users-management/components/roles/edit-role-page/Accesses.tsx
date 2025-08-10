@@ -7,13 +7,21 @@ import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { AccessesMainContainer } from "./EditRolePage.styles";
+import { useNavigate } from "react-router-dom";
 
 function Accesses({ accesses, onClick }) {
+  const navigate = useNavigate();
+
   return (
     <SectionContainer>
       <HeaderContainer>
         <SectionTitle>دسترسی ها</SectionTitle>
-        <Button variant="outlined" size="small" colorType="primary">
+        <Button
+          variant="outlined"
+          size="small"
+          colorType="primary"
+          onClick={() => navigate("/users-management/roles/edit-role/add-new-access")}
+        >
           افزودن دسترسی
         </Button>
       </HeaderContainer>

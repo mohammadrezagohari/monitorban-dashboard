@@ -7,7 +7,7 @@ import { Text } from "src/presentation/components/common/dashboard-card/BaseDash
 import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
 import Tag from "src/presentation/components/common/tag/Tag";
 import { RoleUserCardProps } from "./IRoleUsers";
-import CustomCheckbox from "src/presentation/components/common/old/checkbox-input/CustomCheckBoxInput";
+import CustomCheckbox from "src/presentation/components/common/checkbox-input/CustomCheckBoxInput";
 
 function RoleUserCard({ user, ROLE, type, selectable }) {
   const { image: avatar, fullName: userName, phone, roles, groups } = user;

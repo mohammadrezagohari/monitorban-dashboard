@@ -17,6 +17,7 @@ import {
   HeaderContainer,
   MainContainer,
 } from "../common/section-container/SectionContainer.style";
+import { IconButtonWithBorder } from "../common/IconButtonWithBorder";
 
 function ServerRoomsSlider() {
   const theme = useTheme();
@@ -34,21 +35,15 @@ function ServerRoomsSlider() {
               variant="outlined"
               size="xxsmall"
               colorType="primary"
-              endIcon={<ArrowLeftIcon />}
+              endIcon={<ArrowLeftIcon size={16} />}
               onClick={() => console.log("اتاق سرور ها")}
             >
               مشاهده همه
             </Button>
           ) : (
-            <IconButton
-              sx={{
-                border: `1px solid ${theme.palette.primary.dark}`,
-                borderRadius: "10px",
-                padding: "7px",
-              }}
-            >
+            <IconButtonWithBorder>
               <EyeIcon size={16} color={theme.palette.primary.dark} />
-            </IconButton>
+            </IconButtonWithBorder>
           )}
           {isDesktop && (
             <div>

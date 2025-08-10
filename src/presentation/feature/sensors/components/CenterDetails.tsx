@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import Filter from "src/presentation/components/common/operations/Filter";
@@ -16,6 +16,7 @@ import SectionContainer from "src/presentation/components/common/section-contain
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import { FilterSquareIcon } from "src/presentation/assets/icons/FilterSquareIcon";
 import TemperatureCard from "src/presentation/components/common/temperature-card/TemperatureCard";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 const filterOptions: FilterOption[] = [
   { value: "zare", label: "بیمارستان زارع" },
@@ -170,16 +171,9 @@ function CenterDetails() {
                   </Button>
                 </Box>
 
-                <IconButton
-                  sx={{
-                    border: `1px solid ${theme.palette.primary.dark}`,
-                    borderRadius: "10px",
-                    p: "7px",
-                  }}
-                  onClick={handleAddSensorBtn}
-                >
+                <IconButtonWithBorder onClick={handleAddSensorBtn}>
                   <PlusIcon color={theme.palette.primary.dark} size={16} />
-                </IconButton>
+                </IconButtonWithBorder>
               </>
             )}
           </Box>

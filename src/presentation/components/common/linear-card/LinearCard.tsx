@@ -3,41 +3,39 @@ import { Box, Typography } from "@mui/material";
 
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import {
-  IconButton,
-  StyledUserManagementItem,
-} from "./UserManagementItem.styles";
+import { StyledLinearCard } from "./LinearCard.styles";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
-function UserManagementItem({
+function LinearCard({
   icon,
-  title,
+  children,
   color,
+  handleClick,
 }: {
   icon?: ReactElement;
-  title?: string;
+  children?: string;
   color?: string;
+  handleClick?: () => void;
 }) {
   return (
-    <StyledUserManagementItem>
+    <StyledLinearCard>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         <IconWrapper bgcolor={color}>{icon}</IconWrapper>
         <Typography
-          // component="h4"
           variant="h4"
           color="neutral.main"
           sx={{
             typography: { xs: "body2", md: "h4" },
-            // typography: "h1",
           }}
         >
-          {title}
+          {children}
         </Typography>
       </Box>
-      <IconButton sx={{ p: "7px" }}>
+      <IconButtonWithBorder onClick={handleClick}>
         <ArrowLeftIcon size={16} />
-      </IconButton>
-    </StyledUserManagementItem>
+      </IconButtonWithBorder>
+    </StyledLinearCard>
   );
 }
 
-export default UserManagementItem;
+export default LinearCard;

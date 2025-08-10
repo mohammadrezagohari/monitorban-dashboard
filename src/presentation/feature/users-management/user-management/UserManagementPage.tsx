@@ -7,7 +7,7 @@ import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UserSquareIcon } from "src/presentation/assets/icons/UserSquareIcon";
 import { ReactElement } from "react";
 import { ListIcon } from "src/presentation/assets/icons/ListIcon";
-import { TwoUserIcon } from "src/presentation/assets/icons/TwoUsersIcon";
+import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
 
 export default function UserManagement() {
   return (
@@ -36,7 +36,7 @@ export default function UserManagement() {
             <UserCard
               title="گروه ها"
               color="#9BAFD6"
-              icon={<TwoUserIcon color="#0E0C15" size={24} />}
+              icon={<TwoUsersIcon color="#0E0C15" size={24} />}
             />
           </Box>
         </MainContainer>

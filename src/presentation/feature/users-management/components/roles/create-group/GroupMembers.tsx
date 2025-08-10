@@ -1,4 +1,4 @@
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import ListCard from "src/presentation/components/common/list-card/ListCard";
@@ -9,6 +9,7 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function GroupMembers({ members }) {
   const theme = useTheme();
@@ -22,16 +23,9 @@ function GroupMembers({ members }) {
             افزودن عضو
           </Button>
         ) : (
-          <IconButton
-            sx={{
-              border: `1px solid ${theme.palette.primary.dark}`,
-              borderRadius: "10px",
-              color: theme.palette.primary.dark,
-              p: "7px",
-            }}
-          >
+          <IconButtonWithBorder>
             <PlusIcon size={16} />
-          </IconButton>
+          </IconButtonWithBorder>
         )}
       </HeaderContainer>
       <MainContainer sx={{ display: "flex", flexDirection: "column", gap: 2 }}>

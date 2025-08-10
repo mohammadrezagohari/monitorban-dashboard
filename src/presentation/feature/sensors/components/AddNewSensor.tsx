@@ -1,5 +1,5 @@
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import {
   HeaderContainer,
   MainContainer,
@@ -30,6 +30,8 @@ import Select from "src/presentation/components/common/select/Select";
 import { useMoveBack } from "src/presentation/hooks/useMoveBack";
 import { GridBox } from "src/presentation/components/common/GridBox";
 import { Form } from "src/presentation/components/common/Form";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import Input from "src/presentation/components/common/input/Input";
 
 const AddNewSensor = () => {
   // const [serverRoomValue, setServerRoomValue] = useState("");
@@ -116,29 +118,28 @@ const AddNewSensor = () => {
           </Box>
         )}
       </PageTitle>
-
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-        <SectionContainer>
-          <HeaderContainer>
-            <Typography
-              variant="h3"
-              color="neutral.main"
-              lineHeight={1.6}
-              sx={{
-                fontSize: { xs: 18, md: 24 },
-              }}
-            >
-              اطلاعات سنسور
-            </Typography>
-          </HeaderContainer>
-          <MainContainer>
-            <Form onSubmit={handleSubmit(onSubmit, onError)}>
+      <Form onSubmit={handleSubmit(onSubmit, onError)}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <SectionContainer>
+            <HeaderContainer>
+              <Typography
+                variant="h3"
+                color="neutral.main"
+                lineHeight={1.6}
+                sx={{
+                  fontSize: { xs: 18, md: 24 },
+                }}
+              >
+                اطلاعات سنسور
+              </Typography>
+            </HeaderContainer>
+            <MainContainer>
               <GridBox>
                 <FormRow
                   label="نام سنسور"
                   error={errors?.sensorName?.message as string}
                 >
-                  <StyledInput
+                  <Input
                     id="sensorName"
                     placeholder="نام سنسور را وارد کنید"
                     {...register("sensorName")}
@@ -188,233 +189,244 @@ const AddNewSensor = () => {
                   />
                 </FormRow>
               </GridBox>
-            </Form>
-          </MainContainer>
-        </SectionContainer>
-        <SectionContainer>
-          <HeaderContainer>
-            <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-              ویژگی های سنسور
-            </Typography>
-          </HeaderContainer>
-          <MainContainer>
-            <GridBox>
-              <FormRow label="عنوان انگلیسی سنسور">
-                <StyledInput
-                  id="sensorTitleEnglish"
-                  placeholder="عنوان انگلیسی سنسور را وارد کنید"
-                />
-              </FormRow>
+            </MainContainer>
+          </SectionContainer>
 
-              <FormRow label="عنوان فارسی سرور">
-                <StyledInput
-                  id="sensorTitlePersian"
-                  placeholder="عنوان فارسی سنسور را وارد کنید"
-                />
-              </FormRow>
-
-              <FormRow label="نوع سنسور">
-                <Controller
-                  name="sensorTypeFeature"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="sensorTypeFeature"
-                      options={sensorTypeFeatureOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک نوع سنسور را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="واحد اندازه گیری">
-                <Controller
-                  name="sensorUnit"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="sensorUnit"
-                      options={unitOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک واحد اندازه گیری را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="آدرس فیزیکی سنسور">
-                <StyledInput
-                  id="sensorAddress"
-                  placeholder="آدرس فیزیکی سنسور را وارد کنید"
-                />
-              </FormRow>
-
-              <FormRow label="نوع اعلان">
-                <Controller
-                  name="notificationType"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="notificationType"
-                      options={notifTypeOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک نوع اعلان را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="تعداد اعلان">
-                <StyledInput
-                  id="notificationNumber"
-                  placeholder="تعداد اعلان را وارد کنید"
-                />
-              </FormRow>
-              {/* --------- */}
-              <FormRow label="فواصل بین اعلان">
-                <Controller
-                  name="notificationInterval"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="notificationInterval"
-                      options={notifDurationOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک بازه را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="اعلان بازگشت به حالت نرمال">
-                <Controller
-                  name="notificationInterval"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="notificationInterval"
-                      options={returnNotifToNormalOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک حالت را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="تغییرات قابل ثبت">
-                <Controller
-                  name="recordableChanges"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="recordableChanges"
-                      options={recordableChangesOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک تغییر را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="حداقل ثبت روزانه">
-                <Controller
-                  name="minimumDailyRecord"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Select
-                      id="minimumDailyRecord"
-                      options={minimumRecordOptions}
-                      value={field.value}
-                      onChange={(e) => field.onChange(e.target.value)}
-                      placeholder="یک گزینه را انتخاب کنید"
-                    />
-                  )}
-                />
-              </FormRow>
-
-              <FormRow label="بیشینه بحرانی">
-                <StyledInput
-                  id="maximumCritical"
-                  placeholder="بیشینه بحرانی را وارد کنید"
-                />
-              </FormRow>
-
-              <FormRow label="کمینه بحرانی">
-                <StyledInput
-                  id="minimumCritical"
-                  placeholder="کمینه بحرانی را وارد کنید"
-                />
-              </FormRow>
-
-              <FormRow label="بیشینه اخطار">
-                <StyledInput
-                  id="maximumWarning"
-                  placeholder="بیشینه بحرانی را وارد کنید"
-                />
-              </FormRow>
-
-              <FormRow label="کمینه اخطار">
-                <StyledInput
-                  id="minimumWarning"
-                  placeholder="کمینه بحرانی را وارد کنید"
-                />
-              </FormRow>
-            </GridBox>
-            <Box mt={{ xs: 1.5, md: 2 }}>
-              <Typography variant="body1" color="neutral.200" mb={0.5}>
-                آیکون
+          <SectionContainer>
+            <HeaderContainer>
+              <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
+                ویژگی های سنسور
               </Typography>
-              <Box
-                sx={{ display: "flex", alignItems: "center", gap: 6, mr: 1.25 }}
-              >
+            </HeaderContainer>
+            <MainContainer>
+              <GridBox>
+                <FormRow label="عنوان انگلیسی سنسور">
+                  <Input
+                    id="sensorTitleEnglish"
+                    placeholder="عنوان انگلیسی سنسور را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="عنوان فارسی سرور">
+                  <Input
+                    id="sensorTitlePersian"
+                    placeholder="عنوان فارسی سنسور را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="نوع سنسور">
+                  <Controller
+                    name="sensorTypeFeature"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="sensorTypeFeature"
+                        options={sensorTypeFeatureOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک نوع سنسور را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="واحد اندازه گیری">
+                  <Controller
+                    name="sensorUnit"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="sensorUnit"
+                        options={unitOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک واحد اندازه گیری را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="آدرس فیزیکی سنسور">
+                  <Input
+                    id="sensorAddress"
+                    placeholder="آدرس فیزیکی سنسور را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="نوع اعلان">
+                  <Controller
+                    name="notificationType"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="notificationType"
+                        options={notifTypeOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک نوع اعلان را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="تعداد اعلان">
+                  <Input
+                    id="notificationNumber"
+                    placeholder="تعداد اعلان را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="فواصل بین اعلان">
+                  <Controller
+                    name="notificationInterval"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="notificationInterval"
+                        options={notifDurationOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک بازه را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="اعلان بازگشت به حالت نرمال">
+                  <Controller
+                    name="notificationInterval"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="notificationInterval"
+                        options={returnNotifToNormalOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک حالت را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="تغییرات قابل ثبت">
+                  <Controller
+                    name="recordableChanges"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="recordableChanges"
+                        options={recordableChangesOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک تغییر را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="حداقل ثبت روزانه">
+                  <Controller
+                    name="minimumDailyRecord"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        id="minimumDailyRecord"
+                        options={minimumRecordOptions}
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        placeholder="یک گزینه را انتخاب کنید"
+                      />
+                    )}
+                  />
+                </FormRow>
+
+                <FormRow label="بیشینه بحرانی">
+                  <Input
+                    id="maximumCritical"
+                    placeholder="بیشینه بحرانی را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="کمینه بحرانی">
+                  <Input
+                    id="minimumCritical"
+                    placeholder="کمینه بحرانی را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="بیشینه اخطار">
+                  <Input
+                    id="maximumWarning"
+                    placeholder="بیشینه بحرانی را وارد کنید"
+                  />
+                </FormRow>
+
+                <FormRow label="کمینه اخطار">
+                  <Input
+                    id="minimumWarning"
+                    placeholder="کمینه بحرانی را وارد کنید"
+                  />
+                </FormRow>
+              </GridBox>
+              <Box mt={{ xs: 1.5, md: 2 }}>
+                <Typography variant="body1" color="neutral.200" mb={0.5}>
+                  آیکون
+                </Typography>
                 <Box
                   sx={{
                     display: "flex",
-                    gap: 1,
                     alignItems: "center",
-                    width: 90,
+                    gap: 6,
+                    mr: 1.25,
                   }}
                 >
-                  <IconWrapper>
-                    <HouseIcon color="#C9A8E5" />
-                  </IconWrapper>
-                  <Typography variant="body2" color="neutral.200">
-                    عکس آیکون
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <Button variant="outlined" size="xxsmall" colorType="primary">
-                    بارگذاری عکس
-                  </Button>
-                  <IconButton
+                  <Box
                     sx={{
-                      border: "1px solid #E8383B",
-                      borderRadius: "10px",
-                      p: "7px",
+                      display: "flex",
+                      gap: 1,
+                      alignItems: "center",
+                      width: 90,
                     }}
                   >
-                    <DeleteIcon size={16} color="#E8383B" />
-                  </IconButton>
+                    <IconWrapper>
+                      <HouseIcon color="#C9A8E5" />
+                    </IconWrapper>
+                    <Typography variant="body2" color="neutral.200">
+                      عکس آیکون
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <Button
+                      variant="outlined"
+                      size="xxsmall"
+                      colorType="primary"
+                    >
+                      بارگذاری عکس
+                    </Button>
+                    <IconButtonWithBorder
+                      color={theme.palette.error.main}
+                      // sx={{
+                      //   border: "1px solid #E8383B",
+                      //   borderRadius: "10px",
+                      //   p: "7px",
+                      // }}
+                    >
+                      <DeleteIcon size={16} />
+                    </IconButtonWithBorder>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-          </MainContainer>
-        </SectionContainer>
-      </Box>
+            </MainContainer>
+          </SectionContainer>
+        </Box>
+      </Form>
     </>
     // </Box>
   );

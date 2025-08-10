@@ -1,4 +1,4 @@
-import TreeView from "src/presentation/components/common/old/TreeView/TreeView";
+import TreeView from "../tree-view/CustomTreeView";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {

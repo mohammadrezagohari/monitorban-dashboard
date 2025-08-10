@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
+import { IUser } from "./IUsers";
 import UsersList from "./UsersList";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { usersInfo } from "src/presentation/data/data";
 import FilterOperation from "./FilterOperation";
 import { StyledUsersContainer } from "./Users.styles";
-import { IUser } from "./IUsers";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 export default function Users() {
   const [userRole, setUserRole] = useState("");
@@ -31,16 +32,9 @@ export default function Users() {
             ایجاد کاربر جدید
           </Button>
         ) : (
-          <IconButton
-            sx={{
-              border: `1px solid ${theme.palette.primary.dark}`,
-              borderRadius: "10px",
-              p: "7px",
-            }}
-            onClick={() => {}}
-          >
+          <IconButtonWithBorder onClick={() => {}}>
             <PlusIcon color={theme.palette.primary.dark} size={16} />
-          </IconButton>
+          </IconButtonWithBorder>
         )}
       </PageTitle>
 

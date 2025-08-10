@@ -1,4 +1,4 @@
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 import SensorCard from "src/presentation/components/common/sensor-card/SensorCard";
 import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
@@ -9,6 +9,7 @@ import SectionContainer from "src/presentation/components/common/section-contain
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { StyledMainContainer } from "./SensorsDetails.styles";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function SensorsDetails() {
   const theme = useTheme();
@@ -25,21 +26,15 @@ function SensorsDetails() {
               variant="outlined"
               size="xxsmall"
               colorType="primary"
-              endIcon={<ArrowLeftIcon />}
+              endIcon={<ArrowLeftIcon size={16} />}
               onClick={() => console.log("سنسورها")}
             >
               مشاهده همه
             </Button>
           ) : (
-            <IconButton
-              sx={{
-                border: `1px solid ${theme.palette.primary.dark}`,
-                borderRadius: "10px",
-                p: "7px",
-              }}
-            >
+            <IconButtonWithBorder>
               <EyeIcon size={16} color={theme.palette.primary.dark} />
-            </IconButton>
+            </IconButtonWithBorder>
           )}
         </HeaderContainer>
         <StyledMainContainer>

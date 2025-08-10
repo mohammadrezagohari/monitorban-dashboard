@@ -18,11 +18,7 @@ export const StyledQuestionContainer = styled(Box)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "space-between",
 
-    "& button": {
-        border: `1px solid ${theme.palette.text.disabled}`,
-        color: theme.palette.text.disabled,
-        borderRadius: "10px",
-    },
+
 
     "& > p": {
         fontSize: theme.typography.body2.fontSize,

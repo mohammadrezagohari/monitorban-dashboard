@@ -1,5 +1,9 @@
 export interface VideoCardProps {
-    id: string;
-    title: string;
-    thumbnail: string;
+    video: {
+        id: number;
+        title: string;
+        thumbnail: string;
+        videoUrl: string;
+        description: string;
+    }
 }

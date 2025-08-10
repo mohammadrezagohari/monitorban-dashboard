@@ -1,11 +1,10 @@
-import theme from "src/themes/theme";
 import { useState } from "react";
 import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
 
+import Button from "src/presentation/components/common/buttons/Button";
 import RoleCard from "../roles-page/RoleCard";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import Button from "src/presentation/components/common/buttons/Button";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { rolesArray } from "src/presentation/data/data";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
@@ -27,9 +26,9 @@ export default function RolesPage() {
     null
   );
 
-  function handleDeleteRequest(id: string, title: string) {
+  function handleDeleteRequest(id: string, roleName: string) {
     setPendingDeleteId(id);
-    setPendingDeleteTitle(title);
+    setPendingDeleteTitle(roleName);
     setBackdropOpen(true);
   }
 
@@ -88,7 +87,7 @@ export default function RolesPage() {
               <RoleCard
                 key={role.id}
                 roleObj={role}
-                onDeleteRole={() => handleDeleteRequest(role.id, role.title)}
+                onDeleteRole={() => handleDeleteRequest(role.id, role.roleName)}
               />
             ))}
           </Box>

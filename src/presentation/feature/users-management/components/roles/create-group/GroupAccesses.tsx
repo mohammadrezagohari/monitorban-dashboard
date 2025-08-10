@@ -15,6 +15,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function GroupAccesses({ accesses, deleteAccess }) {
   const theme = useTheme();
@@ -29,16 +30,9 @@ function GroupAccesses({ accesses, deleteAccess }) {
             افزودن دسترسی
           </Button>
         ) : (
-          <IconButton
-            sx={{
-              border: `1px solid ${theme.palette.primary.dark}`,
-              borderRadius: "10px",
-              color: theme.palette.primary.dark,
-              p: "7px",
-            }}
-          >
+          <IconButtonWithBorder>
             <PlusIcon size={16} />
-          </IconButton>
+          </IconButtonWithBorder>
         )}
       </HeaderContainer>
       <MainContainer sx={{ display: "flex", flexDirection: "column", gap: 2 }}>

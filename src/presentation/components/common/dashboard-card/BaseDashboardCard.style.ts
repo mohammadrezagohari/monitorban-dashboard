@@ -39,6 +39,15 @@ export const Text = styled(Typography)<TypographyProps>(({ theme, color }) => ({
     textOverflow: "ellipsis",
 }))
 
+export const TitleContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
+    // whiteSpace: "nowrap",
+    // overflow: "hidden",
+    // textOverflow: "ellipsis",
+}))
+
 export const TextSpan = styled(Typography)<TextProps>(({ color }) => ({
     color: color,
     display: "block",

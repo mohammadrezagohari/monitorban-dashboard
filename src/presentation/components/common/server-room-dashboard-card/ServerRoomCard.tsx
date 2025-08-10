@@ -9,6 +9,7 @@ import {
   StatsContainer,
   Text,
   TextSpan,
+  TitleContainer,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 
 const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
@@ -26,7 +27,7 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
       onHandleClick={onHandleClick}
       width="220px"
       topContent={
-        <Text>
+        <TitleContainer >
           <IconWrapper>{icon}</IconWrapper>
           <Box sx={{ overflow: "hidden", maxWidth: "130px" }}>
             <TextSpan color="neutral.100" variant="body1">
@@ -36,7 +37,7 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
               {city}
             </Text>
           </Box>
-        </Text>
+        </TitleContainer>
       }
       bottomContent={
         <StatsContainer>

@@ -6,7 +6,7 @@ import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
 import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
 
-export default function CustomTreeView() {
+export default function TreeView() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
       {sensorsTreeItem.map((node) => (

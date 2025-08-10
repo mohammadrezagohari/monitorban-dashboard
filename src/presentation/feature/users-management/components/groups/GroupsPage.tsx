@@ -1,8 +1,9 @@
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import Button from "src/presentation/components/common/buttons/Button";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import GroupsList from "./GroupsList";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function GroupsPage() {
   const theme = useTheme();
@@ -21,14 +22,16 @@ function GroupsPage() {
             ایجاد گروه جدید
           </Button>
         ) : (
-          <IconButton
-            sx={{
-              bgcolor: theme.palette.primary.main,
-              borderRadius: "10px",
-            }}
+          <IconButtonWithBorder
+            bgColor={theme.palette.primary.main}
+            color={theme.palette.neutral.main}
+            type="contained"
+            // sx={{
+            //   borderRadius: "10px",
+            // }}
           >
             <PlusIcon size={16} />
-          </IconButton>
+          </IconButtonWithBorder>
         )}
       </PageTitle>
 

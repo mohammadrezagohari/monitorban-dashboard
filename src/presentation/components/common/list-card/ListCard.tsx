@@ -14,7 +14,7 @@ import {
   StyledDetail,
   StyledOperations,
 } from "./ListCard.styles";
-import CustomCheckbox from "../old/checkbox-input/CustomCheckBoxInput";
+import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
 
 const ListCardContext = createContext<ListCardContextType>({
   columns: "",

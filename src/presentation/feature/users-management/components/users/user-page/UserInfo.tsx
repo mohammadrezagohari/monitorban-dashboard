@@ -1,4 +1,4 @@
-import { Avatar, Box, IconButton, Typography } from "@mui/material";
+import { Avatar, Box, Typography, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
@@ -7,18 +7,18 @@ import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
 import { StyledInput } from "src/presentation/components/common/input/Form.styles";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { UserInfoMainContainer } from "./UserPage.styles";
-import {
-  HeaderContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function UserInfo({ activedUser }) {
+  const theme = useTheme();
+
   return (
     <SectionContainer>
       <HeaderContainer>
         <SectionTitle>اطلاعات کاربر</SectionTitle>
       </HeaderContainer>
-      <UserInfoMainContainer
-      >
+      <UserInfoMainContainer>
         <FormRow label="نام کاربر">
           <StyledInput
             id="username"
@@ -53,15 +53,16 @@ function UserInfo({ activedUser }) {
               <Button variant="outlined" size="xxsmall" colorType="primary">
                 بارگذاری عکس
               </Button>
-              <IconButton
-                sx={{
-                  border: "1px solid #E8383B",
-                  borderRadius: "10px",
-                  p: "7px",
-                }}
+              <IconButtonWithBorder
+                color={theme.palette.error.main}
+                // sx={{
+                //   border: "1px solid #E8383B",
+                //   borderRadius: "10px",
+                //   p: "7px",
+                // }}
               >
-                <DeleteIcon size={16} color="#E8383B" />
-              </IconButton>
+                <DeleteIcon size={16} />
+              </IconButtonWithBorder>
             </Box>
           </Box>
         </FormRow>

@@ -8,7 +8,7 @@ import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import Button from "src/presentation/components/common/buttons/Button";
 import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
 import { MessageEditIcon } from "src/presentation/assets/icons/MessageEditIcon";
-import { TwoUserIcon } from "src/presentation/assets/icons/TwoUsersIcon";
+import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
 import { ComplaintIcon } from "src/presentation/assets/icons/ComplaintIcon";
 import Divider from "src/presentation/components/common/divider/Divider";
 import Tag from "src/presentation/components/common/tag/Tag";
@@ -20,11 +20,20 @@ import {
   StyledMainContainer,
   StyledTitleBox,
 } from "./GroupsPage.styles";
+import { useNavigate } from "react-router-dom";
 
 function GroupCard({ group }) {
-  const { name, members, icon, accesses } = group;
-
+  const { groupName, members, icon, accesses } = group;
   const GroupIcon = iconsMap[icon as keyof typeof iconsMap];
+  const navigate = useNavigate();
+
+  function handleEditGroup() {
+    navigate("edit-group", { state: { group: group } });
+  }
+
+  function handleUsersGroup() {
+    navigate("")
+  }
 
   return (
     <StyledGroupCard>
@@ -34,7 +43,7 @@ function GroupCard({ group }) {
             <GroupIcon size={24} />
           </IconWrapper>
           <Typography variant="h4" color="neutral.main">
-            {name}
+            {groupName}
           </Typography>
         </StyledTitleBox>
 
@@ -52,6 +61,7 @@ function GroupCard({ group }) {
             size="small"
             colorType="success"
             startIcon={<MessageEditIcon size={20} />}
+            onClick={handleEditGroup}
           >
             ویرایش
           </Button>
@@ -59,7 +69,7 @@ function GroupCard({ group }) {
             variant="outlined"
             size="small"
             colorType="primary"
-            startIcon={<TwoUserIcon size={20} />}
+            startIcon={<TwoUsersIcon size={20} />}
           >
             کاربران
           </Button>
@@ -98,7 +108,7 @@ function GroupCard({ group }) {
             {members.map((member) => (
               <Tag>
                 <Avatar src={member.image} sx={{ width: 24, height: 24 }} />
-                {member.name}
+                {member.fullName}
               </Tag>
             ))}
           </Box>

@@ -19,7 +19,7 @@ import Tag from "../tag/Tag";
 import TagHeading from "../tag-heading/TagHeading";
 import RoleUserCard from "src/presentation/feature/users-management/components/roles/role-users/RoleUserCard";
 import SectionContainer from "../section-container/SectionContainer";
-import CustomCheckbox from "../old/checkbox-input/CustomCheckBoxInput";
+import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
 import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import {
@@ -29,6 +29,8 @@ import {
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import ListCard from "../list-card/ListCard";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
+import { IconButtonWithBorder } from "../IconButtonWithBorder";
+import { useNavigate } from "react-router-dom";
 
 function a11yProps(index: number) {
   return {
@@ -44,6 +46,7 @@ function Tabs() {
   const [isSelectable, setIsSelectable] = useState(false);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const navigate = useNavigate();
 
   function handleChange(event: SyntheticEvent, newValue: number) {
     setValue(newValue);
@@ -93,18 +96,20 @@ function Tabs() {
               label="همه کاربران"
               {...a11yProps(0)}
               sx={{
-                typography: "body1",
+                typography: { xs: "body2", md: "body1" },
                 color: "neutral.300",
                 padding: "8px 0",
+                minWidth: "auto",
               }}
             />
             <Tab
               label="کاربران دارای نقش"
               {...a11yProps(1)}
               sx={{
-                typography: "body1",
+                typography: { xs: "body2", md: "body1" },
                 color: "neutral.300",
                 padding: "8px 0",
+                minWidth: "auto",
               }}
             />
           </MuiTabs>
@@ -119,17 +124,17 @@ function Tabs() {
                 ساخت گروه
               </Button>
             ) : (
-              <IconButton
-                sx={{
-                  border: `1px solid ${theme.palette.primary.dark}`,
-                  borderRadius: "10px",
-                  color: theme.palette.primary.dark,
-                  padding: "7px",
-                }}
+              <IconButtonWithBorder
+                // sx={{
+                //   border: `1px solid ${theme.palette.primary.dark}`,
+                //   borderRadius: "10px",
+                //   color: theme.palette.primary.dark,
+                //   padding: "7px",
+                // }}
                 onClick={createGroup}
               >
                 <UsersIcon size={16} />
-              </IconButton>
+              </IconButtonWithBorder>
             ))}
         </Box>
 
@@ -240,6 +245,7 @@ function Tabs() {
                 size="small"
                 colorType="primary"
                 startIcon={<PlusIcon size={20} />}
+                onClick={() => navigate("create-group")}
               >
                 ایجاد گروه
               </Button>

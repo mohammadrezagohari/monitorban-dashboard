@@ -1,61 +1,55 @@
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { useState } from "react";
+import { Typography, useTheme } from "@mui/material";
+
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import VideoCard from "src/presentation/components/common/video-card/VideoCard";
-import { useTheme } from "@mui/material";
+import { tutorialsData } from "src/presentation/data/data";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 
 function TutorialPage() {
   const theme = useTheme();
+  const [videos, setVideos] = useState(tutorialsData);
+  // const [videos, setVideos] = useState([]);
   return (
     <>
       <PageTitle title="آموزش ها" />
 
-      <SectionContainer
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(1, 1fr)",
-          justifyItems: "center",
-          gap: 2,
-          [theme.breakpoints.up("sm")]: {
-            gridTemplateColumns: "repeat(2, 1fr)",
-          },
-          [theme.breakpoints.up("md")]: {
-            gridTemplateColumns: "repeat(3, 1fr)",
-          },
-          [theme.breakpoints.up("lg")]: {
-            gridTemplateColumns: "repeat(4, 1fr)",
-          },
-        }}
-      >
-        <VideoCard
-          id="1"
-          title="آموزش قسمت های مختلف داشبورد مدیریت 1"
-          thumbnail="/assets/images/thumbnails/thumbnail.jpg"
-        />
-        <VideoCard
-          id="2"
-          title="آموزش قسمت های مختلف داشبورد مدیریت 2"
-          thumbnail="/assets/images/thumbnails/thumbnail.jpg"
-        />
-        <VideoCard
-          id="3"
-          title="آموزش قسمت های مختلف داشبورد مدیریت 3"
-          thumbnail="/assets/images/thumbnails/thumbnail.jpg"
-        />
-        <VideoCard
-          id="4"
-          title="آموزش قسمت های مختلف داشبورد مدیریت 4"
-          thumbnail="/assets/images/thumbnails/thumbnail.jpg"
-        />
-        <VideoCard
-          id="5"
-          title="آموزش قسمت های مختلف داشبورد مدیریت 5"
-          thumbnail="/assets/images/thumbnails/thumbnail.jpg"
-        />
-        <VideoCard
-          id="6"
-          title="آموزش قسمت های مختلف داشبورد مدیریت 6"
-          thumbnail="/assets/images/thumbnails/thumbnail.jpg"
-        />
+      <SectionContainer>
+        <MainContainer
+          sx={
+            videos.length > 0
+              ? {
+                  display: "grid",
+                  gridTemplateColumns: "repeat(1, 1fr)",
+                  justifyItems: "center",
+                  gap: 2,
+                  [theme.breakpoints.up("sm")]: {
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                  },
+                  [theme.breakpoints.up("md")]: {
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                  },
+                  [theme.breakpoints.up("lg")]: {
+                    gridTemplateColumns: "repeat(4, 1fr)",
+                  },
+                }
+              : {
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: 100,
+                }
+          }
+        >
+          {!(videos.length > 0) && (
+            <Typography variant="body1" color="neutral.main">
+              ویدئویی برای نمایش وجود ندارد.
+            </Typography>
+          )}
+          {videos.length > 0 &&
+            videos.map((video) => <VideoCard video={video} key={video.id} />)}
+        </MainContainer>
       </SectionContainer>
     </>
   );

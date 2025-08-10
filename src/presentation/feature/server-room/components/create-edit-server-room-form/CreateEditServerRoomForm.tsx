@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { Typography, useTheme } from "@mui/material";
 
 import Input from "src/presentation/components/common/input/Input";
 import Button from "src/presentation/components/common/buttons/Button";
@@ -7,22 +6,14 @@ import FormRow from "src/presentation/components/common/input/FormRow";
 import { Form } from "src/presentation/components/common/Form";
 import TreeView from "src/presentation/components/common/old/TreeView/TreeView";
 import { GridBox } from "src/presentation/components/common/GridBox";
+import AvatarInput from "src/presentation/components/common/avatar-input/AvatarInput";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
-import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { StyledServerRoomContainer } from "./CreateEditServerRoomForm.styles";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import {
-  ButtonsContainer,
-  IconContainer,
-  StyledIconButton,
-  StyledImageInputContainer,
-  StyledServerRoomContainer,
-} from "./CreateEditServerRoomForm.styles";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;
@@ -30,10 +21,6 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
   const { register, handleSubmit } = useForm({
     defaultValues: isEditSession ? editValues : {},
   });
-
-  console.log("roomToEdit:: ", roomToEdit);
-
-  const theme = useTheme();
 
   return (
     <>
@@ -78,7 +65,8 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
                 </FormRow>
 
                 <FormRow label="آیکون">
-                  <StyledImageInputContainer>
+                  <AvatarInput />
+                  {/* <StyledImageInputContainer>
                     <IconContainer>
                       <IconWrapper>
                         <HouseIcon color={theme.palette.primary[200]} />
@@ -99,7 +87,7 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
                         <DeleteIcon size={16} />
                       </StyledIconButton>
                     </ButtonsContainer>
-                  </StyledImageInputContainer>
+                  </StyledImageInputContainer> */}
                 </FormRow>
               </GridBox>
             </Form>

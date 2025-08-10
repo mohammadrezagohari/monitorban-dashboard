@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 import { useMoveBack } from "src/presentation/hooks/useMoveBack";
 
@@ -7,8 +6,7 @@ import { BackButton } from "src/presentation/components/common/buttons/BackButto
 import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Breadcrumbs from "./Breadcrumbs";
-import { StyledHeader } from "./Header.styles";
-import BaseBreadCrumb from "src/presentation/feature/old/breadcrumb/BaseBreadcrumb";
+import { StyledHeader, VerticalDivider } from "./Header.styles";
 
 function Header() {
   const moveBack = useMoveBack();
@@ -27,18 +25,10 @@ function Header() {
           >
             بازگشت
           </BackButton>
-          <Box
-            sx={{
-              width: "4px",
-              height: "20px",
-              borderRadius: "2px",
-              bgcolor: "grey",
-            }}
-          />
+          <VerticalDivider />
         </>
       )}
       <Breadcrumbs />
-      {/* <BaseBreadCrumb /> */}
     </StyledHeader>
   );
 }

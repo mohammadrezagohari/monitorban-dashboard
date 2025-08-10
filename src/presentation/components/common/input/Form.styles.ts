@@ -1,9 +1,10 @@
-import { Box, FormHelperText, FormLabel, Input, InputBase, Select, styled, TextField } from "@mui/material";
+import { Box, FormHelperText, FormLabel, Input, styled } from "@mui/material";
 
-export const StyledFormRow = styled(Box)(({ theme }) => ({
+export const StyledFormRow = styled(Box)(({ theme, props }) => ({
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(1),
+    gridColumn: props?.gridColumn,
     width: "100%",
     // maxWidth: 310,
     position: "relative",
@@ -28,8 +29,7 @@ export const Error = styled(FormHelperText)(({ theme }) => ({
 export const StyledInput = styled(Input)(({ theme }) => ({
     backgroundColor: theme.palette.neutral[700],
     color: theme.palette.neutral[100],
-    fontSize: 14,
-    fontWeight: 500,
+    ...theme.typography.body2,
     height: 48,
     width: "100%",
     padding: theme.spacing(1.5, 2),
@@ -49,7 +49,7 @@ export const StyledInput = styled(Input)(({ theme }) => ({
     "&:hover:not(.Mui-disabled,.Mui-error)::before, &:hover:not(.Mui-disabled,.Mui-error)::after": {
         border: "none",
     },
-    "& button": {
+    "& button, & input": {
         padding: 0,
     },
     "& .MuiInputAdornment-root": {

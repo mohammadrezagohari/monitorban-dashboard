@@ -1,4 +1,4 @@
-import { Breadcrumbs, styled } from "@mui/material";
+import { Box, Breadcrumbs, styled } from "@mui/material";
 
 export const StyledHeader = styled("header")(({ theme }) => ({
     display: "flex",
@@ -35,4 +35,11 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
         color: "#B7B0BF",
         fontWeight: 500
     }
+}))
+
+export const VerticalDivider = styled(Box)(({ theme }) => ({
+    width: theme.spacing(0.5),
+    height: theme.spacing(2.5),
+    borderRadius: "2px",
+    backgroundColor: theme.palette.text.disabled,
 }))

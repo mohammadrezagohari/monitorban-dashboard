@@ -11,6 +11,7 @@ import { usersInfo } from "src/presentation/data/data";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import GroupAccesses from "./GroupAccesses";
 import { StyledCreateGroup } from "./CreateGroup.styles";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function CreateGroup() {
   const groupMembers: IUser[] = usersInfo || [];
@@ -52,15 +53,11 @@ function CreateGroup() {
             </>
           ) : (
             <>
-              <IconButton
-                sx={{
-                  border: `1px solid ${theme.palette.primary.dark}`,
-                  borderRadius: "10px",
-                  padding: "7px",
-                }}
+              <IconButtonWithBorder
+               
               >
                 <CloseIcon size={16} />
-              </IconButton>
+              </IconButtonWithBorder>
               <IconButton
                 sx={{
                   borderRadius: "10px",

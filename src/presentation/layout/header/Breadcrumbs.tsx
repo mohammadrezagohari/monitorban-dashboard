@@ -4,17 +4,37 @@ import { StyledBreadcrumbs } from "./Header.styles";
 
 const pathMap: Record<string, string | null> = {
   // dashboard: null,
+
   "city-sensors-info": "اطلاعات سنسور ها",
   sensors: "سنسورها",
   "add-new-sensor": "افزودن سنسور جدید",
+
   "server-room": "اتاق سرور",
   "create-server-room": "افزودن اتاق سرور",
   "edit-server-room": "ویرایش اتاق سرور",
+
   reports: "گزارشات",
+
   "users-management": "مدیریت کاربران",
+  users: "کاربران",
+  "user-page": "صفحه کاربر",
+  "change-password": "تغییر رمز عبور",
+  roles: "نقش ها",
+  "edit-role": "ویرایش نقش",
+  "add-new-access": "افزودن دسترسی جدید",
+  "access": "دسترسی ها",
+  groups: "گروه ها",
+
   tutorials: "آموزش‌ ها",
+
   support: "پشتیبانی",
+
   "content-management": "مدیریت محتوا",
+  FAQs: "پرسش های متداول",
+  "add-tutorial": "افزودن آموزش جدید",
+  "create-sensor": "افزودن سنسور جدید",
+  messages: "پیغام ها",
+  "add-new-FAQ": "افزودن پرسش جدید",
 };
 
 function isDynamicParam(value: string) {

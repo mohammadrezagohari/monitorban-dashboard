@@ -1,15 +1,16 @@
 import React from "react";
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { LeftArrowIcon } from "src/presentation/assets/icons/LeftArrowIcon";
 import { SensorCategoryCardProps } from "./ISensorCategoryCard";
 import {
   DataContainer,
   Text,
   TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
+import { IconButtonWithBorder } from "../IconButtonWithBorder";
 
 const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
   icon,
@@ -34,30 +35,13 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
             variant={isDesktop ? "h4" : "body2"}
             component="h5"
           >
-            <IconWrapper bgcolor="#F7F5FA26" >
-              {icon}
-            </IconWrapper>
+            <IconWrapper bgcolor="#F7F5FA26">{icon}</IconWrapper>
             {title}
           </Text>
         </DataContainer>
       }
       bottomContent={
         <DataContainer>
-          {/* <Text variant="caption" color="neutral.100">
-            کل <Text variant="body2">{totalSensor}</Text>
-            نرمال
-            <Text variant="body2" color="success.main">
-              {normalSensor}
-            </Text>
-            اخطار
-            <Text variant="body2" color="warning.500">
-              {warningSensor}
-            </Text>
-            بحران
-            <Text variant="body2" color="error.main">
-              {dangerSensor}
-            </Text>
-          </Text> */}
           <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <TextBox>
               <Text variant="caption" color="neutral.100">
@@ -92,35 +76,10 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
               </Text>
             </TextBox>
           </Box>
-          {/* <button
-            style={{
-              border: "1px solid #7F6A95",
-              borderRadius: "10px",
-              width: "32px",
-              height: "32px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "transparent",
-            }}
-          >
-            <LeftArrowIcon stroke="#7F6A95" size={16} />
-          </button> */}
-          <IconButton
-            sx={{
-              border: "1px solid #7F6A95",
-              borderRadius: "10px",
-              width: "32px",
-              height: "32px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "transparent",
-            }}
-            onClick={onClick}
-          >
-            <LeftArrowIcon stroke="#7F6A95" size={16} />
-          </IconButton>
+
+          <IconButtonWithBorder sx={{}} onClick={onClick}>
+            <ArrowLeftIcon stroke="#7F6A95" size={16} />
+          </IconButtonWithBorder>
         </DataContainer>
       }
     />
