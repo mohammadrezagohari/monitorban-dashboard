@@ -7,17 +7,20 @@ import { StyledAnnounceItem } from "./Announcements.styles";
 export default function AnnounceItem(props) {
   const theme = useTheme();
 
-  const { item, isLastItem, announceStatus } = props;
+  const { item, announceStatus } = props;
   const ItemIcon = iconsMap[item.icon as keyof typeof iconsMap];
 
   const colors = {
-    warning: theme.palette.error.main,
+    warning: theme.palette.warning.main,
     normal: theme.palette.success.main,
-    danger: theme.palette.warning.main,
+    danger: theme.palette.error.main,
   };
 
   return (
-    <StyledAnnounceItem key={item.id} isLastItem={isLastItem}>
+    <StyledAnnounceItem
+      key={item.id}
+      // isLastItem={isLastItem}
+    >
       {/* <div
         style={{
           backgroundColor: "#373040",

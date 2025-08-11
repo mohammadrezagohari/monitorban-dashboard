@@ -39,6 +39,6 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
         flexShrink: 0,
         // pointerEvents: "none",
         top: "calc(50% - 0.5rem)",
-        // color: selectedTextColor,
+        // color: selectedtextcolor,
     },
 }))
