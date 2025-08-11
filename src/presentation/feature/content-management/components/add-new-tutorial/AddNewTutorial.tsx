@@ -10,11 +10,7 @@ import {
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import Input from "src/presentation/components/common/input/Input";
 import RadioInputGroup from "src/presentation/components/common/old/radio-input/RadioInputGroup";
-import { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { Box, Typography, useTheme } from "@mui/material";
-import { GalleryIcon } from "src/presentation/assets/icons/GalleryIcon";
-import { VideoIcon } from "src/presentation/assets/icons/VideoIcon";
+import { Box, Typography } from "@mui/material";
 import Button from "src/presentation/components/common/buttons/Button";
 import Dropzone from "src/presentation/components/common/dropzone/Dropzone";
 
@@ -83,5 +79,3 @@ function AddNewTutorial() {
 }
 
 export default AddNewTutorial;
-
-

@@ -1,36 +1,25 @@
+import { useNavigate } from "react-router-dom";
+import { SyntheticEvent, useState } from "react";
 import {
-  Avatar,
   Box,
   IconButton,
   Tabs as MuiTabs,
   Tab,
-  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { SyntheticEvent, useState } from "react";
-import TabPanel from "./TabPanel";
-import { usersInfo } from "src/presentation/data/data";
+
 import Button from "src/presentation/components/common/buttons/Button";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { UserIcon } from "src/presentation/assets/icons/UserIcon";
-import { Text } from "../dashboard-card/BaseDashboardCard.style";
-import Tag from "../tag/Tag";
-import TagHeading from "../tag-heading/TagHeading";
-import RoleUserCard from "src/presentation/feature/users-management/components/roles/role-users/RoleUserCard";
-import SectionContainer from "../section-container/SectionContainer";
-import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
-import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import {
-  HeaderContainer,
-  MainContainer,
-} from "../section-container/SectionContainer.style";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
+import TabPanel from "./TabPanel";
 import ListCard from "../list-card/ListCard";
+import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
+import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
+import { usersInfo } from "src/presentation/data/data";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
+import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import SectionContainer from "../section-container/SectionContainer";
+import { MainContainer } from "../section-container/SectionContainer.style";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
-import { useNavigate } from "react-router-dom";
 
 function a11yProps(index: number) {
   return {

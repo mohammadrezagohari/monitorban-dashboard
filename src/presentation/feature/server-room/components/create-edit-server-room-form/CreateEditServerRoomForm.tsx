@@ -4,7 +4,7 @@ import Input from "src/presentation/components/common/input/Input";
 import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import { Form } from "src/presentation/components/common/Form";
-import TreeView from "src/presentation/components/common/old/TreeView/TreeView";
+import TreeView from "src/presentation/components/common/tree-view/TreeView";
 import { GridBox } from "src/presentation/components/common/GridBox";
 import AvatarInput from "src/presentation/components/common/avatar-input/AvatarInput";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
