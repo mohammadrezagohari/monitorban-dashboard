@@ -116,51 +116,136 @@
   "announceItemsInit": [
     {
       "id": 1,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 1",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "danger"
     },
     {
       "id": 2,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 2",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "warning"
     },
     {
       "id": 3,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 3",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "normal"
     },
     {
       "id": 4,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 4",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "danger"
     },
     {
       "id": 5,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 5",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "warning"
     },
     {
       "id": 6,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 6",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "warning"
     },
     {
       "id": 7,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 7",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "normal"
     },
     {
       "id": 8,
-      "name": "سنسور رطوبت اتاق",
+      "name": "سنسور رطوبت اتاق 8",
       "report": "کلینیک رازی  نشتی آب 3403  ",
-      "icon": "sensorIcon"
+      "icon": "sensorIcon",
+      "status": "normal"
+    },
+    {
+      "id": 9,
+      "name": "سنسور رطوبت اتاق 9",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "warning"
+    },
+    {
+      "id": 10,
+      "name": "سنسور رطوبت اتاق 10",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "danger"
+    },
+    {
+      "id": 11,
+      "name": "سنسور رطوبت اتاق 11",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "warning"
+    },
+    {
+      "id": 12,
+      "name": "سنسور رطوبت اتاق 12",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "normal"
+    },
+    {
+      "id": 13,
+      "name": "سنسور رطوبت اتاق 13",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "danger"
+    },
+    {
+      "id": 14,
+      "name": "سنسور رطوبت اتاق 14",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "normal"
+    },
+    {
+      "id": 15,
+      "name": "سنسور رطوبت اتاق 15",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "warning"
+    },
+    {
+      "id": 16,
+      "name": "سنسور رطوبت اتاق 16",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "normal"
+    },
+    {
+      "id": 17,
+      "name": "سنسور رطوبت اتاق 17",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "danger"
+    },
+    {
+      "id": 18,
+      "name": "سنسور رطوبت اتاق 18",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "normal"
+    },
+    {
+      "id": 19,
+      "name": "سنسور رطوبت اتاق 19",
+      "report": "کلینیک رازی  نشتی آب 3403  ",
+      "icon": "sensorIcon",
+      "status": "danger"
     }
   ],
 
