@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import useAnnouncement, { AnnouncementStatus } from "./useAnnouncement";
 
@@ -17,6 +17,8 @@ export default function Announcements() {
     useState<AnnouncementStatus>("danger");
   const { isLoading, announcementItems, isError } =
     useAnnouncement(announceStatus);
+
+  // console.log("debug:: ", announcementItems);
 
   return (
     <SectionContainer width="100%" height={334} sx={{ maxWidth: { md: 350 } }}>
@@ -50,14 +52,10 @@ export default function Announcements() {
       {announcementItems && (
         <AnnouncementsList>
           {announcementItems.map((item, index) => (
-            <>
-              <AnnounceItem
-                key={item.id}
-                item={item}
-                announceStatus={announceStatus}
-              />
+            <React.Fragment key={item.id}>
+              <AnnounceItem item={item} announceStatus={announceStatus} />
               {index < announcementItems.length - 1 && <Divider />}
-            </>
+            </React.Fragment>
           ))}
         </AnnouncementsList>
       )}

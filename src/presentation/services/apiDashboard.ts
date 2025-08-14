@@ -1,4 +1,4 @@
-// import Announcements from "../feature/dashboard/components/announcementes/Announcements";
+import { PeriodTypes } from "../feature/dashboard/components/temperature-bar-chart/ITemperatureBarChart";
 
 interface Announcements {
     id: number;
@@ -8,12 +8,83 @@ interface Announcements {
     status: "normal" | "warning" | "danger";
 }
 
+interface Sensor {
+    name: string;
+    data: number;
+    category: string;
+    status: string;
+}
+
+interface ServerRooms {
+    title: string;
+    icon: string;
+    city: string;
+    sensor: number;
+    rack: number;
+    id: string;
+    status: string;
+    sensors: Sensor[];
+
+}
+
+interface Sensors {
+    id: number;
+    name: string;
+    icon: string;
+    normalSensorCount: number;
+    warningSensorCount: number;
+    dangerSensorCount: number;
+}
+
+interface User {
+    id: number;
+    fullName: string;
+    image?: string;
+    position: string;
+    phone?: string;
+    roles?: string[];
+    groups?: string[];
+    accesses?: string[];
+}
+
+interface BarChartData {
+    values: string[];
+}
+
 const BASE_URL = "http://localhost:7000"
 
 export const fetchAnnouncements = async (status: Announcements["status"]): Promise<Announcements[]> => {
     const res = await fetch(`${BASE_URL}/announceItemsInit`)
     if (!res.ok) throw new Error("Failed to fetch announcements")
     const data = await res.json();
-    // console.log(data)
+    
     return data.filter((item: Announcements) => item.status === status)
+}
+
+export const getServerRooms = async (): Promise<ServerRooms[]> => {
+    const res = await fetch(`${BASE_URL}/serverRoomItems`)
+    if (!res.ok) throw new Error("Failed to fetch server rooms")
+    
+        return res.json()
+}
+
+export const getSensorsItem = async (): Promise<Sensors[]> => {
+    const res = await fetch(`${BASE_URL}/sensorsItems`)
+    if (!res.ok) throw new Error("Failed to fetch sensors")
+    
+        return res.json()
+}
+
+export const getUsers = async (): Promise<User[]> => {
+    const res = await fetch(`${BASE_URL}/users`)
+    if (!res.ok) throw new Error("Failed to fetch users")
+    
+        return res.json()
+}
+
+export const getBarChartValues = async (peroid: PeriodTypes): Promise<BarChartData[]> => {
+    const res = await fetch(`${BASE_URL}/temperatureBarChart/?period=${peroid}`)
+    if (!res.ok) throw new Error("Failed to fetch temperature data")
+
+    return res.json()
 }

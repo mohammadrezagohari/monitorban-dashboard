@@ -11,6 +11,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { BarChartProps } from "./IBarChart";
 
 ChartJS.register(
   CategoryScale,
@@ -21,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const BarChartjs = () => {
+const BarChartjs = ({ data }: BarChartProps) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const BarChartData = {
@@ -39,8 +40,9 @@ const BarChartjs = () => {
     datasets: [
       {
         // label: "Test Chart",
-        data: [70, 65, 53, 77, 52, 36, 68, 28, 41],
-        backgroundColor: "#C480FF",
+        // data: [70, 65, 53, 77, 52, 36, 68, 28, 41],
+        data: data?.[0]?.values || [],
+        backgroundColor: theme.palette.primary[300],
         borderRadius: 50,
         barThickness: isDesktop ? 28 : 16,
         // height: 193,

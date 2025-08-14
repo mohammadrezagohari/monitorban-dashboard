@@ -1,5 +1,5 @@
 import { Box, styled } from "@mui/material";
-import SectionContainer from "../common/section-container/SectionContainer";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 
 export const StyledServerRoomsSlider = styled(SectionContainer)(() => ({
     display: "flex",
