@@ -40,6 +40,7 @@ function Messages() {
       <StyledMainSection>
         {messages.map((message) => (
           <MessageCard
+            key={message.id}
             message={message}
             expanded={expanded}
             panel={`message${message.id}`}

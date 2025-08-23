@@ -17,9 +17,9 @@ export const TickIcon: React.FC<CustomSvgProps> = ({
       <path
         d="M4 12L9.32706 17L20 7"
         stroke={color || "currentColor"}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -7,7 +7,7 @@ export const StyledTable = styled(Box)(({ theme }) => ({
 }))
 
 const CommonRow = styled(Box)(({ theme, columns }) => {
-    console.log(columns)
+    // console.log(columns)
     return ({
         display: "grid",
         gridTemplateColumns: columns,
