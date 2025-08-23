@@ -1,14 +1,17 @@
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { Typography } from "@mui/material";
+
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { useParams } from "react-router-dom";
 import { Video } from "./VideoDetails.styles";
-import { tutorialsData } from "src/presentation/data/data";
+import useVideo from "./useVideo";
 
 function VideoDetails() {
   const { id } = useParams<{ id: string }>();
-  const video = tutorialsData.find((video) => video.id === Number(id));
 
-  if (!video) return <Typography>ویدیو پیدا نشد</Typography>;
+  const { video, isLoading } = useVideo(id);
+
+  if (isLoading)
+    return <Typography color="neutral.main">در حال بارگذاری...</Typography>;
 
   return (
     <>

@@ -11,6 +11,7 @@ import Tag from "src/presentation/components/common/tag/Tag";
 import TutorialCard from "./TutorialCard";
 import { tutorialsData } from "src/presentation/data/data";
 import { useNavigate } from "react-router-dom";
+import { TutorialsList } from "./TutorialManagement.styles";
 
 function TutorialsManagement() {
   const visibleTutorial = tutorialsData.slice(0, 3);
@@ -35,17 +36,11 @@ function TutorialsManagement() {
         </Button>
       </HeaderContainer>
 
-      <MainContainer
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-        }}
-      >
+      <TutorialsList>
         {visibleTutorial.map((tutorial) => (
-          <TutorialCard tutorial={tutorial} />
+          <TutorialCard key={tutorial.id} tutorial={tutorial} />
         ))}
-      </MainContainer>
+      </TutorialsList>
     </SectionContainer>
   );
 }
