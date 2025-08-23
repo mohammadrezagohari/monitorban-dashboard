@@ -1,25 +1,33 @@
+import { Box, useTheme } from "@mui/material";
+
+import { iconsMap } from "src/presentation/assets/icons/iconsMap";
+import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import { SensorCardProps } from "./ISensorCard";
+import { StyledSensorCard } from "./SensorCard.style";
 import {
   Text,
   TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { Box, useTheme } from "@mui/material";
-import { StyledSensorCard } from "./SensorCard.style";
-import { SensorCardProps } from "./ISensorCard";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 
-const SensorCard: React.FC<SensorCardProps> = ({
-  icon,
-  title,
-  normalSensor,
-  warningSensor,
-  dangerSensor,
-}) => {
-  const totalSensor = normalSensor + warningSensor + dangerSensor;
+const SensorCard: React.FC<SensorCardProps> = ({ sensor }) => {
+  const {
+    icon,
+    name,
+    normalSensorCount,
+    warningSensorCount,
+    dangerSensorCount,
+  } = sensor;
+  const totalSensorCount =
+    normalSensorCount + warningSensorCount + dangerSensorCount;
   const theme = useTheme();
+
+  const SenesorIcon = iconsMap[icon as keyof typeof iconsMap];
 
   return (
     <StyledSensorCard>
-      <IconWrapper color={theme.palette.primary[200]}>{icon}</IconWrapper>
+      <IconWrapper color={theme.palette.primary[200]}>
+        <SenesorIcon />
+      </IconWrapper>
       <Box>
         <Text
           variant="body1"
@@ -30,7 +38,7 @@ const SensorCard: React.FC<SensorCardProps> = ({
             fontWeight: 600,
           }}
         >
-          {title}
+          {name}
         </Text>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -39,7 +47,7 @@ const SensorCard: React.FC<SensorCardProps> = ({
               کل
             </Text>
             <Text variant="body2" color="neutral.main">
-              {totalSensor}
+              {totalSensorCount}
             </Text>
           </TextBox>
           <TextBox>
@@ -47,7 +55,7 @@ const SensorCard: React.FC<SensorCardProps> = ({
               نرمال
             </Text>
             <Text variant="body2" color="success.main">
-              {normalSensor}
+              {normalSensorCount}
             </Text>
           </TextBox>
           <TextBox>
@@ -55,7 +63,7 @@ const SensorCard: React.FC<SensorCardProps> = ({
               اخطار
             </Text>
             <Text variant="body2" color="warning.500">
-              {warningSensor}
+              {warningSensorCount}
             </Text>
           </TextBox>
           <TextBox>
@@ -63,7 +71,7 @@ const SensorCard: React.FC<SensorCardProps> = ({
               بحران
             </Text>
             <Text variant="body2" color="error.main">
-              {dangerSensor}
+              {dangerSensorCount}
             </Text>
           </TextBox>
         </Box>

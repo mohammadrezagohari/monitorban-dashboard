@@ -7,8 +7,8 @@ import Statistic from "src/presentation/feature/dashboard/components/statistic/S
 import LatestUsers from "./components/latest-users/LatestUsers";
 import Announcements from "./components/announcementes/Announcements";
 import SensorsDetails from "./components/sensors-details/SensorsDetails";
-import ServerRoomsSlider from "src/presentation/components/server-rooms-slider/ServerRoomsSlider";
-import TemperatureBarChart from "./components/temperature-bar-chart/TempretureBarChart";
+import ServerRoomsSlider from "src/presentation/feature/dashboard/components/server-rooms-slider/ServerRoomsSlider";
+import TemperatureBarChart from "./components/temperature-bar-chart/TemperatureBarChart";
 import { StyledDashboardContainer } from "./DashboardPage.styles";
 
 export const DashboardPage = () => {

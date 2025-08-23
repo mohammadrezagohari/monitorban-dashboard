@@ -1,29 +1,31 @@
 import { useRef } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
 
-import Button from "../common/buttons/Button";
+import useServerRooms from "./useServerRooms";
+
+import Button from "src/presentation/components/common/buttons/Button";
 import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
-import SectionTitle from "../common/section-title/SectionTitle";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import ServerRoomCard from "src/presentation/components/common/server-room-dashboard-card/ServerRoomCard";
-import SectionContainer from "../common/section-container/SectionContainer";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
-import { serverRoomItems } from "src/presentation/data/data";
 import { ButtonsContainer } from "./ServerRoomsSlider.styles";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import {
   HeaderContainer,
   MainContainer,
-} from "../common/section-container/SectionContainer.style";
-import { IconButtonWithBorder } from "../common/IconButtonWithBorder";
+} from "src/presentation/components/common/section-container/SectionContainer.style";
 
 function ServerRoomsSlider() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
+  const { serverRoomItems, isLoading } = useServerRooms();
 
   return (
     <SectionContainer width="100%" height="100%">
@@ -69,6 +71,7 @@ function ServerRoomsSlider() {
           )}
         </ButtonsContainer>
       </HeaderContainer>
+
       <MainContainer>
         <Swiper
           modules={[Navigation, Pagination, FreeMode]}
@@ -90,21 +93,36 @@ function ServerRoomsSlider() {
           freeMode={{ enabled: true }}
           scrollbar={{ draggable: true }}
         >
-          {serverRoomItems.map((item, i) => {
-            const ItemIcon = iconsMap[item.icon as keyof typeof iconsMap];
-            return (
-              <SwiperSlide style={{ width: "220px" }} key={i}>
-                <ServerRoomCard
-                  title={item.title}
-                  icon={<ItemIcon color={theme.palette.primary[200]} />}
-                  city={item.city}
-                  sensor={item.sensor}
-                  rack={item.rack}
-                  onHandleClick={() => console.log(item)}
-                />
-              </SwiperSlide>
-            );
-          })}
+          {isLoading && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                // height: "100%",
+                color: "neutral.main",
+              }}
+            >
+              در حال بارگیری ...
+            </Box>
+          )}
+          {serverRoomItems &&
+            serverRoomItems.map((item, i) => {
+              const ItemIcon = iconsMap[item.icon as keyof typeof iconsMap];
+              return (
+                <SwiperSlide style={{ width: "220px" }} key={i}>
+                  <ServerRoomCard
+                    title={item.title}
+                    icon={<ItemIcon color={theme.palette.primary[200]} />}
+                    city={item.city}
+                    sensor={item.sensor}
+                    rack={item.rack}
+                    onHandleClick={() => console.log(item)}
+                    key={item.id}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </MainContainer>
     </SectionContainer>

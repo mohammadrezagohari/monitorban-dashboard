@@ -1,5 +1,7 @@
 export interface UserCardProps {
-    avatar?: string;
-    fullName: string;
-    position?: string;
+    user: {
+        image?: string;
+        fullName: string;
+        position?: string;
+    }
 }

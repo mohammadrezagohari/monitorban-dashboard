@@ -1,7 +1,12 @@
+interface Sensor {
+    id: number;
+    icon: string;
+    name: string;
+    normalSensorCount: number;
+    warningSensorCount: number;
+    dangerSensorCount: number;
+}
+
 export interface SensorCardProps {
-    icon: React.ReactNode,
-    title: string,
-    normalSensor: number,
-    warningSensor: number,
-    dangerSensor: number,
+    sensor: Sensor
 }

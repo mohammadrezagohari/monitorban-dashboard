@@ -3,7 +3,7 @@
     {
       "id": 1,
       "fullName": "علیرضا کریمی 1",
-      "image": "/assets/images/profile-images/image.webp",
+      "image": "https://i.pravatar.cc/48?img=59",
       "position": "اپراتور آی تی",
       "phone": "09110001111",
       "roles": ["مدیر IT", "اپراتور", "پشتیبان"],
@@ -41,7 +41,7 @@
     {
       "id": 3,
       "fullName": "علیرضا کریمی 3",
-      "image": "/assets/images/profile-images/image.webp",
+      "image": "https://i.pravatar.cc/48?img=68",
       "position": "اپراتور آی تی",
       "phone": "09110003333",
       "roles": ["پشتیبان"],
@@ -57,7 +57,7 @@
     {
       "id": 4,
       "fullName": "علیرضا کریمی 4",
-      "image": "/assets/images/profile-images/image.webp",
+      "image": "https://i.pravatar.cc/48?img=44",
       "position": "اپراتور آی تی",
       "phone": "09110004444",
       "roles": ["مدیر IT", "اپراتور"],
@@ -74,7 +74,7 @@
     {
       "id": 5,
       "fullName": "علیرضا کریمی 5",
-      "image": "/assets/images/profile-images/image.webp",
+      "image": "https://i.pravatar.cc/48?img=14",
       "position": "اپراتور آی تی",
       "phone": "09110005555",
       "roles": ["مدیر IT", "پشتیبان"],
@@ -91,7 +91,7 @@
     {
       "id": 6,
       "fullName": "علیرضا کریمی 6",
-      "image": "/assets/images/profile-images/image.webp",
+      "image": "https://i.pravatar.cc/48?img=36",
       "position": "اپراتور آی تی",
       "phone": "09110006666",
       "roles": ["اپراتور", "پشتیبان"],
@@ -639,6 +639,396 @@
         }
       ],
       "status": "normal"
+    },
+    {
+      "title": "معاونت درمان استیان مازندران",
+      "icon": "mobileIcon",
+      "city": "ساری",
+      "sensor": 3,
+      "rack": 12,
+      "id": "77777",
+      "status": "normal",
+      "sensors": [
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "بالای رک",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "رطوبت اتاق",
+          "data": 29,
+          "category": "Humidity Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "خروجی UPS",
+          "data": true,
+          "category": "Electricity Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "ورودی UPS",
+          "data": false,
+          "category": "Electricity Sensor",
+          "status": "danger"
+        },
+        {
+          "name": "نشتی آب",
+          "data": "normal",
+          "category": "Water Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دتکتور دود",
+          "data": "normal",
+          "category": "Smoke Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "9914170790",
+          "data": 198254,
+          "category": "Credit Sensor",
+          "status": "accept"
+        }
+      ]
+    },
+    {
+      "title": "دانشگاه علوم پزشکی",
+      "icon": "mobileIcon",
+      "city": "ساری",
+      "sensor": 5,
+      "rack": 3,
+      "id": "88888",
+      "sensors": [
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "بالای رک",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "رطوبت اتاق",
+          "data": 29,
+          "category": "Humidity Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "خروجی UPS",
+          "data": true,
+          "category": "Electricity Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "ورودی UPS",
+          "data": false,
+          "category": "Electricity Sensor",
+          "status": "danger"
+        },
+        {
+          "name": "نشتی آب",
+          "data": "normal",
+          "category": "Water Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دتکتور دود",
+          "data": "normal",
+          "category": "Smoke Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "9914170790",
+          "data": 198254,
+          "category": "Credit Sensor",
+          "status": "accept"
+        }
+      ],
+      "status": "warning"
+    },
+    {
+      "title": "دانشگاه پیامبر اعظم",
+      "icon": "mobileIcon",
+      "city": "ساری",
+      "sensor": 8,
+      "rack": 9,
+      "id": "99999",
+      "sensors": [
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "بالای رک",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "رطوبت اتاق",
+          "data": 29,
+          "category": "Humidity Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "خروجی UPS",
+          "data": true,
+          "category": "Electricity Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "ورودی UPS",
+          "data": false,
+          "category": "Electricity Sensor",
+          "status": "danger"
+        },
+        {
+          "name": "نشتی آب",
+          "data": "normal",
+          "category": "Water Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دتکتور دود",
+          "data": "normal",
+          "category": "Smoke Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "9914170790",
+          "data": 198254,
+          "category": "Credit Sensor",
+          "status": "accept"
+        }
+      ],
+      "status": "normal"
+    },
+    {
+      "title": "بیمارستان رازی",
+      "icon": "mobileIcon",
+      "city": "قائمشهر",
+      "sensor": 6,
+      "rack": 4,
+      "id": "10101010",
+      "sensors": [
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "بالای رک",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "رطوبت اتاق",
+          "data": 29,
+          "category": "Humidity Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "خروجی UPS",
+          "data": true,
+          "category": "Electricity Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "ورودی UPS",
+          "data": false,
+          "category": "Electricity Sensor",
+          "status": "danger"
+        },
+        {
+          "name": "نشتی آب",
+          "data": "normal",
+          "category": "Water Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دتکتور دود",
+          "data": "normal",
+          "category": "Smoke Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "9914170790",
+          "data": 198254,
+          "category": "Credit Sensor",
+          "status": "accept"
+        }
+      ],
+      "status": "normal"
+    },
+    {
+      "title": "درمانگاه ولایت",
+      "icon": "mobileIcon",
+      "city": "ساری",
+      "sensor": 5,
+      "rack": 10,
+      "id": "11111111",
+      "sensors": [
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "بالای رک",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "رطوبت اتاق",
+          "data": 29,
+          "category": "Humidity Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "خروجی UPS",
+          "data": true,
+          "category": "Electricity Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "ورودی UPS",
+          "data": false,
+          "category": "Electricity Sensor",
+          "status": "danger"
+        },
+        {
+          "name": "نشتی آب",
+          "data": "normal",
+          "category": "Water Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دتکتور دود",
+          "data": "normal",
+          "category": "Smoke Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "9914170790",
+          "data": 198254,
+          "category": "Credit Sensor",
+          "status": "accept"
+        }
+      ],
+      "status": "danger"
+    },
+    {
+      "title": "معاونت درمان",
+      "icon": "mobileIcon",
+      "city": "ساری",
+      "sensor": 3,
+      "rack": 12,
+      "id": "12121212",
+      "sensors": [
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "بالای رک",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دمای اتاق",
+          "data": 22.2,
+          "category": "Temperature Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "رطوبت اتاق",
+          "data": 29,
+          "category": "Humidity Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "خروجی UPS",
+          "data": true,
+          "category": "Electricity Sensor",
+          "status": "warning"
+        },
+        {
+          "name": "ورودی UPS",
+          "data": false,
+          "category": "Electricity Sensor",
+          "status": "danger"
+        },
+        {
+          "name": "نشتی آب",
+          "data": "normal",
+          "category": "Water Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "دتکتور دود",
+          "data": "normal",
+          "category": "Smoke Sensor",
+          "status": "accept"
+        },
+        {
+          "name": "9914170790",
+          "data": 198254,
+          "category": "Credit Sensor",
+          "status": "accept"
+        }
+      ],
+      "status": "normal"
     }
   ],
 
@@ -646,113 +1036,113 @@
     {
       "id": 1,
       "name": "سنسور دمای اتاق",
-      "normalSensor": 5,
-      "warningSensor": 2,
-      "dangerSensor": 3,
+      "normalSensorCount": 5,
+      "warningSensorCount": 2,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 2,
       "name": "سنسور رطوبت اتاق",
-      "normalSensor": 6,
-      "warningSensor": 0,
-      "dangerSensor": 3,
+      "normalSensorCount": 6,
+      "warningSensorCount": 0,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 3,
       "name": "سنسور دمای رک",
-      "normalSensor": 3,
-      "warningSensor": 7,
-      "dangerSensor": 3,
+      "normalSensorCount": 3,
+      "warningSensorCount": 7,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 4,
       "name": "سنسور دمای اتاق",
-      "normalSensor": 5,
-      "warningSensor": 2,
-      "dangerSensor": 3,
+      "normalSensorCount": 5,
+      "warningSensorCount": 2,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 5,
       "name": "سنسور رطوبت اتاق",
-      "normalSensor": 6,
-      "warningSensor": 0,
-      "dangerSensor": 3,
+      "normalSensorCount": 6,
+      "warningSensorCount": 0,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 6,
       "name": "سنسور دمای رک",
-      "normalSensor": 3,
-      "warningSensor": 7,
-      "dangerSensor": 3,
+      "normalSensorCount": 3,
+      "warningSensorCount": 7,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 7,
       "name": "سنسور دمای اتاق",
-      "normalSensor": 5,
-      "warningSensor": 2,
-      "dangerSensor": 3,
+      "normalSensorCount": 5,
+      "warningSensorCount": 2,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 8,
       "name": "سنسور رطوبت اتاق",
-      "normalSensor": 6,
-      "warningSensor": 0,
-      "dangerSensor": 3,
+      "normalSensorCount": 6,
+      "warningSensorCount": 0,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 9,
       "name": "سنسور دمای رک",
-      "normalSensor": 3,
-      "warningSensor": 7,
-      "dangerSensor": 3,
+      "normalSensorCount": 3,
+      "warningSensorCount": 7,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 10,
       "name": "سنسور نشتی آب",
-      "normalSensor": 1,
-      "warningSensor": 3,
-      "dangerSensor": 1,
+      "normalSensorCount": 1,
+      "warningSensorCount": 3,
+      "dangerSensorCount": 1,
       "icon": "supportIcon"
     },
     {
       "id": 11,
       "name": "سنسور وضعیت برق",
-      "normalSensor": 10,
-      "warningSensor": 2,
-      "dangerSensor": 3,
+      "normalSensorCount": 10,
+      "warningSensorCount": 2,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     },
     {
       "id": 12,
       "name": "سنسور دمای کولر",
-      "normalSensor": 5,
-      "warningSensor": 8,
-      "dangerSensor": 0,
+      "normalSensorCount": 5,
+      "warningSensorCount": 8,
+      "dangerSensorCount": 0,
       "icon": "supportIcon"
     },
     {
       "id": 13,
       "name": "سنسور وضعیت کولر",
-      "normalSensor": 5,
-      "warningSensor": 5,
-      "dangerSensor": 7,
+      "normalSensorCount": 5,
+      "warningSensorCount": 5,
+      "dangerSensorCount": 7,
       "icon": "supportIcon"
     },
     {
       "id": 14,
       "name": "سنسور اعتبار سیمکارت",
-      "normalSensor": 5,
-      "warningSensor": 8,
-      "dangerSensor": 3,
+      "normalSensorCount": 5,
+      "warningSensorCount": 8,
+      "dangerSensorCount": 3,
       "icon": "supportIcon"
     }
   ],
@@ -1323,6 +1713,33 @@
     }
   ],
 
+  "temperatureBarChart": [
+    {
+      "period": "1y",
+      "values": [70, 65, 53, 77, 52, 36, 68, 28, 41]
+    },
+    {
+      "period": "6m",
+      "values": [36, 53, 23, 70, 50, 65, 20, 73, 90]
+    },
+    {
+      "period": "3m",
+      "values": [50, 99, 18, 27, 38, 82, 19, 52, 96]
+    },
+    {
+      "period": "1m",
+      "values": [85, 32, 74, 42, 62, 58, 25, 39, 50]
+    },
+    {
+      "period": "1w",
+      "values": [54, 64, 94, 71, 95, 38, 70, 86, 65]
+    },
+    {
+      "period": "1d",
+      "values": [34, 25, 82, 42, 64, 88, 68, 80, 61]
+    }
+  ],
+
   "chartSelectOptions": [
     {
       "value": "annual",
@@ -1390,6 +1807,7 @@
       "label": "اتاق سرور 8"
     }
   ],
+
   "rolesArray": [
     {
       "id": "id001",
@@ -1450,6 +1868,7 @@
       ]
     }
   ],
+
   "sensorsTreeItem": [
     {
       "id": "roomTemp",
@@ -1486,6 +1905,7 @@
       ]
     }
   ],
+
   "groupsList": [
     {
       "id": 1,
@@ -1837,6 +2257,7 @@
       ]
     }
   ],
+
   "FAQs": [
     {
       "id": 1,
@@ -1864,6 +2285,7 @@
       "answer": "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از  طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای  متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه  درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با  نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان  خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید  داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان"
     }
   ],
+
   "detailedReportsData": [
     {
       "id": 1,
@@ -1929,6 +2351,7 @@
       "unit": "کیلو وات"
     }
   ],
+
   "messages": [
     {
       "id": 1,
@@ -1971,6 +2394,7 @@
       "isAnswered": false
     }
   ],
+
   "sensorsSettingItems": [
     {
       "id": 1,
@@ -2021,6 +2445,7 @@
       "iconColor": "#9BD3D6"
     }
   ],
+  
   "tutorialsData": [
     {
       "id": 1,

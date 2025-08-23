@@ -5,15 +5,13 @@ import { UserCardProps } from "./IUserCardMini";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { StyledUserCard } from "./UserCardMini.style";
 
-const UserCardMini: React.FC<UserCardProps> = ({
-  avatar,
-  fullName,
-  position,
-}) => {
+const UserCardMini: React.FC<UserCardProps> = ({ user }) => {
   const theme = useTheme();
+  const { image, fullName, position } = user;
+
   return (
     <StyledUserCard>
-      <Avatar src={avatar} sx={{ width: 48, height: 48 }} />
+      <Avatar src={image} sx={{ width: 48, height: 48 }} />
       <Box
         sx={{
           display: "flex",

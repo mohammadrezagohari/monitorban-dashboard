@@ -9,8 +9,6 @@ function useAnnouncement(status: AnnouncementStatus) {
         queryFn: () => fetchAnnouncements(status),
     })
 
-    // console.log("status in custom hook:: ", status)
-
     return { isLoading, announcementItems, isError }
 }
 

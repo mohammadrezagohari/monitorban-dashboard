@@ -1235,32 +1235,32 @@ export const annouceSelectOptions = [
 
 export const chartSelectOptions = [
   {
-    value: "annual",
+    value: "1y",
     label: "نمایش سالانه",
     color: { text: "#F5C789", border: "#E8890C" },
   },
   {
-    value: "six months",
+    value: "6m",
     label: "نمایش شش ماهه",
     color: { text: "#F5C789", border: "#E8890C" },
   },
   {
-    value: "three months",
+    value: "3m",
     label: "نمایش سه ماهه",
     color: { text: "#F5C789", border: "#E8890C" },
   },
   {
-    value: "last month",
+    value: "1m",
     label: "نمایش ماه گذشته",
     color: { text: "#F5C789", border: "#E8890C" },
   },
   {
-    value: "last week",
+    value: "1w",
     label: "نمایش هفته گذشته",
     color: { text: "#F5C789", border: "#E8890C" },
   },
   {
-    value: "today",
+    value: "1d",
     label: "نمایش امروز",
     color: { text: "#F5C789", border: "#E8890C" },
   },
