@@ -37,3 +37,10 @@ export const TypeBox = styled(Box)(({ theme }) => ({
     gap: theme.spacing(0.5),
     alignItems: "flex-start",
 }))
+
+
+export const TutorialsList = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    gap: theme.spacing(2),
+}))

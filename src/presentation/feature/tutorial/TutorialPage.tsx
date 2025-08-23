@@ -1,16 +1,19 @@
-import { useState } from "react";
 import { Typography, useTheme } from "@mui/material";
+
+import useTutorials from "./useTutorials";
 
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import VideoCard from "src/presentation/components/common/video-card/VideoCard";
-import { tutorialsData } from "src/presentation/data/data";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 
 function TutorialPage() {
   const theme = useTheme();
-  const [videos, setVideos] = useState(tutorialsData);
-  // const [videos, setVideos] = useState([]);
+  const { videos, isLoading } = useTutorials();
+
+  if (isLoading)
+    return <p style={{ fontSize: 48, color: "#EEE" }}>Loading...</p>;
+
   return (
     <>
       <PageTitle title="آموزش ها" />

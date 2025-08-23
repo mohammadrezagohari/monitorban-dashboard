@@ -10,6 +10,7 @@ import TutorialCard from "../tutorials-management/TutorialCard";
 import Button from "src/presentation/components/common/buttons/Button";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { useNavigate } from "react-router-dom";
+import { StyledTutorialsList } from "./AllTutorialsPage.styles";
 
 function AllTutorialsPage() {
   const navigate = useNavigate();
@@ -37,17 +38,11 @@ function AllTutorialsPage() {
             افزودن آموزش جدید
           </Button>
         </HeaderContainer>
-        <MainContainer
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-          }}
-        >
+        <StyledTutorialsList>
           {allTutorials.map((tutorial) => (
-            <TutorialCard tutorial={tutorial} />
+            <TutorialCard key={tutorial.id} tutorial={tutorial} />
           ))}
-        </MainContainer>
+        </StyledTutorialsList>
       </SectionContainer>
     </>
   );
