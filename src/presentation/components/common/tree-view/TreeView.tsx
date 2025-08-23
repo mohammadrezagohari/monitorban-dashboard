@@ -3,8 +3,9 @@ import { sensorsTreeItem } from "src/presentation/data/data";
 import { useState } from "react";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
-import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
+import Checkbox from "../checkbox-input/Checkbox";
+import { useFormContext } from "react-hook-form";
+import { FormValues } from "../stepper/IStepper";
 
 export default function TreeView() {
   return (
@@ -17,8 +18,44 @@ export default function TreeView() {
 }
 
 function TreeItem({ node, level = 0 }) {
+  const { watch, setValue, control } = useFormContext<FormValues>();
+  const selectedSensors = watch("sensors");
+
+  const isLeaf = !node.sensors || node.sensors.length === 0;
+
+  const isSelected =
+    selectedSensors?.includes(node.id) ||
+    (node.sensors &&
+      node.sensors.some((child: any) => selectedSensors?.includes(child.id)));
+
+  const toggleSelection = () => {
+    const current = selectedSensors || [];
+
+    if (isLeaf) {
+      setValue(
+        "sensors",
+        current.includes(node.id)
+          ? current.filter((id) => id !== node.id)
+          : [...current, node.id]
+      );
+    } else {
+      const childrenIds = node.sensors.map((child: any) => child.id);
+      const anySelected = childrenIds.some((id: string) =>
+        current.includes(id)
+      );
+
+      if (anySelected) {
+        setValue(
+          "sensors",
+          current.filter((id) => !childrenIds.includes(id))
+        );
+      } else {
+        setValue("sensors", Array.from(new Set([...current, ...childrenIds])));
+      }
+    }
+  };
   const [open, setOpen] = useState(false);
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   function handleToggle() {
     setOpen((prev) => !prev);
@@ -43,35 +80,33 @@ function TreeItem({ node, level = 0 }) {
           </IconButton>
         )}
         <Box
+          id="test2"
           sx={{
             display: "flex",
             alignItems: "center",
             gap: 1,
           }}
         >
-          <CustomCheckbox
+          {/* <Controller
+          name
+          control={control}
+          /> */}
+          <Checkbox
             size={24}
             text={node.name}
-            checked={checked || node.sensors?.some((sensor) => sensor.checked)}
-            onChange={(e) => setChecked(e.target.checked)}
+            checked={isSelected}
+            onChange={toggleSelection}
           />
-          <Typography variant={isRoot ? "body1" : "body2"}>
+          <Typography
+            variant={isRoot ? "body1" : "body2"}
+            onClick={toggleSelection}
+          >
             {node.name}
           </Typography>
         </Box>
-        {/* <BaseCheckbox
-          size={24}
-          text={node.name}
-          checked={checked || node.sensors?.some((sensor) => sensor.checked)}
-          onChange={(e) => setChecked(e.target.checked)}
-        /> */}
-        {/* <Checkbox
-          checked={checked || node.sensors?.some((sensor) => sensor.checked)}
-          onChange={(e) => setChecked(e.target.checked)}
-        />*/}
       </Box>
 
-      {node.sensors && (
+      {node.sensors && open && (
         <Collapse
           in={open}
           timeout="auto"
@@ -90,14 +125,6 @@ function TreeItem({ node, level = 0 }) {
         >
           {node.sensors.map((child) => (
             <TreeItem key={child.id} node={child} level={1} />
-
-            // <BaseCheckbox
-            //   size={24}
-            //   text={sensor.name}
-            //   checked={checked}
-            //   onChange={(e) => setChecked(e.target.checked)}
-            // />
-            //  <Typography>{sensor.name}</Typography>
           ))}
         </Collapse>
       )}

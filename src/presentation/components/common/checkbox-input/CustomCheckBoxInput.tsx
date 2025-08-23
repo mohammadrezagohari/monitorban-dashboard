@@ -9,30 +9,31 @@ const CustomCheckbox: React.FC<BaseCheckboxProps> = ({
   checked,
   disabled,
   size,
-  ...props
+  // ...props
 }) => {
   return (
-    <span
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "8px",
-        color: disabled ? "#5B5266" : "#F7F5FA",
-      }}
-    >
-      <StyledCheckbox
-        checked={checked}
-        // onChange={(e) => setChecked(e.target.checked)}
-        checkedColor={checkedColor}
-        uncheckedColor={uncheckedColor}
-        disabled={disabled}
-        icon={<UncheckedIcon disabled={disabled} color="#D5D0DB" size={size} />}
-        checkedIcon={
-          <CheckedIcon disabled={disabled} color="#8C32D9" size={size} />
-        }
-        {...props}
-      />
-    </span>
+    // <span
+    //   id="bug"
+    //   style={{
+    //     display: "flex",
+    //     alignItems: "center",
+    //     gap: "8px",
+    //     color: disabled ? "#5B5266" : "green",
+    //   }}
+    // >
+    <StyledCheckbox
+      checked={checked}
+      // onChange={(e) => setChecked(e.target.checked)}
+      checkedColor={checkedColor}
+      uncheckedColor={uncheckedColor}
+      disabled={disabled}
+      icon={<UncheckedIcon disabled={disabled} color="#9B92A6" size={size} />}
+      checkedIcon={
+        <CheckedIcon disabled={disabled} color="#8C32D9" size={size} />
+      }
+      // {...props}
+    />
+    // </span>
   );
 };
 

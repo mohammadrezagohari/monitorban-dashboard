@@ -16,13 +16,14 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { Operations } from "src/presentation/components/common/operations/Operations";
 
-const filterOptions: FilterOption[] = [
-  { value: "zare", label: "بیمارستان زارع" },
-  { value: "bou-ali", label: "بیمارستان بوعلی" },
-  { value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
-  { value: "razi", label: "کلینیک رازی" },
-];
+// const filterOptions: FilterOption[] = [
+//   { value: "zare", label: "بیمارستان زارع" },
+//   { value: "bou-ali", label: "بیمارستان بوعلی" },
+//   { value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
+//   { value: "razi", label: "کلینیک رازی" },
+// ];
 
 function SensorsPage() {
   // const [selectValue, setSelectValue] = useState("");
@@ -58,7 +59,7 @@ function SensorsPage() {
 
         <MainContainer>
           <Box sx={{ mb: 2, position: "relative" }}>
-            <Button
+            {/* <Button
               variant="outlined"
               size={isDesktop ? "large" : "small"}
               colorType="primary"
@@ -89,7 +90,10 @@ function SensorsPage() {
                 }}
                 onClose={() => setIsFilterOpen(false)}
               />
-            )}
+            )} */}
+            <Operations>
+              <Filter id="filter" />
+            </Operations>
           </Box>
           <GridBox>
             {sensorsList.map((item) => (

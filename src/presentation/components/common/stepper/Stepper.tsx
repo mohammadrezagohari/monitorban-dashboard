@@ -4,6 +4,9 @@ import SensorSelection from "./SensorSelection";
 import ServerRoomSelection from "./ServerRoomSelection";
 import Stepbar from "./Stepbar";
 import { serverRoomItems } from "src/presentation/data/data";
+import { StepperForm } from "./Stepper.styles";
+import { FormProvider, useForm } from "react-hook-form";
+import { FormValues } from "./IStepper";
 
 const steps = ["نوع دسترسی", "اتاق سرور", "انتخاب سنسور"];
 
@@ -15,44 +18,65 @@ function Stepper() {
     panels: false,
     sensors: false,
   });
-  const [accessServerRoom, setAccessServerRoom] = useState(
-    serverRoomItems.reduce((acc, item) => {
-      acc[item.title] = false;
-      return acc;
-    }, {} as Record<string, boolean>)
-  );
+  
+  const defaultServerRooms = serverRoomItems.reduce((acc, item) => {
+    acc[item.id] = false;
+    return acc;
+  }, {} as Record<string, boolean>);
 
-  const handleAccessTypes = (key: string) => {
-    setAccessTypesChecked((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  // console.log(accessServerRoom)
 
-  const handleServerRoomAccess = (key: string) => {
-    setAccessServerRoom((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  const methods = useForm<FormValues>({
+    defaultValues: {
+      accessTypes: {
+        panels: false,
+        sensors: false,
+      },
+      serverRooms: defaultServerRooms,
+      sensors: [],
+    },
+  });
+
+  const { handleSubmit } = methods;
+
+  // const handleAccessTypes = (key: string) => {
+  //   setAccessTypesChecked((prev) => ({ ...prev, [key]: !prev[key] }));
+  // };
+
+  // const handleServerRoomAccess = (key: string) => {
+  //   setAccessServerRoom((prev) => ({ ...prev, [key]: !prev[key] }));
+  // };
+
+  function onSubmit(data) {
+    console.log(data);
+  }
+
   return (
-    <>
-      <Stepbar
-        steps={steps}
-        activeStep={activeStep}
-        setActiveStep={setActiveStep}
-      />
-
-      {activeStep === 0 && (
-        <AccessType
-          accessTypesChecked={accessTypesChecked}
-          handleAccessTypes={handleAccessTypes}
+    <FormProvider {...methods}>
+      <StepperForm onSubmit={handleSubmit(onSubmit)}>
+        <Stepbar
+          steps={steps}
+          activeStep={activeStep}
+          setActiveStep={setActiveStep}
         />
-      )}
 
-      {activeStep === 1 && (
-        <ServerRoomSelection
-          accessServerRoom={accessServerRoom}
-          handleServerRoomAccess={handleServerRoomAccess}
-        />
-      )}
+        {activeStep === 0 && (
+          <AccessType
+          // accessTypesChecked={accessTypesChecked}
+          // handleAccessTypes={handleAccessTypes}
+          />
+        )}
 
-      {activeStep === 2 && <SensorSelection />}
-    </>
+        {activeStep === 1 && (
+          <ServerRoomSelection
+          // accessServerRoom={accessServerRoom}
+          // handleServerRoomAccess={handleServerRoomAccess}
+          />
+        )}
+
+        {activeStep === 2 && <SensorSelection />}
+      </StepperForm>
+    </FormProvider>
   );
 }
 

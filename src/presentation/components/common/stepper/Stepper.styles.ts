@@ -10,3 +10,9 @@ export const AccessTypeMainContainer = styled(MainContainer)(({ theme }) => ({
         gridTemplateColumns: "repeat(2, 1fr)",
     }
 }))
+
+export const StepperForm = styled('form')(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    gap: theme.spacing(4),
+}))
