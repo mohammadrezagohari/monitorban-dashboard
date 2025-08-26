@@ -7,6 +7,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   size = "medium",
   colorType = "primary",
+  children,
   ...props
 }) => {
   const baseStyle: SxProps<Theme> = {
@@ -34,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <MuiButton variant={variant} sx={baseStyle} {...props}>
-      {props.children}
+      {children}
     </MuiButton>
   );
 };
