@@ -1,14 +1,14 @@
 import { useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import LinearCard from "src/presentation/components/common/linear-card/LinearCard";
 import { GridBox } from "src/presentation/components/common/GridBox";
 import { ListIcon } from "src/presentation/assets/icons/ListIcon";
 import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { UserSquareIcon } from "src/presentation/assets/icons/UserSquareIcon";
-import LinearCard from "src/presentation/components/common/linear-card/LinearCard";
-import { useNavigate } from "react-router-dom";
 
 function UsersManagementPage() {
   const theme = useTheme();

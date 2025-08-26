@@ -15,7 +15,6 @@ export default function Users() {
   const [userRole, setUserRole] = useState("");
   const [usersList, setUsersList] = useState<IUser[]>(usersInfo);
 
-  console.log(usersList);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 

@@ -9,9 +9,12 @@ import SectionContainer from "src/presentation/components/common/section-contain
 import { UserInfoMainContainer } from "./UserPage.styles";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
+import { Controller, useForm } from "react-hook-form";
 
 function UserInfo({ activedUser }) {
   const theme = useTheme();
+  const { control } = useForm();
 
   return (
     <SectionContainer>
@@ -35,7 +38,7 @@ function UserInfo({ activedUser }) {
         </FormRow>
 
         <FormRow label="پروفایل">
-          <Box sx={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {/* <Box sx={{ display: "flex", alignItems: "center", gap: 6 }}>
             <Box
               sx={{
                 display: "flex",
@@ -64,7 +67,14 @@ function UserInfo({ activedUser }) {
                 <DeleteIcon size={16} />
               </IconButtonWithBorder>
             </Box>
-          </Box>
+          </Box> */}
+          <Controller
+            name="user-image"
+            control={control}
+            render={({ field: { value, onChange, ...field } }) => (
+              <FileUpload onFileSelect={onChange} label="عکس پروفایل" />
+            )}
+          />
         </FormRow>
       </UserInfoMainContainer>
     </SectionContainer>

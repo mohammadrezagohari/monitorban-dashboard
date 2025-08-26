@@ -19,7 +19,7 @@ function UsersList({ users }: { users: IUser[] }) {
         <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
           {users.map((user, index) => (
             <UserInfoCard
-              // key={index}
+              key={user.id}
               // avatar={user.image}
               // userName={user.fullName}
               // phone={user.phone}

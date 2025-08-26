@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 function EditGroupPage() {
   const location = useLocation();
   const group = location.state.group;
-  console.log(group);
+  // console.log(group);
 
   return (
     <>
