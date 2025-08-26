@@ -2,6 +2,7 @@ import Button from "src/presentation/components/common/buttons/Button";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import {
+  AccordionHeader,
   ButtonsContainer,
   StyledExpandedBox,
   StyledMessageCard,
@@ -15,14 +16,7 @@ function MessageCard({ message, expanded, panel, onChange }) {
   const { message: messageText, answer } = message;
   return (
     <StyledMessageCard>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 3,
-        }}
-      >
+      <AccordionHeader>
         <StyledTextMessage>{messageText}</StyledTextMessage>
         <ButtonsContainer>
           <Button
@@ -41,7 +35,7 @@ function MessageCard({ message, expanded, panel, onChange }) {
             )}
           </IconButtonWithBorder>
         </ButtonsContainer>
-      </Box>
+      </AccordionHeader>
 
       <StyledExpandedBox expanded={expanded} panel={panel}>
         <Divider />

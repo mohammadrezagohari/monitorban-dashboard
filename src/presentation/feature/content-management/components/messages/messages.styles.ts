@@ -1,7 +1,7 @@
 import { Box, styled, Typography } from "@mui/material";
 
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 
 export const StyledMessageCard = styled(Box)(({ theme }) => ({
     // display: "flex",
@@ -17,11 +17,11 @@ export const StyledTextMessage = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.body2.fontSize,
     fontWeight: theme.typography.body1.fontWeight,
     color: theme.palette.neutral.main,
-    whiteSpace: "nowrap",
-    textOverflow: "ellipsis",
-    overflow: "hidden",
     [theme.breakpoints.up("md")]: {
         fontSize: theme.typography.body1.fontSize,
+        whiteSpace: "nowrap",
+        textOverflow: "ellipsis",
+        overflow: "hidden",
     }
 }))
 
@@ -29,11 +29,17 @@ export const ButtonsContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     gap: theme.spacing(2),
+    justifyContent: "flex-end"
 }))
 
 export const StyledMessagesContainer = styled(SectionContainer)(({ theme }) => ({
     flex: 1,
-    height: 320
+    [theme.breakpoints.up("md")]: {
+        height: 368,
+    },
+    [theme.breakpoints.up("lg")]: {
+        height: 320,
+    },
 }))
 
 export const StyledMainSection = styled(MainContainer)(({ theme }) => ({
@@ -52,4 +58,22 @@ export const StyledExpandedBox = styled(Box)(({ expanded, panel }) => ({
     transitionProperty: "max-height, opacity",
     transitionDuration: "0.4s",
     transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+}))
+
+export const AccordionHeader = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    // alignItems: "center",
+    justifyContent: "space-between",
+    gap: theme.spacing(3),
+
+    [theme.breakpoints.up("sm")]: {
+        flexDirection: "row",
+    },
+    [theme.breakpoints.up("md")]: {
+        flexDirection: "column",
+    },
+    [theme.breakpoints.up("lg")]: {
+        flexDirection: "row",
+    },
 }))

@@ -3,13 +3,16 @@ import FAQCard from "./FAQCard";
 import { FAQs } from "src/presentation/data/data";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { StyledQuestionsBox } from "./FAQManagement.styles";
 import { useNavigate } from "react-router-dom";
+import { SectionHeader } from "../../ContentManagementPage.styles";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 function FAQManagement() {
   const visibleFAQs = FAQs.slice(0, 3);
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleViewAll() {
     navigate("/content-management/FAQs");
@@ -17,18 +20,18 @@ function FAQManagement() {
 
   return (
     <SectionContainer>
-      <HeaderContainer>
+      <SectionHeader>
         <SectionTitle>پرسش های متداول</SectionTitle>
 
         <Button
           variant="outlined"
-          size="large"
+          size={isDesktop ? "large" : "xxsmall"}
           colorType="primary"
           onClick={handleViewAll}
         >
           مشاهده همه
         </Button>
-      </HeaderContainer>
+      </SectionHeader>
 
       <StyledQuestionsBox>
         {visibleFAQs.map((faq) => (

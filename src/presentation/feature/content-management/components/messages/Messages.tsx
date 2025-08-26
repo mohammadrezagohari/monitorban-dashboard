@@ -1,41 +1,44 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import MessageCard from "./MessageCard";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { SectionHeader } from "../../ContentManagementPage.styles";
 import { messages as initialMessages } from "src/presentation/data/data";
 import { StyledMainSection, StyledMessagesContainer } from "./messages.styles";
-import { useNavigate } from "react-router-dom";
 
 function Messages() {
   const [messages, setMessages] = useState(
-    initialMessages.filter((msg) => !msg.isAnswered)
+    initialMessages.filter((msg) => !msg.isAnswered).slice(0, 3)
   );
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleViewAll() {
     navigate("messages");
   }
 
   function handleExpand(panel) {
-    setExpanded((currentPanel) => (currentPanel !== panel ? panel : false));
+    setExpanded((currentPanel) => (currentPanel !== panel ? panel : null));
   }
 
   return (
     <StyledMessagesContainer>
-      <HeaderContainer>
+      <SectionHeader>
         <SectionTitle>پیغام ها</SectionTitle>
         <Button
           variant="outlined"
-          size="large"
+          size={isDesktop ? "large" : "xxsmall"}
           colorType="primary"
           onClick={handleViewAll}
         >
           مشاهده همه
         </Button>
-      </HeaderContainer>
+      </SectionHeader>
 
       <StyledMainSection>
         {messages.map((message) => (

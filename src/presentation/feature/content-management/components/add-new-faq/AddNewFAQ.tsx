@@ -1,20 +1,24 @@
+import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { useForm } from "react-hook-form";
+
+import Input from "src/presentation/components/common/input/Input";
+import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import { Form } from "src/presentation/components/common/Form";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { TextField } from "src/presentation/components/common/input/TextField";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Input from "src/presentation/components/common/input/Input";
-import Button from "src/presentation/components/common/buttons/Button";
-import { TextField } from "src/presentation/components/common/input/TextField";
-import { Box } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { ButtonContainer } from "./AddNewFAQ.styles";
 
-function AddNewFAQ() {
+function AddNewFAQ({ faqToEdite = {} }) {
   const { handleSubmit, register, reset } = useForm();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleAddFAQ(data) {
     console.log(data);
@@ -58,16 +62,16 @@ function AddNewFAQ() {
               />
             </FormRow>
 
-            <Box sx={{ "& *": { justifySelf: "flex-end" } }}>
+            <ButtonContainer>
               <Button
                 variant="contained"
-                size="small"
+                size={isDesktop ? "small" : "xxsmall"}
                 colorType="primary"
                 type="submit"
               >
                 ذخیره
               </Button>
-            </Box>
+            </ButtonContainer>
           </Form>
         </MainContainer>
       </SectionContainer>

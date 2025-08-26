@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 import Tag from "src/presentation/components/common/tag/Tag";
 import Button from "src/presentation/components/common/buttons/Button";
@@ -6,6 +6,7 @@ import TagHeading from "src/presentation/components/common/tag-heading/TagHeadin
 import { TutorialCardProps } from "./ITutorialManagement";
 import {
   ButtonsContainer,
+  CardTitle,
   DetailContainer,
   StyledTutorialCard,
   TitleBox,
@@ -15,15 +16,16 @@ import {
 function TutorialCard({ tutorial }: TutorialCardProps) {
   const { thumbnail: image, title, type } = tutorial;
 
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <StyledTutorialCard>
       <DetailContainer>
         <TitleBox>
           <Avatar src={image} sx={{ width: 48, height: 48 }} />
 
-          <Typography variant="h5" color="neutral.main">
-            {title}
-          </Typography>
+          <CardTitle>{title}</CardTitle>
         </TitleBox>
         <TypeBox>
           <TagHeading>نوع آموزش</TagHeading>
@@ -32,10 +34,18 @@ function TutorialCard({ tutorial }: TutorialCardProps) {
       </DetailContainer>
 
       <ButtonsContainer>
-        <Button variant="outlined" size="small" colorType="error">
+        <Button
+          variant="outlined"
+          size={isDesktop ? "small" : "xxsmall"}
+          colorType="error"
+        >
           حذف
         </Button>
-        <Button variant="outlined" size="small" colorType="primary">
+        <Button
+          variant="outlined"
+          size={isDesktop ? "small" : "xxsmall"}
+          colorType="primary"
+        >
           مشاهده
         </Button>
       </ButtonsContainer>

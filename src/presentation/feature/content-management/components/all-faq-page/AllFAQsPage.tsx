@@ -13,11 +13,15 @@ import {
 } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { StyledFAQList } from "./AllFAQsPage.styles";
 import { useNavigate } from "react-router-dom";
+import { SectionHeader } from "../../ContentManagementPage.styles";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 function AllFAQsPage() {
   const [expanded, setExpanded] = useState<string | false>(false);
   const allFAQs = FAQs;
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleExpand(panel) {
     setExpanded((currentPanel) => (currentPanel !== panel ? panel : false));
@@ -32,19 +36,19 @@ function AllFAQsPage() {
       <PageTitle title="پرسش های متداول" />
 
       <SectionContainer>
-        <HeaderContainer>
+        <SectionHeader>
           <SectionTitle>لیست پرسش های متداول</SectionTitle>
 
           <Button
             variant="outlined"
-            size="large"
+            size={isDesktop ? "large" : "xxsmall"}
             colorType="primary"
-            startIcon={<PlusIcon size={24} />}
+            startIcon={<PlusIcon size={isDesktop ? 24 : 16} />}
             onClick={handleAddFAQ}
           >
             افزودن پرسش جدید
           </Button>
-        </HeaderContainer>
+        </SectionHeader>
         <StyledFAQList>
           {allFAQs.map((faq) => (
             <FAQListItem

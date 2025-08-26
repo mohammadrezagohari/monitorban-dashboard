@@ -8,31 +8,32 @@ import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { sensorsSettingItems } from "src/presentation/data/data";
-import {
-  HeaderContainer,
-  MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { useMediaQuery, useTheme } from "@mui/material";
+import { SectionHeader } from "../../ContentManagementPage.styles";
 
-function SensorsSetting() {
+function SensorsSettings() {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleCreateSensor() {
     navigate("create-sensor");
   }
   return (
     <SectionContainer>
-      <HeaderContainer>
+      <SectionHeader>
         <SectionTitle>تنظیم سنسورها</SectionTitle>
         <Button
           variant="outlined"
-          size="large"
+          size={isDesktop ? "large" : "xxsmall"}
           colorType="primary"
-          startIcon={<PlusIcon size={24} />}
+          startIcon={<PlusIcon size={isDesktop ? 24 : 16} />}
           onClick={handleCreateSensor}
         >
           افرودن سنسور جدید
         </Button>
-      </HeaderContainer>
+      </SectionHeader>
 
       <MainContainer>
         <GridBox>
@@ -55,4 +56,4 @@ function SensorsSetting() {
   );
 }
 
-export default SensorsSetting;
+export default SensorsSettings;

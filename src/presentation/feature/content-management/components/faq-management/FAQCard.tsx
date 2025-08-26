@@ -5,9 +5,13 @@ import {
   QuestionText,
   StyledFAQCard,
 } from "./FAQManagement.styles";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 function FAQCard({ faq }: FAQCardProps) {
   const { question } = faq;
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <StyledFAQCard>
       <QuestionText variant="body1" color="neutral.main">
@@ -15,10 +19,18 @@ function FAQCard({ faq }: FAQCardProps) {
       </QuestionText>
 
       <ButtonsContainer>
-        <Button variant="outlined" size="small" colorType="error">
+        <Button
+          variant="outlined"
+          size={isDesktop ? "small" : "xxsmall"}
+          colorType="error"
+        >
           حذف
         </Button>
-        <Button variant="outlined" size="small" colorType="success">
+        <Button
+          variant="outlined"
+          size={isDesktop ? "small" : "xxsmall"}
+          colorType="success"
+        >
           ویرایش
         </Button>
       </ButtonsContainer>

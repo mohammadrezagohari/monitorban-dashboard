@@ -8,24 +8,32 @@ export const StyledFAQListItem = styled(Box)(({ theme }) => ({
 
 export const StyledQuestionBox = styled(Box)(({ theme }) => ({
     display: "flex",
-    alignItems: "center",
-    gap: theme.spacing(4),
+    flexDirection: "column",
+    gap: theme.spacing(3),
     borderRadius: "15px",
     backgroundColor: theme.palette.neutral[600],
+    [theme.breakpoints.up("md")]: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: theme.spacing(4),
+    }
 }))
 
 export const ButtonsContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     gap: theme.spacing(2),
+    justifyContent: "flex-end",
 }))
 
-export const QuestionText = styled(Typography)(() => ({
-    whiteSpace: "nowrap",
+export const QuestionText = styled(Typography)(({ theme }) => ({
     flexGrow: 1,
-    width: "calc(100% - 232px)",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
+    [theme.breakpoints.up("md")]: {
+        whiteSpace: "nowrap",
+        width: "calc(100% - 232px)",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+    }
 }))
 
 

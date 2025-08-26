@@ -1,20 +1,19 @@
-import { Avatar, Box, Typography, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { Typography, useTheme } from "@mui/material";
+import { ChangeEvent, useState } from "react";
 
-import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import Button from "src/presentation/components/common/buttons/Button";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
-import FormRow from "src/presentation/components/common/input/FormRow";
 import Input from "src/presentation/components/common/input/Input";
+import Select from "src/presentation/components/common/select/Select";
+import Button from "src/presentation/components/common/buttons/Button";
+import FormRow from "src/presentation/components/common/input/FormRow";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
+import { GridBox } from "src/presentation/components/common/GridBox";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import Select from "src/presentation/components/common/select/Select";
 import {
   minimumRecordOptions,
   notifDurationOptions,
@@ -24,11 +23,9 @@ import {
   sensorTypeFeatureOptions,
   unitOptions,
 } from "src/presentation/data/data";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { ChangeEvent, useState } from "react";
 
 function CreateNewSensor() {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, register } = useForm();
   const theme = useTheme();
   const [icon, setIcon] = useState<string | null>(null);
 
@@ -44,6 +41,10 @@ function CreateNewSensor() {
     setIcon(null);
   };
 
+  const handleFormSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <PageTitle title="سنسورها" />
@@ -55,7 +56,7 @@ function CreateNewSensor() {
           </Typography>
         </HeaderContainer>
         <MainContainer>
-          <GridBox>
+          <GridBox component="form" onSubmit={handleSubmit(handleFormSubmit)}>
             <FormRow label="عنوان انگلیسی سنسور">
               <Input
                 id="sensorTitleEnglish"
@@ -230,12 +231,9 @@ function CreateNewSensor() {
                 placeholder="کمینه بحرانی را وارد کنید"
               />
             </FormRow>
-            {/* <Box mt={{ xs: 1.5, md: 2 }}>
-              <Typography variant="body1" color="neutral.200" mb={0.5}>
-                آیکون
-              </Typography> */}
+
             <FormRow label="آیکون">
-              <Box
+              {/* <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -268,6 +266,7 @@ function CreateNewSensor() {
                     type="file"
                     accept="image/*"
                     style={{ display: "none" }}
+                    {...register("image")}
                     onChange={handleFileChange}
                   />
                   <label htmlFor="sensorIcon">
@@ -287,21 +286,32 @@ function CreateNewSensor() {
                     <DeleteIcon size={16} />
                   </IconButtonWithBorder>
                 </Box>
-              </Box>
+              </Box> */}
+              <Controller
+                name="file"
+                control={control}
+                render={({ field: { value, onChange, ...field } }) => (
+                  <FileUpload
+                    label="عکس آیکون"
+                    onFileSelect={onChange}
+                    accept=".png, .jpg"
+                  />
+                )}
+              />
             </FormRow>
+
+            <Button
+              variant="contained"
+              size="xxsmall"
+              colorType="success"
+              type="submit"
+            >
+              ثبت
+            </Button>
             {/* </Box> */}
           </GridBox>
         </MainContainer>
       </SectionContainer>
-
-      <Box
-        sx={{
-          backgroundColor: "limegreen",
-          padding: 2,
-        }}
-      >
-        <input type="file" />
-      </Box>
     </>
   );
 }
