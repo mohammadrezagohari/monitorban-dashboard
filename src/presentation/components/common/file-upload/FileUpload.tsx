@@ -14,6 +14,7 @@ function FileUpload({
   accept = "*/*",
   maxSize = 5 * 1024 * 1024,
   label,
+  initialImage,
 }: // disabled = false,
 FileUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -75,6 +76,8 @@ FileUploadProps) {
             src={URL.createObjectURL(selectedFile)}
             sx={{ width: 48, height: 48 }}
           />
+        ) : initialImage ? (
+          <Avatar src={initialImage} sx={{ width: 48, height: 48 }} />
         ) : (
           <IconWrapper>
             <HouseIcon color="#C9A8E5" />

@@ -13,7 +13,7 @@ function EmptyData({ label }) {
       }}
     >
       <Typography variant="body2" color="neutral.200">
-        در حال حاضر هیچ {label === "عضو" ? `${label}ی` : label} اضافه نشده است !
+        در حال حاضر هیچ {label !== "دسترسی" ? `${label}ی` : label} اضافه نشده است !
       </Typography>
 
       <Button variant="outlined" size="small" colorType="secondary">

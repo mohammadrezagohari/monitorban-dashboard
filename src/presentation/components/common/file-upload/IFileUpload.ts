@@ -3,5 +3,6 @@ export interface FileUploadProps {
     accept?: string;
     maxSize?: number;
     label?: string;
+    initialImage?: string;
     // disabled?: boolean;
 }
