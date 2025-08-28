@@ -8,8 +8,14 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
+import useUsers from "./useUsers";
 
-function UsersList({ users }: { users: IUser[] }) {
+function UsersList() {
+  const { isLoading, users, isError } = useUsers();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error fetching users</div>;
+
   return (
     <SectionContainer>
       <HeaderContainer>

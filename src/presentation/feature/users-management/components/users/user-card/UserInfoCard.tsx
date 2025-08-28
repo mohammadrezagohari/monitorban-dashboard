@@ -11,6 +11,7 @@ import {
   StyledDetailsContainer,
   StyledUserInfoContainer,
 } from "./UserInfoCard.style";
+import { useNavigate } from "react-router-dom";
 
 // const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
 const UserInfoCard: React.FC<UserInfoCardProps> = ({
@@ -29,10 +30,20 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
   const [visibleGroups, setVisibleGroups] = useState<string[]>([]);
   const [remainingCount, setRimainingCount] = useState(0);
   const groupRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const { image: avatar, fullName: userName, phone, roles, groups } = user;
+  const navigate = useNavigate();
+  const {
+    id: userId,
+    image: avatar,
+    fullName: userName,
+    phone,
+    roles,
+    groups,
+  } = user;
 
   const roleIsIncluded = ROLE ? roles?.includes(ROLE) : null;
   const groupIsIncluded = GROUP ? groups?.includes(GROUP) : null;
+  
+  // const hasImage = ;
 
   useEffect(() => {
     const updateVisibleRolesCount = () => {
@@ -237,6 +248,11 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
   //   };
   // }, [groups]);
 
+  const handleViewButton = () => {
+    navigate(`user/${userId}`);
+  };
+
+
   return (
     <StyledUserInfoContainer>
       <StyledDetailsContainer>
@@ -408,7 +424,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
           variant="outlined"
           size="small"
           colorType="primary"
-          onClick={() => console.log("مشاهده")}
+          onClick={handleViewButton}
         >
           مشاهده
         </Button>

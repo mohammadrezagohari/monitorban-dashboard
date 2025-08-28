@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 
-export const StyledUserPageContainer = styled(Box)(({ theme }) => ({
+export const StyledUserPageContainer = styled('form')(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(3),

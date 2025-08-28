@@ -1,19 +1,20 @@
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
-import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { useState } from "react";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { FilterSquareIcon } from "src/presentation/assets/icons/FilterSquareIcon";
+
+import Tag from "src/presentation/components/common/tag/Tag";
 import Button from "src/presentation/components/common/buttons/Button";
+import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
+import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
+import { FilterSquareIcon } from "src/presentation/assets/icons/FilterSquareIcon";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Tag from "src/presentation/components/common/tag/Tag";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { useState } from "react";
 
 function UserAccessibility() {
   const [sortIsOpen, setSortIsOpen] = useState(false);

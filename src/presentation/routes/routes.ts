@@ -30,7 +30,7 @@ import CreateServerRoom from "src/presentation/feature/server-room/components/cr
 import AllTutorialsPage from "src/presentation/feature/content-management/components/all-tutorials-page/AllTutorialsPage";
 import ContentManagement from "src/presentation/pages/content-management/ContentManagement";
 import ReceivedMessagesPage from "src/presentation/feature/content-management/components/messages/ReceivedMessagesPage";
-import UserPage from "src/presentation/feature/users-management/components/users/user-page/UserPage";
+import UserPage from "../feature/users-management/components/users/user-page/UserPage";
 
 export const routes = [
     {
@@ -97,7 +97,12 @@ export const routes = [
         requiresAuth: true,
     },
     {
-        path: '/users-management/users/user',
+        path: '/users-management/users/user/:userId',
+        component: UserPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/users/add-new-user',
         component: UserPage,
         requiresAuth: true,
     },

@@ -10,6 +10,7 @@ import { usersInfo } from "src/presentation/data/data";
 import FilterOperation from "./FilterOperation";
 import { StyledUsersContainer } from "./Users.styles";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { useNavigate } from "react-router-dom";
 
 export default function Users() {
   const [userRole, setUserRole] = useState("");
@@ -17,6 +18,11 @@ export default function Users() {
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const navigate = useNavigate();
+
+  const handleAddButton = () => {
+    navigate("add-new-user");
+  };
 
   return (
     <>
@@ -27,6 +33,7 @@ export default function Users() {
             size="large"
             colorType="primary"
             startIcon={<PlusIcon size={24} />}
+            onClick={handleAddButton}
           >
             ایجاد کاربر جدید
           </Button>
@@ -40,7 +47,7 @@ export default function Users() {
       <StyledUsersContainer>
         <FilterOperation />
 
-        <UsersList users={usersList} />
+        <UsersList />
       </StyledUsersContainer>
     </>
   );
