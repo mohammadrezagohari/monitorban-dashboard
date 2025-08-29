@@ -2,8 +2,9 @@ import { CustomSvgProps } from "./IIcons";
 
 export const CalendarIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color, // = "#F7F5FA", // "neutral.main"
+  color,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const CalendarIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M8 2V5"

@@ -3,7 +3,8 @@ import { CustomSvgProps } from "./IIcons";
 export const DangerIcon: React.FC<CustomSvgProps> = ({
   size = 24,
   className,
-  color, //= "#F7F5FA",
+  color,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const DangerIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M12 9V14"

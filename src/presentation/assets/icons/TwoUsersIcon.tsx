@@ -2,8 +2,9 @@ import { CustomSvgProps } from "./IIcons";
 
 export const TwoUsersIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color, // = "#F7F5FA", //"neutral.main"
+  color,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const TwoUsersIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M9.15957 10.87C9.05957 10.86 8.93957 10.86 8.82957 10.87C6.44957 10.79 4.55957 8.84 4.55957 6.44C4.55957 3.99 6.53957 2 8.99957 2C11.4496 2 13.4396 3.99 13.4396 6.44C13.4296 8.84 11.5396 10.79 9.15957 10.87Z"

@@ -1,9 +1,10 @@
 import { CustomSvgProps } from "./IIcons";
 
 export const LeftArrowIcon: React.FC<CustomSvgProps> = ({
-  color, // = "#F7F5FA",
+  color,
   size = 12,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const LeftArrowIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M9.57 5.93005L3.5 12.0001L9.57 18.0701"

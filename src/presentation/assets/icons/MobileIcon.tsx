@@ -2,9 +2,10 @@ import React from "react";
 import { CustomSvgProps } from "./IIcons";
 
 export const MobileIcon: React.FC<CustomSvgProps> = ({
-  color, // = "#F7F5FA",
+  color,
   size = 20,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -14,6 +15,7 @@ export const MobileIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 13 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M12.3994 4.33332V11.6667C12.3994 14.6 11.666 15.3333 8.73268 15.3333H4.33268C1.39935 15.3333 0.666016 14.6 0.666016 11.6667V4.33332C0.666016 1.39999 1.39935 0.666656 4.33268 0.666656H8.73268C11.666 0.666656 12.3994 1.39999 12.3994 4.33332Z"

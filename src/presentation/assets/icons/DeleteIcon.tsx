@@ -2,17 +2,19 @@ import { CustomSvgProps } from "./IIcons";
 
 export const DeleteIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color ,//= "neutral.main", // "#F7F5FA"
-  className
+  color,
+  className,
+  ...rest
 }) => {
   return (
     <svg
-    className={className}
+      className={className}
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826"

@@ -1,7 +1,12 @@
 import { styled } from "@mui/material";
 import { IconWrapperProps } from "./IIcons";
 
-export const IconWrapper = styled('span')<IconWrapperProps>(({ theme, color, bgcolor, size = 48 }) => ({
+export const IconWrapper = styled('span')<IconWrapperProps>(({
+    theme,
+    color,
+    bgcolor,
+    size = 48
+}) => ({
     display: "flex",
     alignItems: "center",
     color: color,

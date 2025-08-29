@@ -1,9 +1,10 @@
 import { CustomSvgProps } from "./IIcons";
 
 export const PrinterIcon: React.FC<CustomSvgProps> = ({
-  color, // = "neutral.main", // "#F7F5FA"
+  color,
   size = 24,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const PrinterIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M7.25 7H16.75V5C16.75 3 16 2 13.75 2H10.25C8 2 7.25 3 7.25 5V7Z"

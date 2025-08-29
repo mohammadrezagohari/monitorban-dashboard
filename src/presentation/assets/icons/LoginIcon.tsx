@@ -2,8 +2,9 @@ import { CustomSvgProps } from "./IIcons";
 
 export const LoginIcon: React.FC<CustomSvgProps> = ({
   size,
-  color, // = "#F7F5FA",
+  color,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const LoginIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 27 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M12.7725 14.62L15.572 12.06L12.7725 9.5"

@@ -4,22 +4,30 @@ import { ArrowLeftIcon } from "./ArrowLeftIcon";
 import { ArrowRightIcon } from "./ArrowRightIcon";
 import { ArrowUpIcon } from "./ArrowUpIcon";
 import { BulletIcon } from "./BulletIcon";
+import { CalendarIcon } from "./CalendarIcon";
+import { CallIcon } from "./CallIcon";
 import { CheckedIcon } from "./CheckedIcon";
 import { ClockIcon } from "./ClockIcon";
 import { CloseCircleIcon } from "./CloseCircleIcon";
 import { CloseIcon } from "./CloseIcon";
 import { ComplaintIcon } from "./ComplaintIcon";
-import { HomeIcon } from "./HomeIcon";
+import { DangerIcon } from "./DangerIcon";
 import { DecrementIcon } from "./DecrementIcon";
 import { DeleteIcon } from "./DeleteIcon";
+import { DropletPercentIcon } from "./DropletPercentIcon";
+import { DropletIcon } from "./DropletIcon";
 import { EditIcon } from "./EditIcon";
+import { ExcelIcon } from "./ExcelIcon";
 import { EyeIcon } from "./EyeIcon";
 import { FilterIcon } from "./FilterIcon";
 import { FilterSquareIcon } from "./FilterSquareIcon";
+import { GalleryIcon } from "./GalleryIcon";
+import { HomeIcon } from "./HomeIcon";
 import { HiddenEyeIcon } from "./HiddenEyeIcon";
 import { HouseIcon } from "./HouseIcon";
 import { IncrementIcon } from "./IncrementIcon";
 import { LeftArrowIcon } from "./LeftArrowIcon";
+import { LightSwitchIcon } from "./LightSwitchIcon";
 import { ListIcon } from "./ListIcon";
 import { LoginIcon } from "./LoginIcon";
 import { LogoIcon } from "./LogoIcon";
@@ -28,9 +36,16 @@ import { MenuIcon } from "./MenuIcon";
 import { MessageEditIcon } from "./MessageEditIcon";
 import { MobileIcon } from "./MobileIcon";
 import { PlusIcon } from "./PlusIcon";
+import { PrinterIcon } from "./PrinterIcon";
 import { SensorIcon } from "./SensorIcon";
+import { ServerIcon } from "./ServerIcon";
 import { SettingIcon } from "./SettingIcon";
+import { SimCardIcon } from "./SimCardIcon";
 import { SupportIcon } from "./SupportIcon";
+import { TemperatureSnowIcon } from "./TemperatureSnowIcon";
+import { TemperatureListIcon } from "./TemperatureListIcon";
+import { TickIcon } from "./TickIcon";
+import { TickCircleIcon } from "./TickCircleIcon";
 import { TwoUsersIcon } from "./TwoUsersIcon";
 import { UncheckedIcon } from "./UncheckedIcon";
 import { UserIcon } from "./UserIcon";
@@ -38,20 +53,6 @@ import { UsersIcon } from "./UsersIcon";
 import { UserSquareIcon } from "./UserSquareIcon";
 import { VideoIcon } from "./VideoIcon";
 import { VisibleEyeIcon } from "./VisibleEyeIcon";
-import { ServerIcon } from "./ServerIcon";
-import { CalendarIcon } from "./CalendarIcon";
-import { TickIcon } from "./TickIcon";
-import { TickCircleIcon } from "./TickCircleIcon";
-import { TemperatureSnowIcon } from "./TemperatureSnowIcon";
-import { TemperatureListIcon } from "./TemperatureListIcon";
-import { SimCardIcon } from "./SimCardIcon";
-import { PrinterIcon } from "./PrinterIcon";
-import { LightSwitchIcon } from "./LightSwitchIcon";
-import { ExcelIcon } from "./ExcelIcon";
-import { DropletPercentIcon } from "./DropletPercentIcon";
-import { DropletIcon } from "./DropletIcon";
-import { DangerIcon } from "./DangerIcon";
-import { CallIcon } from "./CallIcon";
 
 export const iconsMap = {
     airConditionerIcon: AirConditionerIcon,
@@ -77,6 +78,7 @@ export const iconsMap = {
     eyeIcon: EyeIcon,
     filterIcon: FilterIcon,
     filterSquareIcon: FilterSquareIcon,
+    galleryIcon: GalleryIcon,
     hiddenEyeIcon: HiddenEyeIcon,
     homeIcon: HomeIcon,
     houseIcon: HouseIcon,

@@ -2,9 +2,10 @@ import React from "react";
 import { CustomSvgProps } from "./IIcons";
 
 export const HiddenEyeIcon: React.FC<CustomSvgProps> = ({
-  color, // = "#F7F5FA",
+  color,
   size = 24,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -14,6 +15,7 @@ export const HiddenEyeIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M14.5299 9.47004L9.46992 14.53C8.81992 13.88 8.41992 12.99 8.41992 12C8.41992 10.02 10.0199 8.42004 11.9999 8.42004C12.9899 8.42004 13.8799 8.82004 14.5299 9.47004Z"

@@ -5,6 +5,7 @@ export const UncheckedIcon: React.FC<CustomSvgProps> = ({
   size = 20,
   disabled,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -14,6 +15,7 @@ export const UncheckedIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <rect
         x="0.5"

@@ -2,8 +2,9 @@ import { CustomSvgProps } from "./IIcons";
 
 export const MenuIcon: React.FC<CustomSvgProps> = ({
   size = 20,
-  color, // = "#F7F5FA", // "neutral.main"
+  color,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const MenuIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M2.5 7H17.5"

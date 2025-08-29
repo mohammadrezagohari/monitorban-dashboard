@@ -2,8 +2,9 @@ import { CustomSvgProps } from "./IIcons";
 
 export const UserSquareIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color, // = "#F7F5FA", //"neutral.main"
+  color,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ export const UserSquareIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M18.1404 21.62C17.2604 21.88 16.2204 22 15.0004 22H9.00035C7.78035 22 6.74035 21.88 5.86035 21.62C6.08035 19.02 8.75035 16.97 12.0004 16.97C15.2504 16.97 17.9204 19.02 18.1404 21.62Z"

@@ -5,6 +5,7 @@ export const VisibleEyeIcon: React.FC<CustomSvgProps> = ({
   color,
   size = 24,
   className,
+  ...rest
 }) => {
   return (
     <svg
@@ -14,6 +15,7 @@ export const VisibleEyeIcon: React.FC<CustomSvgProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M15.5799 12C15.5799 13.98 13.9799 15.58 11.9999 15.58C10.0199 15.58 8.41992 13.98 8.41992 12C8.41992 10.02 10.0199 8.42001 11.9999 8.42001C13.9799 8.42001 15.5799 10.02 15.5799 12Z"

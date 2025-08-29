@@ -2,17 +2,19 @@ import { CustomSvgProps } from "./IIcons";
 
 export const FilterIcon: React.FC<CustomSvgProps> = ({
   size = 24,
-  color ,// = "#F7F5FA", // "neutral.main"
-  className
+  color,
+  className,
+  ...rest
 }) => {
   return (
     <svg
-    className={className}
+      className={className}
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M22 6.5H16"
