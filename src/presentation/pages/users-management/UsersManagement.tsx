@@ -2,7 +2,7 @@ import UsersManagementPage from "src/presentation/feature/users-management/Users
 
 // Should be deleted
 import { groupsList, usersInfo } from "src/presentation/data/data";
-import UserPage from "src/presentation/feature/users-management/components/users/user-page/UserPage";
+import UserPage from "@/presentation/feature/users-management/components/users/user-page/UserPage-v1";
 import Users from "src/presentation/feature/users-management/components/users/Users";
 import Input from "src/presentation/components/common/input/Input";
 import { UserIcon } from "src/presentation/assets/icons/UserIcon";

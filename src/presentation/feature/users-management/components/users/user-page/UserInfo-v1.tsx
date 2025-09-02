@@ -1,4 +1,4 @@
-import { Avatar, Box, Input, Typography, useTheme } from "@mui/material";
+import { Avatar, Box, Typography, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
@@ -11,10 +11,15 @@ import { HeaderContainer } from "src/presentation/components/common/section-cont
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
 import { Controller, useForm, useFormContext } from "react-hook-form";
-import { User } from "./IUserPage";
 
 function UserInfo() {
-  const { control, register } = useFormContext();
+  // { user }
+  const theme = useTheme();
+  const {
+    control,
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <SectionContainer>
@@ -24,10 +29,9 @@ function UserInfo() {
       <UserInfoMainContainer>
         <FormRow label="نام کاربر">
           <StyledInput
-            id="fullName"
+            id="username"
             type="text"
             placeholder="نام کاربر را وارد کنید"
-            {...register("fullName")}
           />
         </FormRow>
         <FormRow label="شماره تماس">
@@ -35,23 +39,10 @@ function UserInfo() {
             id="phone"
             type="number"
             placeholder="شماره تماس را وارد کنید"
-            {...register("phone")}
           />
         </FormRow>
 
         <FormRow label="پروفایل">
-          <Controller
-            name="image"
-            control={control}
-            render={({ field: { value, onChange, ...field } }) => (
-              <FileUpload
-                onFileSelect={onChange}
-                label="عکس پروفایل"
-                initialImage={value}
-                accept=".jpg,.jpeg,.png"
-              />
-            )}
-          />
           {/* <Box sx={{ display: "flex", alignItems: "center", gap: 6 }}>
             <Box
               sx={{
@@ -82,13 +73,13 @@ function UserInfo() {
               </IconButtonWithBorder>
             </Box>
           </Box> */}
-          {/* <Controller
+          <Controller
             name="user-image"
             control={control}
             render={({ field: { value, onChange, ...field } }) => (
               <FileUpload onFileSelect={onChange} label="عکس پروفایل" />
             )}
-          /> */}
+          />
         </FormRow>
       </UserInfoMainContainer>
     </SectionContainer>
