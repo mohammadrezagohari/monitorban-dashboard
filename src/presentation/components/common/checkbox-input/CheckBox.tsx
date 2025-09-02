@@ -3,7 +3,7 @@ import { BaseCheckboxProps } from "src/presentation/feature/old/base-checkbox/IB
 import { UncheckedIcon } from "../../../assets/icons/UncheckedIcon";
 import { CheckedIcon } from "../../../assets/icons/CheckedIcon";
 
-const CustomCheckbox: React.FC<BaseCheckboxProps> = ({
+const Checkbox: React.FC<BaseCheckboxProps> = ({
   checkedColor,
   uncheckedColor,
   checked,
@@ -36,4 +36,4 @@ const CustomCheckbox: React.FC<BaseCheckboxProps> = ({
   );
 };
 
-export default CustomCheckbox;
+export default Checkbox;

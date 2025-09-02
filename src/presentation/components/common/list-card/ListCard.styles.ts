@@ -39,18 +39,18 @@ export const StyledTitle = styled(Box)(({ theme }) => ({
     },
 
     "& h4": {
-        fontWeight: 700,
-        fontSize: 14,
+        fontWeight: theme.typography.h5.fontWeight,
+        fontSize: theme.typography.body2.fontSize,
         [theme.breakpoints.up("lg")]: {
-            fontSize: 20,
+            fontSize: theme.typography.h5.fontSize,
         }
     },
 
     "& p": {
-        fontWeight: 500,
-        fontSize: 12,
+        fontWeight: theme.typography.body2.fontWeight,
+        fontSize: theme.typography.caption.fontSize,
         [theme.breakpoints.up("lg")]: {
-            fontSize: 14,
+            fontSize: theme.typography.body2.fontSize,
         }
     }
 }))

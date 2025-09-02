@@ -7,8 +7,8 @@ export const LogoutButton = styled(Button)<ButtonProps>(({ theme }) => ({
   gap: theme.spacing(1),
 
   color: theme.palette.primary[200],
-  fontWeight: 500,
-  fontSize: 12,
+  fontWeight: theme.typography.body2.fontWeight,
+  fontSize: theme.typography.caption.fontSize,
   padding: 0,
 
   "&:hover, &:active": {

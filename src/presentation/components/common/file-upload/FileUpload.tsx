@@ -1,13 +1,19 @@
 import { ChangeEvent, useRef, useState } from "react";
-import { Avatar, Box, Typography, useTheme } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 import Button from "../buttons/Button";
 import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
 import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { FileUploadProps } from "./IFileUpload";
-import { VisuallHiddenInput } from "./FileUpload.styles";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
+import {
+  Avatar,
+  ButtonsContainer,
+  ImageContainer,
+  StyledFileUpload,
+  VisuallHiddenInput,
+} from "./FileUpload.styles";
 
 function FileUpload({
   onFileSelect,
@@ -15,8 +21,7 @@ function FileUpload({
   maxSize = 5 * 1024 * 1024,
   label,
   initialImage,
-}: // disabled = false,
-FileUploadProps) {
+}: FileUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [error, setError] = useState<string>("");
@@ -55,40 +60,23 @@ FileUploadProps) {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: 6,
-        mr: 1.25,
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          gap: 1,
-          alignItems: "center",
-          width: 90,
-        }}
-      >
+    <StyledFileUpload>
+      <ImageContainer>
         {selectedFile ? (
-          <Avatar
-            src={URL.createObjectURL(selectedFile)}
-            sx={{ width: 48, height: 48 }}
-          />
+          <Avatar src={URL.createObjectURL(selectedFile)} />
         ) : initialImage ? (
-          <Avatar src={initialImage} sx={{ width: 48, height: 48 }} />
+          <Avatar src={initialImage} />
         ) : (
           <IconWrapper>
-            <HouseIcon color="#C9A8E5" />
+            <HouseIcon color={(theme) => theme.palette.primary[200]} />
           </IconWrapper>
         )}
         <Typography variant="body2" color="neutral.200">
           {label}
         </Typography>
-      </Box>
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-        {/* <label htmlFor="sensorIcon"> */}
+      </ImageContainer>
+
+      <ButtonsContainer>
         <Button
           component="label"
           role={undefined}
@@ -104,15 +92,15 @@ FileUploadProps) {
             accept={accept}
           />
         </Button>
-        {/* </label> */}
+
         <IconButtonWithBorder
           color={theme.palette.error.main}
           onClick={handleRemoveFile}
         >
           <DeleteIcon size={16} />
         </IconButtonWithBorder>
-      </Box>
-    </Box>
+      </ButtonsContainer>
+    </StyledFileUpload>
   );
 }
 

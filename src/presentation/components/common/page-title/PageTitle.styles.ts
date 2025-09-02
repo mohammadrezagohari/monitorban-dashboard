@@ -6,9 +6,9 @@ export const StyledPageTitle = styled(Box)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "space-between",
     "& > h2": {
-        fontSize: 24,
+        fontSize: theme.typography.h3.fontSize,
         [theme.breakpoints.up("md")]: {
-            fontSize: 32
+            fontSize: theme.typography.h2.fontSize,
         }
     },
 }))

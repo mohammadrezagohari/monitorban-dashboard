@@ -10,7 +10,7 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
 }))
 
 
-export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ caption, status, theme }) => ({
+export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>(({ status, theme }) => ({
 
     autoComplete: "off",
     // height: 48,
@@ -55,13 +55,13 @@ export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>((
     },
     "& .MuiFormHelperText-root": {
         // backgroundColor: "red",
-        height: "10px",
-        fontSize: "12px",
-        fontWeight: 500,
-        marginTop: "8px",
+        height: theme.spacing(1.25),
+        fontSize: theme.typography.caption.fontSize,
+        fontWeight: theme.typography.body2.fontWeight,
+        marginTop: theme.spacing(1),
         // marginInline: 0,
         textAlign: "right",
-        color: "red"
+        color: theme.palette.error.main
         // color: status === "error"
         //     ? theme.palette.error.main
         //     : status === "accept"
@@ -77,7 +77,7 @@ export const StyledTextField = styled(TextField)<{ status?: BaseInputStatus }>((
     },
     "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
         borderWidth: "1px",
-        borderColor: "#5B5266",
+        borderColor: theme.palette.text.disabled,
         borderStyle: "solid",
     }
 }))

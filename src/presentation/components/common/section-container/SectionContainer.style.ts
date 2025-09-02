@@ -1,14 +1,14 @@
 import { Box, BoxProps, styled } from "@mui/material";
 
 export const StyledSectionContainer = styled(Box)<BoxProps>(({ theme, width, height }) => ({
-    padding: "0.75rem",
+    padding: theme.spacing(1.5),
     borderRadius: "15px",
     backgroundColor: theme.palette.neutral[700],
     width: `${width}px`,
     height: `${height}px`,
     overflow: "hidden",
     [theme.breakpoints.up("md")]: {
-        padding: "1rem",
+        padding: theme.spacing(2),
         borderRadius: "25px",
     }
 }))
@@ -18,9 +18,9 @@ export const HeaderContainer = styled(Box)(({ theme }) => ({
     width: "100%",
     alignItems: "flex-start",
     justifyContent: "space-between",
-    marginBottom: "0.75rem",
+    marginBottom: theme.spacing(1.5),
     [theme.breakpoints.up("md")]: {
-        marginBottom: "1rem",
+        marginBottom: theme.spacing(2),
     }
 }))
 

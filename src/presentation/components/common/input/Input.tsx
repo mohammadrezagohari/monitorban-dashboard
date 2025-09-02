@@ -1,29 +1,12 @@
-import { ReactNode, useState } from "react";
-import { IconButton, InputAdornment, TextFieldProps } from "@mui/material";
+import { useState } from "react";
+import { IconButton, InputAdornment } from "@mui/material";
 
 import { StyledInput } from "./Form.styles";
 import { HiddenEyeIcon } from "src/presentation/assets/icons/HiddenEyeIcon";
 import { VisibleEyeIcon } from "src/presentation/assets/icons/VisibleEyeIcon";
+import { InputProps } from "./IForm";
 
-interface InputProps extends TextFieldProps {
-  id: string;
-  placeholder?: string;
-  icon?: boolean | ReactNode;
-  type?: string;
-}
-
-function Input({
-  id,
-  icon,
-  type = "text",
-  placeholder,
-  ...props
-}: {
-  id: string;
-  placeholder?: string;
-  icon?: boolean | ReactNode;
-  type?: string;
-}) {
+function Input({ id, icon, type = "text", placeholder, ...props }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (

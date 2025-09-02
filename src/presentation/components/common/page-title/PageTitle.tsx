@@ -1,15 +1,10 @@
 import { Typography } from "@mui/material";
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { StyledPageTitle } from "./PageTitle.styles";
+import { PageTitleProps } from "./IPageTitle";
 
-export default function PageTitle({
-  children,
-  title,
-}: {
-  children?: ReactNode;
-  title: string;
-}) {
+export default function PageTitle({ children, title }: PageTitleProps) {
   return (
     <StyledPageTitle>
       <Typography variant="h2" color="neutral.main">

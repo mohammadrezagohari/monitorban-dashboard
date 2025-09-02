@@ -1,5 +1,4 @@
 export interface StyledOTPInputProps {
-    theme?: any;
     isError?: boolean;
 }
 

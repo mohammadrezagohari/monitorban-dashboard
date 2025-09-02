@@ -7,8 +7,8 @@ export const BackButton = styled(Button)<ButtonProps>(({ theme }) => ({
     gap: theme.spacing(1),
 
     color: theme.palette.primary[200],
-    fontWeight: 500,
-    fontSize: 16,
+    fontWeight: theme.typography.body2.fontWeight,
+    fontSize: theme.typography.body1.fontSize,
     padding: 0,
 
     "&:hover, &:active": {

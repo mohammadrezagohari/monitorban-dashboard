@@ -1,13 +1,14 @@
 import { Typography } from "@mui/material";
+import { SectionTitleProps } from "./ISectionTitle";
 
-const SectionTitle = ({ children }) => {
+const SectionTitle = ({ children }: SectionTitleProps) => {
   return (
     <Typography
       variant="h3"
       color="neutral.main"
       lineHeight={1.6}
       sx={{
-        fontSize: { md: 24, xs: 18 },
+        
       }}
     >
       {children}
@@ -15,4 +16,4 @@ const SectionTitle = ({ children }) => {
   );
 };
 
-export default SectionTitle
+export default SectionTitle;

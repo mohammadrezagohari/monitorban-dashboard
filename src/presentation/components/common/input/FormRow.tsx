@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
+import { isValidElement } from "react";
 import { Error, Label, StyledFormRow } from "./Form.styles";
-
-interface FormRowProps {
-  label?: string;
-  children: ReactNode;
-  error?: string;
-  gridColumn?: string;
-}
+import { FormRowProps } from "./IForm";
 
 function FormRow({ label, children, error, ...props }: FormRowProps) {
   return (
     <StyledFormRow {...props}>
-      {label && <Label htmlFor={children?.props.id}>{label}</Label>}
+      {label && isValidElement(children) && (
+        <Label
+          htmlFor={(children as React.ReactElement<{ id?: string }>).props.id}
+        >
+          {label}
+        </Label>
+      )}
       {children}
       {error && <Error>{error}</Error>}
     </StyledFormRow>

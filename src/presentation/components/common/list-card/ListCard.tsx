@@ -1,37 +1,25 @@
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UserIcon } from "src/presentation/assets/icons/UserIcon";
-import { Avatar, Box, styled } from "@mui/material";
+import { Avatar, Box } from "@mui/material";
 import { createContext, ReactNode, useContext } from "react";
 import { Text } from "../dashboard-card/BaseDashboardCard.style";
 import TagHeading from "../tag-heading/TagHeading";
 import Tag from "../tag/Tag";
-import { ListCardContextType } from "./IListCard";
+import { ListCardContextType, ListCardProps } from "./IListCard";
 import {
   StyledListCard,
-  StyledFirstDetail,
   StyledTitle,
-  StyledSecondDetail,
   StyledDetail,
   StyledOperations,
 } from "./ListCard.styles";
-import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
+import CustomCheckbox from "../checkbox-input/CheckBox";
 
 const ListCardContext = createContext<ListCardContextType>({
   columns: "",
   item: null,
 });
 
-function ListCard({
-  children,
-  columns,
-  item,
-  selectable,
-}: {
-  children: ReactNode;
-  columns: string;
-  item: any;
-  selectable?: boolean;
-}) {
+function ListCard({ children, columns, item, selectable }: ListCardProps) {
   return (
     <ListCardContext.Provider value={{ columns, item, selectable }}>
       <StyledListCard columns={columns}>{children}</StyledListCard>
@@ -67,7 +55,7 @@ function Title() {
   );
 }
 
-function FirstDetail({ label }) {
+function FirstDetail({ label }: { label: string }) {
   const { item } = useContext(ListCardContext);
   const { roles } = item;
 
@@ -83,7 +71,7 @@ function FirstDetail({ label }) {
   );
 }
 
-function SecondDetail({ label }) {
+function SecondDetail({ label }: { label: string }) {
   const { item } = useContext(ListCardContext);
   const { groups } = item;
 

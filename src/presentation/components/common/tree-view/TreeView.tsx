@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
-import CustomCheckbox from "../checkbox-input/CustomCheckBoxInput";
+import CustomCheckbox from "../checkbox-input/CheckBox";
 
 export default function TreeView() {
   return (

@@ -1,36 +1,20 @@
-import { ReactElement } from "react";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { StyledLinearCard } from "./LinearCard.styles";
+import { ContentContainer, StyledLinearCard } from "./LinearCard.styles";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { LinearProps } from "./ILinearCard";
 
-function LinearCard({
-  icon,
-  children,
-  color,
-  handleClick,
-}: {
-  icon?: ReactElement;
-  children?: string;
-  color?: string;
-  handleClick?: () => void;
-}) {
+function LinearCard({ icon, children, color, handleClick }: LinearProps) {
   return (
     <StyledLinearCard>
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+      <ContentContainer>
         <IconWrapper bgcolor={color}>{icon}</IconWrapper>
-        <Typography
-          variant="h4"
-          color="neutral.main"
-          sx={{
-            typography: { xs: "body2", md: "h4" },
-          }}
-        >
+        <Typography variant="h4" color="neutral.main">
           {children}
         </Typography>
-      </Box>
+      </ContentContainer>
       <IconButtonWithBorder onClick={handleClick}>
         <ArrowLeftIcon size={16} />
       </IconButtonWithBorder>

@@ -161,6 +161,11 @@ const theme = createTheme({
             fontWeight: 700, //bold
 
         },
+        h6: {
+            fontSize: '1.125rem', // 18px
+            fontWeight: 700, //bold
+
+        },
         body1: {
             fontSize: '1rem', // 16px
             fontWeight: 600, //demibold
