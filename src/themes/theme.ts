@@ -113,8 +113,8 @@ const theme = createTheme({
             200: '#B7B0BF',
             300: '#9B92A6',
             400: '#81778C',
-            500: '#5B5266',
-            // 550: '#4D4259',
+            // 500: '#5B5266',
+            500: '#4D4259',
             600: '#373040',
             700: '#1C1926',
             800: '#0E0C15',
@@ -126,8 +126,8 @@ const theme = createTheme({
             disabled: '#5B5266', //
         },
         background: {
-            default: '#0B1437', // رنگ پس‌زمینه اصلی (بنفش)
-            paper: '#ffffff', // رنگ پس‌زمینه دوم (سفید)
+            default: '#0E0C15', // رنگ پس‌زمینه اصلی (بنفش)
+            paper: '#1D182E', // رنگ پس‌زمینه دوم (سفید)
         },
     },
     typography: {
@@ -158,6 +158,11 @@ const theme = createTheme({
         },
         h5: {
             fontSize: '1.25rem', // 20px
+            fontWeight: 700, //bold
+
+        },
+        h6: {
+            fontSize: '1.125rem', // 18px
             fontWeight: 700, //bold
 
         },

@@ -1,26 +1,22 @@
-import { Theme } from "@mui/material";
-import { Variant } from "@mui/material/styles/createTypography";
+import { BoxProps, Theme } from "@mui/material";
+import type { TypographyProps } from "@mui/material/Typography";
 
-export interface IDashboardCardProps {
+export interface IDashboardCardProps extends BoxProps {
     divider?: boolean;
     topContent?: React.ReactNode;
     bottomContent?: React.ReactNode;
     width?: string;
+    onHandleClick?: () => void;
 }
 
-export interface CardContainerProps {
+export interface CardContainerProps extends BoxProps {
     width?: string;
     theme?: Theme;
 }
 
-export interface IconWrapperProps {
-    bgcolor?: string,
-    size?: number,
-}
-
 export interface TextProps {
     color?: string,
-    variant?: Variant,
+    variant?: TypographyProps["variant"],
 }
 
 export interface IColors {

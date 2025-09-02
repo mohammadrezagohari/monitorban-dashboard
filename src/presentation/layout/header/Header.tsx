@@ -1,0 +1,36 @@
+import Box from "@mui/material/Box";
+
+import { useMoveBack } from "src/presentation/hooks/useMoveBack";
+
+import { BackButton } from "src/presentation/components/common/buttons/BackButton";
+import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
+import { useMediaQuery, useTheme } from "@mui/material";
+import Breadcrumbs from "./Breadcrumbs";
+import { StyledHeader, VerticalDivider } from "./Header.styles";
+
+function Header() {
+  const moveBack = useMoveBack();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+  return (
+    <StyledHeader>
+      {isDesktop && (
+        <>
+          <BackButton
+            onClick={moveBack}
+            startIcon={<ArrowRightIcon size={20} />}
+            // disableRipple
+            // disableElevation
+          >
+            بازگشت
+          </BackButton>
+          <VerticalDivider />
+        </>
+      )}
+      <Breadcrumbs />
+    </StyledHeader>
+  );
+}
+
+export default Header;

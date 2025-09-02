@@ -1,5 +1,6 @@
-import { Typography } from "@mui/material";
 import React from "react";
+import { Typography } from "@mui/material";
+
 import { IBaseAnnouncements } from "./IBaseAnnouncements";
 import {
   StyledContainer,

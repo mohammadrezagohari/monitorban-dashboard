@@ -1,0 +1,37 @@
+import { CustomSvgProps } from "./IIcons";
+
+export const LeftArrowIcon: React.FC<CustomSvgProps> = ({
+  color,
+  size = 12,
+  className,
+  ...rest
+}) => {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...rest}
+    >
+      <path
+        d="M9.57 5.93005L3.5 12.0001L9.57 18.0701"
+        stroke={color || "currentColor"}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20.4999 12H3.66992"
+        stroke={color || "currentColor"}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

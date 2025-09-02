@@ -1,79 +1,200 @@
 // routes.ts
-import { RegisterPage } from '../pages/auth/Register';
-import { DashboardPage } from '../pages/dashboard';
-import HomePage from '../pages/HomePage';
-import Sensors from '../feature/test/SensorsPage';
-import Dashboard from '../feature/test/dashboard/DashboardPage';
-import ServerRoom from '../feature/test/ServerRoomPage';
-import Reports from '../feature/test/ReportsPage';
-import UserManagment from '../feature/test/UserManagmentPage';
-import Educations from '../feature/test/EducationsPage';
-import Support from '../feature/test/SupportPage';
-import Settings from '../feature/test/SettingsPage';
-import Test from '../feature/test/testPage';
-import LoginPage from '../feature/login/LoginWithOTP';
-import { LoginPage2 } from '../pages/auth/Login';
+import Login from "src/presentation/pages/auth/Login";
+import Users from "src/presentation/feature/users-management/components/users/Users";
+import Sensors from "src/presentation/pages/sensors/Sensors";
+import Reports from "src/presentation/pages/reports/Reports";
+import Support from "src/presentation/pages/support/Support";
+import Tutorial from "src/presentation/pages/tutorial/Tutorial";
+import Dashboard from "src/presentation/pages/dashboard/Dashboard";
+import RoleUsers from "src/presentation/feature/users-management/components/roles/role-users/RoleUsers";
+import RolesPage from "src/presentation/feature/users-management/components/roles/RolesPage";
+import AddNewFAQ from "src/presentation/feature/content-management/components/add-new-faq/AddNewFAQ";
+import ServerRoom from "src/presentation/pages/server-room/ServerRoom";
+import GroupsPage from "src/presentation/feature/users-management/components/groups/GroupsPage";
+import CreateGroup from "src/presentation/feature/users-management/components/roles/create-group/CreateGroup";
+import AllFAQsPage from "src/presentation/feature/content-management/components/all-faq-page/AllFAQsPage";
+import AddNewSensor from "src/presentation/feature/sensors/components/AddNewSensor";
+import VideoDetails from "src/presentation/feature/tutorial/components/VideoDetails";
+import EditRolePage from "src/presentation/feature/users-management/components/roles/edit-role-page/EditRolePage";
+import AddNewAccess from "src/presentation/feature/users-management/components/roles/add-accesses/AddAccesses"
+import AccessesPage from "src/presentation/feature/users-management/components/roles/accesses/AccessesPage";
+import CenterDetails from "src/presentation/feature/sensors/components/CenterDetails";
+import EditGroupPage from "src/presentation/feature/users-management/components/groups/edit-group-page/EditGroupPage";
+import EditServerRoom from "src/presentation/feature/server-room/components/edit-server-room/EditServerRoom";
+import AddNewTutorial from "src/presentation/feature/content-management/components/add-new-tutorial/AddNewTutorial";
+import UsersManagement from "src/presentation/pages/users-management/UsersManagement";
+import CitySensorsInfo from "src/presentation/feature/dashboard/components/CitySensorsInfo";
+import CreateNewSensor from "src/presentation/feature/content-management/components/create-new-sensor/CreateNewSensor";
+import { RegisterPage } from "src/presentation/pages/auth/Register";
+import CreateServerRoom from "src/presentation/feature/server-room/components/create-server-room/CreateServerRoom";
+import AllTutorialsPage from "src/presentation/feature/content-management/components/all-tutorials-page/AllTutorialsPage";
+import ContentManagement from "src/presentation/pages/content-management/ContentManagement";
+import ReceivedMessagesPage from "src/presentation/feature/content-management/components/messages/ReceivedMessagesPage";
+import UserPage from "../feature/users-management/components/users/user-page/UserPage";
 
 export const routes = [
     {
         path: '/login',
-        component: LoginPage,
-    },
-    {
-        path: '/login2',
-        component: LoginPage2,
+        component: Login,
     },
     {
         path: '/register',
         component: RegisterPage,
     },
     {
-        path: '/test',
-        component: Test,
-        children: [
-            {
-                path: "dashboard",
-                component: Dashboard,
-            },
-            {
-                path: "sensors",
-                component: Sensors,
-            },
-            {
-                path: "server-room",
-                component: ServerRoom,
-            },
-            {
-                path: "reports",
-                component: Reports,
-            },
-            {
-                path: "user-managment",
-                component: UserManagment,
-            },
-            {
-                path: "educations",
-                component: Educations,
-            },
-            {
-                path: "support",
-                component: Support,
-            },
-            {
-                path: "settings",
-                component: Settings,
-            },
-        ]
-    },
-    {
         path: '/dashboard',
-        component: DashboardPage,
-        requiresAuth: true,
-    },
-    {
-        path: '/',
         component: Dashboard,
         requiresAuth: true,
     },
+    {
+        path: '/city-sensors-info',
+        component: CitySensorsInfo,
+        requiresAuth: true,
+    },
+    {
+        path: '/sensors',
+        component: Sensors,
+        requiresAuth: true,
+    },
+    {
+        path: '/sensors/:centerName',//
+        component: CenterDetails,
+        requiresAuth: true,
+    },
+    {
+        path: '/sensors/add-new-sensor',
+        component: AddNewSensor,
+        requiresAuth: true,
+    },
+    {
+        path: '/server-room',
+        component: ServerRoom,
+        requiresAuth: true,
+    },
+    {
+        path: '/server-room/create-server-room',
+        component: CreateServerRoom,
+        requiresAuth: true,
+    },
+    {
+        path: '/server-room/edit-server-room/:roomId',
+        component: EditServerRoom,
+        requiresAuth: true,
+    },
+    {
+        path: '/reports',
+        component: Reports,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management',
+        component: UsersManagement,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/users',
+        component: Users,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/users/user/:userId',
+        component: UserPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/users/add-new-user',
+        component: UserPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/roles',
+        component: RolesPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/roles/edit-role',
+        component: EditRolePage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/roles/edit-role/add-new-access',
+        component: AddNewAccess,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/roles/users',
+        component: RoleUsers,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/roles/users/create-group',
+        component: CreateGroup,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/roles/access',
+        component: AccessesPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/groups',
+        component: GroupsPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/users-management/groups/edit-group',
+        component: EditGroupPage,
+        requiresAuth: true,
+    },
+    {
+        path: '/tutorials',
+        component: Tutorial,
+        requiresAuth: true,
+    },
+    {
+        path: '/tutorials/videos/:id',
+        component: VideoDetails,
+        requiresAuth: true,
+    },
+    {
+        path: '/support',
+        component: Support,
+        requiresAuth: true,
+    },
 
+    {
+        path: "/content-management",
+        component: ContentManagement,
+        requiresAuth: true,
+    },
+    {
+        path: "/content-management/tutorials",
+        component: AllTutorialsPage,
+        requiresAuth: true,
+    },
+    {
+        path: "/content-management/messages",
+        component: ReceivedMessagesPage,
+        requiresAuth: true,
+    },
+    {
+        path: "/content-management/add-tutorial",
+        component: AddNewTutorial,
+        requiresAuth: true,
+    },
+    {
+        path: "/content-management/create-sensor",
+        component: CreateNewSensor,
+        requiresAuth: true,
+    },
+    {
+        path: "/content-management/FAQs",
+        component: AllFAQsPage,
+        requiresAuth: true,
+    },
+    {
+        path: "/content-management/add-new-FAQ",
+        component: AddNewFAQ,
+        requiresAuth: true,
+    },
 ];

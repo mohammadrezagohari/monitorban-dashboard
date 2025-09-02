@@ -1,26 +1,25 @@
 import { Box, Container, styled } from "@mui/material";
 
-export const StyledContainer = styled(Container)(() => ({
+export const StyledContainer = styled(Container)(({ theme }) => ({
     component: "section",
     display: "flex",
     alignItems: "center",
-    gap: "8px",
+    gap: theme.spacing(1),
     height: "50px",
 }))
 
 export const StyledImgContainer = styled(Box)(({ theme }) => ({
-    backgroundColor: "neutral.600", //theme.palette.neutral[600], //TODO
+    backgroundColor: theme.palette.neutral[600],
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "50px",
-    padding: "12px",
+    padding: theme.spacing(1.5),
 }))
 
-export const StyledContextContainer = styled(Box)(() => ({
-    component: "div",
+export const StyledContextContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    gap: "4px",
+    gap: theme.spacing(0.5),
 }))

@@ -7,52 +7,60 @@ import {
   useLocation,
 } from "react-router-dom";
 import { routes } from "./routes/routes";
-import { Box } from "@mui/material";
 import "./App.css";
 
-import "swiper/css"
+import "swiper/css";
+import AppLayout from "./layout/appLayout/AppLayout";
+import ScrollToTop from "./components/common/ScrollToTop";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function isAuthenticated(): boolean {
   // اینجا باید منطق احراز هویت خود را بنویسید
   return true; // برای مثال
 }
 
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
-    <Box dir="rtl" sx={{ backgroundColor: "background.default" }}>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+
       <Router>
+        <ScrollToTop />
         <Routes>
-          {routes.map((route, index) =>
-            route.children ? (
-              <Route
-                key={index}
-                path={route.path}
-                element={<route.component />}
-              >
-                {route.children?.map((child, childIndex) => (
+          <Route element={<RouteWithAuth component={AppLayout} />}>
+            <Route index element={<Navigate to="/dashboard" replace />} />
+            {routes.map(
+              (route, index) =>
+                route.requiresAuth && (
                   <Route
-                    key={childIndex}
-                    path={child.path}
-                    element={<child.component />}
+                    key={index}
+                    path={route.path}
+                    element={
+                      <RouteWithAuth
+                        requiresAuth={route.requiresAuth}
+                        component={route.component}
+                      />
+                    }
                   />
-                ))}
-              </Route>
-            ) : (
-              <Route
-                key={index}
-                path={route.path}
-                element={
-                  <RouteWithAuth
-                    requiresAuth={route.requiresAuth}
-                    component={route.component}
-                  />
-                }
-              />
-            )
+                )
+            )}
+          </Route>
+          {routes.map(
+            (route, index) =>
+              !route.requiresAuth && (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={<RouteWithAuth component={route.component} />}
+                />
+              )
           )}
         </Routes>
       </Router>
-    </Box>
+    </QueryClientProvider>
   );
 }
 
