@@ -5,10 +5,7 @@ import { serverRoomItems } from "src/presentation/data/data";
 import { StyledAddAccessesContainer } from "./AddAccesses.styles";
 import Stepper from "src/presentation/components/common/stepper/Stepper";
 
-
 export default function AddAccesses() {
-  
-
   return (
     <>
       <PageTitle title="افزودن دسترسی" />

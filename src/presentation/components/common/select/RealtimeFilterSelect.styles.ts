@@ -1,0 +1,44 @@
+import { styled } from "@mui/material";
+import Select from "./Select";
+
+export const StyledRealtimeFilterSelect = styled(Select)(({ theme }) => ({
+    typography: "caption",
+    fontSize: 12,
+    fontWeight: 500,
+    borderRadius: "10px",
+    overflow: "hidden",
+    height: 32,
+    "& .MuiOutlinedInput-notchedOutline": {
+        borderRadius: "10px",
+    },
+    "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
+        color: theme.palette.secondary[200],
+        // border: `1px solid ${theme.palette.secondary.main}`,
+        borderRadius: "10px",
+        paddingRight: "12px",
+        paddingBlock: "8px",
+        "&:hover": {
+            backgroundColor: theme.palette.secondary[800],
+        }
+    },
+    "& .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        border: `1px solid ${theme.palette.secondary.main}`,
+    },
+    "& .MuiSelect-icon": {
+        color: theme.palette.secondary[200],
+    },
+}))
+
+// "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
+//             paddingLeft: theme.spacing(5),
+//             lineHeight: 1.2,
+//             "&:hover": {
+//                 backgroundColor: theme.palette.secondary[800],
+//             },
+
+
+//             // color: value ? selectedtextcolor : theme.palette.text.disabled,
+//             color: value ? theme.palette.secondary[200] : theme.palette.text.disabled,
+//             typography: "body2",
+//             height: "100%",
+//             boxSizing: "border-box"

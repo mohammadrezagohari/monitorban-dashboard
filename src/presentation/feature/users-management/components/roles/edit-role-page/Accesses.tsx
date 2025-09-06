@@ -20,7 +20,11 @@ function Accesses({ accesses, onClick }) {
           variant="outlined"
           size="small"
           colorType="primary"
-          onClick={() => navigate("/users-management/roles/edit-role/add-new-access")}
+          type="button"
+          onClick={() => {
+            console.log("Navigating to add new access");
+            navigate("add-new-access")
+          }}
         >
           افزودن دسترسی
         </Button>

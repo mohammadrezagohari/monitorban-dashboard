@@ -9,7 +9,7 @@ import {
 } from "src/presentation/components/common/section-container/SectionContainer.style";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import Input from "src/presentation/components/common/input/Input";
-import RadioInputGroup from "src/presentation/components/common/old/radio-input/RadioInputGroup";
+import RadioInputGroup from "src/presentation/components/common/radio-input/RadioInputGroup";
 import { Box, Typography } from "@mui/material";
 import Button from "src/presentation/components/common/buttons/Button";
 import Dropzone from "src/presentation/components/common/dropzone/Dropzone";

@@ -10,13 +10,14 @@ import { SyntheticEvent, useState } from "react";
 import { usersInfo } from "src/presentation/data/data";
 import Button from "src/presentation/components/common/buttons/Button";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import ListCard from "src/presentation/components/common/list-card/ListCard";
 import TabPanel from "src/presentation/components/common/tabs/TabPanel";
+import { StyledCheckbox } from "src/presentation/components/common/checkbox/ControledCheckbox";
+import Checkbox from "src/presentation/components/common/checkbox/Checkbox";
 
 function a11yProps(index: number) {
   return {
@@ -211,7 +212,12 @@ function GroupTabs() {
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <BaseCheckbox size={24} text="انتخاب همه" />
+              {/* <BaseCheckbox size={24} text="انتخاب همه" /> */}
+              <StyledCheckbox
+                fontSize={14}
+                label="انتخاب همه"
+                control={<Checkbox iconSize={24} />}
+              />
               <Button
                 variant="text"
                 size="small"

@@ -137,6 +137,11 @@ export const routes = [
         requiresAuth: true,
     },
     {
+        path: '/users-management/roles/access/add-new-access',
+        component: AccessesPage,
+        requiresAuth: true,
+    },
+    {
         path: '/users-management/groups',
         component: GroupsPage,
         requiresAuth: true,

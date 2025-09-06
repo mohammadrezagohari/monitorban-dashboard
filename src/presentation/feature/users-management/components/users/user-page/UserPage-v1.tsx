@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import { useState } from "react";
 
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";

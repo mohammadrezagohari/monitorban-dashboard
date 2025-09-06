@@ -16,12 +16,13 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { FilterOption } from "src/presentation/components/common/operations/IFilter";
 
 const filterOptions: FilterOption[] = [
-  { value: "zare", label: "بیمارستان زارع" },
-  { value: "bou-ali", label: "بیمارستان بوعلی" },
-  { value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
-  { value: "razi", label: "کلینیک رازی" },
+  { id: "1", value: "zare", label: "بیمارستان زارع" },
+  { id: "2", value: "bou-ali", label: "بیمارستان بوعلی" },
+  { id: "3", value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
+  { id: "4", value: "razi", label: "کلینیک رازی" },
 ];
 
 function SensorsPage() {
@@ -41,6 +42,10 @@ function SensorsPage() {
 
   const handleFilterButton = () => {
     setIsFilterOpen((prev) => !prev);
+  };
+
+  const handleFilterForm = (formData) => {
+    console.log("Parent component => ", formData);
   };
 
   useEffect(function () {
@@ -83,10 +88,7 @@ function SensorsPage() {
                 options={filterOptions}
                 selectedOptions={selectedOptions}
                 onChange={setSelectedOptions}
-                onApply={() => {
-                  console.log("فیلتر اعمال شده: ", selectedOptions);
-                  setIsFilterOpen(false);
-                }}
+                onApply={handleFilterForm}
                 onClose={() => setIsFilterOpen(false)}
               />
             )}

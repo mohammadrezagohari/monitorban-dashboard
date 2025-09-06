@@ -12,7 +12,7 @@ import {
   StyledDetail,
   StyledOperations,
 } from "./ListCard.styles";
-import CustomCheckbox from "../checkbox-input/CheckBox";
+import Checkbox from "../checkbox/Checkbox";
 
 const ListCardContext = createContext<ListCardContextType>({
   columns: "",
@@ -32,7 +32,7 @@ function Title() {
   const { image: avatar, fullName: title, phone: caption } = item;
   return (
     <StyledTitle>
-      {selectable && <CustomCheckbox size={24} />}
+      {selectable && <Checkbox iconSize={24} />}
       {avatar ? (
         <Avatar
           src={avatar}

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SyntheticEvent, useState } from "react";
 import {
   Box,
+  FormControlLabel,
   IconButton,
   Tabs as MuiTabs,
   Tab,
@@ -13,13 +14,14 @@ import Button from "src/presentation/components/common/buttons/Button";
 import TabPanel from "./TabPanel";
 import ListCard from "../list-card/ListCard";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
 import { usersInfo } from "src/presentation/data/data";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import SectionContainer from "../section-container/SectionContainer";
 import { MainContainer } from "../section-container/SectionContainer.style";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
+import Checkbox from "../checkbox/Checkbox";
+import { StyledCheckbox } from "../checkbox/ControledCheckbox";
 
 function a11yProps(index: number) {
   return {
@@ -48,6 +50,11 @@ function Tabs() {
 
   function handleClose() {
     setIsSelectable(false);
+  }
+
+  function handleCreateGroup() {
+    console.log("Create Group is finished");
+    // navigate("create-group");
   }
 
   return (
@@ -217,7 +224,12 @@ function Tabs() {
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <BaseCheckbox size={24} text="انتخاب همه" />
+              {/* <BaseCheckbox size={24} text="انتخاب همه" /> */}
+              <StyledCheckbox
+                fontSize={14}
+                label="انتخاب همه"
+                control={<Checkbox iconSize={24} />}
+              />
               <Button
                 variant="text"
                 size="small"
@@ -234,7 +246,7 @@ function Tabs() {
                 size="small"
                 colorType="primary"
                 startIcon={<PlusIcon size={20} />}
-                onClick={() => navigate("create-group")}
+                onClick={handleCreateGroup}
               >
                 ایجاد گروه
               </Button>

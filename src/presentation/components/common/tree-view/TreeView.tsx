@@ -1,24 +1,49 @@
-import { Box, Collapse, IconButton, Typography } from "@mui/material";
+import { Box, Collapse, useTheme } from "@mui/material";
 import { sensorsTreeItem } from "src/presentation/data/data";
 import { useState } from "react";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
-import CustomCheckbox from "../checkbox-input/CheckBox";
+import ControledCheckbox from "../checkbox/ControledCheckbox";
+import { Control, useForm } from "react-hook-form";
+import {
+  StyledMainItemContainer,
+  StyledMainItemContent,
+  StyledTreeItem,
+  StyledTreeView,
+} from "./TreeView.styles";
+import { IconButtonWithBorder } from "../IconButtonWithBorder";
+
+interface Node {
+  id: string;
+  name: string;
+  sensors?: Node[];
+}
+
+interface TreeItemProps {
+  node: Node;
+  control: Control<any>;
+  level: number;
+}
 
 export default function TreeView() {
+  const { control, watch, setValue } = useForm({
+    defaultValues: {
+      items: [],
+    },
+  });
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+    <StyledTreeView>
       {sensorsTreeItem.map((node) => (
-        <TreeItem key={node.id} node={node} />
+        <TreeItem key={node.id} node={node} control={control} level={0} />
       ))}
-    </Box>
+    </StyledTreeView>
   );
 }
 
-function TreeItem({ node, level = 0 }) {
+function TreeItem({ node, control, level = 0 }: TreeItemProps) {
   const [open, setOpen] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const theme = useTheme();
+  // const [checked, setChecked] = useState(false);
 
   function handleToggle() {
     setOpen((prev) => !prev);
@@ -27,38 +52,34 @@ function TreeItem({ node, level = 0 }) {
   const isRoot = level === 0;
 
   return (
-    <Box sx={{ mr: 2 }}>
-      <Box id="TEST" sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+    <StyledTreeItem>
+      <StyledMainItemContainer>
         {node.sensors && (
-          <IconButton
-            size="small"
-            onClick={handleToggle}
-            sx={{ border: "1px solid #9B92A6", borderRadius: "10px", p: "7px" }}
-          >
+          <IconButtonWithBorder size="small" onClick={handleToggle}>
             {!open ? (
-              <ArrowUpIcon size={16} color="#C9A8E5" />
+              <ArrowUpIcon size={16} color={theme.palette.primary[200]} />
             ) : (
-              <ArrowDownIcon size={16} color="#C9A8E5" />
+              <ArrowDownIcon size={16} color={theme.palette.primary[200]} />
             )}
-          </IconButton>
+          </IconButtonWithBorder>
         )}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-          }}
-        >
-          <CustomCheckbox
+        <StyledMainItemContent>
+          <ControledCheckbox
+            label={node.name}
+            name="items"
+            itemValue={node.id}
+            control={control}
+          />
+          {/* <CustomCheckbox
             size={24}
             text={node.name}
             checked={checked || node.sensors?.some((sensor) => sensor.checked)}
             onChange={(e) => setChecked(e.target.checked)}
-          />
-          <Typography variant={isRoot ? "body1" : "body2"}>
+          /> */}
+          {/* <Typography variant={isRoot ? "body1" : "body2"}>
             {node.name}
-          </Typography>
-        </Box>
+          </Typography> */}
+        </StyledMainItemContent>
         {/* <BaseCheckbox
           size={24}
           text={node.name}
@@ -69,7 +90,7 @@ function TreeItem({ node, level = 0 }) {
           checked={checked || node.sensors?.some((sensor) => sensor.checked)}
           onChange={(e) => setChecked(e.target.checked)}
         />*/}
-      </Box>
+      </StyledMainItemContainer>
 
       {node.sensors && (
         <Collapse
@@ -80,7 +101,7 @@ function TreeItem({ node, level = 0 }) {
             mr: "60px",
             borderRight: "1px solid #9B92A6",
             mt: 1.5,
-            "& .MuiButtonBase-root": { p: 0 },
+            "& .MuiButtonBase-root": { py: 0 },
             "& .MuiCollapse-wrapperInner": {
               display: "flex",
               flexDirection: "column",
@@ -89,7 +110,7 @@ function TreeItem({ node, level = 0 }) {
           }}
         >
           {node.sensors.map((child) => (
-            <TreeItem key={child.id} node={child} level={1} />
+            <TreeItem key={child.id} node={child} level={1} control={control} />
 
             // <BaseCheckbox
             //   size={24}
@@ -101,6 +122,6 @@ function TreeItem({ node, level = 0 }) {
           ))}
         </Collapse>
       )}
-    </Box>
+    </StyledTreeItem>
   );
 }

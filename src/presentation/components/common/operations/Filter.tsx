@@ -1,77 +1,62 @@
-import { useState } from "react";
-import { FilterPopoverProps } from "./IFilter";
-import {
-  Box,
-  ClickAwayListener,
-  Grow,
-  Paper,
-  Popper,
-  Typography,
-} from "@mui/material";
-import FormSelect from "../old/select/FormSelect";
-import Divider from "../divider/Divider";
-import CheckBoxInput from "src/presentation/feature/old/checkbox-input-group/CheckBoxInput";
+import { Box, Grow, Popper, Typography } from "@mui/material";
+
 import Button from "../buttons/Button";
+import FormRow from "../input/FormRow";
+import Divider from "../divider/Divider";
 import { StyledPaper } from "./Filter.styles";
+import ControledCheckbox from "../checkbox/ControledCheckbox";
+import AdvancedFilterSelect from "../select/AdvancedFilterSelect";
+import { FilterPopoverProps } from "./IFilter";
+import { Controller, useForm } from "react-hook-form";
 
 const Filter: React.FC<FilterPopoverProps> = ({
-  options,
-  selectedOptions,
+  options = [],
+  // selectedOptions = [],
   onChange,
   onApply,
   onClose,
   anchorRef,
 }) => {
-  const [filterSelectValue, setFilterSelectValue] = useState("");
+  // const [filterSelectValue, setFilterSelectValue] = useState("");
+  const { register, control, handleSubmit } = useForm({
+    defaultValues: {
+      "sensor-type": "",
+      "data-centers": [],
+    },
+  });
 
-  const handleToggle = (value: string) => {
-    const currentIndex = selectedOptions.indexOf(value);
-    const newSelected = [...selectedOptions];
-
-    if (currentIndex === -1) {
-      newSelected.push(value);
-    } else {
-      newSelected.splice(currentIndex, 1);
-    }
-
-    onChange(newSelected);
+  const handleInternalSubmit = (data) => {
+    // if (data) {
+    console.log(data);
+    onApply?.(data);
+    onClose();
+    // }
   };
 
+  // const handleClickAway = (event: MouseEvent | TouchEvent) => {
+  //   const target = event.target as Node | null;
+  //   const menu = document.querySelector(".MuiPopover-root");
+
+  //   if (menu && target && menu.contains(target)) {
+  //     return;
+  //   }
+  //   onClose?.();
+  // };
+
+  // const handleToggle = (value: string) => {
+  //   const currentIndex = selectedOptions.indexOf(value);
+  //   const newSelected = [...selectedOptions];
+
+  //   if (currentIndex === -1) {
+  //     newSelected.push(value);
+  //   } else {
+  //     newSelected.splice(currentIndex, 1);
+  //   }
+
+  //   onChange?.(newSelected);
+  // };
+
   return (
-    // <Box
-    //   sx={{
-    //     position: "absolute",
-    //     top: "calc(100% + 15px)",
-    //     bgcolor: "#373040",
-    //     width: 285,
-    //     border: "1px solid #9B92A6",
-    //     borderRadius: "15px",
-    //     padding: "1.5rem",
-    //   }}
-    // >
-    //   <Typography variant="h3" color="neutral.main" sx={{ mb: 2 }}>
-    //     فیلتر
-    //   </Typography>
-    //   <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-    //     <Box></Box>
-    //     <Divider />
-    //     <Box>
-    //       <CheckBoxInput
-    //         options={[
-    //           { value: "zare", label: "بیمارستان زارع" },
-    //           { value: "bou-ali", label: "بیمارستان بوعلی" },
-    //           { value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
-    //           { value: "razi", label: "کلینیک رازی" },
-    //         ]}
-    //         label="بر اساس مرکز :"
-    //       />
-    //     </Box>
-    //   </Box>
-    //   <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 1.5 }}>
-    //     <ButtonPrimarySmallOutlined>لغو</ButtonPrimarySmallOutlined>
-    //     <ButtonPrimarySmallFilled>اعمال فیلتر</ButtonPrimarySmallFilled>
-    //   </Box>
-    // </Box>
     <Popper
       open
       anchorEl={anchorRef.current}
@@ -83,49 +68,61 @@ const Filter: React.FC<FilterPopoverProps> = ({
       {({ TransitionProps }) => (
         <Grow {...TransitionProps}>
           <StyledPaper>
-            <ClickAwayListener onClickAway={onClose}>
+            {/* <ClickAwayListener onClickAway={onClose} disableReactTree={false}> */}
+            <Box component="form" onSubmit={handleSubmit(handleInternalSubmit)}>
+              <Typography component="h5" variant="h3" mb={2}>
+                فیلتر
+              </Typography>
               <Box>
-                <Typography component="h5" variant="h3" mb={2}>
-                  فیلتر
-                </Typography>
-                <Box>
-                  <FormSelect
-                    label="بر اساس نوع"
-                    options={options}
-                    value={filterSelectValue}
-                    onChange={(e) => setFilterSelectValue(e.target.value)}
-                    // MenuProps={{ disablePortal: true }}
+                <FormRow label="بر اساس نوع">
+                  <Controller
+                    name="sensor-type"
+                    control={control}
+                    render={({ field }) => (
+                      <AdvancedFilterSelect
+                        id="sensor-type"
+                        {...field}
+                        options={options}
+                      />
+                    )}
                   />
-                  <Divider />
-                  <CheckBoxInput
-                    options={options}
-                    label="بر اساس مرکز :"
-                    selectedValues={selectedOptions}
-                    onChange={onChange}
-                  />
-                </Box>
-                <Box
-                  sx={{ display: "flex", justifyContent: "flex-end", gap: 1.5 }}
-                >
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    colorType="primary"
-                    onClick={onClose}
-                  >
-                    لغو
-                  </Button>
-                  <Button
-                    variant="contained"
-                    size="small"
-                    colorType="primary"
-                    onClick={onApply}
-                  >
-                    اعمال فیلتر
-                  </Button>
-                </Box>
+                </FormRow>
+                <Divider />
+                <FormRow label="بر اساس مرکز">
+                  {options.map((opt) => (
+                    <ControledCheckbox
+                      key={opt.id}
+                      name="data-centers"
+                      label={opt.label}
+                      itemValue={opt.value}
+                      control={control}
+                    />
+                  ))}
+                </FormRow>
               </Box>
-            </ClickAwayListener>
+              <Box
+                sx={{ display: "flex", justifyContent: "flex-end", gap: 1.5 }}
+              >
+                <Button
+                  variant="outlined"
+                  size="small"
+                  colorType="primary"
+                  onClick={onClose}
+                >
+                  لغو
+                </Button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  colorType="primary"
+                  type="submit"
+                  // onClick={onApply}
+                >
+                  اعمال فیلتر
+                </Button>
+              </Box>
+            </Box>
+            {/* </ClickAwayListener> */}
           </StyledPaper>
         </Grow>
       )}

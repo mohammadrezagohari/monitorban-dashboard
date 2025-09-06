@@ -4,7 +4,7 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
     fontSize: 14,
     fontWeight: 500,
     height: 48,
-    width: "100%",
+    // width: "100%",
     borderRadius: "15px",
     fontFamily: "Dana",
 
@@ -24,9 +24,14 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
         border: `1px solid ${theme.palette.text.disabled}`,
 
     },
+    "& .MuiOutlinedInput-notchedOutline": {
+        // border: `1px solid ${selectedbordercolorr}`,
+        border: "none",
+
+    },
     "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
         color: value ? theme.palette.neutral[100] : theme.palette.text.disabled,
-        paddingInline: "16px 30px",
+        paddingInline: "16px 36px",
         // marginLeft: "40px",
         paddingBlock: "12px",
         // display: "flex",
@@ -42,3 +47,5 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
         // color: selectedtextcolor,
     },
 }))
+
+

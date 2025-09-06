@@ -1,9 +1,9 @@
 import { Box, Typography, useTheme } from "@mui/material";
 
 import { iconsMap } from "src/presentation/assets/icons/iconsMap";
-import BaseCheckbox from "src/presentation/feature/old/base-checkbox/BaseCheckbox";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { StyledAccessItem } from "../../../feature/users-management/components/roles/add-accesses/AddAccesses.styles";
+import Checkbox from "../checkbox/Checkbox";
 
 const AccessItem = ({
   item,
@@ -43,7 +43,7 @@ const AccessItem = ({
       </Box>
 
       <Box>
-        <BaseCheckbox checked={checked} size={32} />
+        <Checkbox checked={checked} iconSize={32} />
       </Box>
     </StyledAccessItem>
   );

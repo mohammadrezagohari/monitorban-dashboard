@@ -5,7 +5,7 @@ import useAnnouncement, { AnnouncementStatus } from "./useAnnouncement";
 
 import Divider from "src/presentation/components/common/divider/Divider";
 import AnnounceItem from "./AnnounceItem";
-import FilterSelect from "src/presentation/components/common/old/select/FilterSelect";
+import FilterSelect from "src/presentation/components/common/select/RealtimeFilterSelect";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
@@ -23,15 +23,15 @@ export default function Announcements() {
       <HeaderContainer>
         <SectionTitle>اعلانات</SectionTitle>
 
-        <Box width={85}>
-          <FilterSelect
-            options={annouceSelectOptions}
-            value={announceStatus}
-            setValue={(value: string) =>
-              setAnnounceStatus(value as AnnouncementStatus)
-            }
-          />
-        </Box>
+        {/* <Box width={85}> */}
+        <FilterSelect
+          options={annouceSelectOptions}
+          value={announceStatus}
+          setValue={(value: string) =>
+            setAnnounceStatus(value as AnnouncementStatus)
+          }
+        />
+        {/* </Box> */}
       </HeaderContainer>
       {/* {isLoading && <Spinner />} */}
       {isLoading && (
