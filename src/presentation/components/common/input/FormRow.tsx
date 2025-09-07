@@ -4,7 +4,7 @@ import { FormRowProps } from "./IForm";
 
 function FormRow({ label, children, error, ...props }: FormRowProps) {
   return (
-    <StyledFormRow {...props}>
+    <StyledFormRow $error={error} {...props}>
       {label && isValidElement(children) && (
         <Label
           htmlFor={(children as React.ReactElement<{ id?: string }>).props.id}

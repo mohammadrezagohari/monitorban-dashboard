@@ -12,6 +12,7 @@ function Input({ id, icon, type = "text", placeholder, ...props }: InputProps) {
   return (
     <StyledInput
       placeholder={placeholder}
+      // autf
       id={id}
       {...props}
       type={type === "password" ? (showPassword ? "text" : "password") : type}

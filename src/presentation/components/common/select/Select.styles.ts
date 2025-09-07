@@ -21,7 +21,8 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
         paddingLeft: "36px",
     },
     "& .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiOutlinedInput-notchedOutline": {
-        border: `1px solid ${theme.palette.text.disabled}`,
+        // border: `1px solid ${theme.palette.text.disabled}`,
+        border: "none",
 
     },
     "& .MuiOutlinedInput-notchedOutline": {

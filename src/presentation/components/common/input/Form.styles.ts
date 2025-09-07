@@ -1,6 +1,7 @@
-import { Box, FormHelperText, FormLabel, Input, styled } from "@mui/material";
+import { Box, FormHelperText, FormLabel, Input, styled, TextField as MuiTextField } from "@mui/material";
+import { TextField } from "./TextField";
 
-export const StyledFormRow = styled(Box)(({ theme, props }) => ({
+export const StyledFormRow = styled(Box)(({ theme, $error, props }) => ({
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(1),
@@ -9,6 +10,9 @@ export const StyledFormRow = styled(Box)(({ theme, props }) => ({
     // maxWidth: 310,
     position: "relative",
     // [theme.breakpoints.up("md")]: { maxWidth: 350, }
+    "& .MuiInputBase-root": {
+        border: `1px solid ${$error ? theme.palette.error.main : theme.palette.text.disabled}`,
+    }
 }))
 
 export const Label = styled(FormLabel)(({ theme }) => ({
@@ -23,11 +27,14 @@ export const Error = styled(FormHelperText)(({ theme }) => ({
     color: theme.palette.error.main,
     position: "absolute",
     right: 0,
-    bottom: 0,
+    // bottom: 0,
+    top: "100%",
 }))
 
-export const StyledInput = styled(Input)(({ theme }) => ({
+// export const StyledInput = styled(TextField)(({ theme }) => ({
+export const StyledInput = styled(Input)(({ theme, error }) => ({
     backgroundColor: theme.palette.neutral[700],
+    // color: "red",
     color: theme.palette.neutral[100],
     ...theme.typography.body2,
     height: 48,
@@ -66,6 +73,7 @@ export const StyledInput = styled(Input)(({ theme }) => ({
         '-webkit-appearance': 'none',
         margin: 0,
     },
+
 }))
 
 

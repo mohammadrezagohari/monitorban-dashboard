@@ -1,4 +1,3 @@
-// import { Option } from "./IBaseSelect";
 import { SelectChangeEvent } from "@mui/material";
 import { Option } from "src/presentation/components/common/select/ISelect";
 import { StyledRealtimeFilterSelect } from "./RealtimeFilterSelect.styles";
@@ -17,7 +16,6 @@ const RealtimeFilterSelect = ({
   }
   return (
     <StyledRealtimeFilterSelect
-      // <BaseSelect
       value={value}
       onChange={handleSelectChange}
       options={options}
@@ -38,21 +36,6 @@ const RealtimeFilterSelect = ({
           // },
         }
       }
-      MenuProps={{
-        PaperProps: {
-          sx: {
-            maxHeight: 200,
-            bgcolor: "#373040",
-            border: "1px solid #9B92A6",
-            color: "neutral.main",
-            borderRadius: "10px",
-            direction: "rtl",
-            li: {
-              typography: "caption",
-            },
-          },
-        },
-      }}
     />
   );
 };

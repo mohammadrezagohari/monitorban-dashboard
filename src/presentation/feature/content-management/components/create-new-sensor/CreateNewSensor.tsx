@@ -23,6 +23,7 @@ import {
   sensorTypeFeatureOptions,
   unitOptions,
 } from "src/presentation/data/data";
+import { FormSelect } from "src/presentation/components/common/select/FormSelect";
 
 function CreateNewSensor() {
   const { control, handleSubmit, register } = useForm();
@@ -56,7 +57,7 @@ function CreateNewSensor() {
           </Typography>
         </HeaderContainer>
         <MainContainer>
-          <GridBox component="form" onSubmit={handleSubmit(handleFormSubmit)}>
+          <GridBox as="form" onSubmit={handleSubmit(handleFormSubmit)}>
             <FormRow label="عنوان انگلیسی سنسور">
               <Input
                 id="sensorTitleEnglish"
@@ -77,7 +78,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="sensorTypeFeature"
                     options={sensorTypeFeatureOptions}
                     value={field.value}
@@ -94,7 +95,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="sensorUnit"
                     options={unitOptions}
                     value={field.value}
@@ -118,7 +119,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="notificationType"
                     options={notifTypeOptions}
                     value={field.value}
@@ -142,7 +143,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="notificationInterval"
                     options={notifDurationOptions}
                     value={field.value}
@@ -159,7 +160,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="notificationInterval"
                     options={returnNotifToNormalOptions}
                     value={field.value}
@@ -176,7 +177,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="recordableChanges"
                     options={recordableChangesOptions}
                     value={field.value}
@@ -193,7 +194,7 @@ function CreateNewSensor() {
                 control={control}
                 defaultValue=""
                 render={({ field }) => (
-                  <Select
+                  <FormSelect
                     id="minimumDailyRecord"
                     options={minimumRecordOptions}
                     value={field.value}
@@ -300,14 +301,15 @@ function CreateNewSensor() {
               />
             </FormRow>
 
-            <Button
+            {/* <Button
+              // TODO:: Should be deleted
               variant="contained"
               size="xxsmall"
               colorType="success"
               type="submit"
             >
               ثبت
-            </Button>
+            </Button> */}
             {/* </Box> */}
           </GridBox>
         </MainContainer>

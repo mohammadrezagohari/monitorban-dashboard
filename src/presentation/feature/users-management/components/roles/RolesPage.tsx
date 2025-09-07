@@ -8,7 +8,7 @@ import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { rolesArray } from "src/presentation/data/data";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import DeleteConfirmBackdrop from "src/presentation/components/common/DeleteConfirmBackdrop";
+import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
 import {
   HeaderContainer,
   MainContainer,

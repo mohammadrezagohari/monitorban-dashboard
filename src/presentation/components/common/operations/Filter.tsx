@@ -1,4 +1,4 @@
-import { Box, Grow, Popper, Typography } from "@mui/material";
+import { Box, Grow, MenuItem, Popper, Select, Typography } from "@mui/material";
 
 import Button from "../buttons/Button";
 import FormRow from "../input/FormRow";
@@ -87,6 +87,15 @@ const Filter: React.FC<FilterPopoverProps> = ({
                     )}
                   />
                 </FormRow>
+                <Select
+                  sx={{
+                    width: 300,
+                  }}
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
                 <Divider />
                 <FormRow label="بر اساس مرکز">
                   {options.map((opt) => (

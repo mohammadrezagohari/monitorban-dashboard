@@ -28,17 +28,3 @@ export const StyledRealtimeFilterSelect = styled(Select)(({ theme }) => ({
         color: theme.palette.secondary[200],
     },
 }))
-
-// "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
-//             paddingLeft: theme.spacing(5),
-//             lineHeight: 1.2,
-//             "&:hover": {
-//                 backgroundColor: theme.palette.secondary[800],
-//             },
-
-
-//             // color: value ? selectedtextcolor : theme.palette.text.disabled,
-//             color: value ? theme.palette.secondary[200] : theme.palette.text.disabled,
-//             typography: "body2",
-//             height: "100%",
-//             boxSizing: "border-box"

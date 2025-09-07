@@ -68,7 +68,7 @@ function FileUpload({
           <Avatar src={initialImage} />
         ) : (
           <IconWrapper>
-            <HouseIcon color={(theme) => theme.palette.primary[200]} />
+            <HouseIcon color={theme.palette.primary[200]} />
           </IconWrapper>
         )}
         <Typography variant="body2" color="neutral.200">
