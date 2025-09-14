@@ -19,10 +19,10 @@ import TemperatureCard from "src/presentation/components/common/temperature-card
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 const filterOptions: FilterOption[] = [
-  { value: "zare", label: "بیمارستان زارع" },
-  { value: "bou-ali", label: "بیمارستان بوعلی" },
-  { value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
-  { value: "razi", label: "کلینیک رازی" },
+  { id: 1, value: "zare", label: "بیمارستان زارع" },
+  { id: 2, value: "bou-ali", label: "بیمارستان بوعلی" },
+  { id: 3, value: "olum-pezeshki", label: "دانشکده علوم پزشکی" },
+  { id: 4, value: "razi", label: "کلینیک رازی" },
 ];
 
 function CenterDetails() {

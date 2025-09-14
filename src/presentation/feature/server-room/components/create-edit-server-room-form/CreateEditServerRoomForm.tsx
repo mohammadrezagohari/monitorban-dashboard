@@ -6,7 +6,6 @@ import FormRow from "src/presentation/components/common/input/FormRow";
 import { Form } from "src/presentation/components/common/Form";
 import TreeView from "src/presentation/components/common/tree-view/TreeView";
 import { GridBox } from "src/presentation/components/common/GridBox";
-import AvatarInput from "src/presentation/components/common/avatar-input/AvatarInput";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { StyledServerRoomContainer } from "./CreateEditServerRoomForm.styles";
@@ -14,6 +13,8 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
+import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;
@@ -65,29 +66,9 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
                 </FormRow>
 
                 <FormRow label="آیکون">
-                  <AvatarInput />
-                  {/* <StyledImageInputContainer>
-                    <IconContainer>
-                      <IconWrapper>
-                        <HouseIcon color={theme.palette.primary[200]} />
-                      </IconWrapper>
-                      <Typography variant="body2" color="neutral.200">
-                        عکس آیکون
-                      </Typography>
-                    </IconContainer>
-                    <ButtonsContainer>
-                      <Button
-                        variant="outlined"
-                        size="xxsmall"
-                        colorType="primary"
-                      >
-                        بارگذاری عکس
-                      </Button>
-                      <StyledIconButton>
-                        <DeleteIcon size={16} />
-                      </StyledIconButton>
-                    </ButtonsContainer>
-                  </StyledImageInputContainer> */}
+                  <Avatar src="">
+                    <HouseIcon color={theme.palette.primary[200]} />
+                  </Avatar>
                 </FormRow>
               </GridBox>
             </Form>

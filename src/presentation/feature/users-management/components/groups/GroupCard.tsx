@@ -2,7 +2,7 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.style";
-import { Avatar, Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import Button from "src/presentation/components/common/buttons/Button";
@@ -21,18 +21,21 @@ import {
   StyledTitleBox,
 } from "./GroupsPage.styles";
 import { useNavigate } from "react-router-dom";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
+import { UserIcon } from "src/presentation/assets/icons/UserIcon";
 
 function GroupCard({ group }) {
   const { groupName, members, icon, accesses } = group;
   const GroupIcon = iconsMap[icon as keyof typeof iconsMap];
   const navigate = useNavigate();
+  const theme = useTheme();
 
   function handleEditGroup() {
     navigate("edit-group", { state: { group: group } });
   }
 
   function handleUsersGroup() {
-    navigate("")
+    navigate("");
   }
 
   return (
@@ -107,7 +110,9 @@ function GroupCard({ group }) {
           >
             {members.map((member) => (
               <Tag>
-                <Avatar src={member.image} sx={{ width: 24, height: 24 }} />
+                <Avatar src={member.image} size={24}>
+                  <UserIcon size={16} color={theme.palette.neutral.main} />
+                </Avatar>
                 {member.fullName}
               </Tag>
             ))}

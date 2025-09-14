@@ -19,8 +19,8 @@ import {
   sensorTypeFeatureOptions,
   unitOptions,
 } from "src/presentation/data/data";
-import AvatarInput from "src/presentation/components/common/avatar-input/AvatarInput";
-import { Form } from "../Form";
+import Avatar from "../avatar/Avatar";
+import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
 
 function SensorForm({ sensor = {} }) {
   const { id: sensorId, ...sensorData } = sensor;
@@ -39,188 +39,188 @@ function SensorForm({ sensor = {} }) {
       </HeaderContainer>
       <MainContainer>
         {/* <Form> */}
-          <GridBox>
-            <FormRow label="عنوان انگلیسی سنسور">
-              <Input
-                id="sensorTitleEnglish"
-                placeholder="عنوان انگلیسی سنسور را وارد کنید"
-              />
-            </FormRow>
+        <GridBox>
+          <FormRow label="عنوان انگلیسی سنسور">
+            <Input
+              id="sensorTitleEnglish"
+              placeholder="عنوان انگلیسی سنسور را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="عنوان فارسی سرور">
-              <Input
-                id="sensorTitlePersian"
-                placeholder="عنوان فارسی سنسور را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="عنوان فارسی سرور">
+            <Input
+              id="sensorTitlePersian"
+              placeholder="عنوان فارسی سنسور را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="نوع سنسور">
-              <Controller
-                name="sensorTypeFeature"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="sensorTypeFeature"
-                    options={sensorTypeFeatureOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک نوع سنسور را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="نوع سنسور">
+            <Controller
+              name="sensorTypeFeature"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="sensorTypeFeature"
+                  options={sensorTypeFeatureOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک نوع سنسور را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="واحد اندازه گیری">
-              <Controller
-                name="sensorUnit"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="sensorUnit"
-                    options={unitOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک واحد اندازه گیری را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="واحد اندازه گیری">
+            <Controller
+              name="sensorUnit"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="sensorUnit"
+                  options={unitOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک واحد اندازه گیری را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="آدرس فیزیکی سنسور">
-              <Input
-                id="sensorAddress"
-                placeholder="آدرس فیزیکی سنسور را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="آدرس فیزیکی سنسور">
+            <Input
+              id="sensorAddress"
+              placeholder="آدرس فیزیکی سنسور را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="نوع اعلان">
-              <Controller
-                name="notificationType"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="notificationType"
-                    options={notifTypeOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک نوع اعلان را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="نوع اعلان">
+            <Controller
+              name="notificationType"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="notificationType"
+                  options={notifTypeOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک نوع اعلان را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="تعداد اعلان">
-              <Input
-                id="notificationNumber"
-                placeholder="تعداد اعلان را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="تعداد اعلان">
+            <Input
+              id="notificationNumber"
+              placeholder="تعداد اعلان را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="فواصل بین اعلان">
-              <Controller
-                name="notificationInterval"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="notificationInterval"
-                    options={notifDurationOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک بازه را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="فواصل بین اعلان">
+            <Controller
+              name="notificationInterval"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="notificationInterval"
+                  options={notifDurationOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک بازه را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="اعلان بازگشت به حالت نرمال">
-              <Controller
-                name="notificationInterval"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="notificationInterval"
-                    options={returnNotifToNormalOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک حالت را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="اعلان بازگشت به حالت نرمال">
+            <Controller
+              name="notificationInterval"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="notificationInterval"
+                  options={returnNotifToNormalOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک حالت را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="تغییرات قابل ثبت">
-              <Controller
-                name="recordableChanges"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="recordableChanges"
-                    options={recordableChangesOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک تغییر را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="تغییرات قابل ثبت">
+            <Controller
+              name="recordableChanges"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="recordableChanges"
+                  options={recordableChangesOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک تغییر را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="حداقل ثبت روزانه">
-              <Controller
-                name="minimumDailyRecord"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <Select
-                    id="minimumDailyRecord"
-                    options={minimumRecordOptions}
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
-                    placeholder="یک گزینه را انتخاب کنید"
-                  />
-                )}
-              />
-            </FormRow>
+          <FormRow label="حداقل ثبت روزانه">
+            <Controller
+              name="minimumDailyRecord"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  id="minimumDailyRecord"
+                  options={minimumRecordOptions}
+                  value={field.value}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  placeholder="یک گزینه را انتخاب کنید"
+                />
+              )}
+            />
+          </FormRow>
 
-            <FormRow label="بیشینه بحرانی">
-              <Input
-                id="maximumCritical"
-                placeholder="بیشینه بحرانی را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="بیشینه بحرانی">
+            <Input
+              id="maximumCritical"
+              placeholder="بیشینه بحرانی را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="کمینه بحرانی">
-              <Input
-                id="minimumCritical"
-                placeholder="کمینه بحرانی را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="کمینه بحرانی">
+            <Input
+              id="minimumCritical"
+              placeholder="کمینه بحرانی را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="بیشینه اخطار">
-              <Input
-                id="maximumWarning"
-                placeholder="بیشینه بحرانی را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="بیشینه اخطار">
+            <Input
+              id="maximumWarning"
+              placeholder="بیشینه بحرانی را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="کمینه اخطار">
-              <Input
-                id="minimumWarning"
-                placeholder="کمینه بحرانی را وارد کنید"
-              />
-            </FormRow>
+          <FormRow label="کمینه اخطار">
+            <Input
+              id="minimumWarning"
+              placeholder="کمینه بحرانی را وارد کنید"
+            />
+          </FormRow>
 
-            <FormRow label="آیکون">
-              <AvatarInput />
-            </FormRow>
-
-            {}
-          </GridBox>
+          <FormRow label="آیکون">
+            <Avatar src="">
+              <HouseIcon color={theme.palette.primary[200]} />
+            </Avatar>
+          </FormRow>
+        </GridBox>
         {/* </Form> */}
 
         {/* <Box mt={{ xs: 1.5, md: 2 }}>

@@ -1,10 +1,12 @@
-import { Avatar, IconButton, Typography, useTheme } from "@mui/material";
+import { IconButton, Typography, useTheme } from "@mui/material";
 
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import { UserDetail, UserInfo } from "./UserAccountCard.styles";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
+import { UserIcon } from "src/presentation/assets/icons/UserIcon";
 
 const TEST_USER = {
-  image: "./assets/images/profile-images/image.webp",
+  image: "/assets/images/profile-images/image.webp",
   fullName: "علی اسدپور",
   position: "اپراتور آی تی",
 };
@@ -15,7 +17,9 @@ export const UserProfileContainers = () => {
 
   return (
     <UserDetail>
-      <Avatar src={image} sx={{ width: 48, height: 48 }} />
+      <Avatar src={image}>
+        <UserIcon color={theme.palette.neutral.main} />
+      </Avatar>
       <UserInfo>
         <Typography variant="body2" color="neutral.main">
           {fullName}

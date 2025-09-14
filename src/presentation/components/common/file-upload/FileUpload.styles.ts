@@ -32,8 +32,3 @@ export const ImageContainer = styled(Box)(({ theme }) => ({
   alignItems: "center",
   width: 90,
 }))
-
-export const Avatar = styled(MuiAvatar)(() => ({
-  width: 48,
-  height: 48,
-}))

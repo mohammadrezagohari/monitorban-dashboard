@@ -1,9 +1,11 @@
 import { useTheme } from "@mui/material/styles";
-import { Avatar, Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 
 import { UserCardProps } from "./IUserCardMini";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { StyledUserCard } from "./UserCardMini.style";
+import { UserIcon } from "src/presentation/assets/icons/UserIcon";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
 
 const UserCardMini: React.FC<UserCardProps> = ({ user }) => {
   const theme = useTheme();
@@ -11,7 +13,12 @@ const UserCardMini: React.FC<UserCardProps> = ({ user }) => {
 
   return (
     <StyledUserCard>
-      <Avatar src={image} sx={{ width: 48, height: 48 }} />
+      {
+        // image?.startsWith()
+        <Avatar src={image}>
+          <UserIcon color={theme.palette.neutral.main} />
+        </Avatar>
+      }
       <Box
         sx={{
           display: "flex",

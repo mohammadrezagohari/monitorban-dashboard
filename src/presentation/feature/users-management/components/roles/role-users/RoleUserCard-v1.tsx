@@ -1,6 +1,6 @@
-import { Avatar, Box } from "@mui/material";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
+import { Box, useTheme } from "@mui/material";
 
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UserIcon } from "src/presentation/assets/icons/UserIcon";
 import Button from "src/presentation/components/common/buttons/Button";
 import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
@@ -15,6 +15,8 @@ function RoleUserCard({ user, ROLE }) {
 
   const visibleRoles = roles.length > 2 ? roles.slice(1, 3) : roles;
   const visibleGroups = groups.length > 2 ? groups.slice(1, 3) : groups;
+
+  const theme = useTheme();
 
   return (
     <Box
@@ -44,13 +46,9 @@ function RoleUserCard({ user, ROLE }) {
             flexShrink: 0,
           }}
         >
-          {avatar ? (
-            <Avatar src={avatar} sx={{ width: 48, height: 48 }} />
-          ) : (
-            <IconWrapper>
-              <UserIcon size={24} color="#F7F5FA" />
-            </IconWrapper>
-          )}
+          <Avatar src={avatar}>
+            <UserIcon size={24} color={theme.palette.neutral.main} />
+          </Avatar>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
             <Text color="neutral.50" variant="h4">
               {userName}

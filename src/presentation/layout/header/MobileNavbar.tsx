@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
   AppBar,
-  Avatar,
   Box,
   IconButton,
   Toolbar,
@@ -14,6 +13,7 @@ import { LogoIcon } from "src/presentation/assets/icons/LogoIcon";
 import { MenuIcon } from "src/presentation/assets/icons/MenuIcon";
 import { usersInfo } from "src/presentation/data/data";
 import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
 
 export function MobileNavbar(props: {
   mobileOpen: boolean;
@@ -70,7 +70,7 @@ export function MobileNavbar(props: {
         <Link to="dashboard" style={{ marginLeft: 48 }}>
           <LogoIcon />
         </Link>
-        <Avatar src={usersInfo[0].image} sx={{ width: 40, height: 40 }} />
+        <Avatar src={usersInfo[0].image} size={40} />
       </Toolbar>
     </AppBar>
   );

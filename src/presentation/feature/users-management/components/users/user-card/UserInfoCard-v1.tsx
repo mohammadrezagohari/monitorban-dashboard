@@ -1,16 +1,16 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import {  Box, Typography, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
 import Tag from "src/presentation/components/common/tag/Tag";
 import Button from "src/presentation/components/common/buttons/Button";
 import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { UserIcon } from "src/presentation/assets/icons/UserIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UserInfoCardProps } from "./IUserInfoCard";
 import {
   StyledDetailsContainer,
   StyledUserInfoContainer,
 } from "./UserInfoCard.style";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
 
 // const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
 const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
@@ -25,6 +25,9 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
   const [remainingCount, setRimainingCount] = useState(0);
   const groupRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { image: avatar, fullName: userName, phone, roles, groups } = user;
+
+  const theme = useTheme();
+
   useEffect(() => {
     const updateVisibleRolesCount = () => {
       if (!roles?.length) return;
@@ -241,13 +244,9 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
             flexShrink: 0,
           }}
         >
-          {avatar ? (
-            <Avatar src={avatar} sx={{ width: 48, height: 48 }} />
-          ) : (
-            <IconWrapper>
-              <UserIcon size={24} color="#F7F5FA" />
-            </IconWrapper>
-          )}
+          <Avatar src={avatar}>
+            <UserIcon size={24} color={theme.palette.neutral.main} />
+          </Avatar>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
             <Text color="neutral.50" variant="h4">
               {userName}

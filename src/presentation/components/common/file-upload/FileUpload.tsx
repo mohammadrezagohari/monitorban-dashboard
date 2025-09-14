@@ -4,16 +4,15 @@ import { Typography, useTheme } from "@mui/material";
 import Button from "../buttons/Button";
 import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
 import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { FileUploadProps } from "./IFileUpload";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import {
-  Avatar,
   ButtonsContainer,
   ImageContainer,
   StyledFileUpload,
   VisuallHiddenInput,
 } from "./FileUpload.styles";
+import Avatar from "../avatar/Avatar";
 
 function FileUpload({
   onFileSelect,
@@ -62,15 +61,10 @@ function FileUpload({
   return (
     <StyledFileUpload>
       <ImageContainer>
-        {selectedFile ? (
-          <Avatar src={URL.createObjectURL(selectedFile)} />
-        ) : initialImage ? (
-          <Avatar src={initialImage} />
-        ) : (
-          <IconWrapper>
-            <HouseIcon color={theme.palette.primary[200]} />
-          </IconWrapper>
-        )}
+        <Avatar src={selectedFile ? URL.createObjectURL(selectedFile) : ""}>
+          <HouseIcon color={theme.palette.primary[200]} />
+        </Avatar>
+       
         <Typography variant="body2" color="neutral.200">
           {label}
         </Typography>

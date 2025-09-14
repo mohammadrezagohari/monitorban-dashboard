@@ -1,6 +1,5 @@
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UserIcon } from "src/presentation/assets/icons/UserIcon";
-import { Avatar, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { createContext, ReactNode, useContext } from "react";
 import { Text } from "../dashboard-card/BaseDashboardCard.style";
 import TagHeading from "../tag-heading/TagHeading";
@@ -13,6 +12,7 @@ import {
   StyledOperations,
 } from "./ListCard.styles";
 import Checkbox from "../checkbox/Checkbox";
+import Avatar from "../avatar/Avatar";
 
 const ListCardContext = createContext<ListCardContextType>({
   columns: "",
@@ -33,16 +33,11 @@ function Title() {
   return (
     <StyledTitle>
       {selectable && <Checkbox iconSize={24} />}
-      {avatar ? (
-        <Avatar
-          src={avatar}
-          // sx={{ width: 48, height: 48 }}
-        />
-      ) : (
-        <IconWrapper>
-          <UserIcon size={24} color="#F7F5FA" />
-        </IconWrapper>
-      )}
+
+      <Avatar src={avatar}>
+        <UserIcon size={24} color="#F7F5FA" />
+      </Avatar>
+
       <Box>
         <Text color="neutral.50" component="h4" variant="h4">
           {title}

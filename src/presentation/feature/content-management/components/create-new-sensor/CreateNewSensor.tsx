@@ -234,60 +234,6 @@ function CreateNewSensor() {
             </FormRow>
 
             <FormRow label="آیکون">
-              {/* <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                  mr: 1.25,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: 1,
-                    alignItems: "center",
-                    width: 90,
-                  }}
-                >
-                  {icon ? (
-                    <Avatar src={icon} sx={{ width: 48, height: 48 }} />
-                  ) : (
-                    <IconWrapper>
-                      <HouseIcon color="#C9A8E5" />
-                    </IconWrapper>
-                  )}
-                  <Typography variant="body2" color="neutral.200">
-                    عکس آیکون
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <input
-                    id="sensorIcon"
-                    type="file"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    {...register("image")}
-                    onChange={handleFileChange}
-                  />
-                  <label htmlFor="sensorIcon">
-                    <Button
-                      variant="outlined"
-                      size="xxsmall"
-                      colorType="primary"
-                      component="span"
-                    >
-                      بارگذاری عکس
-                    </Button>
-                  </label>
-                  <IconButtonWithBorder
-                    color={theme.palette.error.main}
-                    onClick={handleDelete}
-                  >
-                    <DeleteIcon size={16} />
-                  </IconButtonWithBorder>
-                </Box>
-              </Box> */}
               <Controller
                 name="file"
                 control={control}

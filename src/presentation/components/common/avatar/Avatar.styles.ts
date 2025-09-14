@@ -1,4 +1,4 @@
-import { Box, IconButton, styled } from "@mui/material";
+import { Avatar as MuiAvatar, Box, IconButton, styled } from "@mui/material";
 
 export const StyledImageInputContainer = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -25,4 +25,12 @@ export const StyledIconButton = styled(IconButton)(({ theme }) => ({
     color: theme.palette.error.main,
     borderRadius: "10px",
     p: "7px",
+}))
+
+// /////
+
+export const StyledAvatar = styled(MuiAvatar)(({ theme, size }) => ({
+    width: size || 48,
+    height: size || 48,
+    backgroundColor: theme.palette.neutral[500],
 }))
