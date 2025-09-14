@@ -1,7 +1,7 @@
 import { SelectChangeEvent } from "@mui/material";
 import { SelectProps as MuiSelectProps } from "@mui/material/Select"
 
-export interface Option {
+export type Option = {
     label: string;
     value: string;
     id: number | string;

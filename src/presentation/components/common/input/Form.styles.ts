@@ -1,11 +1,11 @@
 import { Box, FormHelperText, FormLabel, Input, styled, TextField as MuiTextField } from "@mui/material";
 import { TextField } from "./TextField";
 
-export const StyledFormRow = styled(Box)(({ theme, $error, props }) => ({
+export const StyledFormRow = styled(Box)<{ $error?: boolean; gridColumn?: string }>(({ theme, $error, gridColumn, ...props }) => ({
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(1),
-    gridColumn: props?.gridColumn,
+    gap: theme.spacing(2),
+    gridColumn: gridColumn,
     width: "100%",
     // maxWidth: 310,
     position: "relative",

@@ -1237,32 +1237,32 @@ export const chartSelectOptions = [
   {
     value: "1y",
     label: "نمایش سالانه",
-    color: { text: "#F5C789", border: "#E8890C" },
+    id: "1y",
   },
   {
     value: "6m",
     label: "نمایش شش ماهه",
-    color: { text: "#F5C789", border: "#E8890C" },
+    id: "6m",
   },
   {
     value: "3m",
     label: "نمایش سه ماهه",
-    color: { text: "#F5C789", border: "#E8890C" },
+    id: "3m",
   },
   {
     value: "1m",
     label: "نمایش ماه گذشته",
-    color: { text: "#F5C789", border: "#E8890C" },
+    id: "1m",
   },
   {
     value: "1w",
     label: "نمایش هفته گذشته",
-    color: { text: "#F5C789", border: "#E8890C" },
+    id: "1w",
   },
   {
     value: "1d",
     label: "نمایش امروز",
-    color: { text: "#F5C789", border: "#E8890C" },
+    id: "1d",
   },
 ];
 

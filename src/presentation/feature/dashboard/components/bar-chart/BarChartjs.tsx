@@ -61,19 +61,61 @@ const BarChartjs = ({ data }: BarChartProps) => {
       },
     },
     scales: {
-      y: { beginAtZero: true },
-      x: {
+      y: {
+        beginAtZero: true,
+        offset: false,
+        min: 0,
+        max: 100,
+        grid: {
+          drawTicks: false,
+          lineWidth: 1,
+          color: theme.palette.neutral[600],
+        },
+        border: {
+          color: theme.palette.neutral[600],
+        },
         ticks: {
+          padding: 16,
+          stepSize: 20,
+          color: theme.palette.neutral[200],
+          font: {
+            family: "Dana",
+            size: 12,
+            weight: "normal",
+          },
+        },
+      },
+      x: {
+        offset: true,
+        grid: {
+          display: false,
+          drawTicks: false,
+        },
+        border: {
+          display: false,
+        },
+        ticks: {
+          padding: 16,
           maxRotation: isDesktop ? 0 : 90,
           minRotation: isDesktop ? 0 : 90,
+          color: theme.palette.neutral[200],
+          font: {
+            family: "Dana",
+            size: 12,
+            weight: "normal",
+          },
         },
       },
     },
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Bar options={options} data={BarChartData} height={214} />
+    <Box sx={{ width: "100%", position: "relative", right: 12 }}>
+      <Bar
+        options={options}
+        data={BarChartData}
+        height={isDesktop ? 214 : 334}
+      />
     </Box>
   );
 };

@@ -32,7 +32,7 @@ export default function Map() {
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* <a xlink:href="#" xlink:title="ساری" onclick="ShowCitinfo(1);"> */}
-          <Link onClick={() => console.log("sari")} to="/city-sensors-info">
+          <Link onClick={() => console.log("sari")} to="/dashboard/city-sensors-info">
             <path
               // class="path-city path-city-g1"
               id="map1"

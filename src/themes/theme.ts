@@ -157,11 +157,6 @@ const theme = createTheme({
             // letterSpacing: '-2%',
         },
         h5: {
-            fontSize: '1.25rem', // 20px
-            fontWeight: 700, //bold
-
-        },
-        h6: {
             fontSize: '1.125rem', // 18px
             fontWeight: 700, //bold
 

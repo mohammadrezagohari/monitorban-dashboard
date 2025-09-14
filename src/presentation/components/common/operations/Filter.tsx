@@ -3,7 +3,7 @@ import { Box, Grow, MenuItem, Popper, Select, Typography } from "@mui/material";
 import Button from "../buttons/Button";
 import FormRow from "../input/FormRow";
 import Divider from "../divider/Divider";
-import { StyledPaper } from "./Filter.styles";
+import { ButtonsContainer, StyledPaper } from "./Filter.styles";
 import ControledCheckbox from "../checkbox/ControledCheckbox";
 import AdvancedFilterSelect from "../select/AdvancedFilterSelect";
 import { FilterPopoverProps } from "./IFilter";
@@ -74,7 +74,7 @@ const Filter: React.FC<FilterPopoverProps> = ({
                 فیلتر
               </Typography>
               <Box>
-                <FormRow label="بر اساس نوع">
+                <FormRow label="نوع سنسور :">
                   <Controller
                     name="sensor-type"
                     control={control}
@@ -87,17 +87,10 @@ const Filter: React.FC<FilterPopoverProps> = ({
                     )}
                   />
                 </FormRow>
-                <Select
-                  sx={{
-                    width: 300,
-                  }}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
+
                 <Divider />
-                <FormRow label="بر اساس مرکز">
+
+                <FormRow label="بر اساس مرکز :">
                   {options.map((opt) => (
                     <ControledCheckbox
                       key={opt.id}
@@ -109,9 +102,7 @@ const Filter: React.FC<FilterPopoverProps> = ({
                   ))}
                 </FormRow>
               </Box>
-              <Box
-                sx={{ display: "flex", justifyContent: "flex-end", gap: 1.5 }}
-              >
+              <ButtonsContainer>
                 <Button
                   variant="outlined"
                   size="small"
@@ -129,7 +120,7 @@ const Filter: React.FC<FilterPopoverProps> = ({
                 >
                   اعمال فیلتر
                 </Button>
-              </Box>
+              </ButtonsContainer>
             </Box>
             {/* </ClickAwayListener> */}
           </StyledPaper>

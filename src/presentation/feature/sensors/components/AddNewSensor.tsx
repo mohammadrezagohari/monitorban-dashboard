@@ -32,6 +32,8 @@ import { GridBox } from "src/presentation/components/common/GridBox";
 import { Form } from "src/presentation/components/common/Form";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import Input from "src/presentation/components/common/input/Input";
+import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 
 const AddNewSensor = () => {
   // const [serverRoomValue, setServerRoomValue] = useState("");
@@ -122,16 +124,7 @@ const AddNewSensor = () => {
         <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <SectionContainer>
             <HeaderContainer>
-              <Typography
-                variant="h3"
-                color="neutral.main"
-                lineHeight={1.6}
-                sx={{
-                  fontSize: { xs: 18, md: 24 },
-                }}
-              >
-                اطلاعات سنسور
-              </Typography>
+              <SectionTitle>اطلاعات سنسور</SectionTitle>
             </HeaderContainer>
             <MainContainer>
               <GridBox>
@@ -194,9 +187,7 @@ const AddNewSensor = () => {
 
           <SectionContainer>
             <HeaderContainer>
-              <Typography variant="h3" color="neutral.main" lineHeight={1.6}>
-                ویژگی های سنسور
-              </Typography>
+              <SectionTitle>ویژگی های سنسور</SectionTitle>
             </HeaderContainer>
             <MainContainer>
               <GridBox>
@@ -374,8 +365,23 @@ const AddNewSensor = () => {
                     placeholder="کمینه بحرانی را وارد کنید"
                   />
                 </FormRow>
+
+                <FormRow label="آیکون">
+                  <Controller
+                    name="image"
+                    control={control}
+                    render={({ field: { value, onChange, ...field } }) => (
+                      <FileUpload
+                        onFileSelect={onChange}
+                        label="عکس پروفایل"
+                        initialImage={value}
+                        accept=".jpg,.jpeg,.png"
+                      />
+                    )}
+                  />
+                </FormRow>
               </GridBox>
-              <Box mt={{ xs: 1.5, md: 2 }}>
+              {/* <Box mt={{ xs: 1.5, md: 2 }}>
                 <Typography variant="body1" color="neutral.200" mb={0.5}>
                   آیکون
                 </Typography>
@@ -422,7 +428,7 @@ const AddNewSensor = () => {
                     </IconButtonWithBorder>
                   </Box>
                 </Box>
-              </Box>
+              </Box> */}
             </MainContainer>
           </SectionContainer>
         </Box>

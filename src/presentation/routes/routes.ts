@@ -47,7 +47,7 @@ export const routes = [
         requiresAuth: true,
     },
     {
-        path: '/city-sensors-info',
+        path: '/dashboard/city-sensors-info',
         component: CitySensorsInfo,
         requiresAuth: true,
     },
