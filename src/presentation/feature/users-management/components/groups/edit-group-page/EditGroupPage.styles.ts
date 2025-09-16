@@ -1,4 +1,4 @@
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { Box, styled } from "@mui/material";
 
 export const StyledEditGroupPageContainer = styled(Box)(({ theme }) => ({

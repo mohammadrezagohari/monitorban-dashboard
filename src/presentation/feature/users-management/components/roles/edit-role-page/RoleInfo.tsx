@@ -4,7 +4,7 @@ import { Form } from "src/presentation/components/common/Form";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import Input from "src/presentation/components/common/input/Input";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import Select from "src/presentation/components/common/select/Select";
 import { filterOptions } from "src/presentation/data/data";

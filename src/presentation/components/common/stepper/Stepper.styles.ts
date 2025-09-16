@@ -1,5 +1,5 @@
 import { Box, styled, Stepper as MuiStepper } from "@mui/material";
-import { MainContainer } from "../section-container/SectionContainer.style";
+import { MainContainer } from "../section-container/SectionContainer.styles";
 
 export const AccessTypeMainContainer = styled(MainContainer)(({ theme }) => ({
     display: "grid",

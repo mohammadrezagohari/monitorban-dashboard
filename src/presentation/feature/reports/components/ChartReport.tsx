@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import LineChart from "./LineChart";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 
 function ChartReport() {

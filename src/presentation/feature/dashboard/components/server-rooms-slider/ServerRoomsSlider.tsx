@@ -18,7 +18,7 @@ import { IconButtonWithBorder } from "src/presentation/components/common/IconBut
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 function ServerRoomsSlider() {
   const theme = useTheme();

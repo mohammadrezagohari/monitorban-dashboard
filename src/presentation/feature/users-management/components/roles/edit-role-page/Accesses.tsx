@@ -5,7 +5,7 @@ import Button from "src/presentation/components/common/buttons/Button";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { AccessesMainContainer } from "./EditRolePage.styles";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +23,7 @@ function Accesses({ accesses, onClick }) {
           type="button"
           onClick={() => {
             console.log("Navigating to add new access");
-            navigate("add-new-access")
+            navigate("add-new-access");
           }}
         >
           افزودن دسترسی

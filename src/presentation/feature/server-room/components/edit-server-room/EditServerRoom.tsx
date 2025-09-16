@@ -9,6 +9,8 @@ function EditServerRoom() {
   const location = useLocation();
   const room = location.state?.room;
 
+  console.log("room", room);
+
   return (
     <>
       <PageTitle title="ویرایش اتاق سرور">

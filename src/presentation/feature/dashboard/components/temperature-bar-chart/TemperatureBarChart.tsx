@@ -10,7 +10,7 @@ import { chartSelectOptions } from "src/presentation/data/data";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 import RealtimeFilterSelect from "src/presentation/components/common/select/RealtimeFilterSelect";
 
 function TemperatureBarChart() {
@@ -18,8 +18,7 @@ function TemperatureBarChart() {
   const { barChartData } = useBarChart(chartSelectValue);
 
   return (
-    <SectionContainer 
-    >
+    <SectionContainer>
       <HeaderContainer>
         <SectionTitle>نمودار دمای اتاق</SectionTitle>
         <RealtimeFilterSelect

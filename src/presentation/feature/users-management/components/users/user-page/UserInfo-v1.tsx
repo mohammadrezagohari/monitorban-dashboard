@@ -7,7 +7,7 @@ import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
 import { StyledInput } from "src/presentation/components/common/input/Form.styles";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { UserInfoMainContainer } from "./UserPage.styles";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
 import { Controller, useForm, useFormContext } from "react-hook-form";

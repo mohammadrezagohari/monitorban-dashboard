@@ -10,7 +10,7 @@ import { ButtonsContainer } from "./ChangePasswordPage.styles";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 export default function ChangePasswordPage() {
   return (

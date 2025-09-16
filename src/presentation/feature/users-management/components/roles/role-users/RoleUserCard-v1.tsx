@@ -1,4 +1,4 @@
-import Avatar from "@/presentation/components/common/avatar/Avatar";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
 import { Box, useTheme } from "@mui/material";
 
 import { UserIcon } from "src/presentation/assets/icons/UserIcon";

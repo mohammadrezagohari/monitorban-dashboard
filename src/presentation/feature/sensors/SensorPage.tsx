@@ -15,8 +15,13 @@ import SensorsCategoryItem from "./components/SensorsCategoryItem";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { FilterOption } from "src/presentation/components/common/operations/IFilter";
+import {
+  FilterBox,
+  StyledSensorPage,
+  StyledSensorsMainContainer,
+} from "./SensorPage.styles";
 
 const filterOptions: FilterOption[] = [
   { id: "1", value: "zare", label: "بیمارستان زارع" },
@@ -56,13 +61,14 @@ function SensorsPage() {
     <>
       <PageTitle title="سنسورها" />
 
-      <SectionContainer>
+      <StyledSensorPage>
         <HeaderContainer>
           <SectionTitle>دسته بندی سنسورها</SectionTitle>
         </HeaderContainer>
 
-        <MainContainer>
-          <Box sx={{ mb: 2, position: "relative" }}>
+        <StyledSensorsMainContainer>
+          <FilterBox
+          >
             <Button
               variant="outlined"
               size={isDesktop ? "large" : "small"}
@@ -92,14 +98,14 @@ function SensorsPage() {
                 onClose={() => setIsFilterOpen(false)}
               />
             )}
-          </Box>
+          </FilterBox>
           <GridBox>
             {sensorsList.map((item) => (
               <SensorsCategoryItem category={item} key={item.id} />
             ))}
           </GridBox>
-        </MainContainer>
-      </SectionContainer>
+        </StyledSensorsMainContainer>
+      </StyledSensorPage>
     </>
   );
 }

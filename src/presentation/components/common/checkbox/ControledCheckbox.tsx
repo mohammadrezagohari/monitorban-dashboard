@@ -1,29 +1,9 @@
-import { CheckboxProps, FormControlLabel, styled } from "@mui/material";
-import { Control, Controller } from "react-hook-form";
+import { CheckboxProps } from "@mui/material";
+import { Controller } from "react-hook-form";
 
 import Checkbox from "./Checkbox";
-
-export const StyledCheckbox = styled(FormControlLabel)<{ fontSize: number }>(
-  ({ theme, fontSize }) => {
-    return {
-      color: theme.palette.neutral[200],
-      margin: 0,
-      display: "flex",
-      alignItems: "center",
-      gap: theme.spacing(1),
-      "& .MuiFormControlLabel-label": {
-        transition: "color ease 0.3s",
-        fontSize: fontSize,
-      },
-      "& .MuiCheckbox-root.Mui-checked + .MuiFormControlLabel-label": {
-        color: theme.palette.neutral.main,
-      },
-      "& .MuiButtonBase-root": {
-        padding: 0,
-      },
-    };
-  }
-);
+import { StyledControledCheckbox } from "./Checkbox.styles";
+import { ControledCheckboxProps } from "./ICheckbox";
 
 const ControledCheckbox = ({
   label,
@@ -33,14 +13,7 @@ const ControledCheckbox = ({
   size = 20,
   fontSize = 16,
   ...props
-}: {
-  label?: string;
-  name: string;
-  itemValue: string;
-  control: Control<any>;
-  size?: number;
-  fontSize?: number;
-} & Omit<CheckboxProps, "size">) => {
+}: ControledCheckboxProps & Omit<CheckboxProps, "size">) => {
   return (
     <Controller
       name={name}
@@ -56,7 +29,7 @@ const ControledCheckbox = ({
         };
 
         return (
-          <StyledCheckbox
+          <StyledControledCheckbox
             label={label}
             fontSize={fontSize}
             control={

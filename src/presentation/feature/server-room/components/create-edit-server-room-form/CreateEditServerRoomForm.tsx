@@ -1,10 +1,12 @@
-import { useForm } from "react-hook-form";
+import { useTheme } from "@mui/material";
+import { Controller, useForm } from "react-hook-form";
 
 import Input from "src/presentation/components/common/input/Input";
 import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import { Form } from "src/presentation/components/common/Form";
 import TreeView from "src/presentation/components/common/tree-view/TreeView";
+import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
 import { GridBox } from "src/presentation/components/common/GridBox";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
@@ -12,16 +14,18 @@ import { StyledServerRoomContainer } from "./CreateEditServerRoomForm.styles";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
-import Avatar from "src/presentation/components/common/avatar/Avatar";
-import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;
   const isEditSession = Boolean(editId);
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, control } = useForm({
     defaultValues: isEditSession ? editValues : {},
   });
+
+  const theme = useTheme();
+
+  console.log("room to edit => ", roomToEdit);
 
   return (
     <>
@@ -66,9 +70,18 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
                 </FormRow>
 
                 <FormRow label="آیکون">
-                  <Avatar src="">
-                    <HouseIcon color={theme.palette.primary[200]} />
-                  </Avatar>
+                  <Controller
+                    name="image"
+                    control={control}
+                    render={({ field: { value, onChange, ...field } }) => (
+                      <FileUpload
+                        onFileSelect={onChange}
+                        label="عکس پروفایل"
+                        initialImage={value}
+                        accept=".jpg,.jpeg,.png"
+                      />
+                    )}
+                  />
                 </FormRow>
               </GridBox>
             </Form>

@@ -1,7 +1,7 @@
 import ListCard from "src/presentation/components/common/list-card/ListCard";
 import Button from "src/presentation/components/common/buttons/Button";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { StyledMembersMainContainer } from "./EditGroupPage.styles";
 import EmptyData from "src/presentation/components/common/empty-data/EmptyData";

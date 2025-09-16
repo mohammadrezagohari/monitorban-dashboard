@@ -8,7 +8,7 @@ import SectionTitle from "src/presentation/components/common/section-title/Secti
 import UserCardMini from "src/presentation/feature/dashboard/components/latest-users/user-card-mini/UserCardMini";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { StyledMainContainer } from "./LatestUser.styles";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 

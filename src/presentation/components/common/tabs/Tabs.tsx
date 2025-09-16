@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { SyntheticEvent, useState } from "react";
 import {
   Box,
-  FormControlLabel,
   IconButton,
   Tabs as MuiTabs,
   Tab,
@@ -18,10 +17,10 @@ import { usersInfo } from "src/presentation/data/data";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import SectionContainer from "../section-container/SectionContainer";
-import { MainContainer } from "../section-container/SectionContainer.style";
+import { MainContainer } from "../section-container/SectionContainer.styles";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import Checkbox from "../checkbox/Checkbox";
-import { StyledCheckbox } from "../checkbox/ControledCheckbox";
+import { StyledControledCheckbox } from "../checkbox/Checkbox.styles";
 
 function a11yProps(index: number) {
   return {
@@ -225,7 +224,7 @@ function Tabs() {
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               {/* <BaseCheckbox size={24} text="انتخاب همه" /> */}
-              <StyledCheckbox
+              <StyledControledCheckbox
                 fontSize={14}
                 label="انتخاب همه"
                 control={<Checkbox iconSize={24} />}

@@ -11,7 +11,7 @@ import { usersInfo } from "src/presentation/data/data";
 import Button from "src/presentation/components/common/buttons/Button";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import ListCard from "src/presentation/components/common/list-card/ListCard";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import Tabs from "src/presentation/components/common/tabs/Tabs";
 
 // function TabPanel(props: )
@@ -17,9 +17,9 @@ function RoleTabs() {
     // <SectionContainer>
     //   <HeaderContainer></HeaderContainer>
 
-      // <MainContainer>
-        <Tabs />
-      // </MainContainer>
+    // <MainContainer>
+    <Tabs />
+    // </MainContainer>
     // </SectionContainer>
   );
 }

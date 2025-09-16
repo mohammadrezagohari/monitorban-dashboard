@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledSettingsMainSection = styled(MainContainer)(({ theme }) => ({
     display: "grid",

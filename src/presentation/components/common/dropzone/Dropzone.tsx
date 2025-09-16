@@ -12,11 +12,15 @@ import { StyledDropzone } from "./Dropzone.styles";
 function Dropzone({ type }: DropzoneProps) {
   const theme = useTheme();
 
-  const onDrop = useCallback((accepteFiles) => {
-    console.log(accepteFiles);
+  const onDrop = useCallback((accepteFiles: File[]) => {
+    console.log("accepteFiles => ", accepteFiles);
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
+    onDrop,
+    noClick: true,
+    noKeyboard: true,
+  });
   const label = type === "image" ? "عکس" : "فایل";
   return (
     <StyledDropzone {...getRootProps()} isDragActive={isDragActive}>
@@ -35,7 +39,12 @@ function Dropzone({ type }: DropzoneProps) {
           <Typography variant="body1" color="neutral.200">
             {label} را انتخاب کنید و یا بکشید و اینجا رها کنید
           </Typography>
-          <Button variant="outlined" size="small" colorType="secondary">
+          <Button
+            variant="outlined"
+            size="small"
+            colorType="secondary"
+            onClick={open}
+          >
             افزودن {label}
           </Button>
         </>

@@ -2,7 +2,7 @@ import { Typography, useTheme } from "@mui/material";
 
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import {
   StatisticValue,

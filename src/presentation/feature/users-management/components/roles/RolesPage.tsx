@@ -12,7 +12,7 @@ import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/D
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 export default function RolesPage() {
   const theme = useTheme();

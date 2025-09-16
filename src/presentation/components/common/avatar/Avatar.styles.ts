@@ -29,8 +29,8 @@ export const StyledIconButton = styled(IconButton)(({ theme }) => ({
 
 // /////
 
-export const StyledAvatar = styled(MuiAvatar)(({ theme, size }) => ({
-    width: size || 48,
-    height: size || 48,
+export const StyledAvatar = styled(MuiAvatar)<{ size: number }>(({ theme, size }) => ({
+    width: size,
+    height: size,
     backgroundColor: theme.palette.neutral[500],
 }))

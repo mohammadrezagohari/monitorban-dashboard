@@ -1,4 +1,4 @@
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { List as MuiList, styled } from "@mui/material";
 
 export const StyledAnnounceItem = styled("li")(({ theme }) => ({

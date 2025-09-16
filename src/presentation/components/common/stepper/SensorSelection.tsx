@@ -4,7 +4,7 @@ import SectionContainer from "src/presentation/components/common/section-contain
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 function SensorSelection() {
   return (

@@ -12,9 +12,16 @@ import { serverRoomItems } from "src/presentation/data/data";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { useServerRoom } from "./useServerRoom";
+import ListCard from "src/presentation/components/common/list-card/ListCard";
 
 function ServerRoomPage() {
+  const { isLoading, serverRooms, isError } = useServerRoom();
+
+  if (isError) return null;
+  if (isLoading) return <p>Is Loading...</p>;
+
   return (
     <>
       <PageTitle title="اتاق سرور">
@@ -44,8 +51,15 @@ function ServerRoomPage() {
           </Box>
 
           <CardsContainer>
-            {serverRoomItems.map((room) => (
-              <RoomCard key={room.id} room={room} />
+            {serverRooms.map((room) => (
+              // <RoomCard key={room.id} room={room} />
+              <ListCard
+                columns="2fr 1fr 3fr 1fr"
+                item={room}
+                key={room.id}
+              >
+                <ListCard.Title />
+              </ListCard>
             ))}
           </CardsContainer>
         </MainContainer>

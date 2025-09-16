@@ -5,7 +5,7 @@ import SectionContainer from "src/presentation/components/common/section-contain
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import MessageCard from "./MessageCard";
 

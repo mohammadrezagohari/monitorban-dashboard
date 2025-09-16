@@ -5,7 +5,7 @@ import useTutorials from "./useTutorials";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import VideoCard from "src/presentation/components/common/video-card/VideoCard";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 function TutorialPage() {
   const theme = useTheme();

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ISectionContainerProps } from "./ISectionContainer";
-import { StyledSectionContainer } from "./SectionContainer.style";
+import { StyledSectionContainer } from "./SectionContainer.styles";
 
 const SectionContainer: React.FC<ISectionContainerProps> = ({
   children,

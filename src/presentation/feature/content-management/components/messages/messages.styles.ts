@@ -1,7 +1,7 @@
 import { Box, styled, Typography } from "@mui/material";
 
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledMessageCard = styled(Box)(({ theme }) => ({
     // display: "flex",

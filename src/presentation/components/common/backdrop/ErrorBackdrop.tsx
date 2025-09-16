@@ -8,13 +8,20 @@ import {
 } from "./Backdrop.styles";
 import { ErrorBackdropProps } from "./IBackdrop";
 
-export default function ErrorBackdrop({ open, onClose, onConfirm }: ErrorBackdropProps) {
+export default function ErrorBackdrop({
+  open,
+  onClose,
+  onConfirm,
+}: ErrorBackdropProps) {
   return (
     <Backdrop open={open}>
       <StyledBackdropContainer onClick={(e) => e.stopPropagation()}>
         <Title $type="error">عملیات ناموفق</Title>
 
-        <Message>خطایی در ایجاد دسترسی های جدید رخ داده است</Message>
+        <Message>
+          افزودن دسترسی های جدید با خطا مواجه شد. لطفا <span>مجددا</span> تلاش
+          کنید
+        </Message>
 
         <ButtonsContainer>
           <Button
@@ -23,7 +30,7 @@ export default function ErrorBackdrop({ open, onClose, onConfirm }: ErrorBackdro
             colorType="primary"
             onClick={onConfirm}
           >
-            Retry
+            تلاش مجدد
           </Button>
         </ButtonsContainer>
       </StyledBackdropContainer>

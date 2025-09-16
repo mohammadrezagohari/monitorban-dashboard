@@ -12,7 +12,7 @@ import RoleAccessibility from "./RoleAccessibility";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import { ComplaintIcon } from "src/presentation/assets/icons/ComplaintIcon";
 import { MessageEditIcon } from "src/presentation/assets/icons/MessageEditIcon";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import {
   ButtonsContainer,
   StyledMainContainer,

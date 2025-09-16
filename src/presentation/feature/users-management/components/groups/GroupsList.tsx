@@ -1,7 +1,7 @@
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import GroupCard from "./GroupCard";

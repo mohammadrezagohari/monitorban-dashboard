@@ -1,5 +1,3 @@
-import { Box } from "@mui/material";
-
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
@@ -8,9 +6,10 @@ import { MobileIcon } from "src/presentation/assets/icons/MobileIcon";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
 import { GridBox } from "src/presentation/components/common/GridBox";
+import { StyledCitySensorsInfo } from "./CitySensorsInfo.styles";
 
 const sensors = [
   {
@@ -252,21 +251,13 @@ const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
     <>
       <PageTitle title={`اطلاعات سنسور شهر ${city}`} />
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <StyledCitySensorsInfo>
         {amolServers.map((server) => (
           <SectionContainer key={server.id}>
             <HeaderContainer>
               <SectionTitle>{server.server_name}</SectionTitle>
             </HeaderContainer>
             <MainContainer>
-              {/* <Box
-                sx={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  //   justifyContent: "space-between"
-                  gap: 2,
-                }}
-              > */}
               <GridBox>
                 {server.sensors.map((sensor) => (
                   <SensorSituationCard
@@ -283,7 +274,7 @@ const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
             </MainContainer>
           </SectionContainer>
         ))}
-      </Box>
+      </StyledCitySensorsInfo>
     </>
   );
 };

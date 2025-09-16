@@ -23,7 +23,7 @@ import EditGroupPage from "src/presentation/feature/users-management/components/
 import EditServerRoom from "src/presentation/feature/server-room/components/edit-server-room/EditServerRoom";
 import AddNewTutorial from "src/presentation/feature/content-management/components/add-new-tutorial/AddNewTutorial";
 import UsersManagement from "src/presentation/pages/users-management/UsersManagement";
-import CitySensorsInfo from "src/presentation/feature/dashboard/components/CitySensorsInfo";
+import CitySensorsInfo from "src/presentation/feature/dashboard/components/city-sensors-info/CitySensorsInfo";
 import CreateNewSensor from "src/presentation/feature/content-management/components/create-new-sensor/CreateNewSensor";
 import { RegisterPage } from "src/presentation/pages/auth/Register";
 import CreateServerRoom from "src/presentation/feature/server-room/components/create-server-room/CreateServerRoom";

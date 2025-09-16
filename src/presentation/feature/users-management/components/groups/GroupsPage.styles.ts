@@ -1,5 +1,5 @@
 import { Box, styled } from "@mui/material";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledGroupCard = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.neutral[600],

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { Box, Typography } from "@mui/material";
 
 export default function Map() {
@@ -32,7 +32,10 @@ export default function Map() {
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* <a xlink:href="#" xlink:title="ساری" onclick="ShowCitinfo(1);"> */}
-          <Link onClick={() => console.log("sari")} to="/dashboard/city-sensors-info">
+          <Link
+            onClick={() => console.log("sari")}
+            to="/dashboard/city-sensors-info"
+          >
             <path
               // class="path-city path-city-g1"
               id="map1"

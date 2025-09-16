@@ -12,7 +12,7 @@ import SectionContainer from "src/presentation/components/common/section-contain
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 const ROLES = [
   { id: 1, label: "نقش 1", value: "role1" },

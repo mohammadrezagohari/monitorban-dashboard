@@ -8,7 +8,7 @@ import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { StyledMainContainer } from "./SensorsDetails.styles";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 

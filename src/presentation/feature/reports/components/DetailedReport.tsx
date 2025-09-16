@@ -1,4 +1,4 @@
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.style";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { Box, Typography } from "@mui/material";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import Button from "src/presentation/components/common/buttons/Button";

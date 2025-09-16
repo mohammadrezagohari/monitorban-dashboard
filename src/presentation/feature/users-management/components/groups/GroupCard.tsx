@@ -1,7 +1,7 @@
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { Box, Typography, useTheme } from "@mui/material";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";

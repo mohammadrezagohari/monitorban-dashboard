@@ -5,7 +5,7 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
     backgroundColor: theme.palette.neutral[600],
     display: "flex",
     flexDirection: "column",
-    borderRadius: "16px",
+    borderRadius: "10px",
     padding: theme.spacing(1.5),
     width: width,
     border: `1px solid transparent`,
@@ -13,6 +13,7 @@ export const CardContainer = styled(Box)<CardContainerProps>(({ theme, width }) 
         borderColor: theme.palette.neutral[300]
     },
     [theme.breakpoints.up("md")]: {
+        borderRadius: "15px",
         padding: theme.spacing(2),
     }
 }))

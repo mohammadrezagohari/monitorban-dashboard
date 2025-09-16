@@ -3,7 +3,7 @@ import { Box, Typography, useMediaQuery } from "@mui/material";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 import { useReducer, useState } from "react";
 import {

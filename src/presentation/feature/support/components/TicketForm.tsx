@@ -14,7 +14,7 @@ import { ButtonBox, StyledMessageBox } from "./FAQ.styles";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.style";
+} from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 const ticketOptions = [
   { id: 1, value: "user1", label: "کاربر 1" },
