@@ -1,4 +1,4 @@
-import { MenuItem } from "@mui/material";
+import { MenuItem, useTheme } from "@mui/material";
 import { SelectProps } from "./ISelect";
 import { StyledSelect } from "./Select.styles";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
@@ -10,6 +10,8 @@ function Select({
   onChange,
   ...props
 }: SelectProps) {
+  const theme = useTheme();
+
   return (
     <StyledSelect
       displayEmpty
@@ -20,8 +22,8 @@ function Select({
         PaperProps: {
           sx: {
             maxHeight: 200,
-            bgcolor: "#373040",
-            border: "1px solid #9B92A6",
+            bgcolor: theme.palette.neutral[600],
+            border: `1px solid ${theme.palette.neutral[600]}`,
             color: "neutral.main",
             borderRadius: "10px",
             direction: "rtl",

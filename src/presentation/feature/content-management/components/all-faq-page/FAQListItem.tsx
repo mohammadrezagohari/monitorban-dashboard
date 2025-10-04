@@ -11,8 +11,9 @@ import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import Divider from "src/presentation/components/common/divider/Divider";
 import { Typography } from "@mui/material";
 import Button from "src/presentation/components/common/buttons/Button";
+import { FAQItemProps } from "./IAllFAQsPage";
 
-function FAQListItem({ faq, expanded, panel, onChange }) {
+function FAQListItem({ faq, expanded, panel, onChange }: FAQItemProps) {
   const { id, question, answer } = faq;
 
   return (

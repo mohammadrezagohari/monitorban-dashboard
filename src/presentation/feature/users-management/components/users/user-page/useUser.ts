@@ -7,7 +7,7 @@ function useUser(id: string) {
         queryFn: () => getUser(id),
     })
 
-    console.log(userData)
+    // console.log(userData)
 
     return { isLoading, userData, isError }
 }

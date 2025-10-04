@@ -30,6 +30,23 @@ export const DataContainer = styled(Box)(() => ({
     justifyContent: "space-between",
 }))
 
+
+export const Title = styled(Typography)<TypographyProps>(({ theme, color }) => ({
+    color: color,
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    marginBottom: theme.spacing(1),
+    fontSize: theme.typography.body2.fontSize,
+    fontWeight: theme.typography.body1.fontWeight,
+    [theme.breakpoints.up("md")]: {
+        fontSize: theme.typography.body1.fontSize
+    }
+}))
+
 export const Text = styled(Typography)<TypographyProps>(({ theme, color }) => ({
     color: color,
     display: "flex",

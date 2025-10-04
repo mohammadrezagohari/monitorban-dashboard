@@ -1,12 +1,13 @@
+import { useNavigate } from "react-router-dom";
+import { useMediaQuery, useTheme } from "@mui/material";
+
 import Button from "src/presentation/components/common/buttons/Button";
 import FAQCard from "./FAQCard";
 import { FAQs } from "src/presentation/data/data";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { StyledQuestionsBox } from "./FAQManagement.styles";
-import { useNavigate } from "react-router-dom";
 import { SectionHeader } from "../../ContentManagementPage.styles";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { StyledQuestionsBox } from "./FAQManagement.styles";
 
 function FAQManagement() {
   const visibleFAQs = FAQs.slice(0, 3);

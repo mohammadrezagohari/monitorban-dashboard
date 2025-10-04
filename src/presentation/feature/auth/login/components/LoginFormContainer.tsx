@@ -4,7 +4,11 @@ import { Box, Typography } from "@mui/material";
 import OtpForm from "./OtpForm";
 import LogoMini from "src/presentation/components/common/logo/LogoMini";
 import LoginForm from "./LoginForm";
-import { StyledLoginFormContainer } from "./Login.style";
+import {
+  LoginCaption,
+  LoginHeader,
+  StyledLoginFormContainer,
+} from "./Login.style";
 
 function LoginFormContainer() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -12,19 +16,10 @@ function LoginFormContainer() {
 
   return (
     <StyledLoginFormContainer>
-      <Box maxWidth={350}>
+      <Box>
         <LogoMini />
-        <Typography fontSize={32} fontWeight={700}>
-          خوش آمدید
-        </Typography>
-        <Typography
-          fontFamily="Dana-ExtraLight"
-          fontSize={20}
-          fontWeight={200}
-          marginBottom={3}
-        >
-          ورود به سامانه مونیتورینگ اتاق سرور
-        </Typography>
+        <LoginHeader component="h1">خوش آمدید</LoginHeader>
+        <LoginCaption>ورود به سامانه مونیتورینگ اتاق سرور</LoginCaption>
         {step === "phone" ? (
           <LoginForm
             phoneNumber={phoneNumber}

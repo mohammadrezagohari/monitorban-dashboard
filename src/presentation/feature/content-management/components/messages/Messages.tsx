@@ -22,7 +22,7 @@ function Messages() {
     navigate("messages");
   }
 
-  function handleExpand(panel) {
+  function handleExpand(panel: string) {
     setExpanded((currentPanel) => (currentPanel !== panel ? panel : null));
   }
 

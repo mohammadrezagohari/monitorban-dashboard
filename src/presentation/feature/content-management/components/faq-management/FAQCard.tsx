@@ -1,3 +1,5 @@
+import { useMediaQuery, useTheme } from "@mui/material";
+
 import Button from "src/presentation/components/common/buttons/Button";
 import { FAQCardProps } from "./IFAQManagement";
 import {
@@ -5,7 +7,6 @@ import {
   QuestionText,
   StyledFAQCard,
 } from "./FAQManagement.styles";
-import { useMediaQuery, useTheme } from "@mui/material";
 
 function FAQCard({ faq }: FAQCardProps) {
   const { question } = faq;

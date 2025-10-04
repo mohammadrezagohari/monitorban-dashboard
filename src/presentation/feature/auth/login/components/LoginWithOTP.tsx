@@ -18,11 +18,12 @@ const LoginPage = () => {
 
   return (
     <Grid
+    id="testid"
       container
       height={{ xs: "100vh", sm: "auto", lg: "100vh" }}
       sx={{
         // minHeight: "100vh",
-        bgcolor: "#0E0C15",
+        bgcolor: "red",
       }}
     >
       <Grid
@@ -36,10 +37,7 @@ const LoginPage = () => {
         }}
       >
         <Box>
-          <Box>
-            <LogoIcon size={31} />
-            <LogoText size={69} />
-          </Box>
+          
           <Box>
             <Typography fontSize={32} fontWeight={700}>
               خوش آمدید

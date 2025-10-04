@@ -1,7 +1,7 @@
 import { Backdrop as MuiBackdrop, Box, styled, Typography } from "@mui/material";
 
 export const Backdrop = styled(MuiBackdrop)(({ theme }) => ({
-    zIndex: theme.zIndex.drawer + 1,
+    // zIndex: theme.zIndex.drawer + 1,
 }))
 
 export const StyledBackdropContainer = styled(Box)(({ theme }) => ({

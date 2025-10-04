@@ -11,7 +11,6 @@ function RoleUserCard({ user, ROLE }) {
   const { image: avatar, fullName: userName, phone, roles, groups } = user;
 
   const isIncluded = roles.includes(ROLE);
-  console.log(isIncluded);
 
   const visibleRoles = roles.length > 2 ? roles.slice(1, 3) : roles;
   const visibleGroups = groups.length > 2 ? groups.slice(1, 3) : groups;

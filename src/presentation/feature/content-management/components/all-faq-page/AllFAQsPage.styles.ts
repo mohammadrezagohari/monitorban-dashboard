@@ -12,6 +12,7 @@ export const StyledQuestionBox = styled(Box)(({ theme }) => ({
     gap: theme.spacing(3),
     borderRadius: "15px",
     backgroundColor: theme.palette.neutral[600],
+
     [theme.breakpoints.up("md")]: {
         flexDirection: "row",
         alignItems: "center",
@@ -28,6 +29,7 @@ export const ButtonsContainer = styled(Box)(({ theme }) => ({
 
 export const QuestionText = styled(Typography)(({ theme }) => ({
     flexGrow: 1,
+
     [theme.breakpoints.up("md")]: {
         whiteSpace: "nowrap",
         width: "calc(100% - 232px)",
@@ -37,7 +39,7 @@ export const QuestionText = styled(Typography)(({ theme }) => ({
 }))
 
 
-export const StyledExpandBox = styled(Box)(({ expanded, panel }) => ({
+export const StyledExpandBox = styled(Box)(({ expanded, panel }: { expanded: string | null, panel: string }) => ({
     maxHeight: expanded === panel ? 500 : 0,
     overflow: "hidden",
     transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",

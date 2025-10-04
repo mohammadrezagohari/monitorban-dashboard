@@ -1,21 +1,23 @@
 import Button from "src/presentation/components/common/buttons/Button";
 import {
-  Backdrop,
   ButtonsContainer,
   Message,
   StyledBackdropContainer,
   Title,
 } from "./Backdrop.styles";
 import { DeleteBackdropProps } from "./IBackdrop";
+import { Box } from "@mui/material";
 
 function DeleteConfirmBackdrop({
-  open,
+  disabled,
   onClose,
   onConfirm,
   roleTitle,
 }: DeleteBackdropProps) {
+  
   return (
-    <Backdrop open={open} onClick={onClose}>
+    // <Box open={open} onClick={onClose}>
+    <Box>
       <StyledBackdropContainer onClick={(e) => e.stopPropagation()}>
         <Title $type="warning">هشدار!</Title>
         <Message>
@@ -35,12 +37,13 @@ function DeleteConfirmBackdrop({
             size="xsmall"
             colorType="primary"
             onClick={onConfirm}
+            disabled={disabled}
           >
             تایید
           </Button>
         </ButtonsContainer>
       </StyledBackdropContainer>
-    </Backdrop>
+    </Box>
   );
 }
 

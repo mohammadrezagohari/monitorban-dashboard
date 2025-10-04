@@ -66,7 +66,7 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
       }
       bottomContent={
         <>
-          <DataContainer>
+          <DataContainer sx={{ mb: 1 }}>
             <Text
               color="neutral.200"
               variant={isDesktop ? "body2" : "caption"}

@@ -25,7 +25,7 @@ export const Steps = styled(Box)(({ theme }) => ({
 
 export const StyledStepper = styled(MuiStepper)(({ theme }) => ({
     width: 350,
-    "&.MuiStepper-root *": { p: 0 },
+    "&.MuiStepper-root *": { padding: 0 },
     "&.MuiStepper-root": { gap: theme.spacing(4) },
     "& .MuiStepConnector-root": { display: "none" },
     "& .MuiStepLabel-root": {

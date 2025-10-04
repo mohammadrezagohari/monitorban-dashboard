@@ -1,8 +1,8 @@
 export interface DeleteBackdropProps {
-    open: boolean;
-    onClose: () => void;
-    onConfirm: () => void;
-    roleTitle: string | null;
+    disabled?: boolean;
+    onClose?: () => void;
+    onConfirm?: () => void;
+    roleTitle?: string | null;
 }
 
 export interface ErrorBackdropProps {

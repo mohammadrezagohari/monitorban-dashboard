@@ -7,7 +7,6 @@ import { StyledMembersMainContainer } from "./EditGroupPage.styles";
 import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
 
 function GroupMembers({ members }) {
-  console.log(members);
 
   return (
     <SectionContainer>

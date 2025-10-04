@@ -16,7 +16,7 @@ import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
 import ListCard from "src/presentation/components/common/list-card/ListCard";
 import TabPanel from "src/presentation/components/common/tabs/TabPanel";
-import { StyledCheckbox } from "src/presentation/components/common/checkbox/ControledCheckbox";
+// import { StyledCheckbox } from "src/presentation/components/common/checkbox/ControledCheckbox";
 import Checkbox from "src/presentation/components/common/checkbox/Checkbox";
 
 function a11yProps(index: number) {

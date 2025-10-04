@@ -3,10 +3,11 @@ import { Box, useTheme } from "@mui/material";
 import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { SensorCardProps } from "./ISensorCard";
-import { StyledSensorCard } from "./SensorCard.style";
+import { SensorDataContainer, StyledSensorCard } from "./SensorCard.style";
 import {
   Text,
   TextBox,
+  Title,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 
 const SensorCard: React.FC<SensorCardProps> = ({ sensor }) => {
@@ -29,19 +30,11 @@ const SensorCard: React.FC<SensorCardProps> = ({ sensor }) => {
         <SenesorIcon />
       </IconWrapper>
       <Box>
-        <Text
-          variant="body1"
-          color="neutral.100"
-          sx={{
-            marginBottom: "0.5rem",
-            fontSize: { xs: 14, md: 16 },
-            fontWeight: 600,
-          }}
-        >
+        <Title variant="body1" color="neutral.100">
           {name}
-        </Text>
+        </Title>
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <SensorDataContainer>
           <TextBox>
             <Text variant="caption" color="neutral.100">
               کل
@@ -74,7 +67,7 @@ const SensorCard: React.FC<SensorCardProps> = ({ sensor }) => {
               {dangerSensorCount}
             </Text>
           </TextBox>
-        </Box>
+        </SensorDataContainer>
       </Box>
     </StyledSensorCard>
   );

@@ -5,5 +5,9 @@ export const LoginLayout = styled(Box)<BoxProps>(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
     height: "100vh",
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
+    gridTemplateColumns: "1fr",
+
+    [theme.breakpoints.up("md")]: {
+        gridTemplateColumns: "repeat(2, 1fr)",
+    }
 }));

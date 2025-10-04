@@ -1,4 +1,3 @@
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { Box, Typography } from "@mui/material";
 import { TextContainer } from "./TextReport.styles";
 

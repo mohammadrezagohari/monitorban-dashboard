@@ -1,15 +1,14 @@
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { GridBox } from "src/presentation/components/common/GridBox";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { MobileIcon } from "src/presentation/assets/icons/MobileIcon";
-// import SensorSituationCard from "src/presentation/";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
+import { StyledCitySensorsInfo } from "./CitySensorsInfo.styles";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import { StyledCitySensorsInfo } from "./CitySensorsInfo.styles";
 
 const sensors = [
   {
@@ -245,7 +244,7 @@ const amolServers = [
 ];
 
 const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
-  console.log(`اطلاعات سنسور شهر ${(<span>{city}</span>)}`);
+  // console.log(`اطلاعات سنسور شهر ${(<span>{city}</span>)}`);
 
   return (
     <>
@@ -270,7 +269,6 @@ const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
                   />
                 ))}
               </GridBox>
-              {/* </Box> */}
             </MainContainer>
           </SectionContainer>
         ))}

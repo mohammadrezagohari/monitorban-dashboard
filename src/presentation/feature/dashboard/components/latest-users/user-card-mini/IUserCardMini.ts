@@ -1,6 +1,6 @@
 export interface UserCardProps {
     user: {
-        image?: string;
+        image: string;
         fullName: string;
         position?: string;
     }

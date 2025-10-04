@@ -22,7 +22,6 @@ export default function EditRolePage() {
     );
   };
 
-  console.log(role);
 
   return (
     <>

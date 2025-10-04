@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 import TagWithBullet from "src/presentation/components/common/tag/TagWithBullet";
-import { AccessesBox } from "../roles/RolesPage.styles";
+import { AccessesBox } from "../RolesPage.styles";
 
 function RoleAccessibility({ accesses }) {
   return (

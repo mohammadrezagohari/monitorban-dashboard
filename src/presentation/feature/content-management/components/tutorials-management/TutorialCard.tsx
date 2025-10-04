@@ -1,8 +1,10 @@
-import { Avatar, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import Tag from "src/presentation/components/common/tag/Tag";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
 import Button from "src/presentation/components/common/buttons/Button";
 import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
+import { VideoIcon } from "src/presentation/assets/icons/VideoIcon";
 import { TutorialCardProps } from "./ITutorialManagement";
 import {
   ButtonsContainer,
@@ -23,7 +25,9 @@ function TutorialCard({ tutorial }: TutorialCardProps) {
     <StyledTutorialCard>
       <DetailContainer>
         <TitleBox>
-          <Avatar src={image} sx={{ width: 48, height: 48 }} />
+          <Avatar src={image}>
+            <VideoIcon color={theme.palette.neutral.main} />
+          </Avatar>
 
           <CardTitle>{title}</CardTitle>
         </TitleBox>

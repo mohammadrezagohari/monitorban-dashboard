@@ -6,12 +6,12 @@ import BarChartjs from "src/presentation/feature/dashboard/components/bar-chart/
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { PeriodTypes } from "./ITemperatureBarChart";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import RealtimeFilterSelect from "src/presentation/components/common/select/RealtimeFilterSelect";
 import { chartSelectOptions } from "src/presentation/data/data";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import RealtimeFilterSelect from "src/presentation/components/common/select/RealtimeFilterSelect";
 
 function TemperatureBarChart() {
   const [chartSelectValue, setChartSelectValue] = useState<PeriodTypes>("1y");

@@ -1,4 +1,6 @@
-export interface InputProps {
+import { InputProps as MuiInputProps } from "@mui/material";
+
+export interface InputProps extends MuiInputProps {
     id: string;
     placeholder?: string;
     icon?: boolean | React.ReactNode;

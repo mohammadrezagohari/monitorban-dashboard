@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -39,12 +39,14 @@ const labels = [
 const dataValue = [60, 50, 32, 49, 85, 28, 71, 39, 68, 52, 58, 30];
 
 function LineChart({ labelsChart = labels, dataChart = dataValue }) {
+  const theme = useTheme();
+
   const data = {
     labels: [...labelsChart].reverse(),
     datasets: [
       {
         data: [...dataChart].reverse(),
-        borderColor: "#D5C3E5",
+        borderColor: theme.palette.primary[100],
         tension: 0.3,
         pointStyle: false,
         showLine: true,
@@ -64,12 +66,12 @@ function LineChart({ labelsChart = labels, dataChart = dataValue }) {
         titleColor: "red",
         bodyColor: "green",
         titleFont: {
-          family: "Dana",
+          family: "Dana-Regular",
           size: 18,
           weight: 600,
         },
         bodyFont: {
-          family: "Dana",
+          family: "Dana-Regular",
           size: 14,
           weight: 500,
         },
@@ -88,7 +90,7 @@ function LineChart({ labelsChart = labels, dataChart = dataValue }) {
           padding: 24,
           stepSize: 20,
           font: {
-            family: "Dana",
+            family: "Dana-Regular",
             size: 16,
             weight: 400,
           },
@@ -113,7 +115,7 @@ function LineChart({ labelsChart = labels, dataChart = dataValue }) {
         ticks: {
           padding: 24,
           font: {
-            family: "Dana",
+            family: "Dana-Regular",
             size: 16,
             weight: 400,
           },

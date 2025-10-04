@@ -12,7 +12,6 @@ import { IconButtonWithBorder } from "src/presentation/components/common/IconBut
 export default function FAQItem({ item, panel, expanded, onChange }) {
   const { question, answer } = item;
 
-  //   console.log("panel:: ", panel, "expanded:: ", expanded);
 
   return (
     <StyledFAQItemContainer>

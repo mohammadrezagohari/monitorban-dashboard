@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import { FAQs } from "src/presentation/data/data";
@@ -6,25 +7,20 @@ import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import FAQListItem from "./FAQListItem";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import {
-  HeaderContainer,
-  MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { StyledFAQList } from "./AllFAQsPage.styles";
 import { useNavigate } from "react-router-dom";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { StyledFAQList } from "./AllFAQsPage.styles";
 import { SectionHeader } from "../../ContentManagementPage.styles";
-import { useMediaQuery, useTheme } from "@mui/material";
 
 function AllFAQsPage() {
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const allFAQs = FAQs;
   const navigate = useNavigate();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  function handleExpand(panel) {
-    setExpanded((currentPanel) => (currentPanel !== panel ? panel : false));
+  function handleExpand(panel: string) {
+    setExpanded((currentPanel) => (currentPanel !== panel ? panel : null));
   }
 
   function handleAddFAQ() {
@@ -49,6 +45,7 @@ function AllFAQsPage() {
             افزودن پرسش جدید
           </Button>
         </SectionHeader>
+
         <StyledFAQList>
           {allFAQs.map((faq) => (
             <FAQListItem

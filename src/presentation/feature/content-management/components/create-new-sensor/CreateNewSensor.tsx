@@ -3,12 +3,11 @@ import { Typography, useTheme } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 
 import Input from "src/presentation/components/common/input/Input";
-import Select from "src/presentation/components/common/select/Select";
-import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
 import { GridBox } from "src/presentation/components/common/GridBox";
+import { FormSelect } from "src/presentation/components/common/select/FormSelect";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
@@ -23,7 +22,6 @@ import {
   sensorTypeFeatureOptions,
   unitOptions,
 } from "src/presentation/data/data";
-import { FormSelect } from "src/presentation/components/common/select/FormSelect";
 
 function CreateNewSensor() {
   const { control, handleSubmit, register } = useForm();
@@ -246,17 +244,6 @@ function CreateNewSensor() {
                 )}
               />
             </FormRow>
-
-            {/* <Button
-              // TODO:: Should be deleted
-              variant="contained"
-              size="xxsmall"
-              colorType="success"
-              type="submit"
-            >
-              ثبت
-            </Button> */}
-            {/* </Box> */}
           </GridBox>
         </MainContainer>
       </SectionContainer>

@@ -1,6 +1,7 @@
 // import { ChartProps } from "../../App";
 
 import { Bar } from "react-chartjs-2";
+import { BarChartProps } from "./IBarChart";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import {
   Chart as ChartJS,
@@ -11,7 +12,6 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
-import { BarChartProps } from "./IBarChart";
 
 ChartJS.register(
   CategoryScale,
@@ -22,7 +22,8 @@ ChartJS.register(
   Legend
 );
 
-const BarChartjs = ({ data }: BarChartProps) => {
+const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
+  console.log("data => ", data);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const BarChartData = {
@@ -79,9 +80,9 @@ const BarChartjs = ({ data }: BarChartProps) => {
           stepSize: 20,
           color: theme.palette.neutral[200],
           font: {
-            family: "Dana",
+            family: "Dana-Regular",
             size: 12,
-            weight: "normal",
+            weight: 400,
           },
         },
       },
@@ -100,9 +101,9 @@ const BarChartjs = ({ data }: BarChartProps) => {
           minRotation: isDesktop ? 0 : 90,
           color: theme.palette.neutral[200],
           font: {
-            family: "Dana",
+            family: "Dana-Regular",
             size: 12,
-            weight: "normal",
+            weight: 400,
           },
         },
       },

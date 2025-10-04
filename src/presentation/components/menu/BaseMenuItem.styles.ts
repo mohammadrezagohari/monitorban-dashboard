@@ -23,7 +23,6 @@ export const StyledNavLink = styled(NavLink)(
 
         "&:hover > svg, &.active > svg": {
             color: theme.palette.primary[200]
-            // color: theme.palette.primary[200]
         },
 
         "&.Mui-disabled": {

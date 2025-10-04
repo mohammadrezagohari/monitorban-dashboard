@@ -1,10 +1,6 @@
-import { styled, Typography } from "@mui/material";
+import { StyledTagHeading } from "./TagHeading.styles";
 
-const StyledTagHeading = styled(Typography)(({ theme }) => ({
-  color: theme.palette.neutral[200],
-}));
-
-function TagHeading({ children }) {
+function TagHeading({ children }: { children: React.ReactNode }) {
   return <StyledTagHeading variant="body2">{children}</StyledTagHeading>;
 }
 

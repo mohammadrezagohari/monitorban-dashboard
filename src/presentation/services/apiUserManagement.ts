@@ -27,3 +27,20 @@ export const getUsers = async () => {
 
     return res.json()
 }
+
+export const getRoles = async () => {
+    const res = await fetch(`${BASE_URL}/rolesArray`)
+    if (!res.ok) throw new Error("Failed to fetch users")
+
+    return res.json()
+}
+
+export const deleteRole = async (roleId) => {
+    const res = await fetch(`${BASE_URL}/rolesArray/${roleId}`, {
+        method: "DELETE",
+        // headers: {}
+    })
+    if (!res.ok) throw new Error("Failed fo delete role")
+
+    return res.json()
+}

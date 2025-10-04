@@ -16,7 +16,7 @@ export const StyledCheckbox = styled(MuiCheckbox)<{ fontSize: number }>(
 );
 
 export const StyledControledCheckbox = styled(FormControlLabel)<{ fontSize: number }>(
-    ({ theme, fontSize }) => {
+    ({ theme, fontSize, }) => {
         return {
             color: theme.palette.neutral[200],
             margin: 0,

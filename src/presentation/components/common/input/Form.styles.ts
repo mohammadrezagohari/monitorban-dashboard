@@ -1,5 +1,4 @@
-import { Box, FormHelperText, FormLabel, Input, styled, TextField as MuiTextField } from "@mui/material";
-import { TextField } from "./TextField";
+import { Box, FormHelperText, FormLabel, Input, styled } from "@mui/material";
 
 export const StyledFormRow = styled(Box)<{ $error?: boolean; gridColumn?: string }>(({ theme, $error, gridColumn, ...props }) => ({
     display: "flex",
@@ -42,7 +41,7 @@ export const StyledInput = styled(Input)(({ theme, error }) => ({
     padding: theme.spacing(1.5, 2),
     borderRadius: "15px",
     border: `1px solid ${theme.palette.text.disabled}`,
-    fontFamily: "Dana",
+    fontFamily: "Dana-Regular",
     "&:focus": {
         outline: "none"
     },
@@ -74,6 +73,23 @@ export const StyledInput = styled(Input)(({ theme, error }) => ({
         margin: 0,
     },
 
+    '& input:-webkit-autofill': {
+        '-webkit-box-shadow': `0 0 0 100px ${theme.palette.neutral[700]} inset`,
+        // '-webkit-box-shadow': `unset`,
+        '-webkit-text-fill-color': theme.palette.neutral[100],
+        caretColor: theme.palette.neutral[100],
+        transition: 'background-color 5000s ease-in-out 0s',
+    },
+
+    '& input:-webkit-autofill:hover, & input:-webkit-autofill:focus, & input:-webkit-autofill:active': {
+        '-webkit-box-shadow': `0 0 0 100px ${theme.palette.neutral[700]} inset`,
+        '-webkit-text-fill-color': theme.palette.neutral[100],
+    },
+
+    '& input:autofill': {
+        backgroundColor: theme.palette.neutral[700],
+        color: theme.palette.neutral[100],
+    },
 }))
 
 

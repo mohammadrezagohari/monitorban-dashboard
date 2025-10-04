@@ -30,7 +30,7 @@ const RadioInputGroup: React.FC<RadioInputGroupProps> = ({
         {options.map((option) => (
           <RadioInput
             option={option}
-            selectedValue={selectedValue}
+            // selectedValue={selectedValue}
             key={option.value}
           />
         ))}

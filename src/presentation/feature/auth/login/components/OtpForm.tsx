@@ -1,41 +1,46 @@
+import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
-import { IOtpForm } from "./ILogin";
-import { EditIcon } from "src/presentation/assets/icons/EditIcon";
 import Button from "src/presentation/components/common/buttons/Button";
-import { ClockIcon } from "src/presentation/assets/icons/ClockIcon";
-import { formatTime } from "src/presentation/utils/helper";
+import { Timer } from "./Timer";
+import { EditIcon } from "src/presentation/assets/icons/EditIcon";
+import { OtpFormProps } from "./ILogin";
 import { CloseCircleIcon } from "src/presentation/assets/icons/CloseCircleIcon";
-import { StyledOTPContainer, StyledOTPInput } from "./Login.style";
+import {
+  ButtonContainer,
+  ErrorBox,
+  StyledOTPContainer,
+  StyledOTPInput,
+  StyledOTPInputsContainer,
+} from "./Login.style";
 
 const OTP_LENGHT = 5;
 const OTP_CODE = "11111";
 const RESEND_TIMEOUT = 120;
 
-const OtpForm = ({ phoneNumber, setStep }: IOtpForm) => {
+const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
   const [otpValues, setOtpValues] = useState<string[]>(
     Array(OTP_LENGHT).fill("")
   );
-  const [timeLeft, setTimeLeft] = useState(RESEND_TIMEOUT);
+  // const [timeLeft, setTimeLeft] = useState(RESEND_TIMEOUT);
   const [canResend, setCanResend] = useState(false);
   const [isError, setIsError] = useState(false);
   const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (timeLeft === 0) {
-      setCanResend(true);
-      return;
-    }
+  // useEffect(() => {
+  //   if (timeLeft === 0) {
+  //     setCanResend(true);
+  //     return;
+  //   }
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
+  //   const timer = setInterval(() => {
+  //     setTimeLeft((prev) => prev - 1);
+  //   }, 1000);
 
-    return () => clearInterval(timer);
-  }, [timeLeft]);
+  //   return () => clearInterval(timer);
+  // }, [timeLeft]);
 
   // const formatTime = (second: number) => {
   //   const m = Math.floor(second / 60)
@@ -47,6 +52,7 @@ const OtpForm = ({ phoneNumber, setStep }: IOtpForm) => {
   // };
 
   const handleChange = (value: string, index: number) => {
+    // Validate OTP input
     if (!/^\d?$/.test(value)) return;
 
     const newOtp = [...otpValues];
@@ -114,35 +120,22 @@ const OtpForm = ({ phoneNumber, setStep }: IOtpForm) => {
 
   const handleResend = () => {
     //TODO: call resend API here
-    setTimeLeft(RESEND_TIMEOUT);
+    // setTimeLeft(RESEND_TIMEOUT);
     setCanResend(false);
+    setIsError(false);
     setOtpValues(Array(OTP_LENGHT).fill(""));
     inputsRef.current[0]?.focus();
   };
 
   return (
     <StyledOTPContainer>
-      <Typography
-        color="neutral.100"
-        fontSize={16}
-        fontWeight={400}
-        marginBottom={2}
-      >
+      <Typography id="helper-text">
         کد تایید 5 رقمی ارسال شده به شماره زیر را وارد نمایید.
       </Typography>
-      <Typography
-        color="neutral.main"
-        sx={{ marginBlock: "1rem", fontSize: 24, fontWeight: 400 }}
-      >
-        {phoneNumber}
-      </Typography>
-      <Box
-        display="flex"
-        flexDirection="row-reverse"
-        justifyContent="flex-end"
-        gap={2}
-        marginBottom={3}
-      >
+
+      <Typography id="phone">{phoneNumber}</Typography>
+
+      <StyledOTPInputsContainer>
         {otpValues.map((digit, i) => (
           <StyledOTPInput
             isError={isError}
@@ -157,14 +150,13 @@ const OtpForm = ({ phoneNumber, setStep }: IOtpForm) => {
             inputRef={(ref) => (inputsRef.current[i] = ref)}
           />
         ))}
-      </Box>
+      </StyledOTPInputsContainer>
+
       {isError && (
-        <Box display="flex" alignItems="center" gap={1} marginBottom={3}>
-          <CloseCircleIcon size={20} color="#E8383B" />
-          <Typography color="error.main" fontSize={16} fontWeight={400}>
-            کد وارد شده صحیح نمی باشد.
-          </Typography>
-        </Box>
+        <ErrorBox>
+          <CloseCircleIcon id="error-icon" size={20} />
+          <Typography id="error-text">کد وارد شده صحیح نمی باشد.</Typography>
+        </ErrorBox>
       )}
       {canResend ? (
         <Button
@@ -176,29 +168,30 @@ const OtpForm = ({ phoneNumber, setStep }: IOtpForm) => {
           ارسال مجدد کد
         </Button>
       ) : (
-        <Box
-          sx={{
-            bgcolor: "primary.main",
-            padding: "12px 24px",
-            borderRadius: "10px",
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            justifyContent: "center",
-          }}
-        >
-          <ClockIcon size={24} />
-          <Typography
-            sx={{
-              fontSize: 16,
-              fontWeight: 600,
-            }}
-          >
-            {formatTime(timeLeft)}
-          </Typography>
-        </Box>
+        // <Box
+        //   sx={{
+        //     bgcolor: "primary.main",
+        //     padding: "12px 24px",
+        //     borderRadius: "10px",
+        //     display: "flex",
+        //     alignItems: "center",
+        //     gap: 1,
+        //     justifyContent: "center",
+        //   }}
+        // >
+        //   <ClockIcon size={24} />
+        //   <Typography
+        //     sx={{
+        //       fontSize: 16,
+        //       fontWeight: 600,
+        //     }}
+        //   >
+        //     {formatTime(timeLeft)}
+        //   </Typography>
+        // </Box>
+        <Timer duration={RESEND_TIMEOUT} setCanResend={setCanResend} />
       )}
-      <div style={{ margin: "1rem auto 0", textAlign: "center" }}>
+      <ButtonContainer>
         <Button
           variant="text"
           size="xsmall"
@@ -208,7 +201,7 @@ const OtpForm = ({ phoneNumber, setStep }: IOtpForm) => {
         >
           ویرایش شماره
         </Button>
-      </div>
+      </ButtonContainer>
     </StyledOTPContainer>
   );
 };

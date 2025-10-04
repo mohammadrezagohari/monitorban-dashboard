@@ -6,7 +6,7 @@ export const Container = styled(Box)(() => ({}))
 export const StyledLabel = styled(Typography)(({ theme }) => ({
     textAlign: "right",
     color: theme.palette.neutral[200],
-    marginBottom: "0.5rem"
+    marginBottom: theme.spacing(1)
 }))
 
 

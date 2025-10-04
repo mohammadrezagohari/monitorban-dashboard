@@ -1,7 +1,7 @@
 import { Box, styled, Typography } from "@mui/material";
 
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledMessageCard = styled(Box)(({ theme }) => ({
     // display: "flex",
@@ -50,7 +50,7 @@ export const StyledMainSection = styled(MainContainer)(({ theme }) => ({
     height: "calc(100% - 64px)",
 }))
 
-export const StyledExpandedBox = styled(Box)(({ expanded, panel }) => ({
+export const StyledExpandedBox = styled(Box)(({ expanded, panel }: { expanded: string | null; panel: string }) => ({
     maxHeight: expanded === panel ? 500 : 0,
     overflow: "hidden",
     transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -76,4 +76,10 @@ export const AccordionHeader = styled(Box)(({ theme }) => ({
     [theme.breakpoints.up("lg")]: {
         flexDirection: "row",
     },
+}))
+
+export const StyledReceivedMessagesListContainer = styled(MainContainer)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    gap: theme.spacing(2),
 }))

@@ -1,12 +1,12 @@
 import { Select, styled } from "@mui/material";
 
 export const StyledSelect = styled(Select)(({ theme, value }) => ({
-    fontSize: 14,
-    fontWeight: 500,
+    fontSize: theme.typography.body2.fontSize,
+    fontWeight: theme.typography.body2.fontWeight,
     height: 48,
     // width: "100%",
     borderRadius: "15px",
-    fontFamily: "Dana",
+    fontFamily: "Dana-Regular",
 
     // "&  ul:first-of-type": {
     //      color: "lightgreen"
@@ -18,7 +18,7 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
         whiteSpace: "nowrap",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        paddingLeft: "36px",
+        paddingInlineEnd: (4.5),
     },
     "& .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiOutlinedInput-notchedOutline": {
         // border: `1px solid ${theme.palette.text.disabled}`,
@@ -32,9 +32,9 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
     },
     "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
         color: value ? theme.palette.neutral[100] : theme.palette.text.disabled,
-        paddingInline: "16px 36px",
+        paddingInline: theme.spacing(2, 4.5),
         // marginLeft: "40px",
-        paddingBlock: "12px",
+        paddingBlock: theme.spacing(1.5),
         // display: "flex",
         // alignItems: "center",
     },

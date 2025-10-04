@@ -26,6 +26,5 @@ export const FilterTitle = styled(Typography)(({ theme }) => ({
     fontWeight: theme.typography.h2.fontWeight,
     [theme.breakpoints.up("md")]: {
         fontWeight: theme.typography.h3.fontWeight,
-
     }
 }))

@@ -2,9 +2,10 @@ import { Typography, useTheme } from "@mui/material";
 
 import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import { AnnounceItemProps } from "./IAnnouncements";
 import { StyledAnnounceItem } from "./Announcements.styles";
 
-export default function AnnounceItem(props) {
+export default function AnnounceItem(props: AnnounceItemProps) {
   const theme = useTheme();
 
   const { item, announceStatus } = props;
@@ -16,22 +17,12 @@ export default function AnnounceItem(props) {
     danger: theme.palette.error.main,
   };
 
+
   return (
     <StyledAnnounceItem
       key={item.id}
       // isLastItem={isLastItem}
     >
-      {/* <div
-        style={{
-          backgroundColor: "#373040",
-          borderRadius: "50%",
-          padding: "12px",
-          width: "48px",
-          height: "48px",
-        }}
-      >
-        {item.icon}
-      </div> */}
       <IconWrapper bgcolor={theme.palette.neutral[600]}>
         <ItemIcon color={colors[announceStatus]} />
       </IconWrapper>

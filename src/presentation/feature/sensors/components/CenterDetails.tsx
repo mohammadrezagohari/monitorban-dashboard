@@ -11,12 +11,13 @@ import { FilterIcon } from "src/presentation/assets/icons/FilterIcon";
 import { MobileIcon } from "src/presentation/assets/icons/MobileIcon";
 import { sensorsData } from "src/presentation/data/data";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
+import TemperatureCard from "src/presentation/components/common/temperature-card/TemperatureCard";
 import { FilterOption } from "src/presentation/components/common/operations/IFilter";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import { FilterSquareIcon } from "src/presentation/assets/icons/FilterSquareIcon";
-import TemperatureCard from "src/presentation/components/common/temperature-card/TemperatureCard";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { CenterDetailsButtonsContainer } from "./Sensors.styles";
 
 const filterOptions: FilterOption[] = [
   { id: 1, value: "zare", label: "بیمارستان زارع" },
@@ -25,15 +26,26 @@ const filterOptions: FilterOption[] = [
   { id: 4, value: "razi", label: "کلینیک رازی" },
 ];
 
+interface CenterType {
+  id: number | string;
+  centerName: string;
+  icon: string;
+  city: string;
+  sensors: {
+    name: string;
+    data: any;
+    category: string;
+    status: "warning" | "accept" | "danger";
+  }[];
+}
+
 function CenterDetails() {
   //   const [sensorsList, setSensorsList] = useState(sensorsData);
   const [sortBy, setSortBy] = useState("server-room"); // برای بخش فیلتر که دیتا را براساس گزینه های انتخابی کاربر فیلتر و نمایش دهد
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [selectedCenter, setSelectedCenter] = useState<
-    (typeof sensorsData)[number] | null
-  >(null);
+  const [selectedCenter, setSelectedCenter] = useState<CenterType | null>(null);
   const navigate = useNavigate();
   const { centerName } = useParams();
   const theme = useTheme();
@@ -46,6 +58,8 @@ function CenterDetails() {
       const centerObj = sensorsData.find(
         (item) => item.centerName === centerName
       );
+      if (!centerObj) return;
+      
       setSelectedCenter(centerObj);
     },
     [centerName]
@@ -64,119 +78,59 @@ function CenterDetails() {
       <PageTitle title={centerName as string} />
 
       <SectionContainer>
-        <Box sx={{ mb: 2, position: "relative" }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
+        <Box>
+          <CenterDetailsButtonsContainer>
+            <Button
+              variant="outlined"
+              size={isDesktop ? "large" : "xxsmall"}
+              colorType="primary"
+              ref={anchorRef}
+              onClick={handleFilterButton}
+              endIcon={
+                isFilterOpen ? (
+                  <ArrowUpIcon size={isDesktop ? 24 : 16} />
+                ) : (
+                  <ArrowDownIcon size={isDesktop ? 24 : 16} />
+                )
+              }
+              startIcon={<FilterIcon size={isDesktop ? 24 : 16} />}
+            >
+              فیلتر
+            </Button>
+
+            <Button
+              variant="outlined"
+              size={isDesktop ? "large" : "xxsmall"}
+              colorType="primary"
+              onClick={() => console.log("sort button clicked")}
+              endIcon={
+                isSortOpen ? (
+                  <ArrowUpIcon size={isDesktop ? 24 : 16} />
+                ) : (
+                  <ArrowDownIcon size={isDesktop ? 24 : 16} />
+                )
+              }
+              startIcon={<FilterSquareIcon size={isDesktop ? 24 : 16} />}
+            >
+              مرتب سازی
+            </Button>
+
             {isDesktop ? (
-              <>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                  }}
-                >
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    colorType="primary"
-                    ref={anchorRef}
-                    onClick={handleFilterButton}
-                    endIcon={
-                      isFilterOpen ? (
-                        <ArrowUpIcon size={24} />
-                      ) : (
-                        <ArrowDownIcon size={24} />
-                      )
-                    }
-                    startIcon={<FilterIcon />}
-                  >
-                    فیلتر
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    colorType="primary"
-                    onClick={() => console.log("sort button clicked")}
-                    endIcon={
-                      isSortOpen ? (
-                        <ArrowUpIcon size={24} />
-                      ) : (
-                        <ArrowDownIcon size={24} />
-                      )
-                    }
-                    startIcon={<FilterSquareIcon />}
-                  >
-                    مرتب سازی
-                  </Button>
-                </Box>
-
-                <Button
-                  variant="outlined"
-                  size="large"
-                  colorType="primary"
-                  // onClick={() => console.log("add button clicked")}
-                  onClick={handleAddSensorBtn}
-                  startIcon={<PlusIcon />}
-                >
-                  افزودن سنسور جدید
-                </Button>
-              </>
+              <Button
+                variant="outlined"
+                size="large"
+                colorType="primary"
+                onClick={handleAddSensorBtn}
+                startIcon={<PlusIcon />}
+              >
+                افزودن سنسور جدید
+              </Button>
             ) : (
-              <>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                  }}
-                >
-                  <Button
-                    variant="outlined"
-                    size="xxsmall"
-                    colorType="primary"
-                    ref={anchorRef}
-                    onClick={handleFilterButton}
-                    endIcon={
-                      isFilterOpen ? (
-                        <ArrowUpIcon size={24} />
-                      ) : (
-                        <ArrowDownIcon size={24} />
-                      )
-                    }
-                    startIcon={<FilterIcon />}
-                  >
-                    فیلتر
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="xxsmall"
-                    colorType="primary"
-                    onClick={() => console.log("sort button clicked")}
-                    endIcon={
-                      isSortOpen ? (
-                        <ArrowUpIcon size={24} />
-                      ) : (
-                        <ArrowDownIcon size={24} />
-                      )
-                    }
-                    startIcon={<FilterSquareIcon />}
-                  >
-                    مرتب سازی
-                  </Button>
-                </Box>
-
-                <IconButtonWithBorder onClick={handleAddSensorBtn}>
-                  <PlusIcon color={theme.palette.primary.dark} size={16} />
-                </IconButtonWithBorder>
-              </>
+              <IconButtonWithBorder onClick={handleAddSensorBtn}>
+                <PlusIcon color={theme.palette.primary.dark} size={16} />
+              </IconButtonWithBorder>
             )}
-          </Box>
+          </CenterDetailsButtonsContainer>
 
           {isFilterOpen && (
             <Filter

@@ -47,27 +47,16 @@ function ServerRoomsSlider() {
               <EyeIcon size={16} color={theme.palette.primary.dark} />
             </IconButtonWithBorder>
           )}
+
           {isDesktop && (
-            <div>
-              <IconButton
-                sx={{
-                  bgColor: "transparent",
-                  border: "none",
-                }}
-                ref={prevBtn}
-              >
-                <ArrowRightIcon color="#D5D0DB" />
+            <Box>
+              <IconButton ref={prevBtn}>
+                <ArrowRightIcon color={theme.palette.neutral[100]} />
               </IconButton>
-              <IconButton
-                sx={{
-                  bgColor: "transparent",
-                  border: "none",
-                }}
-                ref={nextBtn}
-              >
-                <ArrowLeftIcon color="#D5D0DB" />
+              <IconButton ref={nextBtn}>
+                <ArrowLeftIcon color={theme.palette.neutral[100]} />
               </IconButton>
-            </div>
+            </Box>
           )}
         </ButtonsContainer>
       </HeaderContainer>

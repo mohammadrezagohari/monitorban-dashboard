@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 
 function GroupInfo({ group }) {
   const { register } = useForm({ defaultValues: group });
-  //   console.log(name);
 
   return (
     <SectionContainer>

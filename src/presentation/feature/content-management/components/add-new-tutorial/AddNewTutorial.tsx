@@ -1,18 +1,20 @@
+import { Box, Typography } from "@mui/material";
+
+import Input from "src/presentation/components/common/input/Input";
+import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
 import { Form } from "src/presentation/components/common/Form";
-import { GridBox } from "src/presentation/components/common/GridBox";
+import Dropzone from "src/presentation/components/common/dropzone/Dropzone";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import { GridBox } from "src/presentation/components/common/GridBox";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import RadioInputGroup from "src/presentation/components/common/radio-input/RadioInputGroup";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Input from "src/presentation/components/common/input/Input";
-import RadioInputGroup from "src/presentation/components/common/radio-input/RadioInputGroup";
-import { Box, Typography } from "@mui/material";
-import Button from "src/presentation/components/common/buttons/Button";
-import Dropzone from "src/presentation/components/common/dropzone/Dropzone";
+import { ButtonContainer } from "./AddNewTutorial.styles";
 
 function AddNewTutorial() {
   return (
@@ -63,12 +65,12 @@ function AddNewTutorial() {
                 </Typography>
               </FormRow>
 
-              <FormRow gridColumn="-1/-2">
-                <Box sx={{ "& *": { justifySelf: "flex-end" } }}>
+              <FormRow gridColumn="1/-1">
+                <ButtonContainer>
                   <Button variant="contained" size="large" colorType="primary">
                     افزودن آموزش
                   </Button>
-                </Box>
+                </ButtonContainer>
               </FormRow>
             </GridBox>
           </Form>

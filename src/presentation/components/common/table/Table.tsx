@@ -7,7 +7,7 @@ import {
   StyledTableRow,
 } from "./Table.styles";
 
-const TableContext = createContext("");
+const TableContext = createContext({ columns: "" });
 
 function Table({
   columns,

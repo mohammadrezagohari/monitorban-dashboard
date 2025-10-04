@@ -1,7 +1,7 @@
-import { FormControl } from "@mui/material";
-
-import BaseInput from "src/presentation/components/common/input/BaseInput";
 import Button from "src/presentation/components/common/buttons/Button";
+import Input from "src/presentation/components/common/input/Input";
+import FormRow from "src/presentation/components/common/input/FormRow";
+import { StyledLoginForm } from "./Login.style";
 
 const LoginForm = ({
   phoneNumber,
@@ -21,34 +21,29 @@ const LoginForm = ({
       console.log("error");
       return;
     }
-    // console.log(event);
     setPhoneNumber(event.target[0].value);
     setStep("OTP");
-    // console.log(phoneNumber);
   }
 
   return (
-    <FormControl
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{ display: "flex", flexDirection: "column", gap: 3 }}
-    >
-      <BaseInput
-        label="برای شروع شماره موبایلت رو وارد کن"
-        placeholder="مثال : 09353500145"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
-      {/* TODO:: چطور میتونم تایپ باتن رو تعریف کنم؟ */}
+    <StyledLoginForm onSubmit={handleSubmit}>
+      <FormRow label="برای شروع شماره موبایلت رو وارد کن">
+        <Input
+          id="phone"
+          placeholder="مثال : 09353500145"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+      </FormRow>
       <Button
         variant="contained"
         size="large"
         colorType="primary"
-        // type="submit"
+        type="submit"
       >
         مرحله بعد - وارد کردن کد
       </Button>
-    </FormControl>
+    </StyledLoginForm>
   );
 };
 

@@ -9,3 +9,9 @@ export const ButtonContainer = styled(Box)(({ theme }) => ({
         }
     }
 }))
+
+export const AddNewFAQForm = styled("form")(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    gap: theme.spacing(2),
+}))

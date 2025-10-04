@@ -35,6 +35,7 @@ import { LogoText } from "./LogoText";
 import { MenuIcon } from "./MenuIcon";
 import { MessageEditIcon } from "./MessageEditIcon";
 import { MobileIcon } from "./MobileIcon";
+import { MoreIcon } from "./MoreIcon";
 import { PlusIcon } from "./PlusIcon";
 import { PrinterIcon } from "./PrinterIcon";
 import { SensorIcon } from "./SensorIcon";
@@ -92,6 +93,7 @@ export const iconsMap = {
     menuIcon: MenuIcon,
     messageEditIcon: MessageEditIcon,
     mobileIcon: MobileIcon,
+    moreIcon: MoreIcon,
     plusIcon: PlusIcon,
     printerIcon: PrinterIcon,
     sensorIcon: SensorIcon,

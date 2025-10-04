@@ -16,30 +16,27 @@ function LatestUsers() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const { users } = useLatestUsers();
-  console.log(users);
 
   return (
     <SectionContainer width="100%" height={246}>
       <HeaderContainer>
         <SectionTitle>آخرین کاربران</SectionTitle>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          {isDesktop ? (
-            <Button
-              variant="outlined"
-              size="xxsmall"
-              colorType="primary"
-              endIcon={<ArrowLeftIcon size={16} />}
-              onClick={() => console.log("آخرین کاربران")}
-            >
-              مشاهده همه
-            </Button>
-          ) : (
-            <IconButtonWithBorder>
-              <EyeIcon size={16} color={theme.palette.primary.dark} />
-            </IconButtonWithBorder>
-          )}
-        </div>
+        {isDesktop ? (
+          <Button
+            variant="outlined"
+            size="xxsmall"
+            colorType="primary"
+            endIcon={<ArrowLeftIcon size={16} />}
+            onClick={() => console.log("آخرین کاربران")}
+          >
+            مشاهده همه
+          </Button>
+        ) : (
+          <IconButtonWithBorder>
+            <EyeIcon size={16} color={theme.palette.primary.dark} />
+          </IconButtonWithBorder>
+        )}
       </HeaderContainer>
       <StyledMainContainer>
         {users &&

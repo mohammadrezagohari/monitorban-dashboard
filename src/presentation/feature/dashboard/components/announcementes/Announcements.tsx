@@ -15,8 +15,7 @@ import { annouceSelectOptions } from "src/presentation/data/data";
 export default function Announcements() {
   const [announceStatus, setAnnounceStatus] =
     useState<AnnouncementStatus>("danger");
-  const { isLoading, announcementItems, isError } =
-    useAnnouncement(announceStatus);
+  const { isLoading, announcementItems } = useAnnouncement(announceStatus);
 
   return (
     <SectionContainer width="100%" height={334} sx={{ maxWidth: { md: 350 } }}>

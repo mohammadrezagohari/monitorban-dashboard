@@ -1,5 +1,10 @@
+import { Typography } from "@mui/material";
+
 import Button from "src/presentation/components/common/buttons/Button";
+import Divider from "src/presentation/components/common/divider/Divider";
+import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
+import { MessageCardProps } from "./IMessages";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import {
   AccordionHeader,
@@ -8,11 +13,8 @@ import {
   StyledMessageCard,
   StyledTextMessage,
 } from "./messages.styles";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import Divider from "src/presentation/components/common/divider/Divider";
-import { Box, Typography } from "@mui/material";
 
-function MessageCard({ message, expanded, panel, onChange }) {
+function MessageCard({ message, expanded, panel, onChange }: MessageCardProps) {
   const { message: messageText, answer } = message;
   return (
     <StyledMessageCard>

@@ -3,7 +3,7 @@ import Button from "../buttons/Button";
 import { StyledEmptyData } from "./EmptyData.styles";
 import { EmptyDataProps } from "./IEmptyData";
 
-function EmptyData({ label }: EmptyDataProps) {
+function EmptyData({ label, handleClick }: EmptyDataProps) {
   return (
     <StyledEmptyData>
       <Typography variant="body2" color="neutral.200">
@@ -11,7 +11,12 @@ function EmptyData({ label }: EmptyDataProps) {
         است !
       </Typography>
 
-      <Button variant="outlined" size="small" colorType="secondary">
+      <Button
+        variant="outlined"
+        size="small"
+        colorType="secondary"
+        onClick={handleClick}
+      >
         افزودن {label}
       </Button>
     </StyledEmptyData>

@@ -3,8 +3,8 @@ import Select from "./Select";
 
 export const StyledRealtimeFilterSelect = styled(Select)(({ theme }) => ({
     typography: "caption",
-    fontSize: 12,
-    fontWeight: 500,
+    fontSize: theme.typography.caption.fontSize,
+    fontWeight: theme.typography.body2.fontWeight,
     borderRadius: "10px",
     overflow: "hidden",
     height: 32,
@@ -15,8 +15,8 @@ export const StyledRealtimeFilterSelect = styled(Select)(({ theme }) => ({
         color: theme.palette.secondary[200],
         // border: `1px solid ${theme.palette.secondary.main}`,
         borderRadius: "10px",
-        paddingRight: "12px",
-        paddingBlock: "8px",
+        paddingInlineStart: theme.spacing(1.5),
+        paddingBlock: theme.spacing(1),
         "&:hover": {
             backgroundColor: theme.palette.secondary[800],
         }

@@ -1,26 +1,8 @@
 import { Box, styled } from "@mui/material";
 import { createContext } from "react";
+import { StyledBox, StyledSensorCard } from "./Sensors.styles";
 
-const StyledSensorCard = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.neutral[600],
-  display: "flex",
-  flexDirection: "column",
-  borderRadius: "16px",
-  padding: "16px",
-  width: 350,
-  border: `1px solid transparent`,
-  "&:hover": {
-    borderColor: theme.palette.neutral[300],
-  },
-}));
-
-const StyledBox = styled(Box)(() => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-}));
-
-const SensorContext = createContext();
+const SensorContext = createContext({});
 
 function SensorCard({ children, sensor }) {
   return (

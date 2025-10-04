@@ -1217,16 +1217,19 @@ export const sensorsData = [
 
 export const annouceSelectOptions = [
   {
+    id: "normal",
     value: "normal",
     label: "نرمال",
     color: { text: "#0FD36A", border: "#0FD36A" },
   },
   {
+    id: "warning",
     value: "warning",
     label: "اخطار",
     color: { text: "#E8383B", border: "#E8383B" },
   },
   {
+    id: "danger",
     value: "danger",
     label: "بحرانی",
     color: { text: "#F5C789", border: "#E8890C" },
@@ -1987,7 +1990,8 @@ export const tutorialsData = [
     type: "ویدئو",
     title: "آموزش قسمت های مختلف داشبورد مدیریت 1",
     videoUrl: "/assets/videos/test2.mp4",
-    thumbnail: "/assets/images/thumbnails/thumbnail.jpg",
+    // thumbnail: "/assets/images/thumbnails/thumbnail.jpg",
+    thumbnail: "",
     description:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،  ",
   },

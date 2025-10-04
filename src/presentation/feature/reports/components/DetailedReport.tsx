@@ -1,13 +1,14 @@
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { Box, Typography } from "@mui/material";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+
+import Table from "src/presentation/components/common/table/Table";
 import Button from "src/presentation/components/common/buttons/Button";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import { ExcelIcon } from "src/presentation/assets/icons/ExcelIcon";
 import { PrinterIcon } from "src/presentation/assets/icons/PrinterIcon";
-import Table from "src/presentation/components/common/table/Table";
-import { detailedReportsData } from "src/presentation/data/data";
 import DetailedReportRow from "./DetailedReportRow";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { ButtonsContainer } from "./DetailedReport.styles";
+import { detailedReportsData } from "src/presentation/data/data";
 
 function DetailedReport() {
   return (

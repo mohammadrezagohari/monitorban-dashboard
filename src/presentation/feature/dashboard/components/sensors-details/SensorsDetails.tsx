@@ -9,7 +9,7 @@ import SectionTitle from "src/presentation/components/common/section-title/Secti
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { StyledMainContainer } from "./SensorsDetails.styles";
+import { StyledMainContainer, StyledSensorCard } from "./SensorsDetails.styles";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function SensorsDetails() {
@@ -18,7 +18,7 @@ function SensorsDetails() {
   const { sensorsItems } = useSensorsDetail();
 
   return (
-    <Box sx={{ gridRow: "1/3" }}>
+    <StyledSensorCard>
       <SectionContainer width="100%" height="446px">
         <HeaderContainer>
           <SectionTitle>سنسورها</SectionTitle>
@@ -46,7 +46,7 @@ function SensorsDetails() {
             ))}
         </StyledMainContainer>
       </SectionContainer>
-    </Box>
+    </StyledSensorCard>
   );
 }
 

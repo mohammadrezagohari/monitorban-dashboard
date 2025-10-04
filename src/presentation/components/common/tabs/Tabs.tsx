@@ -1,13 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { SyntheticEvent, useState } from "react";
-import {
-  Box,
-  IconButton,
-  Tabs as MuiTabs,
-  Tab,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import TabPanel from "./TabPanel";
@@ -21,6 +14,16 @@ import { MainContainer } from "../section-container/SectionContainer.styles";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import Checkbox from "../checkbox/Checkbox";
 import { StyledControledCheckbox } from "../checkbox/Checkbox.styles";
+import {
+  ButtonsContainer,
+  CheckboxContainer,
+  GroupCreatorMain,
+  GroupCreatorSection,
+  StyledCardsBox,
+  StyledTabs,
+  StyledTabsHeader,
+  Tab,
+} from "./Tab.styles";
 
 function a11yProps(index: number) {
   return {
@@ -59,15 +62,8 @@ function Tabs() {
   return (
     <>
       <SectionContainer>
-        <Box
-          sx={{
-            marginBottom: 2,
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-          }}
-        >
-          <MuiTabs
+        <StyledTabsHeader>
+          <StyledTabs
             id="MuiTabs"
             value={value}
             slotProps={{
@@ -78,36 +74,10 @@ function Tabs() {
               },
             }}
             onChange={handleChange}
-            sx={{
-              "& .MuiTabs-list": {
-                display: "flex",
-                alignItems: "center",
-                gap: 2,
-                borderBottom: `1px solid ${theme.palette.neutral[300]}`,
-              },
-            }}
           >
-            <Tab
-              label="همه کاربران"
-              {...a11yProps(0)}
-              sx={{
-                typography: { xs: "body2", md: "body1" },
-                color: "neutral.300",
-                padding: "8px 0",
-                minWidth: "auto",
-              }}
-            />
-            <Tab
-              label="کاربران دارای نقش"
-              {...a11yProps(1)}
-              sx={{
-                typography: { xs: "body2", md: "body1" },
-                color: "neutral.300",
-                padding: "8px 0",
-                minWidth: "auto",
-              }}
-            />
-          </MuiTabs>
+            <Tab label="همه کاربران" {...a11yProps(0)} />
+            <Tab label="کاربران دارای نقش" {...a11yProps(1)} />
+          </StyledTabs>
           {value > 0 &&
             (isDesktop ? (
               <Button
@@ -131,19 +101,30 @@ function Tabs() {
                 <UsersIcon size={16} />
               </IconButtonWithBorder>
             ))}
-        </Box>
+        </StyledTabsHeader>
 
         <TabPanel value={value} index={0}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <StyledCardsBox>
             {usersInfo.map((user, index) => {
               const isIncluded = user.roles.includes(ROLE);
 
               return (
-                <ListCard columns="2fr 1fr 3fr 1fr" item={user} key={index}>
+                <ListCard
+                  columns="2fr 1fr 3fr 1fr"
+                  item={{
+                    avatar: user.image,
+                    title: user.fullName,
+                    caption: user.phone,
+                    firstDetailItems: user.roles,
+                    secondDetailItems: user.groups,
+                    ...user,
+                  }}
+                  key={index}
+                >
                   <ListCard.Title />
 
-                  <ListCard.FirstDetail label="نقش" />
-                  <ListCard.SecondDetail label="گروه" />
+                  <ListCard.ShowFirstDetails label="نقش" />
+                  <ListCard.ShowSecondDetails label="گروه" />
 
                   <ListCard.Operations>
                     {isIncluded ? (
@@ -173,24 +154,31 @@ function Tabs() {
                 // />
               );
             })}
-          </Box>
+          </StyledCardsBox>
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <StyledCardsBox>
             {usersInfo
               .filter((user) => user.roles.includes(ROLE))
               .map((user, index) => (
                 <ListCard
                   columns="2fr 1fr 3fr 1fr"
-                  item={user}
+                  item={{
+                    avatar: user.image,
+                    title: user.fullName,
+                    caption: user.phone,
+                    firstDetailItems: user.roles,
+                    secondDetailItems: user.groups,
+                    ...user,
+                  }}
                   key={index}
                   selectable={isSelectable}
                 >
                   <ListCard.Title />
 
-                  <ListCard.FirstDetail label="نقش" />
-                  <ListCard.SecondDetail label="گروه" />
+                  <ListCard.ShowFirstDetails label="نقش" />
+                  <ListCard.ShowSecondDetails label="گروه" />
 
                   <ListCard.Operations>
                     <Button variant="outlined" size="small" colorType="error">
@@ -210,19 +198,13 @@ function Tabs() {
                 //   key={index}
                 // />
               ))}
-          </Box>
+          </StyledCardsBox>
         </TabPanel>
       </SectionContainer>
       {isSelectable && (
-        <SectionContainer sx={{ borderRadius: "15px !important" }}>
-          <MainContainer
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <GroupCreatorSection>
+          <GroupCreatorMain>
+            <CheckboxContainer>
               {/* <BaseCheckbox size={24} text="انتخاب همه" /> */}
               <StyledControledCheckbox
                 fontSize={14}
@@ -237,14 +219,14 @@ function Tabs() {
               >
                 $X$ انتخاب شده
               </Button>
-            </Box>
+            </CheckboxContainer>
 
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <ButtonsContainer>
               <Button
                 variant="contained"
                 size="small"
                 colorType="primary"
-                startIcon={<PlusIcon size={20} />}
+                startIcon={isDesktop && <PlusIcon size={20} />}
                 onClick={handleCreateGroup}
               >
                 ایجاد گروه
@@ -252,9 +234,9 @@ function Tabs() {
               <IconButton onClick={handleClose}>
                 <CloseIcon size={24} />
               </IconButton>
-            </Box>
-          </MainContainer>
-        </SectionContainer>
+            </ButtonsContainer>
+          </GroupCreatorMain>
+        </GroupCreatorSection>
       )}
     </>
   );

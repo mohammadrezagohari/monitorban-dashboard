@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import { Box, Typography, useTheme } from "@mui/material";
+
 import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { Box, Typography } from "@mui/material";
 
 export default function Map() {
+  const theme = useTheme();
+
   return (
     <SectionContainer width="100%" sx={{ flexShrink: 1 }}>
       <MainContainer
@@ -43,8 +46,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
-              stroke="#0FD36A"
-              fill="#0FD36A"
+              stroke={theme.palette.success.main}
+              fill={theme.palette.success.main}
             ></path>
           </Link>
           {/* </a> */}

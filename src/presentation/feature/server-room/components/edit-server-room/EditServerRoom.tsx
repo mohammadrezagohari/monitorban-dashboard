@@ -1,15 +1,19 @@
-import { Box } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useLocation, useParams } from "react-router-dom";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import CreateEditServerRoom from "../create-edit-server-room-form/CreateEditServerRoomForm";
+import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import { TickIcon } from "src/presentation/assets/icons/TickIcon";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function EditServerRoom() {
   const location = useLocation();
   const room = location.state?.room;
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  console.log("room", room);
 
   return (
     <>
@@ -18,16 +22,34 @@ function EditServerRoom() {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: 2,
+            gap: { xs: 1, md: 2 },
           }}
         >
-          <Button variant="outlined" size="small" colorType="primary">
-            انصراف
-          </Button>
+          {isDesktop ? (
+            <>
+              <Button variant="outlined" size="small" colorType="primary">
+                انصراف
+              </Button>
 
-          <Button variant="contained" size="small" colorType="primary">
-            ذخیره تغییرات
-          </Button>
+              <Button variant="contained" size="small" colorType="primary">
+                ذخیره تغییرات
+              </Button>
+            </>
+          ) : (
+            <>
+              <IconButtonWithBorder>
+                <CloseIcon size={16} />
+              </IconButtonWithBorder>
+              <IconButton
+                sx={{
+                  bgcolor: "primary.main",
+                  borderRadius: "10px",
+                }}
+              >
+                <TickIcon size={16} />
+              </IconButton>
+            </>
+          )}
         </Box>
       </PageTitle>
 

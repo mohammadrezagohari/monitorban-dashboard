@@ -7,6 +7,7 @@ import {
   Text,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import { useTheme } from "@mui/material";
 
 const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
   status = "default", // default, accept, warning, danger
@@ -33,6 +34,7 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
   //     : "#8C32D9"; //TODO:: color should be changed
 
   const { icon: iconBgColor, text: textColor } = getStatusColors(status);
+  const theme = useTheme();
 
   return (
     <BaseDashboardCard
@@ -40,10 +42,10 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
       topContent={
         <DataContainer>
           <Text color="neutral.100" variant="body1">
-            <IconWrapper bgcolor={iconBgColor || "#4D4259"}>{icon}</IconWrapper>
+            <IconWrapper bgcolor={iconBgColor || theme.palette.neutral[500]}>{icon}</IconWrapper>
             {name}:
           </Text>
-          <Text color={status !== "default" ? textColor : "#F7F5FA"}>
+          <Text color={status !== "default" ? textColor : theme.palette.neutral.main}>
             {data}
           </Text>
         </DataContainer>

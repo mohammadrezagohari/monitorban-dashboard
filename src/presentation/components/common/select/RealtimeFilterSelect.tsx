@@ -19,23 +19,6 @@ const RealtimeFilterSelect = ({
       value={value}
       onChange={handleSelectChange}
       options={options}
-      sx={
-        {
-          // // mt: 2,
-          // // mb: 1,
-          // typography: "caption",
-          // fontSize: 12,
-          // fontWeight: 500,
-          // height: 32,
-          // "& .MuiOutlinedInput-notchedOutline": {
-          //   borderRadius: "10px",
-          // },
-          // "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
-          //   paddingRight: "12px",
-          //   paddingBlock: "8px",
-          // },
-        }
-      }
     />
   );
 };

@@ -1,4 +1,4 @@
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
 import Input from "src/presentation/components/common/input/Input";
@@ -15,6 +15,8 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;
@@ -24,8 +26,7 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
   });
 
   const theme = useTheme();
-
-  console.log("room to edit => ", roomToEdit);
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <>
@@ -92,9 +93,11 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
           <HeaderContainer>
             <SectionTitle>انتخاب سنسورها</SectionTitle>
 
-            <Button variant="outlined" size="small" colorType="primary">
-              افزودن سنسور جدید
-            </Button>
+            {isDesktop && (
+              <Button variant="outlined" size="small" colorType="primary">
+                افزودن سنسور جدید
+              </Button>
+            )}
           </HeaderContainer>
 
           <MainContainer>

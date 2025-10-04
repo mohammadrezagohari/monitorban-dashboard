@@ -4,6 +4,7 @@ import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import SensorCategoryCard from "src/presentation/components/common/sensor-category-card/SensorCategoryCard";
 
 function SensorsCategoryItem({ category }) {
+  console.log("category => ", category);
   const ItemIcon = iconsMap[category.icon as keyof typeof iconsMap];
   const navigate = useNavigate();
 

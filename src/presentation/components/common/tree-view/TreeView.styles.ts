@@ -7,13 +7,16 @@ export const StyledTreeView = styled("form")(({ theme }) => ({
 }));
 
 export const StyledTreeItem = styled(Box)(({ theme }) => ({
-    marginInlineStart: theme.spacing(2),
+    // marginInlineStart: theme.spacing(2),
 }));
 
 export const StyledMainItemContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
-    gap: theme.spacing(2),
+    gap: theme.spacing(1.5),
+    [theme.breakpoints.up("md")]: {
+        gap: theme.spacing(2),
+    }
 }));
 
 export const StyledMainItemContent = styled(Box)(({ theme }) => ({

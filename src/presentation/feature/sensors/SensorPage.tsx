@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import Filter from "src/presentation/components/common/operations/Filter";
@@ -9,14 +9,10 @@ import SectionTitle from "src/presentation/components/common/section-title/Secti
 import { FilterIcon } from "src/presentation/assets/icons/FilterIcon";
 import { sensorsData } from "src/presentation/data/data";
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { FilterOption } from "src/presentation/components/common/operations/IFilter";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import SensorsCategoryItem from "./components/SensorsCategoryItem";
-import {
-  HeaderContainer,
-  MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { FilterOption } from "src/presentation/components/common/operations/IFilter";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import {
   FilterBox,
   StyledSensorPage,
@@ -35,7 +31,7 @@ function SensorsPage() {
   const [sensorsList, setSensorsList] = useState(sensorsData);
   const [sortBy, setSortBy] = useState("server-room"); // برای بخش فیلتر که دیتا را براساس گزینه های انتخابی کاربر فیلتر و نمایش دهد
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isSortOpen, setIsSortOpen] = useState(false);
+  // const [isSortOpen, setIsSortOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [selectedCenter, setSelectedCenter] = useState<
     (typeof sensorsData)[number] | null
@@ -67,8 +63,7 @@ function SensorsPage() {
         </HeaderContainer>
 
         <StyledSensorsMainContainer>
-          <FilterBox
-          >
+          <FilterBox>
             <Button
               variant="outlined"
               size={isDesktop ? "large" : "small"}
