@@ -7,8 +7,9 @@ import SectionTitle from "src/presentation/components/common/section-title/Secti
 import { GridBox } from "src/presentation/components/common/GridBox";
 import { GroupInfoMainContainer } from "./EditGroupPage.styles";
 import { useForm } from "react-hook-form";
+import { GroupType } from "./IEditGroupPage";
 
-function GroupInfo({ group }) {
+function GroupInfo({ group }: { group: GroupType }) {
   const { register } = useForm({ defaultValues: group });
 
   return (

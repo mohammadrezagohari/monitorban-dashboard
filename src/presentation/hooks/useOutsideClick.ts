@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 // }
 
 // export function useOutsideClick(props: useOutsideClickProps) {
-export function useOutsideClick(handler: () => {}, listenCapturing = true) {
+export function useOutsideClick(handler: () => void, listenCapturing = true) {
     // const { handler, listenCapturing = true } = props
     const ref = useRef<null | HTMLElement>(null)
 

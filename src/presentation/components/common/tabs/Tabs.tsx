@@ -64,7 +64,6 @@ function Tabs() {
       <SectionContainer>
         <StyledTabsHeader>
           <StyledTabs
-            id="MuiTabs"
             value={value}
             slotProps={{
               indicator: {

@@ -6,6 +6,7 @@ import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import VideoCard from "src/presentation/components/common/video-card/VideoCard";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { EmptyList, TutorialList } from "./TutorialPage.styles";
 
 function TutorialPage() {
   const theme = useTheme();
@@ -19,39 +20,21 @@ function TutorialPage() {
       <PageTitle title="آموزش ها" />
 
       <SectionContainer>
-        <MainContainer
-          sx={
-            videos.length > 0
-              ? {
-                  display: "grid",
-                  gridTemplateColumns: "repeat(1, 1fr)",
-                  justifyItems: "center",
-                  gap: 2,
-                  [theme.breakpoints.up("sm")]: {
-                    gridTemplateColumns: "repeat(2, 1fr)",
-                  },
-                  [theme.breakpoints.up("md")]: {
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                  },
-                  [theme.breakpoints.up("lg")]: {
-                    gridTemplateColumns: "repeat(4, 1fr)",
-                  },
-                }
-              : {
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: 100,
-                }
-          }
-        >
-          {!(videos.length > 0) && (
-            <Typography variant="body1" color="neutral.main">
-              ویدئویی برای نمایش وجود ندارد.
-            </Typography>
+        <MainContainer>
+          {!videos.length && (
+            <EmptyList>
+              <Typography variant="body1" color="neutral.main">
+                ویدئویی برای نمایش وجود ندارد.
+              </Typography>
+            </EmptyList>
           )}
-          {videos.length > 0 &&
-            videos.map((video) => <VideoCard video={video} key={video.id} />)}
+          {videos.length > 0 && (
+            <TutorialList>
+              {videos.map((video) => (
+                <VideoCard video={video} key={video.id} />
+              ))}
+            </TutorialList>
+          )}
         </MainContainer>
       </SectionContainer>
     </>

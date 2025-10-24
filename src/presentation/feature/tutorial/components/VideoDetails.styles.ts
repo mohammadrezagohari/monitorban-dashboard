@@ -5,8 +5,8 @@ export const Video = styled("video")(({ theme }) => ({
     height: "auto",
     borderRadius: "15px",
     marginBottom: theme.spacing(2),
+
     [theme.breakpoints.up("md")]: {
         borderRadius: "25px",
-
-    }
+    },
 }))

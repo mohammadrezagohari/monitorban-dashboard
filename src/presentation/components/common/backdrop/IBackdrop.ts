@@ -2,7 +2,7 @@ export interface DeleteBackdropProps {
     disabled?: boolean;
     onClose?: () => void;
     onConfirm?: () => void;
-    roleTitle?: string | null;
+    title?: string | null;
 }
 
 export interface ErrorBackdropProps {

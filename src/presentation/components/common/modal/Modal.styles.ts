@@ -9,7 +9,7 @@ export const Overlay = styled(Box)(({ theme }) => ({
     backgroundColor: "rgba(0,0,0,0.5)",
     // backgroundColor: theme.palette.text.secondary,
     backdropFilter: "blur(2px)",
-    zIndex: 1000,
+    zIndex: 2000,
     transition: "all 0.5s",
 }))
 

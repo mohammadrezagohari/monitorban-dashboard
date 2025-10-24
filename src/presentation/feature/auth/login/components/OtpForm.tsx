@@ -23,33 +23,11 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
   const [otpValues, setOtpValues] = useState<string[]>(
     Array(OTP_LENGHT).fill("")
   );
-  // const [timeLeft, setTimeLeft] = useState(RESEND_TIMEOUT);
   const [canResend, setCanResend] = useState(false);
   const [isError, setIsError] = useState(false);
   const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (timeLeft === 0) {
-  //     setCanResend(true);
-  //     return;
-  //   }
-
-  //   const timer = setInterval(() => {
-  //     setTimeLeft((prev) => prev - 1);
-  //   }, 1000);
-
-  //   return () => clearInterval(timer);
-  // }, [timeLeft]);
-
-  // const formatTime = (second: number) => {
-  //   const m = Math.floor(second / 60)
-  //     .toString()
-  //     .padStart(1, "0");
-  //   const s = (second % 60).toString().padStart(2, "0");
-
-  //   return `${Number(m) > 9 ? m : "0" + m}:${s}`;
-  // };
 
   const handleChange = (value: string, index: number) => {
     // Validate OTP input

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   Box,
   Typography,
@@ -25,14 +25,17 @@ import { MessageEditIcon } from "src/presentation/assets/icons/MessageEditIcon";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import {
   ButtonsContainer,
+  StyledAccessesContainer,
   StyledMainContainer,
   StyledRoleCardContainer,
+  StyledTitleBox,
 } from "../RolesPage.styles";
 import { useNavigate } from "react-router-dom";
 import { MoreIcon } from "src/presentation/assets/icons/MoreIcon";
 import Modal from "src/presentation/components/common/modal/Modal";
 import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
 import { useDeleteRole } from "./useDeleteRole";
+import OperationMenu from "../../common/operation-menu/OperationMenu";
 
 export default function RoleCard({
   roleObj,
@@ -48,10 +51,12 @@ export default function RoleCard({
 }) {
   const { id, title: roleName, serverRoom, accesses } = roleObj;
   const [visible, setVisible] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
   //   const [deleteBackdrop, setDeleteBackdrop] = useState(false);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null);
   const [pendingDeleteTitle, setPendingDeleteTitle] = useState<string | null>(
     null
@@ -60,6 +65,9 @@ export default function RoleCard({
   console.log("roleObj => ", roleObj);
 
   function handleAccessToggle() {
+    if (contentRef.current) {
+      setContentHeight(!visible ? contentRef.current.scrollHeight : 0);
+    }
     setVisible((visible) => !visible);
   }
 
@@ -70,6 +78,10 @@ export default function RoleCard({
 
   function handleAccess() {
     navigate("access");
+  }
+
+  function handleUsers() {
+    navigate("users");
   }
 
   function handleDeleteRequest(id: string, roleName: string) {
@@ -90,14 +102,14 @@ export default function RoleCard({
   return (
     <StyledRoleCardContainer>
       <HeaderContainer>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <IconWrapper sx={{ color: "neutral.100" }}>
-            <ListIcon size={24} />
+        <StyledTitleBox>
+          <IconWrapper>
+            <ListIcon size={24} color={theme.palette.neutral[100]} />
           </IconWrapper>
           <Typography variant="h4" color="neutral.main">
             {roleName}
           </Typography>
-        </Box>
+        </StyledTitleBox>
 
         {/* Buttons */}
         <ButtonsContainer>
@@ -119,7 +131,7 @@ export default function RoleCard({
 
                 <Modal.Window name="delete-role">
                   <DeleteConfirmBackdrop
-                    roleTitle={roleName}
+                    title={roleName}
                     onConfirm={() => deleteRole(id)}
                     disabled={isDeleting}
                   />
@@ -142,7 +154,7 @@ export default function RoleCard({
                 size="small"
                 colorType="primary"
                 startIcon={<TwoUsersIcon size={20} />}
-                onClick={() => navigate("users")}
+                onClick={handleUsers}
               >
                 کاربران
               </Button>
@@ -158,16 +170,13 @@ export default function RoleCard({
               </Button>
             </>
           ) : (
-            // <IconButton
-            //   sx={{
-            //     position: "relative",
-            //     top: -8,
-            //     left: -8,
-            //   }}
-            // >
-            //   <MoreIcon color={theme.palette.neutral.main} />
-            // </IconButton>
-            <MenuComp />
+            <OperationMenu
+              title={roleName}
+              onDelete={() => deleteRole(id)}
+              onEdit={handleEdit}
+              showUsers={handleUsers}
+              showAccesses={handleAccess}
+            />
           )}
         </ButtonsContainer>
       </HeaderContainer>
@@ -183,63 +192,150 @@ export default function RoleCard({
             {serverRoom}
           </Typography>
         </Box>
-        <Box sx={{ justifySelf: "end" }}>
-          <Button
-            variant="outlined"
-            size="small"
-            colorType="primary"
-            onClick={handleAccessToggle}
-            endIcon={
-              visible ? <ArrowUpIcon size={20} /> : <ArrowDownIcon size={20} />
-            }
-          >
-            مشاهده دسترسی ها
-          </Button>
-        </Box>
-        {visible && <RoleAccessibility accesses={accesses} />}
+
+        <Button
+          variant="outlined"
+          size="small"
+          colorType="primary"
+          onClick={handleAccessToggle}
+          endIcon={
+            visible ? <ArrowUpIcon size={20} /> : <ArrowDownIcon size={20} />
+          }
+        >
+          مشاهده دسترسی ها
+        </Button>
+        <StyledAccessesContainer
+          sx={{
+            height: `${contentHeight}px`,
+          }}
+          ref={contentRef}
+        >
+          <RoleAccessibility accesses={accesses} />
+        </StyledAccessesContainer>
       </StyledMainContainer>
     </StyledRoleCardContainer>
   );
 }
 
-function MenuComp() {
-  const [ancholEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(ancholEl);
-  const theme = useTheme();
+// function MenuComp() {
+//   const [ancholEl, setAnchorEl] = useState<null | HTMLElement>(null);
+//   const open = Boolean(ancholEl);
+//   const theme = useTheme();
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+//   const handleClick = (event) => {
+//     setAnchorEl(event.currentTarget);
+//   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+//   const handleClose = () => {
+//     setAnchorEl(null);
+//   };
 
-  return (
-    <>
-      <IconButton
-        sx={{
-          position: "relative",
-          top: -8,
-          left: -8,
-        }}
-        onClick={handleClick}
-      >
-        <MoreIcon color={theme.palette.neutral.main} />
-      </IconButton>
-      <Menu anchorEl={ancholEl} open={open} onClose={handleClose}>
-        <MenuItem>
-          <ListItemIcon>
-            <DeleteIcon />
-          </ListItemIcon>
-          <ListItemText>One</ListItemText>
-          <ListItemIcon>
-            <DeleteIcon />
-          </ListItemIcon>
-        </MenuItem>
-        <MenuItem>Two</MenuItem>
-        <MenuItem>Three</MenuItem>
-      </Menu>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <IconButton
+//         sx={{
+//           position: "relative",
+//           top: -8,
+//           left: -8,
+//         }}
+//         onClick={handleClick}
+//       >
+//         <MoreIcon color={theme.palette.neutral.main} />
+//       </IconButton>
+//       <Menu
+//         sx={{
+//           "& .MuiPaper-root": {
+//             width: 133,
+//             borderRadius: "10px",
+//             border: `1px solid ${theme.palette.neutral[300]}`,
+//             backgroundColor: theme.palette.neutral[600],
+//           },
+//           "& .MuiButtonBase-root": {
+//             display: "flex",
+//             alignItems: "center",
+//             gap: 0.5,
+//             padding: theme.spacing(1, 1.5),
+//             minHeight: 0,
+//           },
+//           "& .MuiTypography-root": {
+//             ...theme.typography.body2,
+//           },
+//           "& .MuiListItemIcon-root": {
+//             minWidth: 0,
+//           },
+//         }}
+//         anchorEl={ancholEl}
+//         open={open}
+//         onClose={handleClose}
+//       >
+//         <MenuItem>
+//           <ListItemIcon
+//             sx={{
+//               color: theme.palette.error.main,
+//             }}
+//           >
+//             <DeleteIcon size={20} />
+//           </ListItemIcon>
+//           <ListItemText
+//             sx={{
+//               color: theme.palette.error.main,
+//             }}
+//           >
+//             حذف
+//           </ListItemText>
+//           {/* <ListItemIcon>
+//             <DeleteIcon />
+//           </ListItemIcon> */}
+//         </MenuItem>
+//         <MenuItem>
+//           <ListItemIcon
+//             sx={{
+//               color: theme.palette.success.main,
+//             }}
+//           >
+//             <MessageEditIcon size={20} />
+//           </ListItemIcon>
+//           <ListItemText
+//             sx={{
+//               color: theme.palette.success.main,
+//             }}
+//           >
+//             ویرایش
+//           </ListItemText>
+//         </MenuItem>
+//         <MenuItem>
+//           <ListItemIcon
+//             sx={{
+//               color: theme.palette.primary.dark,
+//             }}
+//           >
+//             <TwoUsersIcon size={20} />
+//           </ListItemIcon>
+//           <ListItemText
+//             sx={{
+//               color: theme.palette.primary.dark,
+//             }}
+//           >
+//             کاربران
+//           </ListItemText>
+//         </MenuItem>
+//         <MenuItem>
+//           <ListItemIcon
+//             sx={{
+//               color: theme.palette.primary.dark,
+//             }}
+//           >
+//             <ComplaintIcon size={20} />
+//           </ListItemIcon>
+//           <ListItemText
+//             sx={{
+//               color: theme.palette.primary.dark,
+//             }}
+//           >
+//             دسترسی ها
+//           </ListItemText>
+//         </MenuItem>
+//       </Menu>
+//     </>
+//   );
+// }

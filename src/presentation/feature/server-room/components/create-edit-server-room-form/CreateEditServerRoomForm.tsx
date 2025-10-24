@@ -15,8 +15,6 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;

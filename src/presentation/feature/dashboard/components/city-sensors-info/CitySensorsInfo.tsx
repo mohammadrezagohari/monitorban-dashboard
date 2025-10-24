@@ -9,60 +9,90 @@ import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { JSX } from "react";
 
-const sensors = [
-  {
-    status: "accept", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-  {
-    status: "accept", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-  {
-    status: "danger", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-  {
-    status: "warning", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-  {
-    status: "warning", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-  {
-    status: "danger", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-  {
-    status: "accept", // default, accept, warning, danger
-    name: "بالا TCL01",
-    icon: <MobileIcon />,
-    data: 3428,
-    hour: "6",
-  },
-];
+type SensorStatusType = "default" | "accept" | "warning" | "danger";
 
-const amolServers = [
+interface SensorT {
+  id: number;
+  status: SensorStatusType;
+  name: string;
+  icon: JSX.Element;
+  data: number;
+  hour: string;
+}
+
+interface ServerT {
+  id: number;
+  server_name: string;
+  sensors: SensorT[];
+}
+
+interface CitySensorsInfoProps {
+  city: string;
+  servers: ServerT[];
+}
+
+// const sensors = [
+//   {
+//     id: 1,
+//     status: "accept", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+//   {
+//     id: 2,
+//     status: "accept", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+//   {
+//     id: 3,
+//     status: "danger", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+//   {
+//     id: 4,
+//     status: "warning", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+//   {
+//     id: 5,
+//     status: "warning", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+//   {
+//     id: 6,
+//     status: "danger", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+//   {
+//     id: 7,
+//     status: "accept", // default, accept, warning, danger
+//     name: "بالا TCL01",
+//     icon: <MobileIcon />,
+//     data: 3428,
+//     hour: "6",
+//   },
+// ];
+
+const amolServers: ServerT[] = [
   {
     id: 1,
     server_name: "کلینیک راضی",
@@ -243,15 +273,16 @@ const amolServers = [
   },
 ];
 
-const CitySensorsInfo = ({ city = "ساری", servers }: { city: string }) => {
-  // console.log(`اطلاعات سنسور شهر ${(<span>{city}</span>)}`);
-
+const CitySensorsInfo = ({
+  city = "ساری",
+  servers = amolServers,
+}: CitySensorsInfoProps) => {
   return (
     <>
       <PageTitle title={`اطلاعات سنسور شهر ${city}`} />
 
       <StyledCitySensorsInfo>
-        {amolServers.map((server) => (
+        {servers.map((server) => (
           <SectionContainer key={server.id}>
             <HeaderContainer>
               <SectionTitle>{server.server_name}</SectionTitle>

@@ -14,10 +14,14 @@ export const StyledRoleCardContainer = styled(Box)(({ theme }) => ({
 
 export const StyledMainContainer = styled(MainContainer)(({ theme }) => ({
     display: "grid",
-    gridTemplateColumns: "repeat(2, auto)",
+    gridTemplateColumns: "1fr",
     alignItems: "center",
     gap: theme.spacing(2),
     justifyContent: "space-between",
+
+    [theme.breakpoints.up("md")]: {
+        gridTemplateColumns: "1fr auto",
+    },
 }))
 
 export const ButtonsContainer = styled(Box)(({ theme }) => ({
@@ -31,4 +35,16 @@ export const AccessesBox = styled(Box)(({ theme }) => ({
     alignItems: "center",
     flexWrap: "wrap",
     gap: theme.spacing(1),
+}))
+
+export const StyledTitleBox = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
+}))
+
+export const StyledAccessesContainer = styled(Box)(() => ({
+    gridColumn: "1 / -1",
+    overflow: "hidden",
+    transition: "height 0.3s ease",
 }))

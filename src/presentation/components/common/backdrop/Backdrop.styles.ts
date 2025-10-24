@@ -9,6 +9,10 @@ export const StyledBackdropContainer = styled(Box)(({ theme }) => ({
     border: `1px solid ${theme.palette.neutral[300]}`,
     borderRadius: "25px",
     backgroundColor: theme.palette.neutral[700],
+
+    [theme.breakpoints.down("md")]: {
+        width: "85vw",
+    },
 }))
 
 export const Title = styled(Typography)<{ $type: "error" | "warning" | "success" }>(({ theme, $type }) => ({

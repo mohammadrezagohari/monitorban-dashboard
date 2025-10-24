@@ -1,6 +1,6 @@
+import Stepper from "src/presentation/components/common/stepper/Stepper";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { StyledAddAccessContainer } from "./AddAccessGroup.styles";
-import Stepper from "src/presentation/components/common/stepper/Stepper";
 
 function AddAccessGroup() {
   return (

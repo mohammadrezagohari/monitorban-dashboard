@@ -1,17 +1,22 @@
-import { Divider,  Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 
 import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
+import { FAQItemProps } from "./IFAQ";
 import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
+import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import {
   StyledAnswerContainer,
   StyledFAQItemContainer,
   StyledQuestionContainer,
 } from "./FAQ.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
-export default function FAQItem({ item, panel, expanded, onChange }) {
+export default function FAQItem({
+  item,
+  panel,
+  expanded,
+  onChange,
+}: FAQItemProps) {
   const { question, answer } = item;
-
 
   return (
     <StyledFAQItemContainer>
@@ -20,7 +25,11 @@ export default function FAQItem({ item, panel, expanded, onChange }) {
           {question}
         </Typography>
         <IconButtonWithBorder onClick={() => onChange(panel)}>
-          {expanded === panel ? <ArrowUpIcon size={16} /> : <ArrowDownIcon size={16} />}
+          {expanded === panel ? (
+            <ArrowUpIcon size={16} />
+          ) : (
+            <ArrowDownIcon size={16} />
+          )}
         </IconButtonWithBorder>
       </StyledQuestionContainer>
 

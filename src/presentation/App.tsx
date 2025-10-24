@@ -66,7 +66,7 @@ export default function App() {
 
 interface RouteWithAuthProps {
   requiresAuth?: boolean;
-  component: React.ComponentType;
+  component: React.ComponentType<any>;
 }
 
 function RouteWithAuth({

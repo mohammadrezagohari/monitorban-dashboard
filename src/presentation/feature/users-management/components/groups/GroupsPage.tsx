@@ -15,7 +15,7 @@ function GroupsPage() {
         {isDesktop ? (
           <Button
             variant="contained"
-            size="small"
+            size="large"
             colorType="primary"
             startIcon={<PlusIcon size={24} />}
           >
@@ -26,9 +26,6 @@ function GroupsPage() {
             bgColor={theme.palette.primary.main}
             color={theme.palette.neutral.main}
             type="contained"
-            // sx={{
-            //   borderRadius: "10px",
-            // }}
           >
             <PlusIcon size={16} />
           </IconButtonWithBorder>

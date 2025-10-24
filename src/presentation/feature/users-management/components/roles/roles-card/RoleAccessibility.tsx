@@ -5,7 +5,7 @@ import { AccessesBox } from "../RolesPage.styles";
 
 function RoleAccessibility({ accesses }) {
   return (
-    <Box sx={{ gridColumn: "1 / -1" }}>
+    <>
       <Typography variant="body2" color="neutral.200">
         دسترسی ها :
       </Typography>
@@ -14,7 +14,7 @@ function RoleAccessibility({ accesses }) {
           <TagWithBullet key={i}>{temp}</TagWithBullet>
         ))}
       </AccessesBox>
-    </Box>
+    </>
   );
 }
 

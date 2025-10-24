@@ -27,3 +27,9 @@ export const StyledAccessesMainContainer = styled(MainContainer)(({ theme }) => 
     gap: theme.spacing(1),
     flexWrap: "wrap",
 }))
+
+export const ButtonContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(2),
+}))

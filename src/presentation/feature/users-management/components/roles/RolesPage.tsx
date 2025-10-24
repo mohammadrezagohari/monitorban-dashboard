@@ -19,37 +19,11 @@ export default function RolesPage() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  // const [rolesList, setRolesList] = useState(rolesArray);
   const { isLoading, isError, rolesList } = useRolesPage();
 
-  // const [backdropOpen, setBackdropOpen] = useState(false);
-  // const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null);
-  // const [pendingDeleteTitle, setPendingDeleteTitle] = useState<string | null>(
-  //   null
-  // );
-
-  // function handleDeleteRequest(id: string, roleName: string) {
-  //   setPendingDeleteId(id);
-  //   setPendingDeleteTitle(roleName);
-  //   // setBackdropOpen(true);
-  // }
-
-  // function confirmDelete() {
-  //   if (pendingDeleteId) {
-  //     setRolesList((prevRoles) =>
-  //       prevRoles.filter((role) => role.id !== pendingDeleteId)
-  //     );
-  //   }
-  //   cancelDelete();
-  // }
-
-  // function cancelDelete() {
-  //   // setBackdropOpen(false);
-  //   setTimeout(() => {
-  //     setPendingDeleteId(null);
-  //     setPendingDeleteTitle(null);
-  //   }, 100);
-  // }
+  function handleCreateNewRole() {
+    console.log("Added");
+  }
 
   if (isLoading) return <p>Is Loading...</p>;
   if (isError) return null;
@@ -64,6 +38,7 @@ export default function RolesPage() {
             size="large"
             colorType="primary"
             startIcon={<PlusIcon size={24} />}
+            onClick={handleCreateNewRole}
           >
             ایجاد نقش جدید
           </Button>
@@ -72,9 +47,8 @@ export default function RolesPage() {
             sx={{
               bgcolor: "primary.main",
               borderRadius: "10px",
-              // width: 32,
-              // height: 32,
             }}
+            onClick={handleCreateNewRole}
           >
             <PlusIcon color={theme.palette.neutral.main} size={16} />
           </IconButton>
@@ -101,17 +75,10 @@ export default function RolesPage() {
               })}
             </Box>
           ) : (
-            <EmptyData label="نقش" />
+            <EmptyData label="نقش" handleClick={handleCreateNewRole} />
           )}
         </MainContainer>
       </SectionContainer>
-
-      {/* <DeleteConfirmBackdrop
-        open={backdropOpen}
-        onClose={cancelDelete}
-        onConfirm={confirmDelete}
-        roleTitle={pendingDeleteTitle}
-      /> */}
     </>
   );
 }

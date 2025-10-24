@@ -12,16 +12,15 @@ function DeleteConfirmBackdrop({
   disabled,
   onClose,
   onConfirm,
-  roleTitle,
+  title,
 }: DeleteBackdropProps) {
-  
   return (
     // <Box open={open} onClick={onClose}>
     <Box>
       <StyledBackdropContainer onClick={(e) => e.stopPropagation()}>
         <Title $type="warning">هشدار!</Title>
         <Message>
-          آیا از حذف نقش <span>"{roleTitle}"</span> مطمئن هستید ؟
+          آیا از حذف نقش <span>"{title}"</span> مطمئن هستید ؟
         </Message>
         <ButtonsContainer>
           <Button

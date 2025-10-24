@@ -8,23 +8,14 @@ function Footer() {
 
   return (
     <StyledFooter>
-      <Typography fontSize="inherit">
+      <Typography 
+      // fontSize="inherit"
+      >
         همچنین می توانید جهت ارتباط سریع تر با این شماره تماس بگیرید
       </Typography>
 
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          color: "neutral.main",
-        }}
-      >
-        <Typography
-          sx={{ direction: "ltr", letterSpacing: "1px", fontSize: "inherit" }}
-        >
-          011 - 3335 4585
-        </Typography>
+      <Box>
+        <Typography id="phone-number">011 - 3335 4585</Typography>
         <CallIcon size={isDesktop ? 24 : 20} />
       </Box>
     </StyledFooter>

@@ -21,10 +21,12 @@ function Dropzone({ type }: DropzoneProps) {
     noClick: true,
     noKeyboard: true,
   });
+  const inputProps = getInputProps();
+  console.log(inputProps);
   const label = type === "image" ? "عکس" : "فایل";
   return (
     <StyledDropzone {...getRootProps()} isDragActive={isDragActive}>
-      <Input {...getInputProps()} />
+      <Input {...(inputProps as any)} id={`dropzone-input-${type}`} />
       {type === "image" ? (
         <GalleryIcon size={24} color={theme.palette.neutral[100]} />
       ) : (

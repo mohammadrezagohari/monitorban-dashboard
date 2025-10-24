@@ -29,7 +29,7 @@ export const StyledQuestionContainer = styled(Box)(({ theme }) => ({
     }
 }))
 
-export const StyledAnswerContainer = styled(MainContainer)(({ expanded, panel }) => ({
+export const StyledAnswerContainer = styled(MainContainer)<{ expanded: string | null; panel: string }>(({ expanded, panel }) => ({
     maxHeight: expanded === panel ? 500 : 0,
     overflow: "hidden",
     transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -68,16 +68,32 @@ export const StyledFooter = styled("footer")(({ theme }) => ({
     alignItems: "center",
     gap: theme.spacing(1.5),
     justifyContent: "center",
-    fontSize: theme.typography.body2.fontSize,
     textAlign: "center",
     color: theme.palette.neutral.main,
 
-    [theme.breakpoints.up("lg")]: {
-        fontSize: theme.typography.h3.fontSize,
+    "& *.MuiTypography-root": {
+        fontSize: theme.typography.body2.fontSize,
+
+        [theme.breakpoints.up("lg")]: {
+            fontSize: theme.typography.h3.fontSize,
+        },
+    },
+
+    "& div": {
+        display: "flex",
+        alignItems: "center",
+        gap: theme.spacing(1),
+        color: theme.palette.neutral.main,
+
+        "& #phone-number": {
+            direction: "ltr",
+            letterSpacing: "1px",
+            // fontSize: "inherit",
+        },
     },
 
     [theme.breakpoints.up("md")]: {
         flexDirection: "row",
         gap: theme.spacing(8),
-    }
+    },
 }))

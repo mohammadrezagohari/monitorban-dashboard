@@ -7,7 +7,7 @@ export interface ModalContextType {
 }
 
 export interface ModalProps {
-    children: ReactElement;
+    children: ReactNode; //10.05.2025
 }
 
 export interface WindowProps {

@@ -7,6 +7,7 @@ import CreateEditServerRoom from "../create-edit-server-room-form/CreateEditServ
 import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import { TickIcon } from "src/presentation/assets/icons/TickIcon";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { ButtonContainer } from "./EditServerRoom.styles";
 
 function EditServerRoom() {
   const location = useLocation();
@@ -14,17 +15,10 @@ function EditServerRoom() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-
   return (
     <>
       <PageTitle title="ویرایش اتاق سرور">
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: { xs: 1, md: 2 },
-          }}
-        >
+        <ButtonContainer>
           {isDesktop ? (
             <>
               <Button variant="outlined" size="small" colorType="primary">
@@ -50,7 +44,7 @@ function EditServerRoom() {
               </IconButton>
             </>
           )}
-        </Box>
+        </ButtonContainer>
       </PageTitle>
 
       <CreateEditServerRoom roomToEdit={room} />

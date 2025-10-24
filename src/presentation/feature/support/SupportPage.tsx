@@ -7,10 +7,10 @@ import TicketForm from "./components/TicketForm";
 import { StyledSupportPage } from "./SupportPage.styles";
 
 function SupportPage() {
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   const handleChange = (panel: string) => {
-    setExpanded((currentPanel) => (currentPanel !== panel ? panel : false));
+    setExpanded((currentPanel) => (currentPanel !== panel ? panel : null));
   };
 
   return (

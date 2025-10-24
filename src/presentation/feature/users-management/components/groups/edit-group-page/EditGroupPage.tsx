@@ -1,11 +1,13 @@
-import { Box } from "@mui/material";
 import Button from "src/presentation/components/common/buttons/Button";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { StyledEditGroupPageContainer } from "./EditGroupPage.styles";
 import GroupInfo from "./GroupInfo";
 import GroupMembers from "./GroupMembers";
 import GroupAccesses from "./GroupAccesses";
 import { useLocation } from "react-router-dom";
+import {
+  ButtonContainer,
+  StyledEditGroupPageContainer,
+} from "./EditGroupPage.styles";
 
 function EditGroupPage() {
   const location = useLocation();
@@ -14,14 +16,14 @@ function EditGroupPage() {
   return (
     <>
       <PageTitle title="ویرایش گروه">
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <ButtonContainer>
           <Button variant="outlined" size="small" colorType="primary">
             انصراف
           </Button>
           <Button variant="contained" size="small" colorType="primary">
             ذخیره تغییرات
           </Button>
-        </Box>
+        </ButtonContainer>
       </PageTitle>
 
       <StyledEditGroupPageContainer>

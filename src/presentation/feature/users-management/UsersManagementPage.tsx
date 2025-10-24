@@ -9,6 +9,7 @@ import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { UserSquareIcon } from "src/presentation/assets/icons/UserSquareIcon";
+import Chip from "src/presentation/components/common/chip/Chip";
 
 function UsersManagementPage() {
   const theme = useTheme();

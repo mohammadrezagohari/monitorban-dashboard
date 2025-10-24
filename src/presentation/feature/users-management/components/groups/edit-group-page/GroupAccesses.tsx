@@ -11,26 +11,28 @@ import {
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { StyledAccessesMainContainer } from "./EditGroupPage.styles";
 import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
+import { AccessesType } from "./IEditGroupPage";
 
-function GroupAccesses({ accesses }) {
+function GroupAccesses({ accesses }: AccessesType) {
+  function handleAddAccess() {
+    console.log("Added");
+  }
   return (
     <SectionContainer>
       <HeaderContainer>
         <SectionTitle>دسترسی های گروه</SectionTitle>
-        <Button variant="outlined" size="small" colorType="primary">
+        <Button
+          variant="outlined"
+          size="small"
+          colorType="primary"
+          onClick={handleAddAccess}
+        >
           افزودن دسترسی
         </Button>
       </HeaderContainer>
       <MainContainer>
         {accesses.length > 0 ? (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: 1,
-            }}
-          >
+          <StyledAccessesMainContainer>
             {accesses.map((access) => (
               <Tag>
                 <IconButton
@@ -42,9 +44,9 @@ function GroupAccesses({ accesses }) {
                 {access}
               </Tag>
             ))}
-          </Box>
+          </StyledAccessesMainContainer>
         ) : (
-          <EmptyData label="دسترسی" />
+          <EmptyData label="دسترسی" handleClick={handleAddAccess} />
         )}
       </MainContainer>
     </SectionContainer>
