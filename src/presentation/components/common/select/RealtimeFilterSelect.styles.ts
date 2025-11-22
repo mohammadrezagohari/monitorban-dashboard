@@ -11,20 +11,20 @@ export const StyledRealtimeFilterSelect = styled(Select)(({ theme }) => ({
     "& .MuiOutlinedInput-notchedOutline": {
         borderRadius: "10px",
     },
-    "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": {
+    "& .MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input": { //@ts-ignore
         color: theme.palette.secondary[200],
         // border: `1px solid ${theme.palette.secondary.main}`,
         borderRadius: "10px",
         paddingInlineStart: theme.spacing(1.5),
         paddingBlock: theme.spacing(1),
-        "&:hover": {
+        "&:hover": {//@ts-ignore
             backgroundColor: theme.palette.secondary[800],
         }
     },
     "& .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiOutlinedInput-notchedOutline": {
         border: `1px solid ${theme.palette.secondary.main}`,
     },
-    "& .MuiSelect-icon": {
+    "& .MuiSelect-icon": {//@ts-ignore
         color: theme.palette.secondary[200],
     },
 }))

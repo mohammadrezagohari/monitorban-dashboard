@@ -9,24 +9,24 @@ export const StyledTag = styled(Typography)<{ $type?: "primary" | "secondary" | 
     padding: "5.5px 10px",
     width: "max-content",
     whiteSpace: "nowrap",
-    ...($type === "primary" && {
+    ...($type === "primary" && { //@ts-ignore
         color: theme.palette.primary[300],
         backgroundColor: theme.palette.neutral[500],
     }),
-    ...($type === "secondary" && {
-        color: theme.palette.secondary[200],
+    ...($type === "secondary" && {//@ts-ignore
+        color: theme.palette.secondary[200], //@ts-ignore
         backgroundColor: theme.palette.secondary[800],
     }),
-    ...($type === "normal" && {
-        color: theme.palette.success.main,
+    ...($type === "normal" && {//@ts-ignore
+        color: theme.palette.success.main, //@ts-ignore
         backgroundColor: theme.palette.success[700],
     }),
-    ...($type === "warning" && {
-        color: theme.palette.warning[500],
+    ...($type === "warning" && { //@ts-ignore
+        color: theme.palette.warning[500], //@ts-ignore
         backgroundColor: theme.palette.warning[800],
     }),
     ...($type === "danger" && {
-        color: theme.palette.error.main,
+        color: theme.palette.error.main, //@ts-ignore
         backgroundColor: theme.palette.error[800],
     }),
 }))

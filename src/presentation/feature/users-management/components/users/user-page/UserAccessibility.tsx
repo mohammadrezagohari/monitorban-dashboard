@@ -56,11 +56,13 @@ function UserAccessibility() {
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Text color="neutral.main" variant="body1">
+            {/* @ts-ignore */}
             <BulletIcon color={theme.palette.primary[300]} size={12} />
             دسترسی از نقش
           </Text>
 
           <Text color="neutral.main" variant="body1">
+            {/* @ts-ignore */}
             <BulletIcon color={theme.palette.secondary[300]} size={12} />
             دسترسی بصورت جداگانه
           </Text>

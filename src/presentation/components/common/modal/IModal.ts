@@ -16,6 +16,6 @@ export interface WindowProps {
 }
 
 export interface OpenProps {
-    children: ReactElement;
+    children: ReactNode;
     opens: string;
 }

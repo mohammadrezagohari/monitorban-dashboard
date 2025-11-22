@@ -10,4 +10,10 @@ export interface FilterPopoverProps {
     onChange: (selected: string[]) => void;
     onApply?: (data: any) => void;
     onClose?: () => void;
+    anchorRef?: React.RefObject<HTMLDivElement>;
+}
+
+export type FilterFormValues = {
+    "sensor-type": string;
+    "data-centers": string[];
 }

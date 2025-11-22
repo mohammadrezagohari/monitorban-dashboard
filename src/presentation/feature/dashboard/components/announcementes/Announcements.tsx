@@ -1,7 +1,9 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 
-import useAnnouncement, { AnnouncementStatus } from "./useAnnouncement";
+import useAnnouncement, {
+  AnnouncementStatus,
+} from "src/presentation/services/query/dashboard/useAnnouncement";
 
 import Divider from "src/presentation/components/common/divider/Divider";
 import AnnounceItem from "./AnnounceItem";

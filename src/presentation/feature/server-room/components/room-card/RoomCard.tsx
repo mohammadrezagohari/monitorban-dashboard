@@ -29,7 +29,8 @@ function RoomCard({ room }) {
   return (
     <StyledRoomCard>
       <StyledTitle>
-        <IconWrapper>
+        <IconWrapper> 
+          {/* @ts-ignore */}
           <RoomIcon size={24} color={theme.palette.primary[200]} />
         </IconWrapper>
 

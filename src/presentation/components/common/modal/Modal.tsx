@@ -28,6 +28,14 @@ function Modal({ children }: ModalProps) {
 function Open({ children, opens: openWindowName }: OpenProps) {
   const { open } = useContext(ModalContext) as ModalContextType;
 
+  if (
+    !children ||
+    typeof children === "string" ||
+    typeof children === "number"
+  ) {
+    return null;
+  }
+
   return cloneElement(children as ReactElement<{ onClick?: () => void }>, {
     onClick: () => open(openWindowName),
   });
@@ -39,10 +47,20 @@ function Window({ children, name }: WindowProps) {
 
   if (name !== openName) return null;
 
+  if (
+    !children ||
+    typeof children === "string" ||
+    typeof children === "number"
+  ) {
+    return null;
+  }
+
   return createPortal(
     <Overlay>
       <StyledModal ref={ref}>
-        {cloneElement(children, { onClose: close })}
+        {cloneElement(children as ReactElement<{ onClose?: () => void }>, {
+          onClose: close,
+        })}
       </StyledModal>
     </Overlay>,
     document.body

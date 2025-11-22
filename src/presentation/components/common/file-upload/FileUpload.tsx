@@ -62,9 +62,10 @@ function FileUpload({
     <StyledFileUpload>
       <ImageContainer>
         <Avatar src={selectedFile ? URL.createObjectURL(selectedFile) : ""}>
+          {/* @ts-ignore */}
           <HouseIcon color={theme.palette.primary[200]} />
         </Avatar>
-       
+
         <Typography variant="body2" color="neutral.200">
           {label}
         </Typography>
@@ -88,7 +89,7 @@ function FileUpload({
         </Button>
 
         <IconButtonWithBorder
-          color={theme.palette.error.main}
+          iconColor={theme.palette.error.main}
           onClick={handleRemoveFile}
         >
           <DeleteIcon size={16} />

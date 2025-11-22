@@ -43,6 +43,7 @@ const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
         // label: "Test Chart",
         // data: [70, 65, 53, 77, 52, 36, 68, 28, 41],
         data: data?.[0]?.values || [],
+        // @ts-ignore
         backgroundColor: theme.palette.primary[300],
         borderRadius: 50,
         barThickness: isDesktop ? 28 : 16,

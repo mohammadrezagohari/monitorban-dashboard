@@ -54,7 +54,7 @@ interface BarChartData {
 
 
 export const fetchAnnouncements = async (status: Announcements["status"]): Promise<Announcements[]> => {
-    const res = await fetch(`${BASE_URL}/announceItemsInit`)
+    const res = await fetch(`${BASE_URL}/announce-items`)
     if (!res.ok) throw new Error("Failed to fetch announcements")
     const data = await res.json();
 
@@ -62,14 +62,14 @@ export const fetchAnnouncements = async (status: Announcements["status"]): Promi
 }
 
 export const getServerRooms = async (): Promise<ServerRooms[]> => {
-    const res = await fetch(`${BASE_URL}/serverRoomItems`)
+    const res = await fetch(`${BASE_URL}/server-room-items`)
     if (!res.ok) throw new Error("Failed to fetch server rooms")
 
     return res.json()
 }
 
 export const getSensorsItem = async (): Promise<Sensors[]> => {
-    const res = await fetch(`${BASE_URL}/sensorsItems`)
+    const res = await fetch(`${BASE_URL}/sensors-items`)
     if (!res.ok) throw new Error("Failed to fetch sensors")
 
     return res.json()
@@ -83,7 +83,7 @@ export const getUsers = async (): Promise<User[]> => {
 }
 
 export const getBarChartValues = async (peroid: PeriodTypes): Promise<BarChartData[]> => {
-    const res = await fetch(`${BASE_URL}/temperatureBarChart/?period=${peroid}`)
+    const res = await fetch(`${BASE_URL}/temperature-bar-chart/?period=${peroid}`)
     if (!res.ok) throw new Error("Failed to fetch temperature data")
 
     return res.json()

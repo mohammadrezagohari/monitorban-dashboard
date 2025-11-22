@@ -14,9 +14,10 @@ import {
   StyledOTPInput,
   StyledOTPInputsContainer,
 } from "./Login.style";
+import { useVerifyOtp } from "src/presentation/services/mutation/postVerifyOtp";
 
-const OTP_LENGHT = 5;
-const OTP_CODE = "11111";
+const OTP_LENGHT = 6;
+// const OTP_CODE = "11111";
 const RESEND_TIMEOUT = 120;
 
 const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
@@ -27,7 +28,7 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
   const [isError, setIsError] = useState(false);
   const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
   const navigate = useNavigate();
-
+  const { mutate, isPending } = useVerifyOtp();
 
   const handleChange = (value: string, index: number) => {
     // Validate OTP input
@@ -50,19 +51,28 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
     // submit when all fields complete
     const isComplete = newOtp.every((digit) => digit !== "");
     if (isComplete) {
-      handleSubmitCode(newOtp.join(""));
+      handleSubmitCode(Number(newOtp.join("")));
     }
   };
 
-  const handleSubmitCode = (code: string) => {
-    if (code !== OTP_CODE) {
+  const handleSubmitCode = (code: number) => {
+    if (!phoneNumber) {
       setIsError(true);
       return;
     }
-
-    setIsError(false);
-    alert("Success!");
-    navigate("/dashboard");
+    mutate(
+      { mobile: phoneNumber, otp: code },
+      {
+        onSuccess: () => {
+          setIsError(false);
+          // navigate("/dashboard");
+        },
+        onError: () => {
+          setIsError(true);
+        },
+      }
+    );
+   
   };
 
   const handleKeyDown = (
@@ -142,6 +152,7 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
           size="large"
           colorType="primary"
           onClick={handleResend}
+          disabled={isPending || canResend}
         >
           ارسال مجدد کد
         </Button>

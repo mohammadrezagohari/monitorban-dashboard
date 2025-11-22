@@ -45,7 +45,7 @@ function LineChart({ labelsChart = labels, dataChart = dataValue }) {
     labels: [...labelsChart].reverse(),
     datasets: [
       {
-        data: [...dataChart].reverse(),
+        data: [...dataChart].reverse(), //@ts-ignore
         borderColor: theme.palette.primary[100],
         tension: 0.3,
         pointStyle: false,

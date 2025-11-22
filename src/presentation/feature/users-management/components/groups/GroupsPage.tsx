@@ -24,8 +24,8 @@ function GroupsPage() {
         ) : (
           <IconButtonWithBorder
             bgColor={theme.palette.primary.main}
-            color={theme.palette.neutral.main}
-            type="contained"
+            iconColor={theme.palette.neutral.main}
+            iconType="contained"
           >
             <PlusIcon size={16} />
           </IconButtonWithBorder>

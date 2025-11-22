@@ -16,7 +16,7 @@ export const StyledStatisticContainer = styled(Box)(({ theme }) => ({
 
 export const StatisticValue = styled(Typography)<TextProps>(({ theme }) => ({
     fontSize: 30,
-    fontWeight: theme.typography.h2.fontWeight,
+    fontWeight: theme.typography.h2.fontWeight, //@ts-ignore
     color: theme.palette.primary[300],
     lineHeight: 1.6,
 

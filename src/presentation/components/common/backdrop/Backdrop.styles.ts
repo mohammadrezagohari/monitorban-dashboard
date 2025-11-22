@@ -25,8 +25,8 @@ export const Title = styled(Typography)<{ $type: "error" | "warning" | "success"
     ...($type === "error" && {
         color: theme.palette.error.main,
     }),
-    ...($type === "warning" && {
-        color: theme.palette.warning[500],
+    ...($type === "warning" && { //@ts-ignore
+        color: theme?.palette?.warning[500],
     }),
     ...($type === "success" && {
         color: theme.palette.success.main,
@@ -42,6 +42,7 @@ export const Message = styled(Typography)(({ theme }) => ({
         fontSize: theme.typography.body1.fontSize,
     },
     "& span": {
+        // @ts-ignore
         color: theme.palette.primary[300],
     }
 }))

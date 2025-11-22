@@ -147,7 +147,7 @@
       "icon": ""
     }
   ],
-  "announceItemsInit": [
+  "announce-items": [
     {
       "id": "1",
       "name": "سنسور رطوبت اتاق 1",
@@ -282,7 +282,7 @@
       "status": "danger"
     }
   ],
-  "serverRoomItems": [
+  "server-room-items": [
     {
       "title": "معاونت درمان استیان مازندران",
       "icon": "houseIcon",
@@ -1064,7 +1064,7 @@
       "status": "normal"
     }
   ],
-  "sensorsItems": [
+  "sensors-items": [
     {
       "id": "1",
       "name": "سنسور دمای اتاق",
@@ -1178,7 +1178,7 @@
       "icon": "supportIcon"
     }
   ],
-  "navItems": [
+  "nav-items": [
     {
       "id": "1",
       "label": "داشبورد",
@@ -1228,7 +1228,7 @@
       "path": "/content-management"
     }
   ],
-  "sensorsData": [
+  "sensors-data": [
     {
       "id": "1",
       "centerName": "دیتا سنتر خاتم بهشهر",
@@ -1724,7 +1724,7 @@
       ]
     }
   ],
-  "annouceSelectOptions": [
+  "announce-select-options": [
     {
       "value": "normal",
       "label": "نرمال",
@@ -1753,7 +1753,7 @@
       "id": "dc92"
     }
   ],
-  "temperatureBarChart": [
+  "temperature-bar-chart": [
     {
       "period": "1y",
       "values": [
@@ -1845,7 +1845,7 @@
       "id": "e6ce"
     }
   ],
-  "chartSelectOptions": [
+  "chart-select-options": [
     {
       "value": "annual",
       "label": "نمایش سالانه",
@@ -1901,7 +1901,7 @@
       "id": "b62a"
     }
   ],
-  "serverRoomOptions": [
+  "server-room-options": [
     {
       "value": "room1",
       "label": "اتاق سرور 1",
@@ -1943,7 +1943,7 @@
       "id": "800a"
     }
   ],
-  "rolesArray": [
+  "roles-array": [
     {
       "id": "id001",
       "title": "اپراتور",
@@ -2003,7 +2003,7 @@
       ]
     }
   ],
-  "sensorsTreeItem": [
+  "sensors-tree-item": [
     {
       "id": "roomTemp",
       "name": "سنسور دمای اتاق",
@@ -2087,7 +2087,7 @@
       ]
     }
   ],
-  "groupsList": [
+  "groups-list": [
     {
       "id": "1",
       "groupName": "کاربران معاونت تحقیقات",
@@ -2525,7 +2525,7 @@
       "answer": "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از  طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای  متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه  درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با  نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان  خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید  داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان"
     }
   ],
-  "detailedReportsData": [
+  "detailed-reports-data": [
     {
       "id": "1",
       "date": "1403/02/05",
@@ -2632,7 +2632,7 @@
       "isAnswered": false
     }
   ],
-  "sensorsSettingItems": [
+  "sensors-setting-items": [
     {
       "id": "1",
       "name": "سنسور دمای اتاق",
@@ -2682,7 +2682,7 @@
       "iconColor": "#9BD3D6"
     }
   ],
-  "tutorialsData": [
+  "tutorials-data": [
     {
       "id": "1",
       "type": "ویدئو",

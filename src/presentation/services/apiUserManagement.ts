@@ -35,7 +35,7 @@ export const getRoles = async () => {
     return res.json()
 }
 
-export const deleteRole = async (roleId) => {
+export const deleteRole = async (roleId:number) => {
     const res = await fetch(`${BASE_URL}/rolesArray/${roleId}`, {
         method: "DELETE",
         // headers: {}

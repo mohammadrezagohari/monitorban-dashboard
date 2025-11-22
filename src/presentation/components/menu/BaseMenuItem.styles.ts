@@ -21,7 +21,7 @@ export const StyledNavLink = styled(NavLink)(
             color: theme.palette.neutral[50],
         },
 
-        "&:hover > svg, &.active > svg": {
+        "&:hover > svg, &.active > svg": { //@ts-ignore
             color: theme.palette.primary[200]
         },
 

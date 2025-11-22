@@ -5,14 +5,14 @@ export const LogoutButton = styled(Button)<ButtonProps>(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: theme.spacing(1),
-
+// @ts-ignore
   color: theme.palette.primary[200],
   fontWeight: theme.typography.body2.fontWeight,
   fontSize: theme.typography.caption.fontSize,
   padding: 0,
 
   "&:hover, &:active": {
-    backgroundColor: "unset",
+    backgroundColor: "unset", //@ts-ignore
     color: theme.palette.primary[50],
   },
 }));

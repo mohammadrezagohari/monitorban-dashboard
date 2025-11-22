@@ -29,6 +29,26 @@ import {
   unitOptions,
 } from "src/presentation/data/data";
 import { AddSensorButtonsContainer, Form } from "./Sensors.styles";
+import { SensorFormValues } from "src/presentation/utils/types";
+
+// image: undefined;
+// maximumCritical: "";
+// maximumWarning: "";
+// minimumCritical: "";
+// minimumDailyRecord: "";
+// minimumWarning: "";
+// notificationInterval: "";
+// notificationNumber: "";
+// notificationType: "";
+// recordableChanges: "";
+// sensorAddress: "";
+// sensorName: "";
+// sensorTitleEnglish: "";
+// sensorTitlePersian: "";
+// sensorType: "";
+// sensorTypeFeature: "";
+// sensorUnit: "";
+// serverRoom: "";
 
 const AddNewSensor = () => {
   // const [serverRoomValue, setServerRoomValue] = useState("");
@@ -46,19 +66,20 @@ const AddNewSensor = () => {
   const [selectValue, setSelectValue] = useState("");
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
-  const { register, handleSubmit, formState, control, reset } = useForm();
+  const { register, handleSubmit, formState, control, reset } =
+    useForm<SensorFormValues>();
 
   const { errors } = formState;
 
   const moveBack = useMoveBack();
 
-  function onSubmit(data) {
+  function onSubmit(data: SensorFormValues) {
     // e.preventDefault();
     console.log("Form is submited", data);
     // dispatch({ type: "RESET" });
   }
 
-  function onError(errors) {
+  function onError(errors: any) {
     console.log("Errors:: ", errors);
   }
 
@@ -125,7 +146,6 @@ const AddNewSensor = () => {
                       value={field.value}
                       onChange={(e) => field.onChange(e.target.value)}
                       placeholder="یک اتاق سرور را انتخاب کنید"
-                      {...register("serverRoom")}
                     />
                   )}
                 />
@@ -147,7 +167,6 @@ const AddNewSensor = () => {
                       displayEmpty
                       onChange={(e) => field.onChange(e.target.value)}
                       placeholder="نوع سنسور را انتخاب کنید"
-                      {...register("sensorType")}
                     />
                   )}
                 />
@@ -166,6 +185,7 @@ const AddNewSensor = () => {
                 <Input
                   id="sensorTitleEnglish"
                   placeholder="عنوان انگلیسی سنسور را وارد کنید"
+                  {...register("sensorTitleEnglish")}
                 />
               </FormRow>
 
@@ -173,6 +193,7 @@ const AddNewSensor = () => {
                 <Input
                   id="sensorTitlePersian"
                   placeholder="عنوان فارسی سنسور را وارد کنید"
+                  {...register("sensorTitlePersian")}
                 />
               </FormRow>
 
@@ -214,6 +235,7 @@ const AddNewSensor = () => {
                 <Input
                   id="sensorAddress"
                   placeholder="آدرس فیزیکی سنسور را وارد کنید"
+                  {...register("sensorAddress")}
                 />
               </FormRow>
 
@@ -238,6 +260,7 @@ const AddNewSensor = () => {
                 <Input
                   id="notificationNumber"
                   placeholder="تعداد اعلان را وارد کنید"
+                  {...register("notificationNumber")}
                 />
               </FormRow>
 
@@ -260,12 +283,12 @@ const AddNewSensor = () => {
 
               <FormRow label="اعلان بازگشت به حالت نرمال">
                 <Controller
-                  name="notificationInterval"
+                  name="returnNotifToNormalOptions"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <Select
-                      id="notificationInterval"
+                      id="returnNotifToNormalOptions"
                       options={returnNotifToNormalOptions}
                       value={field.value}
                       onChange={(e) => field.onChange(e.target.value)}
@@ -313,6 +336,7 @@ const AddNewSensor = () => {
                 <Input
                   id="maximumCritical"
                   placeholder="بیشینه بحرانی را وارد کنید"
+                  {...register("maximumCritical")}
                 />
               </FormRow>
 
@@ -320,6 +344,7 @@ const AddNewSensor = () => {
                 <Input
                   id="minimumCritical"
                   placeholder="کمینه بحرانی را وارد کنید"
+                  {...register("minimumCritical")}
                 />
               </FormRow>
 
@@ -327,6 +352,7 @@ const AddNewSensor = () => {
                 <Input
                   id="maximumWarning"
                   placeholder="بیشینه بحرانی را وارد کنید"
+                  {...register("maximumWarning")}
                 />
               </FormRow>
 
@@ -334,6 +360,7 @@ const AddNewSensor = () => {
                 <Input
                   id="minimumWarning"
                   placeholder="کمینه بحرانی را وارد کنید"
+                  {...register("minimumWarning")}
                 />
               </FormRow>
 
@@ -345,6 +372,8 @@ const AddNewSensor = () => {
                     <FileUpload
                       onFileSelect={onChange}
                       label="عکس پروفایل"
+                      // TODO::
+                      //@ts-ignore
                       initialImage={value}
                       accept=".jpg,.jpeg,.png"
                     />
@@ -352,54 +381,6 @@ const AddNewSensor = () => {
                 />
               </FormRow>
             </GridBox>
-            {/* <Box mt={{ xs: 1.5, md: 2 }}>
-                <Typography variant="body1" color="neutral.200" mb={0.5}>
-                  آیکون
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 6,
-                    mr: 1.25,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      gap: 1,
-                      alignItems: "center",
-                      width: 90,
-                    }}
-                  >
-                    <IconWrapper>
-                      <HouseIcon color="#C9A8E5" />
-                    </IconWrapper>
-                    <Typography variant="body2" color="neutral.200">
-                      عکس آیکون
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <Button
-                      variant="outlined"
-                      size="xxsmall"
-                      colorType="primary"
-                    >
-                      بارگذاری عکس
-                    </Button>
-                    <IconButtonWithBorder
-                      color={theme.palette.error.main}
-                      // sx={{
-                      //   border: "1px solid #E8383B",
-                      //   borderRadius: "10px",
-                      //   p: "7px",
-                      // }}
-                    >
-                      <DeleteIcon size={16} />
-                    </IconButtonWithBorder>
-                  </Box>
-                </Box>
-              </Box> */}
           </MainContainer>
         </SectionContainer>
       </Form>

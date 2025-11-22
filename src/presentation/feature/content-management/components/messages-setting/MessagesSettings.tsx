@@ -36,6 +36,7 @@ function MessagesSettings() {
         </LinearCard>
 
         <LinearCard
+        //@ts-ignore
           color={theme.palette.warning[500]}
           icon={<DangerIcon size={24} color={theme.palette.neutral.main} />}
         >

@@ -22,7 +22,7 @@ import {
 import Avatar from "../avatar/Avatar";
 import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
 
-function SensorForm({ sensor = {} }) {
+function SensorForm({ sensor }) {
   const { id: sensorId, ...sensorData } = sensor;
   const isCreateSection = !Boolean(sensorId);
   const theme = useTheme();
@@ -217,6 +217,7 @@ function SensorForm({ sensor = {} }) {
 
           <FormRow label="آیکون">
             <Avatar src="">
+              {/* @ts-ignore */}
               <HouseIcon color={theme.palette.primary[200]} />
             </Avatar>
           </FormRow>
@@ -248,7 +249,7 @@ function SensorForm({ sensor = {} }) {
                 بارگذاری عکس
               </Button>
               <IconButtonWithBorder
-                color={theme.palette.error.main}
+                iconColor={theme.palette.error.main}
                 // sx={{
                 //   border: "1px solid #E8383B",
                 //   borderRadius: "10px",

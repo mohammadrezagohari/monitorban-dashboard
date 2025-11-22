@@ -62,7 +62,7 @@ function UserInfo() {
                 بارگذاری عکس
               </Button>
               <IconButtonWithBorder
-                color={theme.palette.error.main}
+                iconColor={theme.palette.error.main}
                 // sx={{
                 //   border: "1px solid #E8383B",
                 //   borderRadius: "10px",

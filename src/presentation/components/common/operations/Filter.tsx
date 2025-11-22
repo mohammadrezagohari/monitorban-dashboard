@@ -6,7 +6,7 @@ import Divider from "../divider/Divider";
 import { ButtonsContainer, StyledPaper } from "./Filter.styles";
 import ControledCheckbox from "../checkbox/ControledCheckbox";
 import AdvancedFilterSelect from "../select/AdvancedFilterSelect";
-import { FilterPopoverProps } from "./IFilter";
+import { FilterFormValues, FilterPopoverProps } from "./IFilter";
 import { Controller, useForm } from "react-hook-form";
 
 const Filter: React.FC<FilterPopoverProps> = ({
@@ -25,11 +25,11 @@ const Filter: React.FC<FilterPopoverProps> = ({
     },
   });
 
-  const handleInternalSubmit = (data) => {
+  const handleInternalSubmit = (data: FilterFormValues) => {
     // if (data) {
-    console.log(data);
+    console.log("test data:: => ", data);
     onApply?.(data);
-    onClose();
+    onClose?.();
     // }
   };
 
@@ -59,7 +59,7 @@ const Filter: React.FC<FilterPopoverProps> = ({
   return (
     <Popper
       open
-      anchorEl={anchorRef.current}
+      anchorEl={anchorRef?.current}
       transition
       placement="bottom-start"
       disablePortal

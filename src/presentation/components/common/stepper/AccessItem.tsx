@@ -28,6 +28,7 @@ const AccessItem = ({
     <StyledAccessItem onClick={onChange}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         <IconWrapper>
+          {/* @ts-ignore */}
           <ItemIcon color={theme.palette.primary[200]} />
         </IconWrapper>
         <Box>

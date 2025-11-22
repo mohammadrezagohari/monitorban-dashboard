@@ -102,6 +102,7 @@ function ServerRoomsSlider() {
                 <SwiperSlide style={{ width: "220px" }} key={i}>
                   <ServerRoomCard
                     title={item.title}
+                    // @ts-ignore
                     icon={<ItemIcon color={theme.palette.primary[200]} />}
                     city={item.city}
                     sensor={item.sensor}

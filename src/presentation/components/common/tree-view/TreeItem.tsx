@@ -28,9 +28,9 @@ export default function TreeItem({ node, control, level = 0 }: TreeItemProps) {
       <StyledMainItemContainer>
         {node.sensors && (
           <IconButtonWithBorder size="small" onClick={handleToggle}>
-            {!open ? (
+            {!open ? ( // @ts-ignore
               <ArrowUpIcon size={16} color={theme.palette.primary[200]} />
-            ) : (
+            ) : ( //@ts-ignore
               <ArrowDownIcon size={16} color={theme.palette.primary[200]} />
             )}
           </IconButtonWithBorder>

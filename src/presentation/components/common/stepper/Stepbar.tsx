@@ -45,7 +45,9 @@ function Stepbar({ steps, activeStep, setActiveStep }: StepbarProps) {
               variant="outlined"
               size="small"
               colorType="primary"
-              onClick={() => setActiveStep((prev) => Math.max(prev - 1, 0))}
+              onClick={() =>
+                setActiveStep(Math.max(activeStep - 1, 0))
+              }
               startIcon={<ArrowRightIcon size={16} />}
             >
               مرحله قبل

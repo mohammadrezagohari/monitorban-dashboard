@@ -42,10 +42,12 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
       bottomContent={
         <StatsContainer>
           <Text color="neutral.200" variant="body2">
+          {/* @ts-ignore */}
             <BulletIcon color={theme.palette.primary[300]} size={12} />
             {rack} رک
           </Text>
           <Text color="neutral.200" variant="body2">
+          {/* @ts-ignore */}
             <BulletIcon color={theme.palette.secondary[300]} size={12} />
             {sensor} سنسور
           </Text>

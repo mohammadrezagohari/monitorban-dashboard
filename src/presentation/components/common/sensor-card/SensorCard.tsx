@@ -26,6 +26,7 @@ const SensorCard: React.FC<SensorCardProps> = ({ sensor }) => {
 
   return (
     <StyledSensorCard>
+      {/* @ts-ignore */}
       <IconWrapper color={theme.palette.primary[200]}>
         <SenesorIcon />
       </IconWrapper>
