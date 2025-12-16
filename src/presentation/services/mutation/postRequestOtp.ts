@@ -7,7 +7,10 @@ export const requestOtp = (mobile: string) => {
 
 export const useRequestOtp = () => {
     return useMutation({
-        mutationFn: (mobile: string) => requestOtp(mobile),
+        mutationFn: (mobile: string) => {
+            console.log(mobile)
+            return requestOtp(mobile)
+        },
         onSuccess: () => {
             alert("کد با موفقیت ارسال شد")
         },

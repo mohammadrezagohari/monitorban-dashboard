@@ -12,7 +12,7 @@ export const StyledMainContainer = styled(MainContainer)(({ theme }) => ({
     "&::-webkit-scrollbar": { display: "none" },
 
     [theme.breakpoints.up("sm")]: {
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
         display: "grid",
         gap: theme.spacing(2),
     }

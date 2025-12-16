@@ -30,7 +30,7 @@ const SensorCard: React.FC<SensorCardProps> = ({ sensor }) => {
       <IconWrapper color={theme.palette.primary[200]}>
         <SenesorIcon />
       </IconWrapper>
-      <Box>
+      <Box className="sensor-info">
         <Title variant="body1" color="neutral.100">
           {name}
         </Title>

@@ -8,8 +8,8 @@ export type Option = {
 }
 
 
-export type SelectProps = MuiSelectProps & {
-    id: number | string;
+export type SelectProps = Omit<MuiSelectProps, "onChange"> & {
+    id?: number | string;
     value?: string;
     // label: string;
     placeholder?: string;

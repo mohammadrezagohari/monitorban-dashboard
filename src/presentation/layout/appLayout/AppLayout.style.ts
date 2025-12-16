@@ -1,7 +1,7 @@
 import { Box, BoxProps, styled } from "@mui/material";
 
 export const StyledAppLayout = styled(Box)<BoxProps>(({ theme }) => ({
-    backgroundColor: theme.palette.background.default,
+    // backgroundColor: theme.palette.background.default,
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(2),
@@ -13,5 +13,7 @@ export const StyledAppLayout = styled(Box)<BoxProps>(({ theme }) => ({
         padding: theme.spacing(3),
     },
     minHeight: "100vh",
+    maxWidth: "94rem",
+    margin: "0 auto",
     padding: theme.spacing(9, 1.5, 3),
 }))

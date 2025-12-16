@@ -1,16 +1,16 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import useSensorsDetail from "./useSensorsDetail";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import SensorCard from "src/presentation/components/common/sensor-card/SensorCard";
-import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { StyledMainContainer, StyledSensorCard } from "./SensorsDetails.styles";
+import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
+import Button from "src/presentation/components/common/buttons/Button";
 import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import SensorCard from "src/presentation/components/common/sensor-card/SensorCard";
+import { StyledMainContainer, StyledSensorCard } from "./SensorsDetails.styles";
 
 function SensorsDetails() {
   const theme = useTheme();

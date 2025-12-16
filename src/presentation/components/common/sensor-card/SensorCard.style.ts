@@ -15,11 +15,18 @@ export const StyledSensorCard = styled(Box)(({ theme }) => ({
     alignItems: "center",
     gap: theme.spacing(0.5),
     border: "1px solid transparent",
-    "&:hover": { borderColor: theme.palette.neutral[300] }
+    "&:hover": { borderColor: theme.palette.neutral[300] },
+
+    "& .sensor-info": {
+        overflow: "hidden",
+    }
 }))
 
 export const SensorDataContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
-    gap: theme.spacing(1)
+    gap: theme.spacing(1),
+    overflow: "auto",
+
+    "&::-webkit-scrollbar": { display: "none" },
 }))

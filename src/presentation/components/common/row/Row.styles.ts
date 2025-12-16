@@ -29,7 +29,7 @@ export const StyledRow = styled(Box, {
         gridTemplateColumns: "1fr",
         [theme.breakpoints.up("lg")]: {
             gap: theme.spacing(2, 3),
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
             gridTemplateRows: "246px 1fr",
         },
     }),

@@ -9,9 +9,9 @@ export const StyledMainContainer = styled(MainContainer)(({ theme }) => ({
     height: "calc(100% - 55px)",
 
     [theme.breakpoints.up("sm")]: {
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
         gap: theme.spacing(2),
     },
-    
+
     "&::-webkit-scrollbar": { display: "none" },
 }))

@@ -23,7 +23,6 @@ ChartJS.register(
 );
 
 const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
-  console.log("data => ", data);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const BarChartData = {

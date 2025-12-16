@@ -1,5 +1,5 @@
 import { PeriodTypes } from "../feature/dashboard/components/temperature-bar-chart/ITemperatureBarChart";
-import { BASE_URL } from "./Base_API";
+import { BASE_URL_FAKE } from "./Base_API";
 
 interface Announcements {
     id: number;
@@ -54,7 +54,7 @@ interface BarChartData {
 
 
 export const fetchAnnouncements = async (status: Announcements["status"]): Promise<Announcements[]> => {
-    const res = await fetch(`${BASE_URL}/announce-items`)
+    const res = await fetch(`${BASE_URL_FAKE}/announce-items`)
     if (!res.ok) throw new Error("Failed to fetch announcements")
     const data = await res.json();
 
@@ -62,28 +62,28 @@ export const fetchAnnouncements = async (status: Announcements["status"]): Promi
 }
 
 export const getServerRooms = async (): Promise<ServerRooms[]> => {
-    const res = await fetch(`${BASE_URL}/server-room-items`)
+    const res = await fetch(`${BASE_URL_FAKE}/server-room-items`)
     if (!res.ok) throw new Error("Failed to fetch server rooms")
 
     return res.json()
 }
 
 export const getSensorsItem = async (): Promise<Sensors[]> => {
-    const res = await fetch(`${BASE_URL}/sensors-items`)
+    const res = await fetch(`${BASE_URL_FAKE}/sensors-items`)
     if (!res.ok) throw new Error("Failed to fetch sensors")
 
     return res.json()
 }
 
 export const getUsers = async (): Promise<User[]> => {
-    const res = await fetch(`${BASE_URL}/users`)
+    const res = await fetch(`${BASE_URL_FAKE}/users`)
     if (!res.ok) throw new Error("Failed to fetch users")
 
     return res.json()
 }
 
 export const getBarChartValues = async (peroid: PeriodTypes): Promise<BarChartData[]> => {
-    const res = await fetch(`${BASE_URL}/temperature-bar-chart/?period=${peroid}`)
+    const res = await fetch(`${BASE_URL_FAKE}/temperature-bar-chart/?period=${peroid}`)
     if (!res.ok) throw new Error("Failed to fetch temperature data")
 
     return res.json()

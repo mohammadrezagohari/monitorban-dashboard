@@ -18,7 +18,7 @@ import { useVerifyOtp } from "src/presentation/services/mutation/postVerifyOtp";
 
 const OTP_LENGHT = 6;
 // const OTP_CODE = "11111";
-const RESEND_TIMEOUT = 120;
+const RESEND_TIMEOUT = 20;
 
 const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
   const [otpValues, setOtpValues] = useState<string[]>(
@@ -56,6 +56,8 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
   };
 
   const handleSubmitCode = (code: number) => {
+    console.log("first => ", code);
+
     if (!phoneNumber) {
       setIsError(true);
       return;
@@ -72,7 +74,6 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
         },
       }
     );
-   
   };
 
   const handleKeyDown = (
@@ -152,7 +153,7 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
           size="large"
           colorType="primary"
           onClick={handleResend}
-          disabled={isPending || canResend}
+          disabled={isPending}
         >
           ارسال مجدد کد
         </Button>
