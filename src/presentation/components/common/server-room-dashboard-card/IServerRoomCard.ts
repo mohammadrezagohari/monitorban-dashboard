@@ -1,6 +1,8 @@
+import { IconName } from "../icons";
+
 export interface ServerRoomCardProps {
     title: string;
-    icon: React.ReactNode;
+    icon: IconName;
     city: string;
     sensor?: number;
     rack?: number;

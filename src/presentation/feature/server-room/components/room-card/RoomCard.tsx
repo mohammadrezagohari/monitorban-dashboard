@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { Box, Typography, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-import Tag from "src/presentation/components/common/tag/Tag";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Button from "src/presentation/components/common/buttons/Button";
 import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import Tag from "src/presentation/components/common/tag/Tag";
 import {
   StyledDetail,
   StyledOperations,
@@ -13,11 +12,11 @@ import {
   StyledRoomTitle,
   StyledTitle,
 } from "./RoomCard.styles";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
 function RoomCard({ room }) {
   const { id: roomId, title, icon, city, status, sensors } = room;
   const theme = useTheme();
-  const RoomIcon = iconsMap[icon as keyof typeof iconsMap];
   const roomStatus =
     status === "normal" ? "نرمال" : status === "warning" ? "اخطار" : "بحرانی";
   const navigate = useNavigate();
@@ -29,9 +28,10 @@ function RoomCard({ room }) {
   return (
     <StyledRoomCard>
       <StyledTitle>
-        <IconWrapper> 
+        <IconWrapper>
+          {/* <RoomIcon size={24} color={theme.palette.primary[200]} /> */}
           {/* @ts-ignore */}
-          <RoomIcon size={24} color={theme.palette.primary[200]} />
+          <Icon name={icon} color={theme.palette.primary[200]} />
         </IconWrapper>
 
         <Box>

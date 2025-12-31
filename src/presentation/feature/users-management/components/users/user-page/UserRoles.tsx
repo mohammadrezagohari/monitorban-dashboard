@@ -1,14 +1,12 @@
-import { IconButton } from "@mui/material";
-
-import Tag from "src/presentation/components/common/tag/Tag";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { useFormContext } from "react-hook-form";
 import Button from "src/presentation/components/common/buttons/Button";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import Tag from "src/presentation/components/common/tag/Tag";
 import { StyledUserMainContainer } from "./UserPage.styles";
-import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
-import { useFormContext } from "react-hook-form";
 
 function UserRoles() {
   const { watch, setValue } = useFormContext();
@@ -33,18 +31,18 @@ function UserRoles() {
         <StyledUserMainContainer>
           {userRoles.map((role: string, index: number) => (
             <Tag key={index}>
-              <IconButton
-                sx={{ p: 0, color: "inherit" }}
+              <Icon
+                name="close"
+                w={20}
+                h={20}
                 onClick={() => handleRolesDelete(role)}
-              >
-                <CloseIcon size={20} />
-              </IconButton>
+              />
               {role}
             </Tag>
           ))}
         </StyledUserMainContainer>
       ) : (
-        <EmptyData label="نقش" />
+        <EmptyData label="نقش" handleClick={() => console.log("role")} />
       )}
     </SectionContainer>
   );

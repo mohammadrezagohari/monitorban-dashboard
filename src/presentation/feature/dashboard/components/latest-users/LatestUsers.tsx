@@ -3,14 +3,12 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import useLatestUsers from "./useLatestUsers";
 
 import Button from "src/presentation/components/common/buttons/Button";
-import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import UserCardMini from "src/presentation/feature/dashboard/components/latest-users/user-card-mini/UserCardMini";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { StyledMainContainer } from "./LatestUser.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function LatestUsers() {
   const theme = useTheme();
@@ -27,15 +25,16 @@ function LatestUsers() {
             variant="outlined"
             size="xxsmall"
             colorType="primary"
-            endIcon={<ArrowLeftIcon size={16} />}
+            leftIcon="arrowLeft"
             onClick={() => console.log("آخرین کاربران")}
           >
             مشاهده همه
           </Button>
         ) : (
-          <IconButtonWithBorder>
-            <EyeIcon size={16} color={theme.palette.primary.dark} />
-          </IconButtonWithBorder>
+          <IconButton iconName="eye" variant="outlined" />
+          // <IconButtonWithBorder>
+          //   <EyeIcon size={16} color={theme.palette.primary.dark} />
+          // </IconButtonWithBorder>
         )}
       </HeaderContainer>
       <StyledMainContainer>

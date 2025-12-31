@@ -1,7 +1,9 @@
+import { IconName } from "src/presentation/components/common/icons";
+
 export interface AnnounceItemProps {
     item: {
         id: string | number;
-        icon: string;
+        icon: IconName;
         name: string;
         report: string;
         status: "danger" | "normal" | "warning";

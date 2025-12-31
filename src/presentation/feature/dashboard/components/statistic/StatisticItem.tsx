@@ -1,8 +1,7 @@
 import { Typography, useTheme } from "@mui/material";
 
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import {
   StatisticValue,
   StyledDetailsContainer,
@@ -30,11 +29,12 @@ export default function StatisticItem({
       <StatisticValue variant="caption">{value}</StatisticValue>
 
       <StyledDetailsContainer>
-        {isIncrese ? (
-          <ArrowUpIcon color={theme.palette.neutral[100]} size={16} />
-        ) : (
-          <ArrowDownIcon color={theme.palette.neutral[100]} size={16} />
-        )}
+        <Icon
+          name={isIncrese ? "arrowUp" : "arrowDown"}
+          color={theme.palette.neutral[100]}
+          w={16}
+          h={16}
+        />
         <Typography
           variant="body2"
           color={isIncrese ? "success.main" : "error.main"}

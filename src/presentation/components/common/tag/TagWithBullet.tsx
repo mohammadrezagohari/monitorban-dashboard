@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { ReactNode } from "react";
 
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
+import { Icon } from "../icons/components/Icon";
 import { StyledTagWithBullet } from "./Tag.styles";
 
 function TagWithBullet({ children }: { children: ReactNode }) {
@@ -9,7 +9,7 @@ function TagWithBullet({ children }: { children: ReactNode }) {
 
   return (
     <StyledTagWithBullet variant="body1">
-      <BulletIcon color={theme.palette.primary.dark} size={8} />
+      <Icon name="bullet" color={theme.palette.primary.dark} w={8} h={8} />
 
       {children}
     </StyledTagWithBullet>

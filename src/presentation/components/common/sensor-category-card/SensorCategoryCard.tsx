@@ -1,25 +1,24 @@
-import React from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { SensorCategoryCardProps } from "./ISensorCategoryCard";
 import {
   DataContainer,
   Text,
   TextBox,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
+import { IconWrapper } from "../icons/IconWrapper.style";
+import { Icon } from "../icons/components/Icon";
+import { SensorCategoryCardProps } from "./ISensorCategoryCard";
 
-const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
+const SensorCategoryCard = ({
   icon,
   title,
   normalSensor,
   warningSensor,
   dangerSensor,
   onClick,
-}) => {
+}: SensorCategoryCardProps) => {
   const totalSensor = normalSensor + warningSensor + dangerSensor;
 
   const theme = useTheme();
@@ -35,7 +34,9 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
             variant={isDesktop ? "h4" : "body2"}
             component="h5"
           >
-            <IconWrapper bgcolor="#F7F5FA26">{icon}</IconWrapper>
+            <IconWrapper bgcolor="#F7F5FA26">
+              <Icon name={icon} />
+            </IconWrapper>
             {title}
           </Text>
         </DataContainer>
@@ -78,7 +79,7 @@ const SensorCategoryCard: React.FC<SensorCategoryCardProps> = ({
           </Box>
 
           <IconButtonWithBorder sx={{}} onClick={onClick}>
-            <ArrowLeftIcon stroke="#7F6A95" size={16} />
+            <Icon name="arrowLeft" color="#7F6A95" w={16} h={16} />
           </IconButtonWithBorder>
         </DataContainer>
       }

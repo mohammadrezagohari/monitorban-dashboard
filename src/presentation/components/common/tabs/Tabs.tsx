@@ -1,19 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import Button from "src/presentation/components/common/buttons/Button";
-import TabPanel from "./TabPanel";
-import ListCard from "../list-card/ListCard";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { usersInfo } from "src/presentation/data/data";
-import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import SectionContainer from "../section-container/SectionContainer";
-import { MainContainer } from "../section-container/SectionContainer.styles";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import Checkbox from "../checkbox/Checkbox";
 import { StyledControledCheckbox } from "../checkbox/Checkbox.styles";
+import { Icon } from "../icons/components/Icon";
+import ListCard from "../list-card/ListCard";
+import SectionContainer from "../section-container/SectionContainer";
 import {
   ButtonsContainer,
   CheckboxContainer,
@@ -24,6 +20,7 @@ import {
   StyledTabsHeader,
   Tab,
 } from "./Tab.styles";
+import TabPanel from "./TabPanel";
 
 function a11yProps(index: number) {
   return {
@@ -97,7 +94,7 @@ function Tabs() {
                 // }}
                 onClick={createGroup}
               >
-                <UsersIcon size={16} />
+                <Icon name="users" w={16} h={16} />
               </IconButtonWithBorder>
             ))}
         </StyledTabsHeader>
@@ -214,7 +211,7 @@ function Tabs() {
                 variant="text"
                 size="small"
                 colorType="primary"
-                startIcon={<CloseIcon size={20} />}
+                rightIcon="close"
               >
                 $X$ انتخاب شده
               </Button>
@@ -225,13 +222,13 @@ function Tabs() {
                 variant="contained"
                 size="small"
                 colorType="primary"
-                startIcon={isDesktop && <PlusIcon size={20} />}
+                rightIcon={isDesktop ? "plus" : null}
                 onClick={handleCreateGroup}
               >
                 ایجاد گروه
               </Button>
               <IconButton onClick={handleClose}>
-                <CloseIcon size={24} />
+                <Icon name="close" />
               </IconButton>
             </ButtonsContainer>
           </GroupCreatorMain>

@@ -1,17 +1,15 @@
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
 import Button from "src/presentation/components/common/buttons/Button";
-import TabPanel from "src/presentation/components/common/tabs/TabPanel";
 import Checkbox from "src/presentation/components/common/checkbox/Checkbox";
-import ListCard from "src/presentation/components/common/list-card/ListCard";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import { usersInfo } from "src/presentation/data/data";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import { UsersIcon } from "src/presentation/assets/icons/UsersIcon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import { StyledControledCheckbox } from "src/presentation/components/common/checkbox/Checkbox.styles";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import ListCard from "src/presentation/components/common/list-card/ListCard";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import TabPanel from "src/presentation/components/common/tabs/TabPanel";
+import { usersInfo } from "src/presentation/data/data";
 import {
   ButtonsContainer,
   CheckboxContainer,
@@ -86,9 +84,11 @@ function RoleTabs() {
                 ساخت گروه
               </Button>
             ) : (
-              <IconButtonWithBorder onClick={createGroup}>
-                <UsersIcon size={16} />
-              </IconButtonWithBorder>
+              <IconButton
+                iconName="users"
+                variant="outlined"
+                onClick={createGroup}
+              />
             ))}
         </StyledTabsHeader>
 
@@ -188,7 +188,7 @@ function RoleTabs() {
                 variant="text"
                 size="small"
                 colorType="primary"
-                startIcon={<CloseIcon size={20} />}
+                rightIcon="close"
               >
                 $X$ انتخاب شده
               </Button>
@@ -196,9 +196,7 @@ function RoleTabs() {
 
             <ButtonsContainer>
               {isDesktop ? (
-                <IconButton onClick={handleClose}>
-                  <CloseIcon size={24} />
-                </IconButton>
+                <Icon name="close" onClick={handleClose} />
               ) : (
                 <Button
                   variant="outlined"
@@ -213,7 +211,7 @@ function RoleTabs() {
                 variant="contained"
                 size={isDesktop ? "small" : "medium"}
                 colorType="primary"
-                startIcon={isDesktop && <PlusIcon size={20} />}
+                rightIcon={isDesktop ? "plus" : null}
                 onClick={handleCreateGroup}
               >
                 ایجاد گروه

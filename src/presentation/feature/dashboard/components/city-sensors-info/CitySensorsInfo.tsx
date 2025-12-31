@@ -1,15 +1,14 @@
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { GridBox } from "src/presentation/components/common/GridBox";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { MobileIcon } from "src/presentation/assets/icons/MobileIcon";
+import { IconName } from "src/presentation/components/common/icons";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
-import { StyledCitySensorsInfo } from "./CitySensorsInfo.styles";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { JSX } from "react";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
+import { StyledCitySensorsInfo } from "./CitySensorsInfo.styles";
 
 type SensorStatusType = "default" | "accept" | "warning" | "danger";
 
@@ -17,7 +16,7 @@ interface SensorT {
   id: number;
   status: SensorStatusType;
   name: string;
-  icon: JSX.Element;
+  icon: IconName;
   data: number;
   hour: string;
 }
@@ -38,7 +37,7 @@ interface CitySensorsInfoProps {
 //     id: 1,
 //     status: "accept", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -46,7 +45,7 @@ interface CitySensorsInfoProps {
 //     id: 2,
 //     status: "accept", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -54,7 +53,7 @@ interface CitySensorsInfoProps {
 //     id: 3,
 //     status: "danger", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -62,7 +61,7 @@ interface CitySensorsInfoProps {
 //     id: 4,
 //     status: "warning", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -70,7 +69,7 @@ interface CitySensorsInfoProps {
 //     id: 5,
 //     status: "warning", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -78,7 +77,7 @@ interface CitySensorsInfoProps {
 //     id: 6,
 //     status: "danger", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -86,7 +85,7 @@ interface CitySensorsInfoProps {
 //     id: 7,
 //     status: "accept", // default, accept, warning, danger
 //     name: "بالا TCL01",
-//     icon: <MobileIcon />,
+//     icon: "mobile",
 //     data: 3428,
 //     hour: "6",
 //   },
@@ -101,7 +100,7 @@ const amolServers: ServerT[] = [
         id: 1,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -109,7 +108,7 @@ const amolServers: ServerT[] = [
         id: 2,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -117,7 +116,7 @@ const amolServers: ServerT[] = [
         id: 3,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -125,7 +124,7 @@ const amolServers: ServerT[] = [
         id: 4,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -133,7 +132,7 @@ const amolServers: ServerT[] = [
         id: 5,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -141,7 +140,7 @@ const amolServers: ServerT[] = [
         id: 6,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -155,7 +154,7 @@ const amolServers: ServerT[] = [
         id: 1,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -163,7 +162,7 @@ const amolServers: ServerT[] = [
         id: 2,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -171,7 +170,7 @@ const amolServers: ServerT[] = [
         id: 3,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -179,7 +178,7 @@ const amolServers: ServerT[] = [
         id: 4,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -187,7 +186,7 @@ const amolServers: ServerT[] = [
         id: 5,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -195,7 +194,7 @@ const amolServers: ServerT[] = [
         id: 6,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -203,7 +202,7 @@ const amolServers: ServerT[] = [
         id: 7,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -211,7 +210,7 @@ const amolServers: ServerT[] = [
         id: 8,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -219,7 +218,7 @@ const amolServers: ServerT[] = [
         id: 9,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -227,7 +226,7 @@ const amolServers: ServerT[] = [
         id: 10,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -241,7 +240,7 @@ const amolServers: ServerT[] = [
         id: 1,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -249,7 +248,7 @@ const amolServers: ServerT[] = [
         id: 2,
         status: "danger", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -257,7 +256,7 @@ const amolServers: ServerT[] = [
         id: 3,
         status: "warning", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },
@@ -265,7 +264,7 @@ const amolServers: ServerT[] = [
         id: 4,
         status: "accept", // default, accept, warning, danger
         name: "بالا TCL01",
-        icon: <MobileIcon />,
+        icon: "mobile",
         data: 3428,
         hour: "6",
       },

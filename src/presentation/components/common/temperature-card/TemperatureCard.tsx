@@ -1,17 +1,15 @@
+import { useMediaQuery, useTheme } from "@mui/material";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
 import {
   DataContainer,
   getStatusColors,
   Text,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { IncrementIcon } from "src/presentation/assets/icons/IncrementIcon";
-import { DecrementIcon } from "src/presentation/assets/icons/DecrementIcon";
+import { IconWrapper } from "../icons/IconWrapper.style";
+import { Icon } from "../icons/components/Icon";
 import { TemperatureCardProps } from "./ITemperatureCard";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { useMediaQuery, useTheme } from "@mui/material";
 
-const TemperatureCard: React.FC<TemperatureCardProps> = ({
+const TemperatureCard = ({
   status = "default", // default, accept, warning, danger
   name,
   icon,
@@ -19,7 +17,7 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
   incrementData,
   decrementData,
   hour,
-}) => {
+}: TemperatureCardProps) => {
   // const iconColor =
   //   status === "accept"
   //     ? "#0B9D4E"
@@ -52,7 +50,9 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
             variant={isDesktop ? "body1" : "body2"}
             component="h5"
           >
-            <IconWrapper bgcolor={iconBgColor}>{icon}</IconWrapper>
+            <IconWrapper bgcolor={iconBgColor}>
+              <Icon name={icon} />
+            </IconWrapper>
             {name}:
           </Text>
           <Text
@@ -72,7 +72,7 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
               variant={isDesktop ? "body2" : "caption"}
               component="span"
             >
-              <BulletIcon fill={textColor} /> آخرین مقدار دریافتی:
+              <Icon name="bullet" color={textColor} /> آخرین مقدار دریافتی:
             </Text>
             <Text
               color="neutral.200"
@@ -88,7 +88,7 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
               variant={isDesktop ? "body2" : "caption"}
               component="span"
             >
-              <BulletIcon fill={textColor} /> دیتا سنتر دانشگاه:
+              <Icon name="bullet" color={textColor} /> دیتا سنتر دانشگاه:
             </Text>
             <Text
               color="neutral.200"
@@ -103,7 +103,12 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
                   gap: "2px",
                 }}
               >
-                <DecrementIcon />
+                <Icon
+                  name="arrowDownIos"
+                  w={16}
+                  h={16}
+                  color={theme.palette.error.main}
+                />
                 {decrementData}
               </span>
               <span
@@ -114,7 +119,12 @@ const TemperatureCard: React.FC<TemperatureCardProps> = ({
                 }}
               >
                 {incrementData}
-                <IncrementIcon />
+                <Icon
+                  name="arrowUpIos"
+                  w={16}
+                  h={16}
+                  color={theme.palette.success.main}
+                />
               </span>
             </Text>
           </DataContainer>

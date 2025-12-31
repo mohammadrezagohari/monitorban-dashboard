@@ -1,4 +1,5 @@
 import { ButtonProps as MuiButtonProps } from "@mui/material";
+import { IconName } from "../icons";
 
 export type CustomeColorSet = {
     text: string;
@@ -18,4 +19,6 @@ export interface ButtonProps extends Omit<MuiButtonProps, "size" | "variant" | "
     size?: ButtonSize;
     colorType?: "primary" | "secondary" | "success" | "error";
     to?: string;
+    leftIcon?: IconName | null;
+    rightIcon?: IconName | null;
 }

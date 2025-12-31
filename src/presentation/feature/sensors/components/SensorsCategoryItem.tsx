@@ -1,22 +1,20 @@
 import { useNavigate } from "react-router-dom";
 
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 import SensorCategoryCard from "src/presentation/components/common/sensor-category-card/SensorCategoryCard";
 
 function SensorsCategoryItem({ category }) {
-  console.log("category => ", category);
-  const ItemIcon = iconsMap[category.icon as keyof typeof iconsMap];
+  // console.log("category => ", category);
   const navigate = useNavigate();
 
   const handleShowSensors = (center) => {
     navigate(`/sensors/${center.centerName}`);
-    console.log("center:: ", center);
+    // console.log("center:: ", center);
   };
 
   return (
     <SensorCategoryCard
       key={category.centerName}
-      icon={<ItemIcon />}
+      icon={category.icon}
       title={category.centerName}
       normalSensor={
         category.sensors.filter((sensor) => sensor.status === "accept").length

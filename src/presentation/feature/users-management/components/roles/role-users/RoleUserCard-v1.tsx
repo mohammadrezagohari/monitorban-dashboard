@@ -1,7 +1,7 @@
-import Avatar from "src/presentation/components/common/avatar/Avatar";
 import { Box, useTheme } from "@mui/material";
+import Avatar from "src/presentation/components/common/avatar/Avatar";
 
-import { UserIcon } from "src/presentation/assets/icons/UserIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Button from "src/presentation/components/common/buttons/Button";
 import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
@@ -46,7 +46,7 @@ function RoleUserCard({ user, ROLE }) {
           }}
         >
           <Avatar src={avatar}>
-            <UserIcon size={24} color={theme.palette.neutral.main} />
+            <Icon name="user" color={theme.palette.neutral.main} />
           </Avatar>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
             <Text color="neutral.50" variant="h4">

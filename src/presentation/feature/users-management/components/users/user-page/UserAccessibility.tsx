@@ -1,20 +1,16 @@
+import { Box, Typography, useTheme } from "@mui/material";
 import { useState } from "react";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
 
-import Tag from "src/presentation/components/common/tag/Tag";
 import Button from "src/presentation/components/common/buttons/Button";
 import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import { FilterSquareIcon } from "src/presentation/assets/icons/FilterSquareIcon";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import Tag from "src/presentation/components/common/tag/Tag";
 
 function UserAccessibility() {
   const [sortIsOpen, setSortIsOpen] = useState(false);
@@ -41,14 +37,8 @@ function UserAccessibility() {
             variant="outlined"
             size="large"
             colorType="primary"
-            startIcon={<FilterSquareIcon size={24} />}
-            endIcon={
-              sortIsOpen ? (
-                <ArrowUpIcon size={24} />
-              ) : (
-                <ArrowDownIcon size={24} />
-              )
-            }
+            rightIcon="filterSquare"
+            leftIcon={sortIsOpen ? "arrowUp" : "arrowDown"}
             onClick={() => setSortIsOpen((sort) => !sort)}
           >
             مرتب سازی
@@ -56,14 +46,25 @@ function UserAccessibility() {
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Text color="neutral.main" variant="body1">
-            {/* @ts-ignore */}
-            <BulletIcon color={theme.palette.primary[300]} size={12} />
+            <Icon
+              name="bullet"
+              // @ts-ignore
+              color={theme.palette.primary[300]}
+              w={12}
+              h={12}
+            />
             دسترسی از نقش
           </Text>
 
           <Text color="neutral.main" variant="body1">
             {/* @ts-ignore */}
-            <BulletIcon color={theme.palette.secondary[300]} size={12} />
+            <Icon
+              name="bullet"
+              // @ts-ignore
+              color={theme.palette.secondary[300]}
+              w={12}
+              h={12}
+            />
             دسترسی بصورت جداگانه
           </Text>
         </Box>
@@ -78,12 +79,12 @@ function UserAccessibility() {
               <Tag>مدیریت آموزش ها</Tag>
               <Tag>سنسور دمای اتاق سرور شماره 1 معاونت</Tag>
               <Tag type="secondary">
-                <IconButton
-                  sx={{ p: 0, color: "inherit" }}
+                <Icon
+                  name="close"
+                  w={20}
+                  h={20}
                   // onClick={() => handleGroupsDelete(group)}
-                >
-                  <CloseIcon size={20} />
-                </IconButton>
+                />
                 سنسور رطوبت اتاق سرور شماره 2 معاونت
               </Tag>
             </Box>

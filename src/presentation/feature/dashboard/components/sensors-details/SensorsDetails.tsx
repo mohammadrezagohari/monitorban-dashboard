@@ -2,10 +2,8 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 import useSensorsDetail from "./useSensorsDetail";
 
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { EyeIcon } from "src/presentation/assets/icons/EyeIcon";
 import Button from "src/presentation/components/common/buttons/Button";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
@@ -28,15 +26,16 @@ function SensorsDetails() {
               variant="outlined"
               size="xxsmall"
               colorType="primary"
-              endIcon={<ArrowLeftIcon size={16} />}
+              leftIcon="arrowLeft"
               onClick={() => console.log("سنسورها")}
             >
               مشاهده همه
             </Button>
           ) : (
-            <IconButtonWithBorder>
-              <EyeIcon size={16} color={theme.palette.primary.dark} />
-            </IconButtonWithBorder>
+            <IconButton iconName="eye" variant="outlined" />
+            // <IconButtonWithBorder>
+            //   <EyeIcon size={16} color={theme.palette.primary.dark} />
+            // </IconButtonWithBorder>
           )}
         </HeaderContainer>
         <StyledMainContainer>

@@ -1,4 +1,4 @@
-import { CallIcon } from "src/presentation/assets/icons/CallIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { StyledFooter } from "./FAQ.styles";
 
@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     <StyledFooter>
-      <Typography 
+      <Typography
       // fontSize="inherit"
       >
         همچنین می توانید جهت ارتباط سریع تر با این شماره تماس بگیرید
@@ -16,7 +16,7 @@ function Footer() {
 
       <Box>
         <Typography id="phone-number">011 - 3335 4585</Typography>
-        <CallIcon size={isDesktop ? 24 : 20} />
+        <Icon name="call" w={isDesktop ? 24 : 20} h={isDesktop ? 24 : 20} />
       </Box>
     </StyledFooter>
   );

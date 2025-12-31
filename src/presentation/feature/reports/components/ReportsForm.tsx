@@ -1,12 +1,11 @@
 import { useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import Input from "src/presentation/components/common/input/Input";
-import Select from "src/presentation/components/common/select/Select";
 import Button from "src/presentation/components/common/buttons/Button";
 import FormRow from "src/presentation/components/common/input/FormRow";
-import { CalendarIcon } from "src/presentation/assets/icons/CalendarIcon";
+import Input from "src/presentation/components/common/input/Input";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Select from "src/presentation/components/common/select/Select";
 import { serverRoomOptions } from "src/presentation/data/data";
 import {
   StyledReportsForm as Form,
@@ -59,13 +58,7 @@ function ReportsForm() {
           </FormRow>
 
           <FormRow label="بازه ی زمانی">
-            <Input
-              id="period"
-              icon={
-                <CalendarIcon size={24} color={theme.palette.neutral.main} />
-              }
-              {...register("period")}
-            />
+            <Input id="period" icon="calendar" {...register("period")} />
           </FormRow>
         </InputsContainer>
 

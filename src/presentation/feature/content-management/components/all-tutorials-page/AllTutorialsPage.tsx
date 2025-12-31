@@ -2,12 +2,11 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "src/presentation/components/common/buttons/Button";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import TutorialCard from "../tutorials-management/TutorialCard";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { tutorialsData } from "src/presentation/data/data";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { tutorialsData } from "src/presentation/data/data";
+import TutorialCard from "../tutorials-management/TutorialCard";
 import { StyledTutorialsList } from "./AllTutorialsPage.styles";
 
 function AllTutorialsPage() {
@@ -30,7 +29,7 @@ function AllTutorialsPage() {
             variant="outlined"
             size="large"
             colorType="primary"
-            startIcon={<PlusIcon size={24} />}
+            rightIcon="plus"
             onClick={handleAddTutorial}
           >
             افزودن آموزش جدید

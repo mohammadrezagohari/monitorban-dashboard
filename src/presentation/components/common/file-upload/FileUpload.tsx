@@ -1,18 +1,16 @@
-import { ChangeEvent, useRef, useState } from "react";
 import { Typography, useTheme } from "@mui/material";
+import { ChangeEvent, useRef, useState } from "react";
 
+import Avatar from "../avatar/Avatar";
 import Button from "../buttons/Button";
-import { HouseIcon } from "src/presentation/assets/icons/HouseIcon";
-import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { FileUploadProps } from "./IFileUpload";
-import { IconButtonWithBorder } from "../IconButtonWithBorder";
+import { Icon } from "../icons/components/Icon";
 import {
   ButtonsContainer,
   ImageContainer,
   StyledFileUpload,
   VisuallHiddenInput,
 } from "./FileUpload.styles";
-import Avatar from "../avatar/Avatar";
+import { FileUploadProps } from "./IFileUpload";
 
 function FileUpload({
   onFileSelect,
@@ -63,7 +61,7 @@ function FileUpload({
       <ImageContainer>
         <Avatar src={selectedFile ? URL.createObjectURL(selectedFile) : ""}>
           {/* @ts-ignore */}
-          <HouseIcon color={theme.palette.primary[200]} />
+          <Icon name="house" color={theme.palette.primary[200]} />
         </Avatar>
 
         <Typography variant="body2" color="neutral.200">
@@ -88,12 +86,12 @@ function FileUpload({
           />
         </Button>
 
-        <IconButtonWithBorder
+        {/* <IconButtonWithBorder
           iconColor={theme.palette.error.main}
           onClick={handleRemoveFile}
         >
           <DeleteIcon size={16} />
-        </IconButtonWithBorder>
+        </IconButtonWithBorder> */}
       </ButtonsContainer>
     </StyledFileUpload>
   );

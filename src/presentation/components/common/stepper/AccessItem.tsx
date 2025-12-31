@@ -1,9 +1,10 @@
 import { Box, Typography, useTheme } from "@mui/material";
 
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import { StyledAccessItem } from "../../../feature/users-management/components/roles/add-accesses/AddAccesses.styles";
 import Checkbox from "../checkbox/Checkbox";
+import { IconName } from "../icons";
+import { IconWrapper } from "../icons/IconWrapper.style";
+import { Icon } from "../icons/components/Icon";
 
 const AccessItem = ({
   item,
@@ -13,14 +14,12 @@ const AccessItem = ({
   item: {
     title: string;
     city?: string;
-    icon: string;
+    icon: IconName;
   };
   checked: boolean;
   onChange: () => void;
 }) => {
   const { title, icon, city } = item;
-
-  const ItemIcon = iconsMap[icon as keyof typeof iconsMap];
 
   const theme = useTheme();
 
@@ -29,7 +28,7 @@ const AccessItem = ({
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         <IconWrapper>
           {/* @ts-ignore */}
-          <ItemIcon color={theme.palette.primary[200]} />
+          <Icon name={icon} color={theme.palette.primary[200]} />
         </IconWrapper>
         <Box>
           <Typography variant="body1" color="neutral.100">

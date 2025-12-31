@@ -1,13 +1,13 @@
+import { useTheme } from "@mui/material";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { SensorSituationCardProps } from "./ISensorSituationCard";
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
 import {
   DataContainer,
   getStatusColors,
   Text,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { useTheme } from "@mui/material";
+import { Icon } from "../icons/components/Icon";
+import { IconWrapper } from "../icons/IconWrapper.style";
+import { SensorSituationCardProps } from "./ISensorSituationCard";
 
 const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
   status = "default", // default, accept, warning, danger
@@ -42,10 +42,16 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
       topContent={
         <DataContainer>
           <Text color="neutral.100" variant="body1">
-            <IconWrapper bgcolor={iconBgColor || theme.palette.neutral[500]}>{icon}</IconWrapper>
+            <IconWrapper bgcolor={iconBgColor || theme.palette.neutral[500]}>
+              {icon}
+            </IconWrapper>
             {name}:
           </Text>
-          <Text color={status !== "default" ? textColor : theme.palette.neutral.main}>
+          <Text
+            color={
+              status !== "default" ? textColor : theme.palette.neutral.main
+            }
+          >
             {data}
           </Text>
         </DataContainer>
@@ -53,7 +59,7 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
       bottomContent={
         <DataContainer>
           <Text color="neutral.200" variant="body2">
-            <BulletIcon fill={textColor} /> آخرین مقدار دریافتی:
+            <Icon name="bullet" color={textColor} /> آخرین مقدار دریافتی:
           </Text>
           <Text color="neutral.200" variant="body2">
             {hour} ساعت پیش

@@ -1,13 +1,9 @@
 import { Step, StepLabel } from "@mui/material";
 
-import Button from "../buttons/Button";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import { CheckedIcon } from "src/presentation/assets/icons/CheckedIcon";
-import { StepbarProps } from "../../../feature/users-management/components/roles/add-accesses/IAddAccesses";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { UncheckedIcon } from "src/presentation/assets/icons/UncheckedIcon";
-import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
+import { StepbarProps } from "../../../feature/users-management/components/roles/add-accesses/IAddAccesses";
+import Button from "../buttons/Button";
+import { Icon } from "../icons/components/Icon";
 import {
   ButtonContainer,
   Steps,
@@ -29,7 +25,11 @@ function Stepbar({ steps, activeStep, setActiveStep }: StepbarProps) {
               <Step key={label}>
                 <StepLabel
                   icon={
-                    activeStep > index ? <CheckedIcon /> : <UncheckedIcon />
+                    activeStep > index ? (
+                      <Icon name="checked" />
+                    ) : (
+                      <Icon name="unchecked" />
+                    )
                   }
                 >
                   {label}
@@ -45,10 +45,8 @@ function Stepbar({ steps, activeStep, setActiveStep }: StepbarProps) {
               variant="outlined"
               size="small"
               colorType="primary"
-              onClick={() =>
-                setActiveStep(Math.max(activeStep - 1, 0))
-              }
-              startIcon={<ArrowRightIcon size={16} />}
+              onClick={() => setActiveStep(Math.max(activeStep - 1, 0))}
+              rightIcon="arrowRight"
             >
               مرحله قبل
             </Button>
@@ -61,7 +59,7 @@ function Stepbar({ steps, activeStep, setActiveStep }: StepbarProps) {
               onClick={() =>
                 setActiveStep((prev) => Math.min(prev + 1, steps.length - 1))
               }
-              endIcon={<ArrowLeftIcon size={16} />}
+              leftIcon="arrowLeft"
             >
               مرحله بعد
             </Button>
@@ -71,7 +69,7 @@ function Stepbar({ steps, activeStep, setActiveStep }: StepbarProps) {
               size="small"
               colorType="primary"
               onClick={() => console.log("Added")}
-              startIcon={activeStep === steps.length - 1 && <PlusIcon />}
+              rightIcon={activeStep === steps.length - 1 ? "plus" : null}
             >
               افزودن
             </Button>

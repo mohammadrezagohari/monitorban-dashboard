@@ -1,12 +1,10 @@
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
 import Button from "src/presentation/components/common/buttons/Button";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { TickIcon } from "src/presentation/assets/icons/TickIcon";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import { ButtonContainer } from "./CreateServerRoom.styles";
 import CreateEditServerRoom from "../create-edit-server-room-form/CreateEditServerRoomForm";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { ButtonContainer } from "./CreateServerRoom.styles";
 
 function CreateServerRoom() {
   const theme = useTheme();
@@ -28,17 +26,8 @@ function CreateServerRoom() {
             </>
           ) : (
             <>
-              <IconButtonWithBorder>
-                <CloseIcon size={16} />
-              </IconButtonWithBorder>
-              <IconButton
-                sx={{
-                  bgcolor: "primary.main",
-                  borderRadius: "10px",
-                }}
-              >
-                <TickIcon size={16} />
-              </IconButton>
+              <IconButton iconName="close" variant="outlined" />
+              <IconButton iconName="tick" />
             </>
           )}
         </ButtonContainer>

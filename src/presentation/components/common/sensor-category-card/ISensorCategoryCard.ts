@@ -1,5 +1,7 @@
+import { IconName } from "../icons";
+
 export interface SensorCategoryCardProps {
-    icon: React.ReactNode;
+    icon: IconName;
     title: string;
     normalSensor: number;
     warningSensor: number;

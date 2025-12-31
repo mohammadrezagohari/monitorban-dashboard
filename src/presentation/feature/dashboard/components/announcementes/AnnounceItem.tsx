@@ -1,15 +1,15 @@
 import { Typography, useTheme } from "@mui/material";
 
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { AnnounceItemProps } from "./IAnnouncements";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import { StyledAnnounceItem } from "./Announcements.styles";
+import { AnnounceItemProps } from "./IAnnouncements";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
 
-export default function AnnounceItem(props: AnnounceItemProps) {
+export default function AnnounceItem({
+  item,
+  announceStatus,
+}: AnnounceItemProps) {
   const theme = useTheme();
-
-  const { item, announceStatus } = props;
-  const ItemIcon = iconsMap[item.icon as keyof typeof iconsMap];
 
   const colors = {
     warning: theme.palette.warning.main,
@@ -17,14 +17,13 @@ export default function AnnounceItem(props: AnnounceItemProps) {
     danger: theme.palette.error.main,
   };
 
-
   return (
     <StyledAnnounceItem
       key={item.id}
       // isLastItem={isLastItem}
     >
       <IconWrapper bgcolor={theme.palette.neutral[600]}>
-        <ItemIcon color={colors[announceStatus]} />
+        <Icon name={item.icon} color={colors[announceStatus]} />
       </IconWrapper>
       <div>
         <Typography variant="body1" sx={{ color: theme.palette.neutral[100] }}>

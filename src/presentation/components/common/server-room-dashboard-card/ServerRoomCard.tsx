@@ -1,25 +1,24 @@
-import React from "react";
 import { Box, useTheme } from "@mui/material";
 
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
 import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
-import { ServerRoomCardProps } from "./IServerRoomCard";
 import {
   StatsContainer,
   Text,
   TextSpan,
   TitleContainer,
 } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { ServerRoomCardProps } from "./IServerRoomCard";
+import { Icon } from "../icons/components/Icon";
+import { IconWrapper } from "../icons/IconWrapper.style";
 
-const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
+const ServerRoomCard = ({
   title,
   icon,
   city,
   sensor = 0,
   rack = 0,
   onHandleClick,
-}) => {
+}: ServerRoomCardProps) => {
   const theme = useTheme();
 
   return (
@@ -27,8 +26,11 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
       onHandleClick={onHandleClick}
       width="220px"
       topContent={
-        <TitleContainer >
-          <IconWrapper>{icon}</IconWrapper>
+        <TitleContainer>
+          <IconWrapper>
+            {/* @ts-ignore */}
+            <Icon name={icon} color={theme.palette.primary[200]} />
+          </IconWrapper>
           <Box sx={{ overflow: "hidden", maxWidth: "130px" }}>
             <TextSpan color="neutral.100" variant="body1">
               {title}
@@ -42,13 +44,23 @@ const ServerRoomCard: React.FC<ServerRoomCardProps> = ({
       bottomContent={
         <StatsContainer>
           <Text color="neutral.200" variant="body2">
-          {/* @ts-ignore */}
-            <BulletIcon color={theme.palette.primary[300]} size={12} />
+            <Icon
+              name="bullet"
+              w={12}
+              h={12}
+              // @ts-ignore
+              color={theme.palette.primary[300]}
+            />
             {rack} رک
           </Text>
           <Text color="neutral.200" variant="body2">
-          {/* @ts-ignore */}
-            <BulletIcon color={theme.palette.secondary[300]} size={12} />
+            <Icon
+              name="bullet"
+              w={12}
+              h={12}
+              // @ts-ignore
+              color={theme.palette.secondary[300]}
+            />
             {sensor} سنسور
           </Text>
         </StatsContainer>

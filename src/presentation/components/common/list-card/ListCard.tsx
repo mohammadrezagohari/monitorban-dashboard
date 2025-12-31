@@ -1,6 +1,9 @@
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-import { createContext, ReactElement, ReactNode, useContext } from "react";
+import { createContext, useContext } from "react";
+import Avatar from "../avatar/Avatar";
+import Checkbox from "../checkbox/Checkbox";
 import { Text } from "../dashboard-card/BaseDashboardCard.style";
+import { Icon } from "../icons/components/Icon";
 import TagHeading from "../tag-heading/TagHeading";
 import Tag from "../tag/Tag";
 import {
@@ -11,14 +14,11 @@ import {
   SecondDetailsProps,
 } from "./IListCard";
 import {
-  StyledListCard,
-  StyledTitle,
   StyledDetail,
+  StyledListCard,
   StyledOperations,
+  StyledTitle,
 } from "./ListCard.styles";
-import Checkbox from "../checkbox/Checkbox";
-import Avatar from "../avatar/Avatar";
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
 
 const ListCardContext = createContext<ListCardContextType>({
   columns: "",
@@ -36,7 +36,6 @@ function ListCard({ children, columns, item, selectable }: ListCardProps) {
 function Title() {
   const { item, selectable } = useContext(ListCardContext);
   const { avatar, title, caption, icon = "userIcon" } = item;
-  const Icon = iconsMap[icon as keyof typeof iconsMap];
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -45,7 +44,12 @@ function Title() {
       {selectable && <Checkbox iconSize={24} />}
 
       <Avatar src={avatar} size={isDesktop ? 48 : 32}>
-        <Icon size={isDesktop ? 24 : 16} color={theme.palette.neutral.main} />
+        <Icon
+          name={icon}
+          w={isDesktop ? 24 : 16}
+          h={isDesktop ? 24 : 16}
+          color={theme.palette.neutral.main}
+        />
       </Avatar>
 
       <Box>

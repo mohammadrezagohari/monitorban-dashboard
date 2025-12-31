@@ -1,12 +1,11 @@
 import { Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Button from "src/presentation/components/common/buttons/Button";
-import { Timer } from "./Timer";
-import { EditIcon } from "src/presentation/assets/icons/EditIcon";
+import { useVerifyOtp } from "src/presentation/services/mutation/postVerifyOtp";
 import { OtpFormProps } from "./ILogin";
-import { CloseCircleIcon } from "src/presentation/assets/icons/CloseCircleIcon";
 import {
   ButtonContainer,
   ErrorBox,
@@ -14,7 +13,7 @@ import {
   StyledOTPInput,
   StyledOTPInputsContainer,
 } from "./Login.style";
-import { useVerifyOtp } from "src/presentation/services/mutation/postVerifyOtp";
+import { Timer } from "./Timer";
 
 const OTP_LENGHT = 6;
 // const OTP_CODE = "11111";
@@ -143,7 +142,7 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
 
       {isError && (
         <ErrorBox>
-          <CloseCircleIcon id="error-icon" size={20} />
+          <Icon name="closeCircle" id="error-icon" w={20} h={20} />
           <Typography id="error-text">کد وارد شده صحیح نمی باشد.</Typography>
         </ErrorBox>
       )}
@@ -187,7 +186,7 @@ const OtpForm = ({ phoneNumber, setStep }: OtpFormProps) => {
           size="xsmall"
           colorType="primary"
           onClick={handleEdit}
-          startIcon={<EditIcon />}
+          rightIcon="edit"
         >
           ویرایش شماره
         </Button>

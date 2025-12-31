@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { Box, Typography, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
 
-import { BulletIcon } from "src/presentation/assets/icons/BulletIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
@@ -367,7 +367,7 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <BulletIcon size={20} color="green" />
+            <Icon name="bullet" w={20} h={20} color="green" />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >
@@ -378,7 +378,7 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <BulletIcon size={20} color="yellow" />
+            <Icon name="bullet" w={20} h={20} color="yellow" />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >
@@ -389,7 +389,7 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <BulletIcon size={20} color="red" />
+            <Icon name="bullet" w={20} h={20} color="red" />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >
@@ -400,7 +400,7 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <BulletIcon size={20} color="#2A2637" />
+            <Icon name="bullet" w={20} h={20} color="#2A2637" />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >

@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
 import { AppBar, Box, IconButton, Toolbar, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import { useMoveBack } from "src/presentation/hooks/useMoveBack";
 
-import { LogoIcon } from "src/presentation/assets/icons/LogoIcon";
-import { MenuIcon } from "src/presentation/assets/icons/MenuIcon";
-import { usersInfo } from "src/presentation/data/data";
-import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
 import Avatar from "src/presentation/components/common/avatar/Avatar";
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
+import { usersInfo } from "src/presentation/data/data";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 
 export function MobileNavbar(props: {
   mobileOpen: boolean;
@@ -20,8 +17,6 @@ export function MobileNavbar(props: {
   }: { mobileOpen: boolean; handleDrawerToggle: () => void } = props;
   const theme = useTheme();
   const moveBack = useMoveBack();
-
-  const Icon = iconsMap["userIcon"];
 
   return (
     <AppBar
@@ -50,7 +45,7 @@ export function MobileNavbar(props: {
             }}
             onClick={moveBack}
           >
-            <ArrowRightIcon />
+            <Icon name="arrowRight" />
           </IconButton>
           <IconButton
             onClick={handleDrawerToggle}
@@ -61,14 +56,16 @@ export function MobileNavbar(props: {
               height: 40,
             }}
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
+            <Icon name="burgerMenu" w={20} h={20} />
           </IconButton>
         </Box>
         <Link to="dashboard" style={{ marginLeft: 48 }}>
-          <LogoIcon />
+          {/* <LogoIcon /> */}
+          <Icon name="logoShape" />
         </Link>
         <Avatar src={usersInfo[0].image || ""} size={40}>
-          <Icon />
+          <Icon name="user" />
         </Avatar>
       </Toolbar>
     </AppBar>

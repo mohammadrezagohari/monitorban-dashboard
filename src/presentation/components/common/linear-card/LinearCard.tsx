@@ -1,23 +1,36 @@
 import { Typography } from "@mui/material";
 
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { ContentContainer, StyledLinearCard } from "./LinearCard.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import IconButton from "../icon-button/IconButton";
+import { IconWrapper } from "../icons/IconWrapper.style";
+import { Icon } from "../icons/components/Icon";
 import { LinearProps } from "./ILinearCard";
+import { ContentContainer, StyledLinearCard } from "./LinearCard.styles";
 
-function LinearCard({ icon, children, color, handleClick }: LinearProps) {
+function LinearCard({
+  icon,
+  iconColor,
+  children,
+  color,
+  handleClick,
+}: LinearProps) {
   return (
     <StyledLinearCard>
       <ContentContainer>
-        <IconWrapper bgcolor={color}>{icon}</IconWrapper>
+        {icon && (
+          <IconWrapper bgcolor={color}>
+            <Icon name={icon} color={iconColor} />
+          </IconWrapper>
+        )}
         <Typography variant="h4" color="neutral.main">
           {children}
         </Typography>
       </ContentContainer>
-      <IconButtonWithBorder onClick={handleClick}>
-        <ArrowLeftIcon size={16} />
-      </IconButtonWithBorder>
+
+      <IconButton
+        iconName="arrowLeft"
+        variant="outlined"
+        onClick={handleClick}
+      />
     </StyledLinearCard>
   );
 }

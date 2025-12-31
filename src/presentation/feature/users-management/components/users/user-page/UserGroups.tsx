@@ -1,14 +1,14 @@
 import { IconButton } from "@mui/material";
 
-import Tag from "src/presentation/components/common/tag/Tag";
+import { useFormContext } from "react-hook-form";
 import Button from "src/presentation/components/common/buttons/Button";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import Tag from "src/presentation/components/common/tag/Tag";
 import { StyledUserMainContainer } from "./UserPage.styles";
-import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
-import { useFormContext } from "react-hook-form";
 
 function UserGroups() {
   const { watch, setValue } = useFormContext();
@@ -36,14 +36,14 @@ function UserGroups() {
                 sx={{ p: 0, color: "inherit" }}
                 onClick={() => handleGroupsDelete(group)}
               >
-                <CloseIcon size={20} />
+                <Icon name="close" w={20} h={20} />
               </IconButton>
               {group}
             </Tag>
           ))}
         </StyledUserMainContainer>
       ) : (
-        <EmptyData label="گروه" />
+        <EmptyData label="گروه" handleClick={() => console.log("group")} />
       )}
     </SectionContainer>
   );

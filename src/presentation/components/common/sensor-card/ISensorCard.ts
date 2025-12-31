@@ -1,6 +1,8 @@
+import { IconName } from "../icons";
+
 interface Sensor {
     id: number;
-    icon: string;
+    icon: IconName;
     name: string;
     normalSensorCount: number;
     warningSensorCount: number;

@@ -1,11 +1,9 @@
 import { Typography } from "@mui/material";
 
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Button from "src/presentation/components/common/buttons/Button";
 import Divider from "src/presentation/components/common/divider/Divider";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import { MessageCardProps } from "./IMessages";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import {
   AccordionHeader,
   ButtonsContainer,
@@ -28,14 +26,11 @@ function MessageCard({ message, expanded, panel, onChange }: MessageCardProps) {
           >
             پاسخ دادن
           </Button>
-
-          <IconButtonWithBorder onClick={() => onChange(panel)}>
-            {expanded === panel ? (
-              <ArrowUpIcon size={16} />
-            ) : (
-              <ArrowDownIcon size={16} />
-            )}
-          </IconButtonWithBorder>
+          <Icon
+            name={expanded === panel ? "arrowUp" : "arrowDown"}
+            w={16}
+            h={16}
+          />
         </ButtonsContainer>
       </AccordionHeader>
 

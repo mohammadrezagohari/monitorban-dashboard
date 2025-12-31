@@ -1,7 +1,7 @@
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import { Drawer, IconButton, useTheme } from "@mui/material";
 
 import MainNav from "src/presentation/components/main-nav/MainNav";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 
 export function MobileMenu(props: {
   mobileOpen: boolean;
@@ -39,7 +39,7 @@ export function MobileMenu(props: {
           color: theme.palette.neutral[50],
         }}
       >
-        <CloseIcon size={20} />
+        <Icon name="close" w={20} h={20} />
       </IconButton>
 
       <MainNav />

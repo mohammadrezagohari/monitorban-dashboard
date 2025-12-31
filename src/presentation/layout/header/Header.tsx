@@ -1,10 +1,8 @@
-import Box from "@mui/material/Box";
-
 import { useMoveBack } from "src/presentation/hooks/useMoveBack";
 
-import { BackButton } from "src/presentation/components/common/buttons/BackButton";
-import { ArrowRightIcon } from "src/presentation/assets/icons/ArrowRightIcon";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { BackButton } from "src/presentation/components/common/buttons/BackButton";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Breadcrumbs from "./Breadcrumbs";
 import { StyledHeader, VerticalDivider } from "./Header.styles";
 
@@ -19,10 +17,10 @@ function Header() {
         <>
           <BackButton
             onClick={moveBack}
-            startIcon={<ArrowRightIcon size={20} />}
             // disableRipple
             // disableElevation
           >
+            <Icon name="arrowRight" w={20} h={20} />
             بازگشت
           </BackButton>
           <VerticalDivider />

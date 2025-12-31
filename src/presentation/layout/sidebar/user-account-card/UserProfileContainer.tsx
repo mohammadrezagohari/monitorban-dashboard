@@ -1,9 +1,8 @@
 import { IconButton, Typography, useTheme } from "@mui/material";
 
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import { UserDetail, UserInfo } from "./UserAccountCard.styles";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Avatar from "src/presentation/components/common/avatar/Avatar";
-import { UserIcon } from "src/presentation/assets/icons/UserIcon";
+import { UserDetail, UserInfo } from "./UserAccountCard.styles";
 
 const TEST_USER = {
   image: "/assets/images/profile-images/image.webp",
@@ -18,7 +17,7 @@ export const UserProfileContainers = () => {
   return (
     <UserDetail>
       <Avatar src={image}>
-        <UserIcon color={theme.palette.neutral.main} />
+        <Icon name="user" color={theme.palette.neutral.main} />
       </Avatar>
       <UserInfo>
         <Typography variant="body2" color="neutral.main">
@@ -29,7 +28,12 @@ export const UserProfileContainers = () => {
         </Typography>
       </UserInfo>
       <IconButton sx={{ mr: "auto" }}>
-        <ArrowDownIcon color={theme.palette.neutral.main} size={20} />
+        <Icon
+          name="arrowDown"
+          color={theme.palette.neutral.main}
+          w={20}
+          h={20}
+        />
       </IconButton>
     </UserDetail>
   );

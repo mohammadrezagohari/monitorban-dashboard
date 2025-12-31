@@ -1,3 +1,7 @@
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { Typography } from "@mui/material";
+import Button from "src/presentation/components/common/buttons/Button";
+import Divider from "src/presentation/components/common/divider/Divider";
 import {
   ButtonsContainer,
   QuestionText,
@@ -5,12 +9,6 @@ import {
   StyledFAQListItem,
   StyledQuestionBox,
 } from "./AllFAQsPage.styles";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import Divider from "src/presentation/components/common/divider/Divider";
-import { Typography } from "@mui/material";
-import Button from "src/presentation/components/common/buttons/Button";
 import { FAQItemProps } from "./IAllFAQsPage";
 
 function FAQListItem({ faq, expanded, panel, onChange }: FAQItemProps) {
@@ -30,13 +28,12 @@ function FAQListItem({ faq, expanded, panel, onChange }: FAQItemProps) {
           <Button variant="outlined" size="xxsmall" colorType="success">
             ویرایش
           </Button>
-          <IconButtonWithBorder onClick={() => onChange(panel)}>
-            {expanded === panel ? (
-              <ArrowUpIcon size={16} />
-            ) : (
-              <ArrowDownIcon size={16} />
-            )}
-          </IconButtonWithBorder>
+
+          <Icon
+            name={expanded === panel ? "arrowUp" : "arrowDown"}
+            w={16}
+            h={16}
+          />
         </ButtonsContainer>
       </StyledQuestionBox>
 

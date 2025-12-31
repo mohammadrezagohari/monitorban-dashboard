@@ -1,20 +1,11 @@
-import { ComplaintIcon } from "src/presentation/assets/icons/ComplaintIcon";
-import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { MessageEditIcon } from "src/presentation/assets/icons/MessageEditIcon";
-import { MoreIcon } from "src/presentation/assets/icons/MoreIcon";
-import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
-import {
-  IconButton,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  useTheme,
-} from "@mui/material";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { ListItemIcon, ListItemText, MenuItem, useTheme } from "@mui/material";
 import { SetStateAction, useState } from "react";
-import Modal from "src/presentation/components/common/modal/Modal";
 import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
-import { Menu } from "./OperationMenu.styles";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import Modal from "src/presentation/components/common/modal/Modal";
 import { OperationMenuProps } from "./IOperationMenu";
+import { Menu } from "./OperationMenu.styles";
 
 export default function OperationMenu({
   title,
@@ -41,16 +32,7 @@ export default function OperationMenu({
 
   return (
     <>
-      <IconButton
-        sx={{
-          position: "relative",
-          top: -8,
-          left: -8,
-        }}
-        onClick={handleClick}
-      >
-        <MoreIcon color={theme.palette.neutral.main} />
-      </IconButton>
+      <IconButton iconName="more" onClick={handleClick} />
       <Menu anchorEl={ancholEl} open={open} onClose={handleClose}>
         <Modal>
           <Modal.Open opens="delete-role">
@@ -65,7 +47,7 @@ export default function OperationMenu({
                   color: theme.palette.error.main,
                 }}
               >
-                <DeleteIcon size={20} />
+                <Icon name="delete" w={20} h={20} />
               </ListItemIcon>
               <ListItemText
                 sx={{
@@ -87,7 +69,7 @@ export default function OperationMenu({
               color: theme.palette.success.main,
             }}
           >
-            <MessageEditIcon size={20} />
+            <Icon name="messageEdit" w={20} h={20} />
           </ListItemIcon>
           <ListItemText
             sx={{
@@ -103,7 +85,7 @@ export default function OperationMenu({
               color: theme.palette.primary.dark,
             }}
           >
-            <TwoUsersIcon size={20} />
+            <Icon name="twoUsers" w={20} h={20} />
           </ListItemIcon>
           <ListItemText
             sx={{
@@ -119,7 +101,7 @@ export default function OperationMenu({
               color: theme.palette.primary.dark,
             }}
           >
-            <ComplaintIcon size={20} />
+            <Icon name="complaint" w={20} h={20} />
           </ListItemIcon>
           <ListItemText
             sx={{

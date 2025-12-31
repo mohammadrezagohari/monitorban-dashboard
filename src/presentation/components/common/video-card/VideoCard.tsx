@@ -1,17 +1,15 @@
 import { CardMedia, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { VideoCardButton } from "../buttons/VideoCardButton";
+import { Icon } from "../icons/components/Icon";
 import { VideoCardProps } from "./IVideoCard";
 import {
   Card,
   CardActions,
   CardContent,
-  
   StyledTitle,
   StyledVideoType,
 } from "./VideoCard.styles";
-import { LeftArrowIcon } from "src/presentation/assets/icons/LeftArrowIcon";
-import { VideoIcon } from "src/presentation/assets/icons/VideoIcon";
-import { VideoCardButton } from "../buttons/VideoCardButton";
-import { useNavigate } from "react-router-dom";
 
 function VideoCard({ video }: VideoCardProps) {
   const { id, title, thumbnail } = video;
@@ -37,11 +35,12 @@ function VideoCard({ video }: VideoCardProps) {
       </CardContent>
       <CardActions>
         <StyledVideoType>
-          <VideoIcon color={theme.palette.neutral[100]} size={20} />
+          <Icon name="video" color={theme.palette.neutral[100]} w={20} h={20} />
           ویدیو
         </StyledVideoType>
         <VideoCardButton
-          endIcon={<LeftArrowIcon size={20} />}
+          // endIcon={<LeftArrowIcon size={20} />}
+
           onClick={handleClick}
         >
           مشاهده

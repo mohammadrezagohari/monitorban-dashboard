@@ -5,7 +5,7 @@ export type AnnouncementStatus = "normal" | "warning" | "danger";
 
 function useAnnouncement(status: AnnouncementStatus) {
     const { isLoading, data: announcementItems, isError } = useQuery({
-        queryKey: ["announceItemsInit", status],
+        queryKey: ["announce-items", status],
         queryFn: () => fetchAnnouncements(status),
     })
 

@@ -1,5 +1,8 @@
+import { IconName } from "../icons";
+
 export interface LinearProps {
-    icon?: React.ReactElement;
+    icon?: IconName;
+    iconColor?: string;
     children?: string;
     color?: string;
     handleClick?: () => void;

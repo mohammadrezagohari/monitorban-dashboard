@@ -1,28 +1,15 @@
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRef, useState } from "react";
-import {
-  Box,
-  Typography,
-  useTheme,
-  useMediaQuery,
-  IconButton,
-  Menu,
-  MenuItem,
-  ListItemText,
-  ListItemIcon,
-} from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
 import Button from "src/presentation/components/common/buttons/Button";
 import Divider from "src/presentation/components/common/divider/Divider";
-import { ListIcon } from "src/presentation/assets/icons/ListIcon";
-import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { TwoUsersIcon } from "src/presentation/assets/icons/TwoUsersIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import RoleAccessibility from "./RoleAccessibility";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import { ComplaintIcon } from "src/presentation/assets/icons/ComplaintIcon";
-import { MessageEditIcon } from "src/presentation/assets/icons/MessageEditIcon";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import Modal from "src/presentation/components/common/modal/Modal";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import OperationMenu from "../../common/operation-menu/OperationMenu";
 import {
   ButtonsContainer,
   StyledAccessesContainer,
@@ -30,12 +17,8 @@ import {
   StyledRoleCardContainer,
   StyledTitleBox,
 } from "../RolesPage.styles";
-import { useNavigate } from "react-router-dom";
-import { MoreIcon } from "src/presentation/assets/icons/MoreIcon";
-import Modal from "src/presentation/components/common/modal/Modal";
-import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
+import RoleAccessibility from "./RoleAccessibility";
 import { useDeleteRole } from "./useDeleteRole";
-import OperationMenu from "../../common/operation-menu/OperationMenu";
 
 export default function RoleCard({
   roleObj,
@@ -104,7 +87,7 @@ export default function RoleCard({
       <HeaderContainer>
         <StyledTitleBox>
           <IconWrapper>
-            <ListIcon size={24} color={theme.palette.neutral[100]} />
+            <Icon name="list" color={theme.palette.neutral[100]} />
           </IconWrapper>
           <Typography variant="h4" color="neutral.main">
             {roleName}
@@ -121,7 +104,7 @@ export default function RoleCard({
                     variant="outlined"
                     size="small"
                     colorType="error"
-                    startIcon={<DeleteIcon size={20} />}
+                    rightIcon="delete"
                     // onClick={onDeleteRole}
                     // onClick={() => setDeleteBackdrop(true)}
                   >
@@ -143,7 +126,7 @@ export default function RoleCard({
                 variant="outlined"
                 size="small"
                 colorType="success"
-                startIcon={<MessageEditIcon size={20} />}
+                rightIcon="messageEdit"
                 onClick={handleEdit}
               >
                 ویرایش
@@ -153,7 +136,7 @@ export default function RoleCard({
                 variant="outlined"
                 size="small"
                 colorType="primary"
-                startIcon={<TwoUsersIcon size={20} />}
+                rightIcon="twoUsers"
                 onClick={handleUsers}
               >
                 کاربران
@@ -163,7 +146,7 @@ export default function RoleCard({
                 variant="outlined"
                 size="small"
                 colorType="primary"
-                startIcon={<ComplaintIcon size={20} />}
+                rightIcon="complaint"
                 onClick={handleAccess}
               >
                 دسترسی ها
@@ -198,9 +181,7 @@ export default function RoleCard({
           size="small"
           colorType="primary"
           onClick={handleAccessToggle}
-          endIcon={
-            visible ? <ArrowUpIcon size={20} /> : <ArrowDownIcon size={20} />
-          }
+          leftIcon={visible ? "arrowUp" : "arrowDown"}
         >
           مشاهده دسترسی ها
         </Button>

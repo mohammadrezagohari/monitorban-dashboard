@@ -1,16 +1,15 @@
-import { useState } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { useState } from "react";
 
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import { useNavigate } from "react-router-dom";
 import Button from "src/presentation/components/common/buttons/Button";
-import { IUser } from "./IUsers";
-import UsersList from "./UsersList";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
 import { usersInfo } from "src/presentation/data/data";
 import FilterOperation from "./FilterOperation";
+import { IUser } from "./IUsers";
 import { StyledUsersContainer } from "./Users.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
-import { useNavigate } from "react-router-dom";
+import UsersList from "./UsersList";
 
 export default function Users() {
   const [userRole, setUserRole] = useState("");
@@ -32,15 +31,13 @@ export default function Users() {
             variant="contained"
             size="large"
             colorType="primary"
-            startIcon={<PlusIcon size={24} />}
+            rightIcon="plus"
             onClick={handleAddButton}
           >
             ایجاد کاربر جدید
           </Button>
         ) : (
-          <IconButtonWithBorder onClick={() => {}}>
-            <PlusIcon color={theme.palette.primary.dark} size={16} />
-          </IconButtonWithBorder>
+          <IconButton iconName="plus" onClick={() => {}} />
         )}
       </PageTitle>
 

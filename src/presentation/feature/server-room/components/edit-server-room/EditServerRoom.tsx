@@ -1,12 +1,10 @@
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
-import { useLocation, useParams } from "react-router-dom";
+import { useMediaQuery, useTheme } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
 import Button from "src/presentation/components/common/buttons/Button";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import CreateEditServerRoom from "../create-edit-server-room-form/CreateEditServerRoomForm";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import { TickIcon } from "src/presentation/assets/icons/TickIcon";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 import { ButtonContainer } from "./EditServerRoom.styles";
 
 function EditServerRoom() {
@@ -31,17 +29,8 @@ function EditServerRoom() {
             </>
           ) : (
             <>
-              <IconButtonWithBorder>
-                <CloseIcon size={16} />
-              </IconButtonWithBorder>
-              <IconButton
-                sx={{
-                  bgcolor: "primary.main",
-                  borderRadius: "10px",
-                }}
-              >
-                <TickIcon size={16} />
-              </IconButton>
+              <IconButton iconName="close" variant="outlined" />
+              <IconButton iconName="tick" />
             </>
           )}
         </ButtonContainer>

@@ -1,18 +1,15 @@
-import { useEffect, useRef, useState } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 
 import Button from "src/presentation/components/common/buttons/Button";
-import Filter from "src/presentation/components/common/operations/Filter";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { GridBox } from "src/presentation/components/common/GridBox";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { FilterIcon } from "src/presentation/assets/icons/FilterIcon";
-import { sensorsData } from "src/presentation/data/data";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
+import Filter from "src/presentation/components/common/operations/Filter";
 import { FilterOption } from "src/presentation/components/common/operations/IFilter";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import SensorsCategoryItem from "./components/SensorsCategoryItem";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { sensorsData } from "src/presentation/data/data";
+import SensorsCategoryItem from "./components/SensorsCategoryItem";
 import {
   FilterBox,
   StyledSensorPage,
@@ -53,6 +50,8 @@ function SensorsPage() {
     // for get each sensors detail from API. (setSensorsList)
   }, []);
 
+  console.log("sensor list => ", sensorsList);
+
   return (
     <>
       <PageTitle title="سنسورها" />
@@ -70,22 +69,16 @@ function SensorsPage() {
               colorType="primary"
               ref={anchorRef}
               onClick={handleFilterButton}
-              endIcon={
-                isDesktop ? (
-                  isFilterOpen ? (
-                    <ArrowUpIcon size={24} />
-                  ) : (
-                    <ArrowDownIcon size={24} />
-                  )
-                ) : null
+              leftIcon={
+                isDesktop ? (isFilterOpen ? "arrowUp" : "arrowDown") : null
               }
-              startIcon={<FilterIcon size={isDesktop ? 24 : 20} />}
+              rightIcon="filter"
             >
               فیلتر
             </Button>
             {isFilterOpen && (
               <Filter
-                anchorRef={anchorRef}
+                // anchorRef={anchorRef}
                 options={filterOptions}
                 selectedOptions={selectedOptions}
                 onChange={setSelectedOptions}

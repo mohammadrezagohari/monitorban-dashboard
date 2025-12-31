@@ -1,15 +1,13 @@
 import { Collapse, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 import ControledCheckbox from "../checkbox/ControledCheckbox";
-import { IconButtonWithBorder } from "../IconButtonWithBorder";
+import IconButton from "../icon-button/IconButton";
+import { TreeItemProps } from "./ITreeView";
 import {
   StyledMainItemContainer,
   StyledMainItemContent,
   StyledTreeItem,
 } from "./TreeView.styles";
-import { TreeItemProps } from "./ITreeView";
 
 export default function TreeItem({ node, control, level = 0 }: TreeItemProps) {
   const [open, setOpen] = useState(false);
@@ -26,15 +24,24 @@ export default function TreeItem({ node, control, level = 0 }: TreeItemProps) {
   return (
     <StyledTreeItem>
       <StyledMainItemContainer>
-        {node.sensors && (
-          <IconButtonWithBorder size="small" onClick={handleToggle}>
-            {!open ? ( // @ts-ignore
-              <ArrowUpIcon size={16} color={theme.palette.primary[200]} />
-            ) : ( //@ts-ignore
-              <ArrowDownIcon size={16} color={theme.palette.primary[200]} />
-            )}
-          </IconButtonWithBorder>
-        )}
+        {node.sensors &&
+          (!open ? (
+            <IconButton
+              variant="outlined"
+              iconName="arrowUp"
+              onClick={handleToggle}
+              // @ts-ignore
+              color={theme.palette.primary[200]}
+            />
+          ) : (
+            <IconButton
+              variant="outlined"
+              iconName="arrowDown"
+              onClick={handleToggle}
+              // @ts-ignore
+              color={theme.palette.primary[200]}
+            />
+          ))}
         <StyledMainItemContent>
           <ControledCheckbox
             label={node.name}

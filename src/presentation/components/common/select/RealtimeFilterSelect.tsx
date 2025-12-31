@@ -1,19 +1,20 @@
 import { SelectChangeEvent } from "@mui/material";
 import { Option } from "src/presentation/components/common/select/ISelect";
 import { StyledRealtimeFilterSelect } from "./RealtimeFilterSelect.styles";
-import { PeriodTypes } from "@/presentation/feature/dashboard/components/temperature-bar-chart/ITemperatureBarChart";
 
-const RealtimeFilterSelect = ({
+type Props<T extends string> = {
+  value: T;
+  setValue: (val: T) => void;
+  options: Option[];
+};
+
+const RealtimeFilterSelect = <T extends string>({
   value,
   setValue,
   options,
-}: {
-  value: PeriodTypes;
-  options: Option[];
-  setValue: (val: PeriodTypes) => void;
-}) => {
+}: Props<T>) => {
   function handleSelectChange(e: SelectChangeEvent) {
-    setValue(e.target.value as PeriodTypes);
+    setValue(e.target.value as T);
   }
   return (
     <StyledRealtimeFilterSelect

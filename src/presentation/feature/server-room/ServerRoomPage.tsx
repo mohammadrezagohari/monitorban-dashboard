@@ -1,25 +1,20 @@
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
+import { useRef, useState } from "react";
 import Button from "src/presentation/components/common/buttons/Button";
-import RoomCard from "./components/room-card/RoomCard";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import ListCard from "src/presentation/components/common/list-card/ListCard";
+import Filter from "src/presentation/components/common/operations/Filter";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { CardsContainer } from "./ServerRoomPage.styles";
-import { serverRoomItems } from "src/presentation/data/data";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { CardsContainer } from "./ServerRoomPage.styles";
 import { useServerRoom } from "./useServerRoom";
-import ListCard from "src/presentation/components/common/list-card/ListCard";
-import Filter from "src/presentation/components/common/operations/Filter";
-import { useRef, useState } from "react";
-import { FilterIcon } from "src/presentation/assets/icons/FilterIcon";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 
 const options = [
   { id: 1, value: "Item 1", label: "آیتم 1" },
@@ -51,19 +46,12 @@ function ServerRoomPage() {
             variant="contained"
             size="large"
             colorType="primary"
-            startIcon={<PlusIcon size={24} />}
+            rightIcon="plus"
           >
             ایجاد اتاق سرور جدید
           </Button>
         ) : (
-          <IconButton
-            sx={{
-              bgcolor: "primary.main",
-              borderRadius: "10px",
-            }}
-          >
-            <PlusIcon color={theme.palette.neutral.main} size={16} />
-          </IconButton>
+          <IconButton iconName="plus" />
         )}
       </PageTitle>
 
@@ -81,16 +69,10 @@ function ServerRoomPage() {
               size="large"
               colorType="primary"
               onClick={() => setIsFilterOpen((o) => !o)}
-              endIcon={
-                isDesktop ? (
-                  isFilterOpen ? (
-                    <ArrowUpIcon size={24} />
-                  ) : (
-                    <ArrowDownIcon size={24} />
-                  )
-                ) : null
+              leftIcon={
+                isDesktop ? (isFilterOpen ? "arrowUp" : "arrowDown") : null
               }
-              startIcon={<FilterIcon size={isDesktop ? 24 : 20} />}
+              rightIcon="filter"
             >
               فیلتر
             </Button>

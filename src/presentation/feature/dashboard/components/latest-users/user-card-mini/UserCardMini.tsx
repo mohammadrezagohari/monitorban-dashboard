@@ -1,8 +1,7 @@
 import { IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import { ArrowLeftIcon } from "src/presentation/assets/icons/ArrowLeftIcon";
-import { UserIcon } from "src/presentation/assets/icons/UserIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import Avatar from "src/presentation/components/common/avatar/Avatar";
 import { UserCardProps } from "./IUserCardMini";
 import { StyledUserCard, StyledUserDetails } from "./UserCardMini.style";
@@ -14,7 +13,7 @@ const UserCardMini: React.FC<UserCardProps> = ({ user }) => {
   return (
     <StyledUserCard>
       <Avatar src={image}>
-        <UserIcon color={theme.palette.neutral.main} />
+        <Icon name="user" color={theme.palette.neutral.main} />
       </Avatar>
 
       <StyledUserDetails>
@@ -23,7 +22,12 @@ const UserCardMini: React.FC<UserCardProps> = ({ user }) => {
       </StyledUserDetails>
 
       <IconButton sx={{ p: 0, marginInlineStart: "auto" }}>
-        <ArrowLeftIcon color={theme.palette.neutral.main} size={20} />
+        <Icon
+          name="arrowLeft"
+          color={theme.palette.neutral.main}
+          w={20}
+          h={20}
+        />
       </IconButton>
     </StyledUserCard>
   );

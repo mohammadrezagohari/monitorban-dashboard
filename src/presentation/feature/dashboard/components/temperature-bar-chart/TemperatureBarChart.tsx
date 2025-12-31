@@ -13,8 +13,12 @@ import {
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
 
+const periodOptions: PeriodTypes[] = ["1d", "1m", "3m", "6m", "1y"] as const;
+
+type PeriodT = (typeof periodOptions)[number];
+
 function TemperatureBarChart() {
-  const [chartSelectValue, setChartSelectValue] = useState<PeriodTypes>("1y");
+  const [chartSelectValue, setChartSelectValue] = useState<PeriodT>("1y");
   const { barChartData } = useBarChart(chartSelectValue);
 
   return (

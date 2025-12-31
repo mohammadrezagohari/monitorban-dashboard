@@ -1,3 +1,4 @@
+import { IconName } from "../components/common/icons";
 import { PeriodTypes } from "../feature/dashboard/components/temperature-bar-chart/ITemperatureBarChart";
 import { BASE_URL_FAKE } from "./Base_API";
 
@@ -5,7 +6,7 @@ interface Announcements {
     id: number;
     name: string;
     report: string;
-    icon: string;
+    icon: IconName;
     status: "normal" | "warning" | "danger";
 }
 
@@ -18,7 +19,7 @@ interface Sensor {
 
 interface ServerRooms {
     title: string;
-    icon: string;
+    icon: IconName;
     city: string;
     sensor: number;
     rack: number;
@@ -31,7 +32,7 @@ interface ServerRooms {
 interface Sensors {
     id: number;
     name: string;
-    icon: string;
+    icon: IconName;
     normalSensorCount: number;
     warningSensorCount: number;
     dangerSensorCount: number;

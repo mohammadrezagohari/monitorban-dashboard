@@ -1,7 +1,7 @@
 import { MenuItem, useTheme } from "@mui/material";
+import ArrowDown from "../icons/ArrowDown";
 import { SelectProps } from "./ISelect";
 import { StyledSelect } from "./Select.styles";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
 
 function Select({
   options,
@@ -15,7 +15,7 @@ function Select({
   return (
     <StyledSelect
       displayEmpty
-      IconComponent={ArrowDownIcon}
+      IconComponent={ArrowDown}
       value={value}
       onChange={onChange}
       MenuProps={{

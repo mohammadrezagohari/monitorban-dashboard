@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
-import { ClockIcon } from "src/presentation/assets/icons/ClockIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import { formatTime } from "src/presentation/utils/helper";
-import { StyledTimer } from "./Login.style";
 import { TimerProps } from "./ILogin";
+import { StyledTimer } from "./Login.style";
 
 export function Timer({ duration, setCanResend }: TimerProps) {
   const [timeLeft, setTimeLeft] = useState(duration);
@@ -24,7 +24,7 @@ export function Timer({ duration, setCanResend }: TimerProps) {
 
   return (
     <StyledTimer>
-      <ClockIcon size={24} />
+      <Icon name="certificateClock" />
       <Typography id="timer">{formatTime(timeLeft)}</Typography>
     </StyledTimer>
   );

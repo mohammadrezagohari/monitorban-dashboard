@@ -1,13 +1,12 @@
+import { Typography, useTheme } from "@mui/material";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { Typography, useTheme } from "@mui/material";
 
-import Input from "../input/Input";
 import Button from "../buttons/Button";
-import { VideoIcon } from "src/presentation/assets/icons/VideoIcon";
-import { GalleryIcon } from "src/presentation/assets/icons/GalleryIcon";
-import { DropzoneProps } from "./IDropzone";
+import { Icon } from "../icons/components/Icon";
+import Input from "../input/Input";
 import { StyledDropzone } from "./Dropzone.styles";
+import { DropzoneProps } from "./IDropzone";
 
 function Dropzone({ type }: DropzoneProps) {
   const theme = useTheme();
@@ -28,9 +27,9 @@ function Dropzone({ type }: DropzoneProps) {
     <StyledDropzone {...getRootProps()} isDragActive={isDragActive}>
       <Input {...(inputProps as any)} id={`dropzone-input-${type}`} />
       {type === "image" ? (
-        <GalleryIcon size={24} color={theme.palette.neutral[100]} />
+        <Icon name="gallery" color={theme.palette.neutral[100]} />
       ) : (
-        <VideoIcon size={24} color={theme.palette.neutral[100]} />
+        <Icon name="video" color={theme.palette.neutral[100]} />
       )}
       {isDragActive ? (
         <Typography variant="body1" color="neutral.200">

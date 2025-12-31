@@ -1,10 +1,10 @@
+import { InputAdornment } from "@mui/material";
 import { useState } from "react";
-import { IconButton, InputAdornment } from "@mui/material";
 
+import { Icon } from "../icons/components/Icon";
 import { StyledInput } from "./Form.styles";
-import { HiddenEyeIcon } from "src/presentation/assets/icons/HiddenEyeIcon";
-import { VisibleEyeIcon } from "src/presentation/assets/icons/VisibleEyeIcon";
 import { InputProps } from "./IForm";
+import IconButton from "../icon-button/IconButton";
 
 function Input({ id, icon, type = "text", placeholder, ...props }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,16 +19,21 @@ function Input({ id, icon, type = "text", placeholder, ...props }: InputProps) {
       endAdornment={
         <InputAdornment position="end">
           {type === "password" ? (
-            <IconButton onClick={() => setShowPassword(!showPassword)}>
-              {icon && type === "password" && showPassword ? (
-                <VisibleEyeIcon />
-              ) : (
-                <HiddenEyeIcon />
-              )}
-            </IconButton>
+            <IconButton
+              iconName={
+                icon && type === "password" && showPassword ? "eye" : "eyeSlash"
+              }
+              onClick={() => setShowPassword(!showPassword)}
+            />
           ) : (
-            icon
+            icon && <Icon name={icon} />
           )}
+          {/* {icon && type === "password" && showPassword ? (
+                <Icon name="eye" />
+              ) : (
+                <Icon name="eyeSlash" />
+              )}
+            </IconButton> */}
         </InputAdornment>
       }
     />

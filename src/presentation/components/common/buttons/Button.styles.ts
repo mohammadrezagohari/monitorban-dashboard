@@ -40,42 +40,47 @@ export const colors = {
         primary: {
             text: "primary.50",
             bg: "primary.500",
-            border: "",
+            border: "primary.500",
             hover: {
                 text: "text.primary",
                 bg: "primary.700",
-                border: "",
+                border: "primary.700",
             },
         },
         secondary: {
             text: "neutral.50",
             bg: "secondary.500",
-            border: "",
+            border: "secondary.500",
             hover: {
                 text: "neutral.50",
                 bg: "secondary.600",
-                border: "",
+                border: "secondary.600",
             },
         },
         success: {
             text: "neutral.50",
             bg: "success.400",
-            border: "",
+            border: "success.400",
             hover: {
                 text: "neutral.50",
                 bg: "success.600",
-                border: "",
+                border: "success.600",
             },
         },
         error: {
             text: "neutral.50",
             bg: "error.400",
-            border: "",
+            border: "error.400",
             hover: {
                 text: "neutral.50",
                 bg: "error.600",
-                border: "",
+                border: "error.600",
             },
+        },
+        disabled: {
+            text: "neutral.main",
+            bg: "text.disabled",
+            border: "text.disabled"
         },
     },
     outlined: {
@@ -119,6 +124,11 @@ export const colors = {
                 border: "error.400",
             },
         },
+        disabled: {
+            text: "text.disabled",
+            bg: "transparent",
+            border: "text.disabled"
+        },
     },
     text: {
         primary: {
@@ -160,6 +170,11 @@ export const colors = {
                 bg: "",
                 border: "",
             },
+        },
+        disabled: {
+            text: "text.disabled",
+            bg: "transparent",
+            border: ""
         },
     },
 };

@@ -1,13 +1,11 @@
-import { IconButton } from "@mui/material";
-
-import Tag from "src/presentation/components/common/tag/Tag";
+import { useNavigate } from "react-router-dom";
 import Button from "src/presentation/components/common/buttons/Button";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import Tag from "src/presentation/components/common/tag/Tag";
 import { AccessesMainContainer } from "./EditRolePage.styles";
-import { useNavigate } from "react-router-dom";
 
 function Accesses({ accesses, onClick }) {
   const navigate = useNavigate();
@@ -32,12 +30,7 @@ function Accesses({ accesses, onClick }) {
       <AccessesMainContainer>
         {accesses.map((item, index) => (
           <Tag key={index}>
-            <IconButton
-              sx={{ p: 0, color: "inherit" }}
-              onClick={() => onClick(item)}
-            >
-              <CloseIcon size={20} />
-            </IconButton>
+            <Icon name="close" onClick={() => onClick(item)} w={20} h={20} />
             {item}
           </Tag>
         ))}

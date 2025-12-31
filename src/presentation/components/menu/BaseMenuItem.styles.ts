@@ -13,7 +13,7 @@ export const StyledNavLink = styled(NavLink)(
         color: theme.palette.neutral[200],
         transition: "color 0.3s ease",
 
-        "& > svg": {
+        "& .icon": {
             color: theme.palette.text.disabled
         },
 
@@ -21,7 +21,7 @@ export const StyledNavLink = styled(NavLink)(
             color: theme.palette.neutral[50],
         },
 
-        "&:hover > svg, &.active > svg": { //@ts-ignore
+        "&:hover .icon, &.active .icon": { //@ts-ignore
             color: theme.palette.primary[200]
         },
 

@@ -1,23 +1,23 @@
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Box, IconButton, Typography } from "@mui/material";
 
-import Tag from "src/presentation/components/common/tag/Tag";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
 import Button from "src/presentation/components/common/buttons/Button";
+import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
+import { Form } from "src/presentation/components/common/Form";
+import { GridBox } from "src/presentation/components/common/GridBox";
+import FormRow from "src/presentation/components/common/input/FormRow";
+import Input from "src/presentation/components/common/input/Input";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { Form } from "src/presentation/components/common/Form";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import Input from "src/presentation/components/common/input/Input";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import Select from "src/presentation/components/common/select/Select";
-import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
+import Tag from "src/presentation/components/common/tag/Tag";
 
 function CreateRole() {
   const [accesses, setAccesses] = useState<string[]>([
@@ -123,11 +123,9 @@ function CreateRole() {
                 {accesses.map((access, index) => (
                   <Tag key={index}>
                     <IconButton
-                      sx={{ p: 0, color: "inherit" }}
+                      iconName="close"
                       onClick={() => deleteAccess(access)}
-                    >
-                      <CloseIcon size={20} />
-                    </IconButton>
+                    />
                     {access}
                   </Tag>
                 ))}

@@ -1,18 +1,17 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import Select from "src/presentation/components/common/select/Select";
 import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import { Form } from "./Users.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { FilterIcon } from "src/presentation/assets/icons/FilterIcon";
 import { StyledInput } from "src/presentation/components/common/input/Form.styles";
+import FormRow from "src/presentation/components/common/input/FormRow";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import Select from "src/presentation/components/common/select/Select";
+import { Form } from "./Users.styles";
 
 const ROLES = [
   { id: 1, label: "نقش 1", value: "role1" },
@@ -32,7 +31,7 @@ function FilterOperation() {
         variant="outlined"
         size="small"
         colorType="primary"
-        startIcon={<FilterIcon size={20} />}
+        rightIcon="filter"
       >
         فیلتر
       </Button>

@@ -1,22 +1,16 @@
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Box, useMediaQuery, useTheme } from "@mui/material";
 
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
 import Button from "src/presentation/components/common/buttons/Button";
-import Filter from "src/presentation/components/common/operations/Filter";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import { GridBox } from "src/presentation/components/common/GridBox";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import { FilterIcon } from "src/presentation/assets/icons/FilterIcon";
-import { MobileIcon } from "src/presentation/assets/icons/MobileIcon";
-import { sensorsData } from "src/presentation/data/data";
-import { ArrowUpIcon } from "src/presentation/assets/icons/ArrowUpIcon";
-import TemperatureCard from "src/presentation/components/common/temperature-card/TemperatureCard";
+import Filter from "src/presentation/components/common/operations/Filter";
 import { FilterOption } from "src/presentation/components/common/operations/IFilter";
+import PageTitle from "src/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { ArrowDownIcon } from "src/presentation/assets/icons/ArrowDownIcon";
-import { FilterSquareIcon } from "src/presentation/assets/icons/FilterSquareIcon";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import TemperatureCard from "src/presentation/components/common/temperature-card/TemperatureCard";
+import { sensorsData } from "src/presentation/data/data";
 import { CenterDetailsButtonsContainer } from "./Sensors.styles";
 
 const filterOptions: FilterOption[] = [
@@ -59,7 +53,7 @@ function CenterDetails() {
         (item) => item.centerName === centerName
       );
       if (!centerObj) return;
-      
+
       setSelectedCenter(centerObj);
     },
     [centerName]
@@ -86,14 +80,8 @@ function CenterDetails() {
               colorType="primary"
               ref={anchorRef}
               onClick={handleFilterButton}
-              endIcon={
-                isFilterOpen ? (
-                  <ArrowUpIcon size={isDesktop ? 24 : 16} />
-                ) : (
-                  <ArrowDownIcon size={isDesktop ? 24 : 16} />
-                )
-              }
-              startIcon={<FilterIcon size={isDesktop ? 24 : 16} />}
+              leftIcon={isFilterOpen ? "arrowUp" : "arrowDown"}
+              rightIcon="filter"
             >
               فیلتر
             </Button>
@@ -103,14 +91,8 @@ function CenterDetails() {
               size={isDesktop ? "large" : "xxsmall"}
               colorType="primary"
               onClick={() => console.log("sort button clicked")}
-              endIcon={
-                isSortOpen ? (
-                  <ArrowUpIcon size={isDesktop ? 24 : 16} />
-                ) : (
-                  <ArrowDownIcon size={isDesktop ? 24 : 16} />
-                )
-              }
-              startIcon={<FilterSquareIcon size={isDesktop ? 24 : 16} />}
+              leftIcon={isSortOpen ? "arrowUp" : "arrowDown"}
+              rightIcon="filterSquare"
             >
               مرتب سازی
             </Button>
@@ -121,14 +103,12 @@ function CenterDetails() {
                 size="large"
                 colorType="primary"
                 onClick={handleAddSensorBtn}
-                startIcon={<PlusIcon />}
+                rightIcon="plus"
               >
                 افزودن سنسور جدید
               </Button>
             ) : (
-              <IconButtonWithBorder onClick={handleAddSensorBtn}>
-                <PlusIcon color={theme.palette.primary.dark} size={16} />
-              </IconButtonWithBorder>
+              <IconButton iconName="plus" variant="outlined" />
             )}
           </CenterDetailsButtonsContainer>
 
@@ -152,7 +132,7 @@ function CenterDetails() {
               key={index}
               status={sensor.status}
               name={sensor.name}
-              icon={<MobileIcon />}
+              icon="mobile"
               percentData={sensor.data}
               incrementData={33}
               decrementData={1}

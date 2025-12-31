@@ -1,17 +1,12 @@
-import { Avatar, Box, Input, Typography, useTheme } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { DeleteIcon } from "src/presentation/assets/icons/DeleteIcon";
-import { StyledInput } from "src/presentation/components/common/input/Form.styles";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { UserInfoMainContainer } from "./UserPage.styles";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import { Controller, useFormContext } from "react-hook-form";
 import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
-import { Controller, useForm, useFormContext } from "react-hook-form";
-import { User } from "./IUserPage";
+import { StyledInput } from "src/presentation/components/common/input/Form.styles";
+import FormRow from "src/presentation/components/common/input/FormRow";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { UserInfoMainContainer } from "./UserPage.styles";
 
 function UserInfo() {
   const { control, register } = useFormContext();

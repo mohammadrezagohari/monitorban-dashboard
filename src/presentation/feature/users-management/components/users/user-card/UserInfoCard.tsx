@@ -1,17 +1,17 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Typography, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-import Tag from "src/presentation/components/common/tag/Tag";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { useNavigate } from "react-router-dom";
 import Button from "src/presentation/components/common/buttons/Button";
 import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { UserIcon } from "src/presentation/assets/icons/UserIcon";
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
+import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
+import Tag from "src/presentation/components/common/tag/Tag";
 import { UserInfoCardProps } from "./IUserInfoCard";
 import {
   StyledDetailsContainer,
   StyledUserInfoContainer,
 } from "./UserInfoCard.style";
-import { useNavigate } from "react-router-dom";
 
 // const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
 const UserInfoCard: React.FC<UserInfoCardProps> = ({
@@ -31,6 +31,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
   const [remainingCount, setRimainingCount] = useState(0);
   const groupRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navigate = useNavigate();
+  const theme = useTheme();
   const {
     id: userId,
     image: avatar,
@@ -42,7 +43,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
 
   const roleIsIncluded = ROLE ? roles?.includes(ROLE) : null;
   const groupIsIncluded = GROUP ? groups?.includes(GROUP) : null;
-  
+
   // const hasImage = ;
 
   useEffect(() => {
@@ -252,7 +253,6 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
     navigate(`user/${userId}`);
   };
 
-
   return (
     <StyledUserInfoContainer>
       <StyledDetailsContainer>
@@ -270,7 +270,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
             <Avatar src={avatar} sx={{ width: 48, height: 48 }} />
           ) : (
             <IconWrapper>
-              <UserIcon size={24} color="#F7F5FA" />
+              <Icon name="user" color={theme.palette.neutral.main} />
             </IconWrapper>
           )}
           <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>

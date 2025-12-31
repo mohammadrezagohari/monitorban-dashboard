@@ -1,17 +1,15 @@
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
 
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
 import Button from "src/presentation/components/common/buttons/Button";
-import GroupInfo from "./GroupInfo";
-import { IUser } from "../../users/IUsers";
 import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import GroupMembers from "./GroupMembers";
-import { TickIcon } from "src/presentation/assets/icons/TickIcon";
 import { usersInfo } from "src/presentation/data/data";
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
-import GroupAccesses from "./GroupAccesses";
+import { IUser } from "../../users/IUsers";
 import { StyledCreateGroup } from "./CreateGroup.styles";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
+import GroupAccesses from "./GroupAccesses";
+import GroupInfo from "./GroupInfo";
+import GroupMembers from "./GroupMembers";
 
 function CreateGroup() {
   const groupMembers: IUser[] = usersInfo || [];
@@ -53,20 +51,9 @@ function CreateGroup() {
             </>
           ) : (
             <>
-              <IconButtonWithBorder
-               
-              >
-                <CloseIcon size={16} />
-              </IconButtonWithBorder>
-              <IconButton
-                sx={{
-                  borderRadius: "10px",
-                  bgcolor: "primary.main",
-                  color: theme.palette.neutral.main,
-                }}
-              >
-                <TickIcon size={16} />
-              </IconButton>
+              <IconButton iconName="close" variant="outlined" />
+
+              <IconButton iconName="tick" />
             </>
           )}
         </Box>

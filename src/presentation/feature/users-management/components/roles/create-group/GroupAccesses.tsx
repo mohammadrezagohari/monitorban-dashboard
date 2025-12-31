@@ -1,4 +1,6 @@
-import { CloseIcon } from "src/presentation/assets/icons/CloseIcon";
+import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Button from "src/presentation/components/common/buttons/Button";
 import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
 import {
@@ -7,15 +9,6 @@ import {
 } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
 import Tag from "src/presentation/components/common/tag/Tag";
-import {
-  Box,
-  IconButton,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
 
 function GroupAccesses({ accesses, deleteAccess }) {
   const theme = useTheme();
@@ -30,21 +23,14 @@ function GroupAccesses({ accesses, deleteAccess }) {
             افزودن دسترسی
           </Button>
         ) : (
-          <IconButtonWithBorder>
-            <PlusIcon size={16} />
-          </IconButtonWithBorder>
+          <IconButton iconName="plus" variant="outlined" />
         )}
       </HeaderContainer>
       <MainContainer sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         {accesses.length > 0 ? (
           accesses.map((access, index) => (
             <Tag key={index}>
-              <IconButton
-                sx={{ p: 0, color: "inherit" }}
-                onClick={() => deleteAccess(access)}
-              >
-                <CloseIcon size={20} />
-              </IconButton>
+              <Icon name="close" w={20} h={20} />
               {access}
             </Tag>
           ))

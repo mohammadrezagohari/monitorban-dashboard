@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import LinearCard from "src/presentation/components/common/linear-card/LinearCard";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import { iconsMap } from "src/presentation/assets/icons/iconsMap";
-import { PlusIcon } from "src/presentation/assets/icons/PlusIcon";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { sensorsSettingItems } from "src/presentation/data/data";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
 import { useMediaQuery, useTheme } from "@mui/material";
+import Button from "src/presentation/components/common/buttons/Button";
+import { GridBox } from "src/presentation/components/common/GridBox";
+import LinearCard from "src/presentation/components/common/linear-card/LinearCard";
+import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { sensorsSettingItems } from "src/presentation/data/data";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 
 function SensorsSettings() {
@@ -28,7 +26,7 @@ function SensorsSettings() {
           variant="outlined"
           size={isDesktop ? "large" : "xxsmall"}
           colorType="primary"
-          startIcon={<PlusIcon size={isDesktop ? 24 : 16} />}
+          rightIcon="plus"
           onClick={handleCreateSensor}
         >
           افرودن سنسور جدید
@@ -39,13 +37,8 @@ function SensorsSettings() {
         <GridBox>
           {sensorsSettingItems.map((item) => {
             const { id, name, icon, iconColor } = item;
-            const ItemIcon = iconsMap[icon as keyof typeof iconsMap];
             return (
-              <LinearCard
-                key={id}
-                color={iconColor}
-                icon={<ItemIcon color="#0E0C15" size={24} />}
-              >
+              <LinearCard key={id} color={iconColor} icon={icon}>
                 {name}
               </LinearCard>
             );

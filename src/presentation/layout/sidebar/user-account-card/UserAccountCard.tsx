@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-import { LoginIcon } from "src/presentation/assets/icons/LoginIcon";
-import Divider from "src/presentation/components/common/divider/Divider";
 import { LogoutButton } from "src/presentation/components/common/buttons/LogoutButton";
+import Divider from "src/presentation/components/common/divider/Divider";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 import { StyledUserAccountCard } from "./UserAccountCard.styles";
 import { UserProfileContainers } from "./UserProfileContainer";
 
@@ -19,11 +19,8 @@ const UserAccountCard = () => {
     <StyledUserAccountCard>
       <UserProfileContainers />
       <Divider />
-      <LogoutButton
-        startIcon={<LoginIcon />}
-        onClick={handleLogoutAccount}
-        disableRipple
-      >
+      <LogoutButton onClick={handleLogoutAccount} disableRipple>
+        <Icon name="login" w={16} h={16} />
         خروج از حساب
       </LogoutButton>
     </StyledUserAccountCard>

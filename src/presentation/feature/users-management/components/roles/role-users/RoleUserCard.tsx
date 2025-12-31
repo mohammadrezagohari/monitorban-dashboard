@@ -1,13 +1,11 @@
 import { Avatar, Box, useTheme } from "@mui/material";
+import Checkbox from "src/presentation/components/common/checkbox/Checkbox";
+import { Icon } from "src/presentation/components/common/icons/components/Icon";
 
-import { IconWrapper } from "src/presentation/assets/icons/IconWrapper.style";
-import { UserIcon } from "src/presentation/assets/icons/UserIcon";
 import Button from "src/presentation/components/common/buttons/Button";
 import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
 import Tag from "src/presentation/components/common/tag/Tag";
-import { RoleUserCardProps } from "./IRoleUsers";
-import CustomCheckbox from "src/presentation/components/common/checkbox-input/CustomCheckBoxInput";
 
 function RoleUserCard({ user, ROLE, type, selectable }) {
   const { image: avatar, fullName: userName, phone, roles, groups } = user;
@@ -46,9 +44,9 @@ function RoleUserCard({ user, ROLE, type, selectable }) {
             flexShrink: 0,
           }}
         >
-          {selectable && <CustomCheckbox size={24} />}
+          {selectable && <Checkbox iconSize={24} />}
           <Avatar src={avatar}>
-            <UserIcon size={24} color={theme.palette.neutral.main} />
+            <Icon name="user" color={theme.palette.neutral.main} />
           </Avatar>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
             <Text color="neutral.50" variant="h4">
