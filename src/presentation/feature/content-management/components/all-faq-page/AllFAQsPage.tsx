@@ -2,11 +2,11 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { FAQs } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { FAQs } from "@/presentation/data/data";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 import { StyledFAQList } from "./AllFAQsPage.styles";
 import FAQListItem from "./FAQListItem";

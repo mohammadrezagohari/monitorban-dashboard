@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
 
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import Button from "src/presentation/components/common/buttons/Button";
-import { accessesTemplate, filterOptions } from "src/presentation/data/data";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import Button from "@/presentation/components/common/buttons/Button";
+import { accessesTemplate, filterOptions } from "@/presentation/data/data";
 import RoleInfo from "./RoleInfo";
 import Accesses from "./Accesses";
 import { StyledEditRolePageContainer } from "./EditRolePage.styles";
@@ -21,7 +21,6 @@ export default function EditRolePage() {
       prevItems.filter((item: string) => item !== selectedItem)
     );
   };
-
 
   return (
     <>

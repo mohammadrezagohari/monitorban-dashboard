@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import { formatTime } from "src/presentation/utils/helper";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import { formatTime } from "@/presentation/utils/helper";
 import { TimerProps } from "./ILogin";
 import { StyledTimer } from "./Login.style";
 

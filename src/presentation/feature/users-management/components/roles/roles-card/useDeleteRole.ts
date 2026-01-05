@@ -1,4 +1,4 @@
-import { deleteRole as deleteRoleApi } from "src/presentation/services/apiUserManagement";
+import { deleteRole as deleteRoleApi } from "@/presentation/services/apiUserManagement";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useDeleteRole() {

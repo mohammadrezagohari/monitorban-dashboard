@@ -1,16 +1,16 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import { StyledInput } from "src/presentation/components/common/input/Form.styles";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Button from "@/presentation/components/common/buttons/Button";
+import { StyledInput } from "@/presentation/components/common/input/Form.styles";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Select from "src/presentation/components/common/select/Select";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Select from "@/presentation/components/common/select/Select";
 import { Form } from "./Users.styles";
 
 const ROLES = [

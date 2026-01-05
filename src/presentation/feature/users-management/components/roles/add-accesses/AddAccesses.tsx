@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { serverRoomItems } from "src/presentation/data/data";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import { serverRoomItems } from "@/presentation/data/data";
 import { StyledAddAccessesContainer } from "./AddAccesses.styles";
-import Stepper from "src/presentation/components/common/stepper/Stepper";
+import Stepper from "@/presentation/components/common/stepper/Stepper";
 
 export default function AddAccesses() {
   return (

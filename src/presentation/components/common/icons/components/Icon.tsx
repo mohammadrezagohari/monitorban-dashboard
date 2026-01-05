@@ -1,16 +1,14 @@
-import React, { memo } from "react";
-import icons from "src/presentation/components/common/icons";
+import React, { ForwardedRef, forwardRef, memo } from "react";
+import icons from "@/presentation/components/common/icons";
 import { StyledIcon } from "./Icon.styles";
 import { IconProps } from "./Icon.types";
 
-const IconComponent = ({
-  name,
-  w,
-  h,
-  color = "currentColor",
-  onClick,
-  className,
-}: IconProps) => {
+interface IconRef extends HTMLElement {}
+
+const IconComponent = (
+  { name, w, h, color = "currentColor", onClick, className }: IconProps,
+  ref: ForwardedRef<IconRef>
+) => {
   const SvgIcon = icons[name];
 
   if (!SvgIcon) {
@@ -19,10 +17,11 @@ const IconComponent = ({
   }
 
   return (
-    <StyledIcon className={className} onClick={onClick}>
+    <StyledIcon className={`${className}`} onClick={onClick} ref={ref}>
       <SvgIcon w={w} h={h} color={color} />
     </StyledIcon>
   );
 };
 
-export const Icon = memo(IconComponent);
+const ForwardedIcon = forwardRef(IconComponent);
+export const Icon = memo(ForwardedIcon);

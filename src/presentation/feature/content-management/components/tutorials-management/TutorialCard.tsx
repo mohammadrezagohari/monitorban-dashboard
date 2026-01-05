@@ -1,10 +1,10 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import Avatar from "src/presentation/components/common/avatar/Avatar";
-import Button from "src/presentation/components/common/buttons/Button";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
-import Tag from "src/presentation/components/common/tag/Tag";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
+import Button from "@/presentation/components/common/buttons/Button";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import TagHeading from "@/presentation/components/common/tag-heading/TagHeading";
+import Tag from "@/presentation/components/common/tag/Tag";
 import { TutorialCardProps } from "./ITutorialManagement";
 import {
   ButtonsContainer,

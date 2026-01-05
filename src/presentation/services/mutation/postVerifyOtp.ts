@@ -1,6 +1,7 @@
-import axiosApi from "src/presentation/api/axiosConfig";
-import { setToLocalStorage } from "src/presentation/utils/utils";
+import axiosApi from "@/presentation/api/axiosConfig";
+import { setToLocalStorage } from "@/presentation/utils/utils";
 import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/presentation/hooks/useToast";
 
 interface VerifyOtpRequestType {
     mobile: string;
@@ -12,6 +13,7 @@ export const verifyOtp = (mobile: string, otp: number) => {
 };
 
 export const useVerifyOtp = () => {
+    const { showToast } = useToast()
     return useMutation({
         mutationFn: ({ mobile, otp }: VerifyOtpRequestType) => verifyOtp(mobile, otp),
         onSuccess: (response) => {
@@ -26,7 +28,7 @@ export const useVerifyOtp = () => {
         },
         onError: (error: any) => {
             const message = error.response?.data?.message || "کد وارد شده اشتباه است یا منقضی شده است"
-            alert(message)
+            showToast("error", message)
         }
     })
 }

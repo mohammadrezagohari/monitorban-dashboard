@@ -1,7 +1,7 @@
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import { useMediaQuery, useTheme } from "@mui/material";
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import GroupsList from "./GroupsList";
 
 function GroupsPage() {

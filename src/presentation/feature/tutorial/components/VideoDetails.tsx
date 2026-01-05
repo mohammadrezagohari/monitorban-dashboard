@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import useVideo from "./useVideo";
 
 import { Video } from "./VideoDetails.styles";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import { useParams } from "react-router-dom";
 
 function VideoDetails() {

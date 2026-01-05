@@ -1,4 +1,4 @@
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import GroupTabs from "./GroupTabs";
 
 function AddMember() {

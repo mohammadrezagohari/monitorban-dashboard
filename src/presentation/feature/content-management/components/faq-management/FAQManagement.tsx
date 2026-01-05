@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
+import Button from "@/presentation/components/common/buttons/Button";
 import FAQCard from "./FAQCard";
-import { FAQs } from "src/presentation/data/data";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { FAQs } from "@/presentation/data/data";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 import { StyledQuestionsBox } from "./FAQManagement.styles";
 

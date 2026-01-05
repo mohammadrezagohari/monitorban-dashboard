@@ -1,7 +1,9 @@
+import { IconName } from "@/presentation/components/common/icons";
+
 export interface GroupType {
     accesses: string[];
     groupName: string;
-    icon: string;
+    icon: IconName;
     id: number;
     members: MemberType[];
 }

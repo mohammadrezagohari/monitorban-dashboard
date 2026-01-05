@@ -1,11 +1,11 @@
 import { styled } from "@mui/material";
-import { HeaderContainer, MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { HeaderContainer, MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledSettingsMainSection = styled(MainContainer)(({ theme }) => ({
     display: "grid",
     gridTemplateColumns: "1fr",
     gap: theme.spacing(2),
-    
+
     [theme.breakpoints.up("sm")]: {
         gridTemplateColumns: "repeat(2, 1fr)",
     },

@@ -1,11 +1,11 @@
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 
-import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
+import BaseDashboardCard from "@/presentation/components/common/dashboard-card/BaseDashboardCard";
 import {
   DataContainer,
   Text,
   TextBox,
-} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+} from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import { IconWrapper } from "../icons/IconWrapper.style";
 import { Icon } from "../icons/components/Icon";

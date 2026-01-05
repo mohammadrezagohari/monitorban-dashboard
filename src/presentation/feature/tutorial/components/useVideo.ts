@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getVideo } from "src/presentation/services/apiTutorial"
+import { getVideo } from "@/presentation/services/apiTutorial"
 
 function useVideo(id: string | undefined) {
     const { isLoading, data: video, isError } = useQuery({

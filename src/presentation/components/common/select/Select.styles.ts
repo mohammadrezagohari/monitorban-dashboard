@@ -38,15 +38,20 @@ export const StyledSelect = styled(Select)(({ theme, value }) => ({
         // display: "flex",
         // alignItems: "center",
     },
-    "& .MuiSelect-icon": {
+    "& svg": {
+        position: "absolute",
         left: "10px",
         right: "unset",
         transition: "transform 200ms ease-in-out",
         flexShrink: 0,
         // pointerEvents: "none",
-        top: "calc(50% - 0.5rem)",
+        // top: "calc(50% - 0.5rem)",
+        top: "50%",
+        transform: "translateY(-50%)",
         // color: selectedtextcolor,
     },
+
+    
 }))
 
 

@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Table from "src/presentation/components/common/table/Table";
-import { detailedReportsData } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Table from "@/presentation/components/common/table/Table";
+import { detailedReportsData } from "@/presentation/data/data";
 import { ButtonsContainer } from "./DetailedReport.styles";
 import DetailedReportRow from "./DetailedReportRow";
 

@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
+import Button from "@/presentation/components/common/buttons/Button";
 import { FAQCardProps } from "./IFAQManagement";
 import {
   ButtonsContainer,

@@ -1,5 +1,5 @@
-import CustomRadio from "src/presentation/components/common/radio-input/CustomRadioInput";
-import { RadioInputProps } from "src/presentation/components/common/radio-input/IRadioInput";
+import CustomRadio from "@/presentation/components/common/radio-input/CustomRadioInput";
+import { RadioInputProps } from "@/presentation/components/common/radio-input/IRadioInput";
 import { StyledRadioInput } from "./RadioInput.styles";
 
 const RadioInput: React.FC<RadioInputProps> = ({ option }) => {

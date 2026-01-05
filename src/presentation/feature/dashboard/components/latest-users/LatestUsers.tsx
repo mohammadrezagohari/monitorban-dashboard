@@ -2,12 +2,12 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 import useLatestUsers from "./useLatestUsers";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import UserCardMini from "src/presentation/feature/dashboard/components/latest-users/user-card-mini/UserCardMini";
+import Button from "@/presentation/components/common/buttons/Button";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import UserCardMini from "@/presentation/feature/dashboard/components/latest-users/user-card-mini/UserCardMini";
 import { StyledMainContainer } from "./LatestUser.styles";
 
 function LatestUsers() {

@@ -1,14 +1,14 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import Filter from "src/presentation/components/common/operations/Filter";
-import { FilterOption } from "src/presentation/components/common/operations/IFilter";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { sensorsData } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import Filter from "@/presentation/components/common/operations/Filter";
+import { FilterOption } from "@/presentation/components/common/operations/IFilter";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { sensorsData } from "@/presentation/data/data";
 import SensorsCategoryItem from "./components/SensorsCategoryItem";
 import {
   FilterBox,
@@ -36,7 +36,7 @@ function SensorsPage() {
   const anchorRef = useRef<HTMLButtonElement>(null);
 
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const handleFilterButton = () => {
     setIsFilterOpen((prev) => !prev);

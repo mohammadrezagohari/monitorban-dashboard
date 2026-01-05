@@ -1,7 +1,7 @@
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import { Drawer, IconButton, useTheme } from "@mui/material";
 
-import MainNav from "src/presentation/components/main-nav/MainNav";
+import MainNav from "@/presentation/components/main-nav/MainNav";
 
 export function MobileMenu(props: {
   mobileOpen: boolean;

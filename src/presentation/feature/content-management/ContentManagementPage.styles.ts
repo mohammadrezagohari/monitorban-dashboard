@@ -1,5 +1,5 @@
 import { Box, styled } from "@mui/material";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledContentManagement = styled(Box)(({ theme }) => ({
     display: "flex",

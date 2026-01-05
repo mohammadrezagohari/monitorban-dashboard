@@ -1,16 +1,16 @@
-import Input from "src/presentation/components/common/input/Input";
-import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import { Form } from "src/presentation/components/common/Form";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Input from "@/presentation/components/common/input/Input";
+import Button from "@/presentation/components/common/buttons/Button";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import { Form } from "@/presentation/components/common/Form";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { ButtonsContainer } from "./ChangePasswordPage.styles";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
 
 export default function ChangePasswordPage() {
   return (

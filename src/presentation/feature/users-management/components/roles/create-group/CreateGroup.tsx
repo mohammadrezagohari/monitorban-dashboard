@@ -1,10 +1,10 @@
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { usersInfo } from "src/presentation/data/data";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import { usersInfo } from "@/presentation/data/data";
 import { IUser } from "../../users/IUsers";
 import { StyledCreateGroup } from "./CreateGroup.styles";
 import GroupAccesses from "./GroupAccesses";

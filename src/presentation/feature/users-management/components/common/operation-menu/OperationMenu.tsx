@@ -1,9 +1,8 @@
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import DeleteConfirmBackdrop from "@/presentation/components/common/backdrop/DeleteConfirmBackdrop";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Modal from "@/presentation/components/common/modal/Modal";
 import { ListItemIcon, ListItemText, MenuItem, useTheme } from "@mui/material";
-import { SetStateAction, useState } from "react";
-import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import Modal from "src/presentation/components/common/modal/Modal";
+import React, { useState } from "react";
 import { OperationMenuProps } from "./IOperationMenu";
 import { Menu } from "./OperationMenu.styles";
 
@@ -18,9 +17,7 @@ export default function OperationMenu({
   const open = Boolean(ancholEl);
   const theme = useTheme();
 
-  const handleClick = (event: {
-    currentTarget: SetStateAction<HTMLElement | null>;
-  }) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
     console.log("Opened");
   };
@@ -32,7 +29,11 @@ export default function OperationMenu({
 
   return (
     <>
-      <IconButton iconName="more" onClick={handleClick} />
+      <Icon
+        name="more"
+        color={theme.palette.neutral.main}
+        onClick={handleClick}
+      />
       <Menu anchorEl={ancholEl} open={open} onClose={handleClose}>
         <Modal>
           <Modal.Open opens="delete-role">

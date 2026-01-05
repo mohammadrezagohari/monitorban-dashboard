@@ -1,5 +1,5 @@
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import GroupInfo from "./GroupInfo";
 import GroupMembers from "./GroupMembers";
 import GroupAccesses from "./GroupAccesses";

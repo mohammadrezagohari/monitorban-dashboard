@@ -1,4 +1,7 @@
+import { ReactNode } from "react";
+
 export interface PageTitleProps {
-    children?: React.ReactNode;
+    children?: ReactNode;
     title: string;
+    className?: string;
 }

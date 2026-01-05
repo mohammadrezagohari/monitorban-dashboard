@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { tutorialsData } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { tutorialsData } from "@/presentation/data/data";
 import TutorialCard from "../tutorials-management/TutorialCard";
 import { StyledTutorialsList } from "./AllTutorialsPage.styles";
 

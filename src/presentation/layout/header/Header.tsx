@@ -1,8 +1,8 @@
-import { useMoveBack } from "src/presentation/hooks/useMoveBack";
+import { useMoveBack } from "@/presentation/hooks/useMoveBack";
 
 import { useMediaQuery, useTheme } from "@mui/material";
-import { BackButton } from "src/presentation/components/common/buttons/BackButton";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { BackButton } from "@/presentation/components/common/buttons/BackButton";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import Breadcrumbs from "./Breadcrumbs";
 import { StyledHeader, VerticalDivider } from "./Header.styles";
 

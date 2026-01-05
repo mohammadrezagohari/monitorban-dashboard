@@ -1,4 +1,4 @@
-import ServerRoomPage from "src/presentation/feature/server-room/ServerRoomPage";
+import ServerRoomPage from "@/presentation/feature/server-room/ServerRoomPage";
 
 function ServerRoom() {
   return <ServerRoomPage />;

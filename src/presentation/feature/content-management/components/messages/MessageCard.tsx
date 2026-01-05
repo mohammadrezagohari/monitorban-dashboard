@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Button from "src/presentation/components/common/buttons/Button";
-import Divider from "src/presentation/components/common/divider/Divider";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Button from "@/presentation/components/common/buttons/Button";
+import Divider from "@/presentation/components/common/divider/Divider";
 import { MessageCardProps } from "./IMessages";
 import {
   AccordionHeader,

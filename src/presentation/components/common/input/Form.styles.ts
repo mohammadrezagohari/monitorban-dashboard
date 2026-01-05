@@ -52,7 +52,7 @@ export const StyledInput = styled(Input)(({ theme, error }) => ({
         content: "''",
         border: "none",
     },
-    "&:hover:not(.Mui-disabled,.Mui-error)::before, &:hover:not(.Mui-disabled,.Mui-error)::after": {
+    "&:hover:not(.Mui-disabled, .Mui-error)::before, &.Mui-disabled::after, &.Mui-disabled::before, &:hover::after": {
         border: "none",
     },
     "& button, & input": {

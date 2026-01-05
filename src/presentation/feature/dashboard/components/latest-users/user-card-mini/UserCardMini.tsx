@@ -1,8 +1,8 @@
 import { IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Avatar from "src/presentation/components/common/avatar/Avatar";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
 import { UserCardProps } from "./IUserCardMini";
 import { StyledUserCard, StyledUserDetails } from "./UserCardMini.style";
 

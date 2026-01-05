@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { PeriodTypes } from "./ITemperatureBarChart"
-import { getBarChartValues } from "src/presentation/services/apiDashboard"
+import { getBarChartValues } from "@/presentation/services/apiDashboard"
 import { useEffect } from "react"
 
 const PERIODS: PeriodTypes[] = ["1y", "6m", "3m", "1m", "1w", "1d"]

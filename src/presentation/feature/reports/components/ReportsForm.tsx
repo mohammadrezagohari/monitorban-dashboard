@@ -1,12 +1,12 @@
 import { useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import Input from "src/presentation/components/common/input/Input";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import Select from "src/presentation/components/common/select/Select";
-import { serverRoomOptions } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import Select from "@/presentation/components/common/select/Select";
+import { serverRoomOptions } from "@/presentation/data/data";
 import {
   StyledReportsForm as Form,
   InputsContainer,

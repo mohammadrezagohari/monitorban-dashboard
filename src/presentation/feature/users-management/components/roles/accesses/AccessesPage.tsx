@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import Button from "src/presentation/components/common/buttons/Button";
+import Button from "@/presentation/components/common/buttons/Button";
 import Accesses from "../edit-role-page/Accesses";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { usersInfo } from "src/presentation/data/data";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import { usersInfo } from "@/presentation/data/data";
 
 function AccessesPage() {
   const navigate = useNavigate();

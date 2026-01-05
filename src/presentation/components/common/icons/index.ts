@@ -44,6 +44,7 @@ import Gallery from "./Gallery";
 import Home from "./Home";
 import Hospital from "./Hospital";
 import House from "./House";
+import InfoCircle from "./InfoCircle";
 import Lairdrop from "./Lairdrop";
 import LightSwitch from "./LightSwitch";
 import List from "./List";
@@ -132,6 +133,7 @@ const icons = {
     home: Home,
     hospital: Hospital,
     house: House,
+    infoCircle: InfoCircle,
     lairdrop: Lairdrop,
     lightSwitch: LightSwitch,
     list: List,

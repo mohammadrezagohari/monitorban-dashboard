@@ -1,5 +1,5 @@
-import Stepper from "src/presentation/components/common/stepper/Stepper";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import Stepper from "@/presentation/components/common/stepper/Stepper";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import { StyledAddAccessContainer } from "./AddAccessGroup.styles";
 
 function AddAccessGroup() {

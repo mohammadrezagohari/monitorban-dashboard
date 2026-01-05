@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getSensorsItem } from "src/presentation/services/apiDashboard"
+import { getSensorsItem } from "@/presentation/services/apiDashboard"
 
 function useSensorsDetail() {
     const { isLoading, data: sensorsItems, isError } = useQuery({

@@ -1,10 +1,10 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Button from "src/presentation/components/common/buttons/Button";
-import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
-import Tag from "src/presentation/components/common/tag/Tag";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Button from "@/presentation/components/common/buttons/Button";
+import TagHeading from "@/presentation/components/common/tag-heading/TagHeading";
+import Tag from "@/presentation/components/common/tag/Tag";
 import {
   StyledDetail,
   StyledOperations,
@@ -12,7 +12,7 @@ import {
   StyledRoomTitle,
   StyledTitle,
 } from "./RoomCard.styles";
-import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
+import { IconWrapper } from "@/presentation/components/common/icons/IconWrapper.style";
 
 function RoomCard({ room }) {
   const { id: roomId, title, icon, city, status, sensors } = room;

@@ -2,15 +2,15 @@ import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import Button from "src/presentation/components/common/buttons/Button";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import Filter from "src/presentation/components/common/operations/Filter";
-import { FilterOption } from "src/presentation/components/common/operations/IFilter";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import TemperatureCard from "src/presentation/components/common/temperature-card/TemperatureCard";
-import { sensorsData } from "src/presentation/data/data";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import Button from "@/presentation/components/common/buttons/Button";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import Filter from "@/presentation/components/common/operations/Filter";
+import { FilterOption } from "@/presentation/components/common/operations/IFilter";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import TemperatureCard from "@/presentation/components/common/temperature-card/TemperatureCard";
+import { sensorsData } from "@/presentation/data/data";
 import { CenterDetailsButtonsContainer } from "./Sensors.styles";
 
 const filterOptions: FilterOption[] = [
@@ -43,7 +43,7 @@ function CenterDetails() {
   const navigate = useNavigate();
   const { centerName } = useParams();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const anchorRef = useRef<HTMLButtonElement>(null);
 

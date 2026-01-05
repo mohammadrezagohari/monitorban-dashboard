@@ -1,14 +1,14 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import Button from "src/presentation/components/common/buttons/Button";
-import ListCard from "src/presentation/components/common/list-card/ListCard";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import Button from "@/presentation/components/common/buttons/Button";
+import ListCard from "@/presentation/components/common/list-card/ListCard";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 
 function GroupMembers({ members }) {
   const theme = useTheme();

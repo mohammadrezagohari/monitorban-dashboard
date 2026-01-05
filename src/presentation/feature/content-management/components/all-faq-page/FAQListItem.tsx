@@ -1,7 +1,7 @@
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import { Typography } from "@mui/material";
-import Button from "src/presentation/components/common/buttons/Button";
-import Divider from "src/presentation/components/common/divider/Divider";
+import Button from "@/presentation/components/common/buttons/Button";
+import Divider from "@/presentation/components/common/divider/Divider";
 import {
   ButtonsContainer,
   QuestionText,

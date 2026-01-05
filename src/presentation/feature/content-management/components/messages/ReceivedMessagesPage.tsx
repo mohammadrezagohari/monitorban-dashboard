@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import MessageCard from "./MessageCard";
-import { messages } from "src/presentation/data/data";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { messages } from "@/presentation/data/data";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { StyledReceivedMessagesListContainer } from "./messages.styles";
 
 function ReceivedMessagesPage() {

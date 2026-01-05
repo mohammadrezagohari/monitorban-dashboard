@@ -1,18 +1,18 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useForm } from "react-hook-form";
 
-import Input from "src/presentation/components/common/input/Input";
-import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { TextField } from "src/presentation/components/common/input/TextField";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Input from "@/presentation/components/common/input/Input";
+import Button from "@/presentation/components/common/buttons/Button";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { TextField } from "@/presentation/components/common/input/TextField";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { AddNewFAQForm, ButtonContainer } from "./AddNewFAQ.styles";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { FAQProps } from "./IAddNewFAQ";
 
 function AddNewFAQ({ faqToEdite = {} }) {

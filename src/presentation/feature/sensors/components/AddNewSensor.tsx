@@ -1,23 +1,23 @@
 import { useMediaQuery } from "@mui/material";
 import { useReducer, useState } from "react";
 
-import theme from "src/themes/theme";
-import Input from "src/presentation/components/common/input/Input";
-import Select from "src/presentation/components/common/select/Select";
-import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { useMoveBack } from "src/presentation/hooks/useMoveBack";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import theme from "@/themes/theme";
+import Input from "@/presentation/components/common/input/Input";
+import Select from "@/presentation/components/common/select/Select";
+import Button from "@/presentation/components/common/buttons/Button";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import FileUpload from "@/presentation/components/common/file-upload/FileUpload";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { useMoveBack } from "@/presentation/hooks/useMoveBack";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { Controller, useForm } from "react-hook-form";
 import { initialSensorState, sensorFormReducer } from "./SensorReducerFunction";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
 import {
   minimumRecordOptions,
   notifDurationOptions,
@@ -27,9 +27,9 @@ import {
   sensorTypeFeatureOptions,
   serverRoomOptions,
   unitOptions,
-} from "src/presentation/data/data";
+} from "@/presentation/data/data";
 import { AddSensorButtonsContainer, Form } from "./Sensors.styles";
-import { SensorFormValues } from "src/presentation/utils/types";
+import { SensorFormValues } from "@/presentation/utils/types";
 
 // image: undefined;
 // maximumCritical: "";
@@ -64,7 +64,7 @@ const AddNewSensor = () => {
   const [state, dispatch] = useReducer(sensorFormReducer, initialSensorState);
 
   const [selectValue, setSelectValue] = useState("");
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const { register, handleSubmit, formState, control, reset } =
     useForm<SensorFormValues>();
@@ -91,7 +91,7 @@ const AddNewSensor = () => {
   return (
     // <Box component="form" onSubmit={handleSubmit}>
     <>
-      <PageTitle title="افزودن سنسور جدید">
+      <PageTitle className="column" title="افزودن سنسور جدید">
         <AddSensorButtonsContainer>
           <Button
             variant="outlined"

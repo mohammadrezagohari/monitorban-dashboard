@@ -1,6 +1,6 @@
 import { Divider, Typography } from "@mui/material";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import {
   StyledAnswerContainer,
   StyledFAQItemContainer,

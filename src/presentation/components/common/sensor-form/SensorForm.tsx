@@ -1,15 +1,15 @@
 import { Typography, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import { GridBox } from "src/presentation/components/common/GridBox";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import Input from "src/presentation/components/common/input/Input";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import Select from "src/presentation/components/common/select/Select";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import Select from "@/presentation/components/common/select/Select";
 import {
   minimumRecordOptions,
   notifDurationOptions,
@@ -18,7 +18,7 @@ import {
   returnNotifToNormalOptions,
   sensorTypeFeatureOptions,
   unitOptions,
-} from "src/presentation/data/data";
+} from "@/presentation/data/data";
 import Avatar from "../avatar/Avatar";
 import { Icon } from "../icons/components/Icon";
 

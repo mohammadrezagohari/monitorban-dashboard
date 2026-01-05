@@ -1,11 +1,10 @@
-
 import { Controller, useFormContext } from "react-hook-form";
-import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
-import { StyledInput } from "src/presentation/components/common/input/Form.styles";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import FileUpload from "@/presentation/components/common/file-upload/FileUpload";
+import { StyledInput } from "@/presentation/components/common/input/Form.styles";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { UserInfoMainContainer } from "./UserPage.styles";
 
 function UserInfo() {

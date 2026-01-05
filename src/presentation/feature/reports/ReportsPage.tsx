@@ -1,4 +1,4 @@
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import ChartReport from "./components/ChartReport";
 import DetailedReport from "./components/DetailedReport";
 import ReportsForm from "./components/ReportsForm";

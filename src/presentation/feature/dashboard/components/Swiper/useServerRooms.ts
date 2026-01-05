@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getServerRooms } from "src/presentation/services/apiDashboard"
+import { getServerRooms } from "@/presentation/services/apiDashboard"
 
 function useServerRooms() {
     const { isLoading, data: serverRoomItems, isError } = useQuery({

@@ -1,4 +1,4 @@
-import { getTutorials } from "src/presentation/services/apiTutorial"
+import { getTutorials } from "@/presentation/services/apiTutorial"
 import { useQuery } from "@tanstack/react-query"
 
 function useTutorial() {

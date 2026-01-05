@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getFAQ } from "src/presentation/services/apiSupport"
+import { getFAQ } from "@/presentation/services/apiSupport"
 
 function useFAQ() {
     const { isLoading, data: FAQs, isError } = useQuery({

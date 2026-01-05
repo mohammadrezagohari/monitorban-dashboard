@@ -1,5 +1,5 @@
-import { navItems } from "src/presentation/data/data";
-import BaseMenuItem from "src/presentation/components/menu/BaseMenuItem";
+import { navItems } from "@/presentation/data/data";
+import BaseMenuItem from "@/presentation/components/menu/BaseMenuItem";
 import { StyledList } from "./MainNav.styles";
 
 function MainNav() {

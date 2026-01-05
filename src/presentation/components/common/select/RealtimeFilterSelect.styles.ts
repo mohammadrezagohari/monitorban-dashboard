@@ -24,7 +24,8 @@ export const StyledRealtimeFilterSelect = styled(Select)(({ theme }) => ({
     "& .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiOutlinedInput-notchedOutline": {
         border: `1px solid ${theme.palette.secondary.main}`,
     },
-    "& .MuiSelect-icon": {//@ts-ignore
+    "& svg": {//@ts-ignore
         color: theme.palette.secondary[200],
+        pointerEvents: "none",
     },
 }))

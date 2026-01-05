@@ -1,4 +1,4 @@
-import { updateUser } from "src/presentation/services/apiUserManagement";
+import { updateUser } from "@/presentation/services/apiUserManagement";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useEditUser() {

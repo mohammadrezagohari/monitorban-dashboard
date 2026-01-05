@@ -1,6 +1,6 @@
 import { Step, StepLabel } from "@mui/material";
 
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { StepbarProps } from "../../../feature/users-management/components/roles/add-accesses/IAddAccesses";
 import Button from "../buttons/Button";
 import { Icon } from "../icons/components/Icon";

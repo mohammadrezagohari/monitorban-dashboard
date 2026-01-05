@@ -1,12 +1,12 @@
 import { Avatar, Box, Typography, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import { useNavigate } from "react-router-dom";
-import Button from "src/presentation/components/common/buttons/Button";
-import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
-import Tag from "src/presentation/components/common/tag/Tag";
+import Button from "@/presentation/components/common/buttons/Button";
+import { Text } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { IconWrapper } from "@/presentation/components/common/icons/IconWrapper.style";
+import Tag from "@/presentation/components/common/tag/Tag";
 import { UserInfoCardProps } from "./IUserInfoCard";
 import {
   StyledDetailsContainer,

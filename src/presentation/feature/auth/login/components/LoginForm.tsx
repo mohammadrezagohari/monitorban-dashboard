@@ -1,11 +1,11 @@
-import Button from "src/presentation/components/common/buttons/Button";
-import Input from "src/presentation/components/common/input/Input";
-import FormRow from "src/presentation/components/common/input/FormRow";
+import Button from "@/presentation/components/common/buttons/Button";
+import Input from "@/presentation/components/common/input/Input";
+import FormRow from "@/presentation/components/common/input/FormRow";
 import { StyledLoginForm } from "./Login.style";
 import { useForm } from "react-hook-form";
-import { MobileInput, mobileSchema } from "src/presentation/schemas/otpSchema";
+import { MobileInput, mobileSchema } from "@/presentation/schemas/otpSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRequestOtp } from "src/presentation/services/mutation/postRequestOtp";
+import { useRequestOtp } from "@/presentation/services/mutation/postRequestOtp";
 
 const LoginForm = ({
   phoneNumber,
@@ -64,7 +64,7 @@ const LoginForm = ({
           //   setPhoneNumber(e.target.value);
           // }}
           disabled={isPending}
-        {...register("mobile")}
+          {...register("mobile")}
         />
       </FormRow>
       <Button

@@ -1,7 +1,7 @@
 import { FormControl } from "@mui/material";
 import { useState } from "react";
 import { RadioInputGroupProps } from "./IRadioInput";
-import RadioInput from "src/presentation/components/common/radio-input/RadioInput";
+import RadioInput from "@/presentation/components/common/radio-input/RadioInput";
 import { StyledRadioGroup } from "./RadioInputGroup.styles";
 
 const RadioInputGroup: React.FC<RadioInputGroupProps> = ({

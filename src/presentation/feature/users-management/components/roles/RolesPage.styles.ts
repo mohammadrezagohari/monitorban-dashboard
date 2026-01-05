@@ -1,4 +1,4 @@
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { Box, styled } from "@mui/material";
 
 export const StyledRoleCardContainer = styled(Box)(({ theme }) => ({

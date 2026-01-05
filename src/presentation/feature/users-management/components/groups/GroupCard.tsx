@@ -1,17 +1,17 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
-import { useRef, useState } from "react";
-import Avatar from "src/presentation/components/common/avatar/Avatar";
-import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
-import Button from "src/presentation/components/common/buttons/Button";
-import Divider from "src/presentation/components/common/divider/Divider";
-import Modal from "src/presentation/components/common/modal/Modal";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import Tag from "src/presentation/components/common/tag/Tag";
-import TagWithBullet from "src/presentation/components/common/tag/TagWithBullet";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import { IconWrapper } from "@/presentation/components/common/icons/IconWrapper.style";
+import { useEffect, useRef, useState } from "react";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
+import DeleteConfirmBackdrop from "@/presentation/components/common/backdrop/DeleteConfirmBackdrop";
+import Button from "@/presentation/components/common/buttons/Button";
+import Divider from "@/presentation/components/common/divider/Divider";
+import Modal from "@/presentation/components/common/modal/Modal";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import Tag from "@/presentation/components/common/tag/Tag";
+import TagWithBullet from "@/presentation/components/common/tag/TagWithBullet";
 import OperationMenu from "../common/operation-menu/OperationMenu";
 import {
   ButtonsContainer,
@@ -30,10 +30,16 @@ function GroupCard({ group }: { group: GroupType }) {
   const navigate = useNavigate();
   const theme = useTheme();
   const [visible, setVisible] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
+  const [contentHeight, setContentHeight] = useState("");
   const contentRef = useRef<HTMLDivElement | null>(null);
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  useEffect(() => {
+    if(isDesktop) {
+      setContentHeight("auto");
+    }
+  }, [isDesktop])
 
   function handleEditGroup() {
     navigate("edit-group", { state: { group: group } });
@@ -58,6 +64,8 @@ function GroupCard({ group }: { group: GroupType }) {
   function deleteGroup(id: number) {
     console.log(`Group by id ${id} is deleted`);
   }
+
+
 
   return (
     <StyledGroupCard>

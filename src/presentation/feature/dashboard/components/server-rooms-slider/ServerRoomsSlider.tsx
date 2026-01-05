@@ -1,20 +1,20 @@
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useRef } from "react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 import useServerRooms from "./useServerRooms";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import { IconButtonWithBorder } from "src/presentation/components/common/IconButtonWithBorder";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Button from "@/presentation/components/common/buttons/Button";
+import { IconButtonWithBorder } from "@/presentation/components/common/IconButtonWithBorder";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import ServerRoomCard from "src/presentation/components/common/server-room-dashboard-card/ServerRoomCard";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import ServerRoomCard from "@/presentation/components/common/server-room-dashboard-card/ServerRoomCard";
 import { ButtonsContainer } from "./ServerRoomsSlider.styles";
 
 function ServerRoomsSlider() {
@@ -30,15 +30,29 @@ function ServerRoomsSlider() {
         <SectionTitle>اتاق سرور ها</SectionTitle>
         <ButtonsContainer>
           {isDesktop ? (
-            <Button
-              variant="outlined"
-              size="xxsmall"
-              colorType="primary"
-              leftIcon="arrowLeft"
-              onClick={() => console.log("اتاق سرور ها")}
-            >
-              مشاهده همه
-            </Button>
+            <>
+              <Button
+                variant="outlined"
+                size="xxsmall"
+                colorType="primary"
+                leftIcon="arrowLeft"
+                onClick={() => console.log("اتاق سرور ها")}
+              >
+                مشاهده همه
+              </Button>
+              <Icon
+                name="arrowRight"
+                ref={prevBtn}
+                color={theme.palette.neutral[100]}
+                className="pointer"
+              />
+              <Icon
+                name="arrowLeft"
+                ref={nextBtn}
+                color={theme.palette.neutral[100]}
+                className="pointer"
+              />
+            </>
           ) : (
             <IconButtonWithBorder>
               <Icon
@@ -48,22 +62,6 @@ function ServerRoomsSlider() {
                 color={theme.palette.primary.dark}
               />
             </IconButtonWithBorder>
-          )}
-
-          {isDesktop && (
-            <Box>
-              {/* <IconButton ref={prevBtn}>
-                <ArrowRightIcon color={theme.palette.neutral[100]} />
-              </IconButton> */}
-              <Icon
-                name="arrowRight"
-                ref={prevBtn}
-                color={theme.palette.neutral[100]}
-              />
-              <IconButton ref={nextBtn}>
-                <Icon name="arrowLeft" color={theme.palette.neutral[100]} />
-              </IconButton>
-            </Box>
           )}
         </ButtonsContainer>
       </HeaderContainer>

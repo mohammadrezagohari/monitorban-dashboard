@@ -2,9 +2,9 @@ import { Typography } from "@mui/material";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Button from "src/presentation/components/common/buttons/Button";
-import { useVerifyOtp } from "src/presentation/services/mutation/postVerifyOtp";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Button from "@/presentation/components/common/buttons/Button";
+import { useVerifyOtp } from "@/presentation/services/mutation/postVerifyOtp";
 import { OtpFormProps } from "./ILogin";
 import {
   ButtonContainer,

@@ -1,9 +1,9 @@
 import useFAQ from "./useFAQ";
 import FAQItem from "./FAQItem";
 import { FAQProps, FAQType } from "./IFAQ";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { StyledMainContainer } from "./FAQ.styles";
 
 function FAQ({ expanded, onChange }: FAQProps) {

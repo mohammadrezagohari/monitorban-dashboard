@@ -1,21 +1,21 @@
 import { useTheme } from "@mui/material";
-import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
+import BaseDashboardCard from "@/presentation/components/common/dashboard-card/BaseDashboardCard";
 import {
   DataContainer,
   getStatusColors,
   Text,
-} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+} from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { Icon } from "../icons/components/Icon";
 import { IconWrapper } from "../icons/IconWrapper.style";
 import { SensorSituationCardProps } from "./ISensorSituationCard";
 
-const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
+const SensorSituationCard = ({
   status = "default", // default, accept, warning, danger
   name,
   icon,
   data,
   hour,
-}) => {
+}: SensorSituationCardProps) => {
   // const iconColor =
   //   status === "accept"
   //     ? "#0B9D4E"
@@ -43,7 +43,7 @@ const SensorSituationCard: React.FC<SensorSituationCardProps> = ({
         <DataContainer>
           <Text color="neutral.100" variant="body1">
             <IconWrapper bgcolor={iconBgColor || theme.palette.neutral[500]}>
-              {icon}
+              <Icon name={icon || "sensor"} />
             </IconWrapper>
             {name}:
           </Text>

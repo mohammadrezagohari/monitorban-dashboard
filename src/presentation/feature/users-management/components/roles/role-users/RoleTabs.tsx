@@ -1,15 +1,15 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import Checkbox from "src/presentation/components/common/checkbox/Checkbox";
-import { StyledControledCheckbox } from "src/presentation/components/common/checkbox/Checkbox.styles";
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import ListCard from "src/presentation/components/common/list-card/ListCard";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import TabPanel from "src/presentation/components/common/tabs/TabPanel";
-import { usersInfo } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import Checkbox from "@/presentation/components/common/checkbox/Checkbox";
+import { StyledControledCheckbox } from "@/presentation/components/common/checkbox/Checkbox.styles";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import ListCard from "@/presentation/components/common/list-card/ListCard";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import TabPanel from "@/presentation/components/common/tabs/TabPanel";
+import { usersInfo } from "@/presentation/data/data";
 import {
   ButtonsContainer,
   CheckboxContainer,

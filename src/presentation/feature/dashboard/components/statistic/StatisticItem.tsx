@@ -1,7 +1,7 @@
 import { Typography, useTheme } from "@mui/material";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import {
   StatisticValue,
   StyledDetailsContainer,

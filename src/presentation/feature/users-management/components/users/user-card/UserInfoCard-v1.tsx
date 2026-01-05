@@ -1,11 +1,11 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-import Avatar from "src/presentation/components/common/avatar/Avatar";
-import Button from "src/presentation/components/common/buttons/Button";
-import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Tag from "src/presentation/components/common/tag/Tag";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
+import Button from "@/presentation/components/common/buttons/Button";
+import { Text } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Tag from "@/presentation/components/common/tag/Tag";
 import { UserInfoCardProps } from "./IUserInfoCard";
 import {
   StyledDetailsContainer,

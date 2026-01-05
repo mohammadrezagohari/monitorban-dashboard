@@ -2,8 +2,8 @@ import { IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import { usersInfo } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import { usersInfo } from "@/presentation/data/data";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import Checkbox from "../checkbox/Checkbox";
 import { StyledControledCheckbox } from "../checkbox/Checkbox.styles";

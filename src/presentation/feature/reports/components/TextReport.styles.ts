@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 
 export const TextContainer = styled(SectionContainer)(({ theme }) => ({
     padding: theme.spacing(2),

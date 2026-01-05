@@ -2,13 +2,13 @@ import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRef, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import DeleteConfirmBackdrop from "src/presentation/components/common/backdrop/DeleteConfirmBackdrop";
-import Button from "src/presentation/components/common/buttons/Button";
-import Divider from "src/presentation/components/common/divider/Divider";
-import { IconWrapper } from "src/presentation/components/common/icons/IconWrapper.style";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Modal from "src/presentation/components/common/modal/Modal";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import DeleteConfirmBackdrop from "@/presentation/components/common/backdrop/DeleteConfirmBackdrop";
+import Button from "@/presentation/components/common/buttons/Button";
+import Divider from "@/presentation/components/common/divider/Divider";
+import { IconWrapper } from "@/presentation/components/common/icons/IconWrapper.style";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Modal from "@/presentation/components/common/modal/Modal";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import OperationMenu from "../../common/operation-menu/OperationMenu";
 import {
   ButtonsContainer,

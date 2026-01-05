@@ -1,6 +1,6 @@
 import { SwiperSlide as StyledSwiperSlide } from "swiper/react";
 
-import ServerRoomCard from "src/presentation/components/common/server-room-dashboard-card/ServerRoomCard";
+import ServerRoomCard from "@/presentation/components/common/server-room-dashboard-card/ServerRoomCard";
 
 function SwiperSlide({ item }) {
   return (

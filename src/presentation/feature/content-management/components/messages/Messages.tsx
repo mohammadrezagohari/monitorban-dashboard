@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
+import Button from "@/presentation/components/common/buttons/Button";
 import MessageCard from "./MessageCard";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { SectionHeader } from "../../ContentManagementPage.styles";
-import { messages as initialMessages } from "src/presentation/data/data";
+import { messages as initialMessages } from "@/presentation/data/data";
 import { StyledMainSection, StyledMessagesContainer } from "./messages.styles";
 
 function Messages() {

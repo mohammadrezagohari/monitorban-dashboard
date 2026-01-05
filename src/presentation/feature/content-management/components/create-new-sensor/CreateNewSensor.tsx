@@ -2,17 +2,17 @@ import { Controller, useForm } from "react-hook-form";
 import { Typography, useTheme } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 
-import Input from "src/presentation/components/common/input/Input";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import { FormSelect } from "src/presentation/components/common/select/FormSelect";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Input from "@/presentation/components/common/input/Input";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import FileUpload from "@/presentation/components/common/file-upload/FileUpload";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import { FormSelect } from "@/presentation/components/common/select/FormSelect";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
 import {
   minimumRecordOptions,
   notifDurationOptions,
@@ -21,7 +21,7 @@ import {
   returnNotifToNormalOptions,
   sensorTypeFeatureOptions,
   unitOptions,
-} from "src/presentation/data/data";
+} from "@/presentation/data/data";
 
 function CreateNewSensor() {
   const { control, handleSubmit, register } = useForm();

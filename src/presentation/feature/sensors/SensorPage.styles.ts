@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material"
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer"
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles"
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer"
+import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles"
 
 export const StyledSensorPage = styled(SectionContainer)(({ theme }) => ({
     overflow: "visible"

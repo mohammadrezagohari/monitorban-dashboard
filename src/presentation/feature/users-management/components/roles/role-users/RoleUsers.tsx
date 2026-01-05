@@ -1,5 +1,5 @@
-import Tabs from "src/presentation/components/common/tabs/Tabs";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import Tabs from "@/presentation/components/common/tabs/Tabs";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import { StyledRoleUsers } from "./RoleUsers.styles";
 import RoleTabs from "./RoleTabs";
 

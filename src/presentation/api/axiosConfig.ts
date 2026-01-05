@@ -3,7 +3,7 @@ import { BASE_URL, BASE_URL_FAKE } from "../services/Base_API";
 import { getFromLocalStorage, removeFromLocalStorage } from "../utils/utils";
 
 const axiosApi = axios.create({
-    baseURL: BASE_URL_FAKE, //TODO:: Fake should be deleted
+    baseURL: BASE_URL, //TODO:: Fake should be deleted
     headers: {
         "Content-Type": "application/json"
     }

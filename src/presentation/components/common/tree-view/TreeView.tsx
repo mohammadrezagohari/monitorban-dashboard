@@ -1,4 +1,4 @@
-import { sensorsTreeItem } from "src/presentation/data/data";
+import { sensorsTreeItem } from "@/presentation/data/data";
 import { useForm } from "react-hook-form";
 import { StyledTreeView } from "./TreeView.styles";
 import TreeItem from "./TreeItem";

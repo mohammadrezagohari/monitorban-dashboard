@@ -1,12 +1,12 @@
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import GroupCard from "./GroupCard";
 import { useState } from "react";
-import { groupsList } from "src/presentation/data/data";
+import { groupsList } from "@/presentation/data/data";
 import { GroupListMainContainer } from "./GroupsPage.styles";
 
 function GroupsList() {

@@ -1,12 +1,14 @@
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { Box, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 
 export default function Map() {
   const theme = useTheme();
+  const { isDesktop } = useScreenSize();
 
   return (
     <SectionContainer width="100%" sx={{ flexShrink: 1 }}>
@@ -84,6 +86,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              stroke={theme.palette.warning.main}
+              fill={theme.palette.warning.main}
             ></path>
           </Link>
           {/* </a> */}
@@ -96,6 +100,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              stroke={theme.palette.success.main}
+              fill={theme.palette.success.main}
             ></path>
           </Link>
           {/* </a> */}
@@ -108,6 +114,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              stroke="#2998FF"
+              fill="#2998FF"
             ></path>
           </Link>
           {/* </a> */}
@@ -120,6 +128,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              stroke={theme.palette.warning.main}
+              fill={theme.palette.warning.main}
             ></path>
           </Link>
           {/* </a> */}
@@ -171,6 +181,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              stroke={theme.palette.error.main}
+              fill={theme.palette.error.main}
             ></path>
           </Link>
           {/* </a> */}
@@ -197,6 +209,8 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              stroke={theme.palette.success.main}
+              fill={theme.palette.success.main}
             ></path>
           </Link>
           {/* </a> */}
@@ -325,31 +339,136 @@ export default function Map() {
             </tspan>
             <tspan
               // onclick="Showinfo(4);"
-              x="850"
+              x="900"
               y="300"
             >
               سوادکوه
             </tspan>
             <tspan
               // onclick="ShowCitinfo(2);"
-              x="820"
+              x="890"
               y="180"
             >
               قائمشهر
             </tspan>
             <tspan
+              // onclick="ShowCitinfo(2);"
+              x="800"
+              y="250"
+            >
+              بابل
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(2);"
+              x="895"
+              y="95"
+            >
+              جویبار
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(2);"
+              x="860"
+              y="130"
+            >
+              سیمرغ
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(2);"
+              x="770"
+              y="105"
+            >
+              فریدونکنار
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(2);"
+              x="715"
+              y="123"
+            >
+              محمودآباد
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(2);"
+              x="820"
+              y="95"
+            >
+              بابلسر
+            </tspan>
+            <tspan
               // onclick="ShowCitinfo(1);"
-              x="1000"
+              x="1100"
+              y="180"
+            >
+              نکا
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(1);"
+              x="1030"
+              y="150"
+            >
+              میاندورود
+            </tspan>
+            <tspan
+              // onclick="ShowCitinfo(1);"
+              x="1040"
               y="250"
             >
               ساری
             </tspan>
             <tspan
               // onClick="Showinfo(1);"
-              x="1048"
-              y="90"
+              x="1088"
+              y="80"
             >
               بهشهر
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="1168"
+              y="70"
+            >
+              گلوگاه
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="128"
+              y="70"
+            >
+              رامسر
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="220"
+              y="110"
+            >
+              تنکابن
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="340"
+              y="108"
+            >
+              عباس آباد
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="608"
+              y="240"
+            >
+              نور
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="480"
+              y="200"
+            >
+              نوشهر
+            </tspan>
+            <tspan
+              // onClick="Showinfo(1);"
+              x="340"
+              y="220"
+            >
+              چالوس
             </tspan>
           </text>
         </svg>
@@ -367,7 +486,12 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <Icon name="bullet" w={20} h={20} color="green" />
+            <Icon
+              name="bullet"
+              w={isDesktop ? 20 : 16}
+              h={isDesktop ? 20 : 16}
+              color={theme.palette.success.main}
+            />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >
@@ -378,7 +502,12 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <Icon name="bullet" w={20} h={20} color="yellow" />
+            <Icon
+              name="bullet"
+              w={isDesktop ? 20 : 16}
+              h={isDesktop ? 20 : 16}
+              color={theme.palette.warning.main}
+            />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >
@@ -389,7 +518,12 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <Icon name="bullet" w={20} h={20} color="red" />
+            <Icon
+              name="bullet"
+              w={isDesktop ? 20 : 16}
+              h={isDesktop ? 20 : 16}
+              color={theme.palette.error.main}
+            />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >
@@ -400,7 +534,12 @@ export default function Map() {
             component="span"
             sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
           >
-            <Icon name="bullet" w={20} h={20} color="#2A2637" />
+            <Icon
+              name="bullet"
+              w={isDesktop ? 20 : 16}
+              h={isDesktop ? 20 : 16}
+              color="#2A2637"
+            />
             <Typography
               sx={{ fontSize: { xs: 14, md: 16 }, color: "neutral.main" }}
             >

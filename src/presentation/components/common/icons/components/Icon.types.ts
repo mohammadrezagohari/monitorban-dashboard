@@ -5,6 +5,6 @@ export interface IconProps {
   w?: number;
   h?: number;
   color?: string;
-  onClick?: () => void;
+  onClick?: (event?: React.MouseEvent<HTMLElement>) => void;
   className?: string;
 }

@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import { cloneElement, ReactElement, ReactNode, useState } from "react";
 
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import Button from "src/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import Button from "@/presentation/components/common/buttons/Button";
 import UserInfo from "./UserInfo-v1";
 import SecurityInfo from "./SecurityInfo";
 import { ButtonsContainer, StyledUserPageContainer } from "./UserPage.styles";

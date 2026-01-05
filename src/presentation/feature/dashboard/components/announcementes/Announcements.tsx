@@ -3,16 +3,16 @@ import React, { useState } from "react";
 
 import useAnnouncement, {
   AnnouncementStatus,
-} from "src/presentation/services/query/dashboard/useAnnouncement";
+} from "@/presentation/services/query/dashboard/useAnnouncement";
 
-import Divider from "src/presentation/components/common/divider/Divider";
+import Divider from "@/presentation/components/common/divider/Divider";
 import AnnounceItem from "./AnnounceItem";
-import FilterSelect from "src/presentation/components/common/select/RealtimeFilterSelect";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import FilterSelect from "@/presentation/components/common/select/RealtimeFilterSelect";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { AnnouncementsList } from "./Announcements.styles";
-import { annouceSelectOptions } from "src/presentation/data/data";
+import { annouceSelectOptions } from "@/presentation/data/data";
 
 export default function Announcements() {
   const [announceStatus, setAnnounceStatus] =

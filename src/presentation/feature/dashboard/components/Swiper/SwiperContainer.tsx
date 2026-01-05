@@ -1,5 +1,5 @@
 import SwiperSlide from "./SwiperSlider";
-import { serverRoomItems } from "src/presentation/data/data";
+import { serverRoomItems } from "@/presentation/data/data";
 import { Swiper, SwiperClass } from "swiper/react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 

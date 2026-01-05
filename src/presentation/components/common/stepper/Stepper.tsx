@@ -3,7 +3,7 @@ import AccessType from "./AccessType";
 import SensorSelection from "./SensorSelection";
 import ServerRoomSelection from "./ServerRoomSelection";
 import Stepbar from "./Stepbar";
-import { serverRoomItems } from "src/presentation/data/data";
+import { serverRoomItems } from "@/presentation/data/data";
 
 const steps = ["نوع دسترسی", "اتاق سرور", "انتخاب سنسور"];
 

@@ -1,10 +1,10 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
+import BaseDashboardCard from "@/presentation/components/common/dashboard-card/BaseDashboardCard";
 import {
   DataContainer,
   getStatusColors,
   Text,
-} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+} from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { IconWrapper } from "../icons/IconWrapper.style";
 import { Icon } from "../icons/components/Icon";
 import { TemperatureCardProps } from "./ITemperatureCard";

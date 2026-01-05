@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getUsers } from "src/presentation/services/apiDashboard"
+import { getUsers } from "@/presentation/services/apiDashboard"
 
 function useLatestUsers() {
     const { isLoading, data: users, isError } = useQuery({

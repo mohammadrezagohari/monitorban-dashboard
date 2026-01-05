@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 
 export const StyledTutorialsList = styled(MainContainer)(({ theme }) => ({
     display: "flex",

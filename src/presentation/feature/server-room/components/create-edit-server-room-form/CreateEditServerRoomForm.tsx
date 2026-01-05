@@ -1,20 +1,20 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import Input from "src/presentation/components/common/input/Input";
-import Button from "src/presentation/components/common/buttons/Button";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import { Form } from "src/presentation/components/common/Form";
-import TreeView from "src/presentation/components/common/tree-view/TreeView";
-import FileUpload from "src/presentation/components/common/file-upload/FileUpload";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Input from "@/presentation/components/common/input/Input";
+import Button from "@/presentation/components/common/buttons/Button";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import { Form } from "@/presentation/components/common/Form";
+import TreeView from "@/presentation/components/common/tree-view/TreeView";
+import FileUpload from "@/presentation/components/common/file-upload/FileUpload";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { StyledServerRoomContainer } from "./CreateEditServerRoomForm.styles";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;

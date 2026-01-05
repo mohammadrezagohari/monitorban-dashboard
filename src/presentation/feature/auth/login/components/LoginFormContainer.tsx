@@ -1,14 +1,14 @@
+import { Box } from "@mui/material";
 import { useState } from "react";
-import { Box, Typography } from "@mui/material";
 
-import OtpForm from "./OtpForm";
-import LogoMini from "src/presentation/components/common/logo/LogoMini";
-import LoginForm from "./LoginForm";
+import LogoMini from "@/presentation/components/common/logo/LogoMini";
 import {
   LoginCaption,
   LoginHeader,
   StyledLoginFormContainer,
 } from "./Login.style";
+import LoginForm from "./LoginForm";
+import OtpForm from "./OtpForm";
 
 function LoginFormContainer() {
   const [phoneNumber, setPhoneNumber] = useState("");

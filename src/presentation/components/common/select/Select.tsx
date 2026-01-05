@@ -3,6 +3,8 @@ import ArrowDown from "../icons/ArrowDown";
 import { SelectProps } from "./ISelect";
 import { StyledSelect } from "./Select.styles";
 
+const SelectIcon = () => <ArrowDown w={16} h={16} />;
+
 function Select({
   options,
   value,
@@ -15,7 +17,7 @@ function Select({
   return (
     <StyledSelect
       displayEmpty
-      IconComponent={ArrowDown}
+      IconComponent={SelectIcon}
       value={value}
       onChange={onChange}
       MenuProps={{
@@ -29,6 +31,10 @@ function Select({
             direction: "rtl",
             li: {
               typography: "caption",
+            },
+
+            "&::-webkit-scrollbar": {
+              display: "none",
             },
           },
         },

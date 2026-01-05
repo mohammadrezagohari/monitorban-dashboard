@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
 import { useMediaQuery, useTheme } from "@mui/material";
-import Button from "src/presentation/components/common/buttons/Button";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import LinearCard from "src/presentation/components/common/linear-card/LinearCard";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { MainContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import { sensorsSettingItems } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import LinearCard from "@/presentation/components/common/linear-card/LinearCard";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { sensorsSettingItems } from "@/presentation/data/data";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 
 function SensorsSettings() {

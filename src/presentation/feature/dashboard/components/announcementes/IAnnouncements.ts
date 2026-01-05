@@ -1,4 +1,4 @@
-import { IconName } from "src/presentation/components/common/icons";
+import { IconName } from "@/presentation/components/common/icons";
 
 export interface AnnounceItemProps {
     item: {

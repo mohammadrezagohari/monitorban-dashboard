@@ -1,16 +1,16 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { useState } from "react";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Button from "@/presentation/components/common/buttons/Button";
+import { Text } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Tag from "src/presentation/components/common/tag/Tag";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Tag from "@/presentation/components/common/tag/Tag";
 
 function UserAccessibility() {
   const [sortIsOpen, setSortIsOpen] = useState(false);

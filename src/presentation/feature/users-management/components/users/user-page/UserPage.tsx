@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
+import Button from "@/presentation/components/common/buttons/Button";
 import useUser from "./useUser";
 import UserForm from "./UserForm";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import useUserForm from "./useUserForm";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormProvider } from "react-hook-form";
 import { ButtonsContainer } from "./UserPage.styles";
 import { useEditUser } from "./useEditUser";
-import { useMoveBack } from "src/presentation/hooks/useMoveBack";
+import { useMoveBack } from "@/presentation/hooks/useMoveBack";
 
 export default function UserPage() {
   const { userId } = useParams();

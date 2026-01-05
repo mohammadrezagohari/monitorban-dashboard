@@ -1,11 +1,11 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import { useNavigate } from "react-router-dom";
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import { usersInfo } from "src/presentation/data/data";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import { usersInfo } from "@/presentation/data/data";
 import FilterOperation from "./FilterOperation";
 import { IUser } from "./IUsers";
 import { StyledUsersContainer } from "./Users.styles";

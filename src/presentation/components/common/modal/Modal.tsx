@@ -7,7 +7,7 @@ import {
 } from "react";
 import { Overlay, StyledModal } from "./Modal.styles";
 import { createPortal } from "react-dom";
-import { useOutsideClick } from "src/presentation/hooks/useOutsideClick";
+import { useOutsideClick } from "@/presentation/hooks/useOutsideClick";
 import { ModalContextType, ModalProps, OpenProps, WindowProps } from "./IModal";
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);

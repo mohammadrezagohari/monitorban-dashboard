@@ -1,15 +1,16 @@
 import { Box, useTheme } from "@mui/material";
 
-import BaseDashboardCard from "src/presentation/components/common/dashboard-card/BaseDashboardCard";
+import BaseDashboardCard from "@/presentation/components/common/dashboard-card/BaseDashboardCard";
 import {
   StatsContainer,
   Text,
   TextSpan,
   TitleContainer,
-} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+} from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { ServerRoomCardProps } from "./IServerRoomCard";
 import { Icon } from "../icons/components/Icon";
 import { IconWrapper } from "../icons/IconWrapper.style";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 
 const ServerRoomCard = ({
   title,
@@ -20,6 +21,7 @@ const ServerRoomCard = ({
   onHandleClick,
 }: ServerRoomCardProps) => {
   const theme = useTheme();
+  const { isDesktop } = useScreenSize();
 
   return (
     <BaseDashboardCard
@@ -28,8 +30,13 @@ const ServerRoomCard = ({
       topContent={
         <TitleContainer>
           <IconWrapper>
-            {/* @ts-ignore */}
-            <Icon name={icon} color={theme.palette.primary[200]} />
+            <Icon
+              name={icon}
+              w={isDesktop ? 24 : 20}
+              h={isDesktop ? 24 : 20}
+              // @ts-ignore
+              color={theme.palette.primary[200]}
+            />
           </IconWrapper>
           <Box sx={{ overflow: "hidden", maxWidth: "130px" }}>
             <TextSpan color="neutral.100" variant="body1">

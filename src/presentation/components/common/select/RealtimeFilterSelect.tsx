@@ -1,5 +1,5 @@
 import { SelectChangeEvent } from "@mui/material";
-import { Option } from "src/presentation/components/common/select/ISelect";
+import { Option } from "@/presentation/components/common/select/ISelect";
 import { StyledRealtimeFilterSelect } from "./RealtimeFilterSelect.styles";
 
 type Props<T extends string> = {

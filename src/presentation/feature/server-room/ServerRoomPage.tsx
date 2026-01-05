@@ -2,17 +2,17 @@ import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useRef, useState } from "react";
-import Button from "src/presentation/components/common/buttons/Button";
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import ListCard from "src/presentation/components/common/list-card/ListCard";
-import Filter from "src/presentation/components/common/operations/Filter";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import Button from "@/presentation/components/common/buttons/Button";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import ListCard from "@/presentation/components/common/list-card/ListCard";
+import Filter from "@/presentation/components/common/operations/Filter";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { CardsContainer } from "./ServerRoomPage.styles";
 import { useServerRoom } from "./useServerRoom";
 

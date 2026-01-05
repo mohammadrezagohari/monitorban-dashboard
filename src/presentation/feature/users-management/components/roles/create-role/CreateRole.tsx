@@ -2,22 +2,22 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import Button from "src/presentation/components/common/buttons/Button";
-import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
-import { Form } from "src/presentation/components/common/Form";
-import { GridBox } from "src/presentation/components/common/GridBox";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import Input from "src/presentation/components/common/input/Input";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import Button from "@/presentation/components/common/buttons/Button";
+import EmptyData from "@/presentation/components/common/empty-data/EmptyData";
+import { Form } from "@/presentation/components/common/Form";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Select from "src/presentation/components/common/select/Select";
-import Tag from "src/presentation/components/common/tag/Tag";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Select from "@/presentation/components/common/select/Select";
+import Tag from "@/presentation/components/common/tag/Tag";
 
 function CreateRole() {
   const [accesses, setAccesses] = useState<string[]>([

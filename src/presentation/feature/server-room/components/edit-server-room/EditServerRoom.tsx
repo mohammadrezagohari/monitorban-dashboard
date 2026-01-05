@@ -1,9 +1,9 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-import IconButton from "src/presentation/components/common/icon-button/IconButton";
-import Button from "src/presentation/components/common/buttons/Button";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
+import Button from "@/presentation/components/common/buttons/Button";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import CreateEditServerRoom from "../create-edit-server-room-form/CreateEditServerRoomForm";
 import { ButtonContainer } from "./EditServerRoom.styles";
 

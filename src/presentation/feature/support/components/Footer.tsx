@@ -1,4 +1,4 @@
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { StyledFooter } from "./FAQ.styles";
 

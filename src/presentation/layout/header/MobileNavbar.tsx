@@ -1,11 +1,11 @@
 import { AppBar, Box, IconButton, Toolbar, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { useMoveBack } from "src/presentation/hooks/useMoveBack";
+import { useMoveBack } from "@/presentation/hooks/useMoveBack";
 
-import Avatar from "src/presentation/components/common/avatar/Avatar";
-import { usersInfo } from "src/presentation/data/data";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
+import { usersInfo } from "@/presentation/data/data";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 
 export function MobileNavbar(props: {
   mobileOpen: boolean;
@@ -62,7 +62,8 @@ export function MobileNavbar(props: {
         </Box>
         <Link to="dashboard" style={{ marginLeft: 48 }}>
           {/* <LogoIcon /> */}
-          <Icon name="logoShape" />
+          {/* @ts-ignore   */}
+          <Icon name="logoShape" color={theme.palette.primary[300]} />
         </Link>
         <Avatar src={usersInfo[0].image || ""} size={40}>
           <Icon name="user" />

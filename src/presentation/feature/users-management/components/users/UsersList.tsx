@@ -2,12 +2,12 @@ import { Box } from "@mui/material";
 
 import UserInfoCard from "./user-card/UserInfoCard";
 import { IUser } from "./IUsers";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
 import useUsers from "./useUsers";
 
 function UsersList() {

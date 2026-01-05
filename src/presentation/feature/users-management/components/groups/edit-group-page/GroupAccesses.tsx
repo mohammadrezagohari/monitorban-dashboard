@@ -1,13 +1,13 @@
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Button from "src/presentation/components/common/buttons/Button";
-import EmptyData from "src/presentation/components/common/empty-data/EmptyData";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Button from "@/presentation/components/common/buttons/Button";
+import EmptyData from "@/presentation/components/common/empty-data/EmptyData";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Tag from "src/presentation/components/common/tag/Tag";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Tag from "@/presentation/components/common/tag/Tag";
 import { StyledAccessesMainContainer } from "./EditGroupPage.styles";
 import { AccessesType } from "./IEditGroupPage";
 

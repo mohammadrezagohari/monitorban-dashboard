@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import SensorCategoryCard from "src/presentation/components/common/sensor-category-card/SensorCategoryCard";
+import SensorCategoryCard from "@/presentation/components/common/sensor-category-card/SensorCategoryCard";
 
 function SensorsCategoryItem({ category }) {
   // console.log("category => ", category);

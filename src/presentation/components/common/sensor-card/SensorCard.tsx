@@ -4,7 +4,7 @@ import {
   Text,
   TextBox,
   Title,
-} from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+} from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
 import { Icon } from "../icons/components/Icon";
 import { SensorCardProps } from "./ISensorCard";
 import { SensorDataContainer, StyledSensorCard } from "./SensorCard.style";

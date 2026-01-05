@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import TicketForm from "./components/TicketForm";
 import { StyledSupportPage } from "./SupportPage.styles";
 

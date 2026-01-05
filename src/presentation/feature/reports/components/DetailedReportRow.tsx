@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import Table from "src/presentation/components/common/table/Table";
+import Table from "@/presentation/components/common/table/Table";
 
 function DetailedReportRow({ data }) {
   const { id: reportId, date, time, device, sensorName, value, unit } = data;

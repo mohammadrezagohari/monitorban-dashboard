@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
       {rightIcon && (
         <Icon name={rightIcon} w={iconSize[size]} h={iconSize[size]} />
       )}
-      {children}
+      <span>{children}</span>
       {leftIcon && (
         <Icon name={leftIcon} w={iconSize[size]} h={iconSize[size]} />
       )}

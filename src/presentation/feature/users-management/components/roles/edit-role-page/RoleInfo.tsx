@@ -1,15 +1,15 @@
 import { Controller, useForm } from "react-hook-form";
 
-import { Form } from "src/presentation/components/common/Form";
-import FormRow from "src/presentation/components/common/input/FormRow";
-import Input from "src/presentation/components/common/input/Input";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Select from "src/presentation/components/common/select/Select";
-import { filterOptions } from "src/presentation/data/data";
+import { Form } from "@/presentation/components/common/Form";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Select from "@/presentation/components/common/select/Select";
+import { filterOptions } from "@/presentation/data/data";
 import { RoleInfoMainContainer } from "./EditRolePage.styles";
-import { GridBox } from "src/presentation/components/common/GridBox";
+import { GridBox } from "@/presentation/components/common/GridBox";
 
 function RoleInfo({ role }) {
   const { control, register } = useForm({ defaultValues: role });

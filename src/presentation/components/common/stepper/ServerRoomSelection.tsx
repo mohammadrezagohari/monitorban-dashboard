@@ -1,8 +1,8 @@
 import AccessItem from "./AccessItem";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { serverRoomItems } from "src/presentation/data/data";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { serverRoomItems } from "@/presentation/data/data";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { ServerRoomSelectionMainContainer } from "../../../feature/users-management/components/roles/add-accesses/AddAccesses.styles";
 
 function ServerRoomSelection({ accessServerRoom, handleServerRoomAccess }) {

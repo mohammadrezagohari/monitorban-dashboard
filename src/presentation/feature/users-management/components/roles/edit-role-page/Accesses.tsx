@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import Button from "src/presentation/components/common/buttons/Button";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import Tag from "src/presentation/components/common/tag/Tag";
+import Button from "@/presentation/components/common/buttons/Button";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Tag from "@/presentation/components/common/tag/Tag";
 import { AccessesMainContainer } from "./EditRolePage.styles";
 
 function Accesses({ accesses, onClick }) {

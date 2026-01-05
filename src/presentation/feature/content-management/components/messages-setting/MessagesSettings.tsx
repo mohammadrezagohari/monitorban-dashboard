@@ -1,9 +1,9 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import Button from "src/presentation/components/common/buttons/Button";
-import LinearCard from "src/presentation/components/common/linear-card/LinearCard";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
+import Button from "@/presentation/components/common/buttons/Button";
+import LinearCard from "@/presentation/components/common/linear-card/LinearCard";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 import { StyledSettingsMainSection } from "./MessagesSettings.styles";
 

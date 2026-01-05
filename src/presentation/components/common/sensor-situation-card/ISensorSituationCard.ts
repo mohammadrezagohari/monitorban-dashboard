@@ -1,7 +1,9 @@
+import { IconName } from "../icons";
+
 export interface SensorSituationCardProps {
     status?: "default" | "accept" | "warning" | "danger",
     name?: string,
-    icon?: React.ReactNode,
+    icon?: IconName,
     data?: number,
     hour?: string,
     bgColor?: string,

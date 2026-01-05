@@ -1,13 +1,13 @@
-import { GridBox } from "src/presentation/components/common/GridBox";
-import { IconName } from "src/presentation/components/common/icons";
-import PageTitle from "src/presentation/components/common/page-title/PageTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
+import { GridBox } from "@/presentation/components/common/GridBox";
+import { IconName } from "@/presentation/components/common/icons";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
   HeaderContainer,
   MainContainer,
-} from "src/presentation/components/common/section-container/SectionContainer.styles";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SensorSituationCard from "src/presentation/components/common/sensor-situation-card/SensorSituationCard";
+} from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SensorSituationCard from "@/presentation/components/common/sensor-situation-card/SensorSituationCard";
 import { StyledCitySensorsInfo } from "./CitySensorsInfo.styles";
 
 type SensorStatusType = "default" | "accept" | "warning" | "danger";
@@ -94,7 +94,7 @@ interface CitySensorsInfoProps {
 const amolServers: ServerT[] = [
   {
     id: 1,
-    server_name: "کلینیک راضی",
+    server_name: "دانشگاه علوم پزشکی",
     sensors: [
       {
         id: 1,
@@ -148,7 +148,7 @@ const amolServers: ServerT[] = [
   },
   {
     id: 2,
-    server_name: "دیتا سنتر آمل امام رضا",
+    server_name: "دیتا سنتر بیمارستان بوعلی",
     sensors: [
       {
         id: 1,
@@ -234,7 +234,7 @@ const amolServers: ServerT[] = [
   },
   {
     id: 3,
-    server_name: "دیتا سنتر رازی قائمشهر",
+    server_name: "دیتا سنتر زارع",
     sensors: [
       {
         id: 1,

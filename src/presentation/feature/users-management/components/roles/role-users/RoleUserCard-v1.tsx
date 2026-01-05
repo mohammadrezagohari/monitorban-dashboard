@@ -1,11 +1,11 @@
 import { Box, useTheme } from "@mui/material";
-import Avatar from "src/presentation/components/common/avatar/Avatar";
+import Avatar from "@/presentation/components/common/avatar/Avatar";
 
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
-import Button from "src/presentation/components/common/buttons/Button";
-import { Text } from "src/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import TagHeading from "src/presentation/components/common/tag-heading/TagHeading";
-import Tag from "src/presentation/components/common/tag/Tag";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import Button from "@/presentation/components/common/buttons/Button";
+import { Text } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import TagHeading from "@/presentation/components/common/tag-heading/TagHeading";
+import Tag from "@/presentation/components/common/tag/Tag";
 
 function RoleUserCard({ user, ROLE }) {
   const { image: avatar, fullName: userName, phone, roles, groups } = user;

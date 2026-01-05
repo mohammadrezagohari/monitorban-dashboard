@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-import { LogoutButton } from "src/presentation/components/common/buttons/LogoutButton";
-import Divider from "src/presentation/components/common/divider/Divider";
-import { Icon } from "src/presentation/components/common/icons/components/Icon";
+import { LogoutButton } from "@/presentation/components/common/buttons/LogoutButton";
+import Divider from "@/presentation/components/common/divider/Divider";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import { StyledUserAccountCard } from "./UserAccountCard.styles";
 import { UserProfileContainers } from "./UserProfileContainer";
 

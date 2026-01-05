@@ -1,7 +1,7 @@
 import AccessItem from "./AccessItem";
-import SectionTitle from "src/presentation/components/common/section-title/SectionTitle";
-import SectionContainer from "src/presentation/components/common/section-container/SectionContainer";
-import { HeaderContainer } from "src/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import { AccessTypeMainContainer } from "./Stepper.styles";
 
 function AccessType({ accessTypesChecked, handleAccessTypes }) {
