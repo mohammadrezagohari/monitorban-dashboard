@@ -11,7 +11,7 @@ export default function AnnounceItem({
   announceStatus,
 }: AnnounceItemProps) {
   const theme = useTheme();
-  const { isDesktop } = useScreenSize();
+  const { isMediumScreen } = useScreenSize();
 
   const colors = {
     warning: theme.palette.warning.main,
@@ -28,8 +28,8 @@ export default function AnnounceItem({
         <Icon
           name={item.icon}
           color={colors[announceStatus]}
-          w={isDesktop ? 24 : 20}
-          h={isDesktop ? 24 : 20}
+          w={isMediumScreen ? 24 : 20}
+          h={isMediumScreen ? 24 : 20}
         />
       </IconWrapper>
       <div>

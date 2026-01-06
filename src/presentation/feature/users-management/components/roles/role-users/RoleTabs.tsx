@@ -1,4 +1,4 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useState } from "react";
 
 import Button from "@/presentation/components/common/buttons/Button";
@@ -10,6 +10,7 @@ import ListCard from "@/presentation/components/common/list-card/ListCard";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import TabPanel from "@/presentation/components/common/tabs/TabPanel";
 import { usersInfo } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import {
   ButtonsContainer,
   CheckboxContainer,
@@ -34,7 +35,7 @@ function RoleTabs() {
   const [value, setValue] = useState(0);
   const [isSelectable, setIsSelectable] = useState(false);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   function handleChange(_, newValue) {
     setValue(newValue);
@@ -74,7 +75,7 @@ function RoleTabs() {
             <Tab label="کاربران دارای نقش" {...a11yProps(1)} />
           </Tabs>
           {value > 0 &&
-            (isDesktop ? (
+            (isMediumScreen ? (
               <Button
                 variant="outlined"
                 size="small"
@@ -195,8 +196,13 @@ function RoleTabs() {
             </CheckboxContainer>
 
             <ButtonsContainer>
-              {isDesktop ? (
-                <Icon name="close" onClick={handleClose} />
+              {isMediumScreen ? (
+                <Icon
+                  name="close"
+                  onClick={handleClose}
+                  color={theme.palette.neutral.main}
+                  className="pointer"
+                />
               ) : (
                 <Button
                   variant="outlined"
@@ -209,9 +215,9 @@ function RoleTabs() {
               )}
               <Button
                 variant="contained"
-                size={isDesktop ? "small" : "medium"}
+                size={isMediumScreen ? "small" : "medium"}
                 colorType="primary"
-                rightIcon={isDesktop ? "plus" : null}
+                rightIcon={isMediumScreen ? "plus" : null}
                 onClick={handleCreateGroup}
               >
                 ایجاد گروه
@@ -220,6 +226,12 @@ function RoleTabs() {
           </GroupCreatorMain>
         </GroupCreatorSection>
       )}
+
+      <div>
+        <Button variant="contained" rightIcon="plus">
+          ایجاد گروه
+        </Button>
+      </div>
     </>
   );
 }

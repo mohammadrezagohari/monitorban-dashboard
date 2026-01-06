@@ -1,4 +1,4 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { useRef } from "react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
@@ -15,11 +15,13 @@ import {
 } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import ServerRoomCard from "@/presentation/components/common/server-room-dashboard-card/ServerRoomCard";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { ButtonsContainer } from "./ServerRoomsSlider.styles";
 
 function ServerRoomsSlider() {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
   const { serverRoomItems, isLoading } = useServerRooms();
@@ -29,7 +31,7 @@ function ServerRoomsSlider() {
       <HeaderContainer>
         <SectionTitle>اتاق سرور ها</SectionTitle>
         <ButtonsContainer>
-          {isDesktop ? (
+          {isMediumScreen ? (
             <>
               <Button
                 variant="outlined"

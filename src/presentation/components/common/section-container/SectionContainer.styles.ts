@@ -16,7 +16,7 @@ export const StyledSectionContainer = styled(Box)<BoxProps>(({ theme, width, hei
 export const HeaderContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     width: "100%",
-    alignItems: "flex-start",
+    alignItems: "center",
     justifyContent: "space-between",
     marginBottom: theme.spacing(1.5),
     [theme.breakpoints.up("md")]: {

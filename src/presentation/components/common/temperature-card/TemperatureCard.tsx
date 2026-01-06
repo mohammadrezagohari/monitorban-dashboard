@@ -1,10 +1,11 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import BaseDashboardCard from "@/presentation/components/common/dashboard-card/BaseDashboardCard";
 import {
   DataContainer,
   getStatusColors,
   Text,
 } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { useTheme } from "@mui/material";
 import { IconWrapper } from "../icons/IconWrapper.style";
 import { Icon } from "../icons/components/Icon";
 import { TemperatureCardProps } from "./ITemperatureCard";
@@ -38,7 +39,7 @@ const TemperatureCard = ({
   const { icon: iconBgColor, text: textColor } = getStatusColors(status);
 
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <BaseDashboardCard
@@ -47,7 +48,7 @@ const TemperatureCard = ({
         <DataContainer>
           <Text
             color="neutral.100"
-            variant={isDesktop ? "body1" : "body2"}
+            variant={isMediumScreen ? "body1" : "body2"}
             component="h5"
           >
             <IconWrapper bgcolor={iconBgColor}>
@@ -56,7 +57,7 @@ const TemperatureCard = ({
             {name}:
           </Text>
           <Text
-            variant={isDesktop ? "body1" : "body2"}
+            variant={isMediumScreen ? "body1" : "body2"}
             component="span"
             color={textColor}
           >
@@ -69,14 +70,14 @@ const TemperatureCard = ({
           <DataContainer sx={{ mb: 1 }}>
             <Text
               color="neutral.200"
-              variant={isDesktop ? "body2" : "caption"}
+              variant={isMediumScreen ? "body2" : "caption"}
               component="span"
             >
               <Icon name="bullet" color={textColor} /> آخرین مقدار دریافتی:
             </Text>
             <Text
               color="neutral.200"
-              variant={isDesktop ? "body2" : "caption"}
+              variant={isMediumScreen ? "body2" : "caption"}
               component="span"
             >
               {hour} ساعت پیش
@@ -85,14 +86,14 @@ const TemperatureCard = ({
           <DataContainer>
             <Text
               color="neutral.200"
-              variant={isDesktop ? "body2" : "caption"}
+              variant={isMediumScreen ? "body2" : "caption"}
               component="span"
             >
               <Icon name="bullet" color={textColor} /> دیتا سنتر دانشگاه:
             </Text>
             <Text
               color="neutral.200"
-              variant={isDesktop ? "body2" : "caption"}
+              variant={isMediumScreen ? "body2" : "caption"}
               component="span"
               sx={{ gap: "1.5rem" }}
             >

@@ -19,6 +19,7 @@ import {
 } from "../RolesPage.styles";
 import RoleAccessibility from "./RoleAccessibility";
 import { useDeleteRole } from "./useDeleteRole";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 
 export default function RoleCard({
   roleObj,
@@ -39,7 +40,7 @@ export default function RoleCard({
   const navigate = useNavigate();
   //   const [deleteBackdrop, setDeleteBackdrop] = useState(false);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const { isLargeScreen } = useScreenSize();
   const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null);
   const [pendingDeleteTitle, setPendingDeleteTitle] = useState<string | null>(
     null
@@ -96,7 +97,7 @@ export default function RoleCard({
 
         {/* Buttons */}
         <ButtonsContainer>
-          {isDesktop ? (
+          {isLargeScreen ? (
             <>
               <Modal>
                 <Modal.Open opens="delete-role">

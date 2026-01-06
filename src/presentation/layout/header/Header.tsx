@@ -1,19 +1,20 @@
 import { useMoveBack } from "@/presentation/hooks/useMoveBack";
 
-import { useMediaQuery, useTheme } from "@mui/material";
 import { BackButton } from "@/presentation/components/common/buttons/BackButton";
 import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { useTheme } from "@mui/material";
 import Breadcrumbs from "./Breadcrumbs";
 import { StyledHeader, VerticalDivider } from "./Header.styles";
 
 function Header() {
   const moveBack = useMoveBack();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <StyledHeader>
-      {isDesktop && (
+      {isMediumScreen && (
         <>
           <BackButton
             onClick={moveBack}

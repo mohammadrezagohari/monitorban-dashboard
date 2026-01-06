@@ -1,11 +1,11 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
-import IconButton from "@/presentation/components/common/icon-button/IconButton";
-import { useNavigate } from "react-router-dom";
 import Button from "@/presentation/components/common/buttons/Button";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import { usersInfo } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { useNavigate } from "react-router-dom";
 import FilterOperation from "./FilterOperation";
 import { IUser } from "./IUsers";
 import { StyledUsersContainer } from "./Users.styles";
@@ -15,8 +15,8 @@ export default function Users() {
   const [userRole, setUserRole] = useState("");
   const [usersList, setUsersList] = useState<IUser[]>(usersInfo);
 
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   const navigate = useNavigate();
 
   const handleAddButton = () => {
@@ -26,7 +26,7 @@ export default function Users() {
   return (
     <>
       <PageTitle title="کاربران">
-        {isDesktop ? (
+        {isMediumScreen ? (
           <Button
             variant="contained"
             size="large"

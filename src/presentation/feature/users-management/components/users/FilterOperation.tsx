@@ -12,6 +12,7 @@ import {
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import Select from "@/presentation/components/common/select/Select";
 import { Form } from "./Users.styles";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 
 const ROLES = [
   { id: 1, label: "نقش 1", value: "role1" },
@@ -21,11 +22,11 @@ const ROLES = [
 
 function FilterOperation() {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   const { control } = useForm();
 
-  if (!isDesktop)
+  if (!isMediumScreen)
     return (
       <Button
         variant="outlined"

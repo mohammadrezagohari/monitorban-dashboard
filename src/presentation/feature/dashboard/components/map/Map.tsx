@@ -8,7 +8,7 @@ import { MainContainer } from "@/presentation/components/common/section-containe
 
 export default function Map() {
   const theme = useTheme();
-  const { isDesktop } = useScreenSize();
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <SectionContainer width="100%" sx={{ flexShrink: 1 }}>
@@ -488,8 +488,8 @@ export default function Map() {
           >
             <Icon
               name="bullet"
-              w={isDesktop ? 20 : 16}
-              h={isDesktop ? 20 : 16}
+              w={isMediumScreen ? 20 : 16}
+              h={isMediumScreen ? 20 : 16}
               color={theme.palette.success.main}
             />
             <Typography
@@ -504,8 +504,8 @@ export default function Map() {
           >
             <Icon
               name="bullet"
-              w={isDesktop ? 20 : 16}
-              h={isDesktop ? 20 : 16}
+              w={isMediumScreen ? 20 : 16}
+              h={isMediumScreen ? 20 : 16}
               color={theme.palette.warning.main}
             />
             <Typography
@@ -520,8 +520,8 @@ export default function Map() {
           >
             <Icon
               name="bullet"
-              w={isDesktop ? 20 : 16}
-              h={isDesktop ? 20 : 16}
+              w={isMediumScreen ? 20 : 16}
+              h={isMediumScreen ? 20 : 16}
               color={theme.palette.error.main}
             />
             <Typography
@@ -536,8 +536,8 @@ export default function Map() {
           >
             <Icon
               name="bullet"
-              w={isDesktop ? 20 : 16}
-              h={isDesktop ? 20 : 16}
+              w={isMediumScreen ? 20 : 16}
+              h={isMediumScreen ? 20 : 16}
               color="#2A2637"
             />
             <Typography

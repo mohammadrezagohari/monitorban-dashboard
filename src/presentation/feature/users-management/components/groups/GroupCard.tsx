@@ -1,17 +1,18 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import { Icon } from "@/presentation/components/common/icons/components/Icon";
-import { IconWrapper } from "@/presentation/components/common/icons/IconWrapper.style";
-import { useEffect, useRef, useState } from "react";
 import Avatar from "@/presentation/components/common/avatar/Avatar";
 import DeleteConfirmBackdrop from "@/presentation/components/common/backdrop/DeleteConfirmBackdrop";
 import Button from "@/presentation/components/common/buttons/Button";
 import Divider from "@/presentation/components/common/divider/Divider";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
+import { IconWrapper } from "@/presentation/components/common/icons/IconWrapper.style";
 import Modal from "@/presentation/components/common/modal/Modal";
 import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import Tag from "@/presentation/components/common/tag/Tag";
 import TagWithBullet from "@/presentation/components/common/tag/TagWithBullet";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { useEffect, useRef, useState } from "react";
 import OperationMenu from "../common/operation-menu/OperationMenu";
 import {
   ButtonsContainer,
@@ -30,16 +31,16 @@ function GroupCard({ group }: { group: GroupType }) {
   const navigate = useNavigate();
   const theme = useTheme();
   const [visible, setVisible] = useState(false);
-  const [contentHeight, setContentHeight] = useState("");
+  const [contentHeight, setContentHeight] = useState<string | number>(0);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const { isLargeScreen, isMediumScreen } = useScreenSize();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
-    if(isDesktop) {
+    if (isLargeScreen) {
       setContentHeight("auto");
     }
-  }, [isDesktop])
+  }, [isLargeScreen]);
 
   function handleEditGroup() {
     navigate("edit-group", { state: { group: group } });
@@ -65,15 +66,18 @@ function GroupCard({ group }: { group: GroupType }) {
     console.log(`Group by id ${id} is deleted`);
   }
 
-
-
   return (
     <StyledGroupCard>
       <HeaderContainer>
         <StyledTitleBox>
           <IconWrapper>
             {/* <GroupIcon size={24} color={theme.palette.neutral[100]} /> */}
-            <Icon name={icon} color={theme.palette.neutral[100]} />
+            <Icon
+              name={icon}
+              color={theme.palette.neutral[100]}
+              w={isMediumScreen ? 24 : 16}
+              h={isMediumScreen ? 24 : 16}
+            />
           </IconWrapper>
           <Typography variant="h4" color="neutral.main">
             {groupName}
@@ -81,7 +85,7 @@ function GroupCard({ group }: { group: GroupType }) {
         </StyledTitleBox>
 
         <ButtonsContainer>
-          {isDesktop ? (
+          {isLargeScreen ? (
             <>
               <Modal>
                 <Modal.Open opens="delete-group">
@@ -151,7 +155,7 @@ function GroupCard({ group }: { group: GroupType }) {
           </Typography>
           <TagsContainer>
             {members.map((member) => (
-              <Tag>
+              <Tag key={member.id}>
                 <Avatar src={member.image} size={24}>
                   <Icon
                     name="user"
@@ -186,8 +190,8 @@ function GroupCard({ group }: { group: GroupType }) {
             دسترسی ها :
           </Typography>
           <TagsContainer>
-            {accesses.map((access) => (
-              <TagWithBullet>{access}</TagWithBullet>
+            {accesses.map((access, index) => (
+              <TagWithBullet key={index}>{access}</TagWithBullet>
             ))}
           </TagsContainer>
         </StyledAccessesContainer>

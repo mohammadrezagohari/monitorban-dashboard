@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-import { useMediaQuery, useTheme } from "@mui/material";
 import Button from "@/presentation/components/common/buttons/Button";
 import { GridBox } from "@/presentation/components/common/GridBox";
 import LinearCard from "@/presentation/components/common/linear-card/LinearCard";
@@ -8,12 +7,14 @@ import SectionContainer from "@/presentation/components/common/section-container
 import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { sensorsSettingItems } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { useTheme } from "@mui/material";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 
 function SensorsSettings() {
   const navigate = useNavigate();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   function handleCreateSensor() {
     navigate("create-sensor");
@@ -24,7 +25,7 @@ function SensorsSettings() {
         <SectionTitle>تنظیم سنسورها</SectionTitle>
         <Button
           variant="outlined"
-          size={isDesktop ? "large" : "xxsmall"}
+          size={isMediumScreen ? "large" : "xxsmall"}
           colorType="primary"
           rightIcon="plus"
           onClick={handleCreateSensor}

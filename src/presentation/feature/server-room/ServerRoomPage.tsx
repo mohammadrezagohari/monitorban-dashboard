@@ -15,6 +15,7 @@ import {
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { CardsContainer } from "./ServerRoomPage.styles";
 import { useServerRoom } from "./useServerRoom";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 
 const options = [
   { id: 1, value: "Item 1", label: "آیتم 1" },
@@ -24,8 +25,8 @@ const options = [
 
 function ServerRoomPage() {
   const { isLoading, serverRooms, isError } = useServerRoom();
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   const navigate = useNavigate();
   const filterRef = useRef<HTMLButtonElement | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -39,7 +40,7 @@ function ServerRoomPage() {
   return (
     <>
       <PageTitle title="اتاق سرور">
-        {isDesktop ? (
+        {isMediumScreen ? (
           <Button
             component={Link}
             to="/server-room/create-server-room"
@@ -54,7 +55,7 @@ function ServerRoomPage() {
           <IconButton iconName="plus" />
         )}
       </PageTitle>
-
+      {/*  */}
       <SectionContainer>
         <HeaderContainer>
           <SectionTitle>لیست اتاق سرورها</SectionTitle>
@@ -70,7 +71,7 @@ function ServerRoomPage() {
               colorType="primary"
               onClick={() => setIsFilterOpen((o) => !o)}
               leftIcon={
-                isDesktop ? (isFilterOpen ? "arrowUp" : "arrowDown") : null
+                isMediumScreen ? (isFilterOpen ? "arrowUp" : "arrowDown") : null
               }
               rightIcon="filter"
             >
@@ -97,7 +98,7 @@ function ServerRoomPage() {
                 }}
                 key={room.id}
               >
-                <ListCard.Title />
+                {/* <ListCard.Title /> */}
 
                 <ListCard.ShowStatus />
 
@@ -106,14 +107,14 @@ function ServerRoomPage() {
                 <ListCard.Operations>
                   <Button
                     variant="outlined"
-                    size={isDesktop ? "small" : "medium"}
+                    size={isMediumScreen ? "small" : "medium"}
                     colorType="error"
                   >
                     حذف
                   </Button>
                   <Button
                     variant="outlined"
-                    size={isDesktop ? "small" : "medium"}
+                    size={isMediumScreen ? "small" : "medium"}
                     colorType="primary"
                     onClick={() => handleEdit(room)}
                   >

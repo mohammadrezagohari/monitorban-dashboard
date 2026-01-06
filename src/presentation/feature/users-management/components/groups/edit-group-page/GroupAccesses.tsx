@@ -31,8 +31,8 @@ function GroupAccesses({ accesses }: AccessesType) {
       <MainContainer>
         {accesses.length > 0 ? (
           <StyledAccessesMainContainer>
-            {accesses.map((access) => (
-              <Tag>
+            {accesses.map((access, index) => (
+              <Tag key={index}>
                 <Icon name="close" w={20} h={20} />
                 {access}
               </Tag>

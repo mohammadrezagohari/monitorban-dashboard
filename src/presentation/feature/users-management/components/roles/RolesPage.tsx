@@ -1,8 +1,8 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 
-import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import Button from "@/presentation/components/common/buttons/Button";
 import EmptyData from "@/presentation/components/common/empty-data/EmptyData";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import {
@@ -10,12 +10,12 @@ import {
   MainContainer,
 } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import RoleCard from "./roles-card/RoleCard";
 import { useRolesPage } from "./useRolesPage";
 
 export default function RolesPage() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   const { isLoading, isError, rolesList } = useRolesPage();
 
@@ -30,7 +30,7 @@ export default function RolesPage() {
     <>
       {/* Header and Create Button */}
       <PageTitle title="نقش ها">
-        {isDesktop ? (
+        {isMediumScreen ? (
           <Button
             variant="contained"
             size="large"

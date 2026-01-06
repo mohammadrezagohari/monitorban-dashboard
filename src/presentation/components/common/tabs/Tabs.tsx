@@ -1,9 +1,10 @@
-import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { IconButton, useTheme } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "@/presentation/components/common/buttons/Button";
 import { usersInfo } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import Checkbox from "../checkbox/Checkbox";
 import { StyledControledCheckbox } from "../checkbox/Checkbox.styles";
@@ -35,7 +36,7 @@ function Tabs() {
   const [value, setValue] = useState(0);
   const [isSelectable, setIsSelectable] = useState(false);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
   const navigate = useNavigate();
 
   function handleChange(event: SyntheticEvent, newValue: number) {
@@ -75,7 +76,7 @@ function Tabs() {
             <Tab label="کاربران دارای نقش" {...a11yProps(1)} />
           </StyledTabs>
           {value > 0 &&
-            (isDesktop ? (
+            (isMediumScreen ? (
               <Button
                 variant="outlined"
                 size="small"
@@ -222,7 +223,7 @@ function Tabs() {
                 variant="contained"
                 size="small"
                 colorType="primary"
-                rightIcon={isDesktop ? "plus" : null}
+                rightIcon={isMediumScreen ? "plus" : null}
                 onClick={handleCreateGroup}
               >
                 ایجاد گروه

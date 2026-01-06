@@ -1,12 +1,13 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
 import Button from "@/presentation/components/common/buttons/Button";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { FAQs } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { useNavigate } from "react-router-dom";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 import { StyledFAQList } from "./AllFAQsPage.styles";
 import FAQListItem from "./FAQListItem";
@@ -16,7 +17,7 @@ function AllFAQsPage() {
   const allFAQs = FAQs;
   const navigate = useNavigate();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   function handleExpand(panel: string) {
     setExpanded((currentPanel) => (currentPanel !== panel ? panel : null));
@@ -36,7 +37,7 @@ function AllFAQsPage() {
 
           <Button
             variant="outlined"
-            size={isDesktop ? "large" : "xxsmall"}
+            size={isMediumScreen ? "large" : "xxsmall"}
             colorType="primary"
             rightIcon="plus"
             onClick={handleAddFAQ}

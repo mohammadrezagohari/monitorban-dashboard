@@ -1,5 +1,3 @@
-import { useMediaQuery, useTheme } from "@mui/material";
-
 import useLatestUsers from "./useLatestUsers";
 
 import Button from "@/presentation/components/common/buttons/Button";
@@ -8,11 +6,12 @@ import SectionContainer from "@/presentation/components/common/section-container
 import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import UserCardMini from "@/presentation/feature/dashboard/components/latest-users/user-card-mini/UserCardMini";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { StyledMainContainer } from "./LatestUser.styles";
 
 function LatestUsers() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   const { users } = useLatestUsers();
 
   return (
@@ -20,7 +19,7 @@ function LatestUsers() {
       <HeaderContainer>
         <SectionTitle>آخرین کاربران</SectionTitle>
 
-        {isDesktop ? (
+        {isMediumScreen ? (
           <Button
             variant="outlined"
             size="xxsmall"
@@ -32,9 +31,6 @@ function LatestUsers() {
           </Button>
         ) : (
           <IconButton iconName="eye" variant="outlined" />
-          // <IconButtonWithBorder>
-          //   <EyeIcon size={16} color={theme.palette.primary.dark} />
-          // </IconButtonWithBorder>
         )}
       </HeaderContainer>
       <StyledMainContainer>

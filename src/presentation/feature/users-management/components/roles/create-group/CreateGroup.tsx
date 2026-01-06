@@ -1,10 +1,11 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from "react";
 
-import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import Button from "@/presentation/components/common/buttons/Button";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import { usersInfo } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { IUser } from "../../users/IUsers";
 import { StyledCreateGroup } from "./CreateGroup.styles";
 import GroupAccesses from "./GroupAccesses";
@@ -15,18 +16,17 @@ function CreateGroup() {
   const groupMembers: IUser[] = usersInfo || [];
   // const groupMembers: IUser[] = [];
   const [accesses, setAccesses] = useState<string[]>([]);
-  const {
-    image: avatar,
-    fullName: userName,
-    phone,
-    roles = [],
-    groups = [],
-  } = usersInfo[0];
+  // const {
+  //   image: avatar,
+  //   fullName: userName,
+  //   phone,
+  //   roles = [],
+  //   groups = [],
+  // } = usersInfo?.[0];
   // const visibleRoles = roles.length > 2 ? roles.slice(1, 3) : roles;
   // const visibleGroups = groups.length > 2 ? groups?.slice(1, 3) : groups;
 
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const { isMediumScreen } = useScreenSize();
 
   function deleteAccess(access: string) {
     setAccesses((prevAccesses) =>
@@ -40,7 +40,7 @@ function CreateGroup() {
         <Box
           sx={{ display: "flex", alignItems: "center", gap: { xs: 1, lg: 2 } }}
         >
-          {isDesktop ? (
+          {isMediumScreen ? (
             <>
               <Button variant="outlined" size="small" colorType="primary">
                 انصراف

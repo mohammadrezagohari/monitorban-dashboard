@@ -1,17 +1,16 @@
-import IconButton from "@/presentation/components/common/icon-button/IconButton";
-import { useMediaQuery, useTheme } from "@mui/material";
 import Button from "@/presentation/components/common/buttons/Button";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import GroupsList from "./GroupsList";
 
 function GroupsPage() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <>
       <PageTitle title="گروه ها">
-        {isDesktop ? (
+        {isMediumScreen ? (
           <Button
             variant="contained"
             size="large"

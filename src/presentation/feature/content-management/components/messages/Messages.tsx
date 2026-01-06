@@ -1,12 +1,13 @@
+import { useTheme } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "@/presentation/components/common/buttons/Button";
-import MessageCard from "./MessageCard";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
-import { SectionHeader } from "../../ContentManagementPage.styles";
 import { messages as initialMessages } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { SectionHeader } from "../../ContentManagementPage.styles";
+import MessageCard from "./MessageCard";
 import { StyledMainSection, StyledMessagesContainer } from "./messages.styles";
 
 function Messages() {
@@ -16,7 +17,7 @@ function Messages() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const navigate = useNavigate();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   function handleViewAll() {
     navigate("messages");
@@ -32,7 +33,7 @@ function Messages() {
         <SectionTitle>پیغام ها</SectionTitle>
         <Button
           variant="outlined"
-          size={isDesktop ? "large" : "xxsmall"}
+          size={isMediumScreen ? "large" : "xxsmall"}
           colorType="primary"
           onClick={handleViewAll}
         >

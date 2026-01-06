@@ -1,4 +1,3 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
 import Button from "@/presentation/components/common/buttons/Button";
@@ -9,6 +8,7 @@ import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import { sensorsData } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import SensorsCategoryItem from "./components/SensorsCategoryItem";
 import {
   FilterBox,
@@ -35,8 +35,7 @@ function SensorsPage() {
   >(null);
   const anchorRef = useRef<HTMLButtonElement>(null);
 
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   const handleFilterButton = () => {
     setIsFilterOpen((prev) => !prev);
@@ -65,12 +64,12 @@ function SensorsPage() {
           <FilterBox>
             <Button
               variant="outlined"
-              size={isDesktop ? "large" : "small"}
+              size={isMediumScreen ? "large" : "small"}
               colorType="primary"
               ref={anchorRef}
               onClick={handleFilterButton}
               leftIcon={
-                isDesktop ? (isFilterOpen ? "arrowUp" : "arrowDown") : null
+                isMediumScreen ? (isFilterOpen ? "arrowUp" : "arrowDown") : null
               }
               rightIcon="filter"
             >

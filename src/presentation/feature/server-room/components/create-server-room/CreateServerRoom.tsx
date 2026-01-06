@@ -1,20 +1,18 @@
-import { useMediaQuery, useTheme } from "@mui/material";
-
-import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import Button from "@/presentation/components/common/buttons/Button";
+import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import CreateEditServerRoom from "../create-edit-server-room-form/CreateEditServerRoomForm";
 import { ButtonContainer } from "./CreateServerRoom.styles";
 
 function CreateServerRoom() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <>
       <PageTitle title="افزودن اتاق سرور">
         <ButtonContainer>
-          {isDesktop ? (
+          {isMediumScreen ? (
             <>
               <Button variant="outlined" size="small" colorType="primary">
                 انصراف

@@ -1,10 +1,11 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 import Avatar from "@/presentation/components/common/avatar/Avatar";
 import Button from "@/presentation/components/common/buttons/Button";
 import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import TagHeading from "@/presentation/components/common/tag-heading/TagHeading";
 import Tag from "@/presentation/components/common/tag/Tag";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { TutorialCardProps } from "./ITutorialManagement";
 import {
   ButtonsContainer,
@@ -19,7 +20,7 @@ function TutorialCard({ tutorial }: TutorialCardProps) {
   const { thumbnail: image, title, type } = tutorial;
 
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <StyledTutorialCard>
@@ -40,14 +41,14 @@ function TutorialCard({ tutorial }: TutorialCardProps) {
       <ButtonsContainer>
         <Button
           variant="outlined"
-          size={isDesktop ? "small" : "xxsmall"}
+          size={isMediumScreen ? "small" : "xxsmall"}
           colorType="error"
         >
           حذف
         </Button>
         <Button
           variant="outlined"
-          size={isDesktop ? "small" : "xxsmall"}
+          size={isMediumScreen ? "small" : "xxsmall"}
           colorType="primary"
         >
           مشاهده

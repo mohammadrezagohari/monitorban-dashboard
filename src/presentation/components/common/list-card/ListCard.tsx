@@ -1,4 +1,5 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { Box, useTheme } from "@mui/material";
 import { createContext, useContext } from "react";
 import Avatar from "../avatar/Avatar";
 import Checkbox from "../checkbox/Checkbox";
@@ -35,19 +36,19 @@ function ListCard({ children, columns, item, selectable }: ListCardProps) {
 
 function Title() {
   const { item, selectable } = useContext(ListCardContext);
-  const { avatar, title, caption, icon = "userIcon" } = item;
+  const { avatar, title, caption, icon = "user" } = item;
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <StyledTitle>
       {selectable && <Checkbox iconSize={24} />}
 
-      <Avatar src={avatar} size={isDesktop ? 48 : 32}>
+      <Avatar src={avatar} size={isMediumScreen ? 48 : 32}>
         <Icon
           name={icon}
-          w={isDesktop ? 24 : 16}
-          h={isDesktop ? 24 : 16}
+          w={isMediumScreen ? 24 : 16}
+          h={isMediumScreen ? 24 : 16}
           color={theme.palette.neutral.main}
         />
       </Avatar>
@@ -68,11 +69,12 @@ function ShowFirstDetails({ label }: FirstDetailsProps) {
   const { item } = useContext(ListCardContext);
   const { firstDetailItems } = item;
 
+  console.log("item => ", item);
   return (
     <StyledDetail>
       <TagHeading>{label} :</TagHeading>
       <Box>
-        {firstDetailItems.slice(0, 2).map((item: string) => (
+        {firstDetailItems?.slice(0, 2).map((item: string) => (
           <Tag key={item}>{item}</Tag>
         ))}
       </Box>

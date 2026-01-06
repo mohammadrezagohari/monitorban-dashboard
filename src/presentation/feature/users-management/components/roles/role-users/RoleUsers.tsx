@@ -4,7 +4,6 @@ import { StyledRoleUsers } from "./RoleUsers.styles";
 import RoleTabs from "./RoleTabs";
 
 function RoleUsers() {
-  // const theme = useTheme();
   // const [value, setValue] = useState(0);
 
   // const handleChange = (event, newValue) => {

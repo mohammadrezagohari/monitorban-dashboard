@@ -7,10 +7,10 @@ import {
   TextSpan,
   TitleContainer,
 } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
-import { ServerRoomCardProps } from "./IServerRoomCard";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { Icon } from "../icons/components/Icon";
 import { IconWrapper } from "../icons/IconWrapper.style";
-import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { ServerRoomCardProps } from "./IServerRoomCard";
 
 const ServerRoomCard = ({
   title,
@@ -21,7 +21,7 @@ const ServerRoomCard = ({
   onHandleClick,
 }: ServerRoomCardProps) => {
   const theme = useTheme();
-  const { isDesktop } = useScreenSize();
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <BaseDashboardCard
@@ -32,8 +32,8 @@ const ServerRoomCard = ({
           <IconWrapper>
             <Icon
               name={icon}
-              w={isDesktop ? 24 : 20}
-              h={isDesktop ? 24 : 20}
+              w={isMediumScreen ? 24 : 20}
+              h={isMediumScreen ? 24 : 20}
               // @ts-ignore
               color={theme.palette.primary[200]}
             />

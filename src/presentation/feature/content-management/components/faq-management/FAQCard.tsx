@@ -1,17 +1,18 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 import Button from "@/presentation/components/common/buttons/Button";
-import { FAQCardProps } from "./IFAQManagement";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import {
   ButtonsContainer,
   QuestionText,
   StyledFAQCard,
 } from "./FAQManagement.styles";
+import { FAQCardProps } from "./IFAQManagement";
 
 function FAQCard({ faq }: FAQCardProps) {
   const { question } = faq;
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <StyledFAQCard>
@@ -22,14 +23,14 @@ function FAQCard({ faq }: FAQCardProps) {
       <ButtonsContainer>
         <Button
           variant="outlined"
-          size={isDesktop ? "small" : "xxsmall"}
+          size={isMediumScreen ? "small" : "xxsmall"}
           colorType="error"
         >
           حذف
         </Button>
         <Button
           variant="outlined"
-          size={isDesktop ? "small" : "xxsmall"}
+          size={isMediumScreen ? "small" : "xxsmall"}
           colorType="success"
         >
           ویرایش

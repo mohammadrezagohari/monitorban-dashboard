@@ -1,18 +1,19 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useForm } from "react-hook-form";
 
-import Input from "@/presentation/components/common/input/Input";
 import Button from "@/presentation/components/common/buttons/Button";
 import FormRow from "@/presentation/components/common/input/FormRow";
-import PageTitle from "@/presentation/components/common/page-title/PageTitle";
-import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Input from "@/presentation/components/common/input/Input";
 import { TextField } from "@/presentation/components/common/input/TextField";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
-import { AddNewFAQForm, ButtonContainer } from "./AddNewFAQ.styles";
 import {
   HeaderContainer,
   MainContainer,
 } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { AddNewFAQForm, ButtonContainer } from "./AddNewFAQ.styles";
 import { FAQProps } from "./IAddNewFAQ";
 
 function AddNewFAQ({ faqToEdite = {} }) {
@@ -23,7 +24,7 @@ function AddNewFAQ({ faqToEdite = {} }) {
     },
   });
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   function handleAddFAQ(data: FAQProps) {
     if (!data.question || !data.answer) {
@@ -68,7 +69,7 @@ function AddNewFAQ({ faqToEdite = {} }) {
             <ButtonContainer>
               <Button
                 variant="contained"
-                size={isDesktop ? "small" : "xxsmall"}
+                size={isMediumScreen ? "small" : "xxsmall"}
                 colorType="primary"
                 type="submit"
               >

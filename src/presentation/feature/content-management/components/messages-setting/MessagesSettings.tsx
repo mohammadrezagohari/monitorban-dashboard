@@ -1,15 +1,16 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 import Button from "@/presentation/components/common/buttons/Button";
 import LinearCard from "@/presentation/components/common/linear-card/LinearCard";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { SectionHeader } from "../../ContentManagementPage.styles";
 import { StyledSettingsMainSection } from "./MessagesSettings.styles";
 
 function MessagesSettings() {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <SectionContainer sx={{ flex: 1 }}>
@@ -17,7 +18,7 @@ function MessagesSettings() {
         <SectionTitle>پیغام ها</SectionTitle>
         <Button
           variant="outlined"
-          size={isDesktop ? "large" : "xxsmall"}
+          size={isMediumScreen ? "large" : "xxsmall"}
           colorType="primary"
         >
           ذخیره

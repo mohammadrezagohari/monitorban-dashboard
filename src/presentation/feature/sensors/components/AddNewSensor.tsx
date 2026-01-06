@@ -1,23 +1,18 @@
-import { useMediaQuery } from "@mui/material";
 import { useReducer, useState } from "react";
 
-import theme from "@/themes/theme";
-import Input from "@/presentation/components/common/input/Input";
-import Select from "@/presentation/components/common/select/Select";
 import Button from "@/presentation/components/common/buttons/Button";
-import FormRow from "@/presentation/components/common/input/FormRow";
-import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import FileUpload from "@/presentation/components/common/file-upload/FileUpload";
 import { GridBox } from "@/presentation/components/common/GridBox";
-import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
-import { useMoveBack } from "@/presentation/hooks/useMoveBack";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
+import PageTitle from "@/presentation/components/common/page-title/PageTitle";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
-import { Controller, useForm } from "react-hook-form";
-import { initialSensorState, sensorFormReducer } from "./SensorReducerFunction";
 import {
   HeaderContainer,
   MainContainer,
 } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Select from "@/presentation/components/common/select/Select";
 import {
   minimumRecordOptions,
   notifDurationOptions,
@@ -28,8 +23,12 @@ import {
   serverRoomOptions,
   unitOptions,
 } from "@/presentation/data/data";
-import { AddSensorButtonsContainer, Form } from "./Sensors.styles";
+import { useMoveBack } from "@/presentation/hooks/useMoveBack";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { SensorFormValues } from "@/presentation/utils/types";
+import { Controller, useForm } from "react-hook-form";
+import { initialSensorState, sensorFormReducer } from "./SensorReducerFunction";
+import { AddSensorButtonsContainer, Form } from "./Sensors.styles";
 
 // image: undefined;
 // maximumCritical: "";
@@ -64,7 +63,7 @@ const AddNewSensor = () => {
   const [state, dispatch] = useReducer(sensorFormReducer, initialSensorState);
 
   const [selectValue, setSelectValue] = useState("");
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   const { register, handleSubmit, formState, control, reset } =
     useForm<SensorFormValues>();
@@ -95,7 +94,7 @@ const AddNewSensor = () => {
         <AddSensorButtonsContainer>
           <Button
             variant="outlined"
-            size={isDesktop ? "small" : "xxsmall"}
+            size={isMediumScreen ? "small" : "xxsmall"}
             colorType="primary"
             onClick={onCancel}
           >
@@ -103,7 +102,7 @@ const AddNewSensor = () => {
           </Button>
           <Button
             variant="contained"
-            size={isDesktop ? "small" : "xxsmall"}
+            size={isMediumScreen ? "small" : "xxsmall"}
             colorType="primary"
             type="submit"
             onClick={handleSubmit(onSubmit, onError)}

@@ -12,6 +12,7 @@ import SectionContainer from "@/presentation/components/common/section-container
 import TemperatureCard from "@/presentation/components/common/temperature-card/TemperatureCard";
 import { sensorsData } from "@/presentation/data/data";
 import { CenterDetailsButtonsContainer } from "./Sensors.styles";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 
 const filterOptions: FilterOption[] = [
   { id: 1, value: "zare", label: "بیمارستان زارع" },
@@ -43,7 +44,7 @@ function CenterDetails() {
   const navigate = useNavigate();
   const { centerName } = useParams();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   const anchorRef = useRef<HTMLButtonElement>(null);
 
@@ -76,7 +77,7 @@ function CenterDetails() {
           <CenterDetailsButtonsContainer>
             <Button
               variant="outlined"
-              size={isDesktop ? "large" : "xxsmall"}
+              size={isMediumScreen ? "large" : "xxsmall"}
               colorType="primary"
               ref={anchorRef}
               onClick={handleFilterButton}
@@ -88,7 +89,7 @@ function CenterDetails() {
 
             <Button
               variant="outlined"
-              size={isDesktop ? "large" : "xxsmall"}
+              size={isMediumScreen ? "large" : "xxsmall"}
               colorType="primary"
               onClick={() => console.log("sort button clicked")}
               leftIcon={isSortOpen ? "arrowUp" : "arrowDown"}
@@ -97,7 +98,7 @@ function CenterDetails() {
               مرتب سازی
             </Button>
 
-            {isDesktop ? (
+            {isMediumScreen ? (
               <Button
                 variant="outlined"
                 size="large"

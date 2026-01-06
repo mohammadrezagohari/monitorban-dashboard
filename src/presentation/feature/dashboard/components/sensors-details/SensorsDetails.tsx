@@ -1,5 +1,3 @@
-import { useMediaQuery, useTheme } from "@mui/material";
-
 import useSensorsDetail from "./useSensorsDetail";
 
 import Button from "@/presentation/components/common/buttons/Button";
@@ -8,11 +6,12 @@ import SectionContainer from "@/presentation/components/common/section-container
 import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import SensorCard from "@/presentation/components/common/sensor-card/SensorCard";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { StyledMainContainer, StyledSensorCard } from "./SensorsDetails.styles";
 
 function SensorsDetails() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   const { sensorsItems } = useSensorsDetail();
 
   return (
@@ -21,7 +20,7 @@ function SensorsDetails() {
         <HeaderContainer>
           <SectionTitle>سنسورها</SectionTitle>
 
-          {isDesktop ? (
+          {isMediumScreen ? (
             <Button
               variant="outlined"
               size="xxsmall"

@@ -64,11 +64,15 @@ export const ButtonsContainer = styled(Box)(({ theme }) => ({
     alignItems: "center",
     gap: theme.spacing(2),
 
-    [theme.breakpoints.up("md")]: {
-        flexDirection: "row-reverse"
-    },
-
     "& > *": {
         flex: 1
-    }
+    },
+
+    [theme.breakpoints.up("md")]: {
+        flexDirection: "row-reverse",
+
+        "& > *": {
+            flex: "unset"
+        }
+    },
 }))

@@ -1,10 +1,10 @@
 // import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
-import { SyntheticEvent, useState } from "react";
-import { usersInfo } from "@/presentation/data/data";
 import Button from "@/presentation/components/common/buttons/Button";
-import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import ListCard from "@/presentation/components/common/list-card/ListCard";
+import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import TabPanel from "@/presentation/components/common/tabs/TabPanel";
+import { usersInfo } from "@/presentation/data/data";
+import { SyntheticEvent, useState } from "react";
 import {
   StyledCardBox,
   StyledTabs,
@@ -23,8 +23,6 @@ const GROUP = "کاربران دانشگاه";
 
 function GroupTabs() {
   const [value, setValue] = useState(0);
-  // const theme = useTheme();
-  // const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleChange(event: SyntheticEvent, newValue: number) {
     setValue(newValue);

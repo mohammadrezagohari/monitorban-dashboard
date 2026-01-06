@@ -2,11 +2,11 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-import IconButton from "@/presentation/components/common/icon-button/IconButton";
 import Button from "@/presentation/components/common/buttons/Button";
 import EmptyData from "@/presentation/components/common/empty-data/EmptyData";
 import { Form } from "@/presentation/components/common/Form";
 import { GridBox } from "@/presentation/components/common/GridBox";
+import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import FormRow from "@/presentation/components/common/input/FormRow";
 import Input from "@/presentation/components/common/input/Input";
 import PageTitle from "@/presentation/components/common/page-title/PageTitle";
@@ -40,11 +40,15 @@ function CreateRole() {
 
   const { control } = useForm();
 
-  function deleteAccess(access: string) {
+  const handleDeleteAccess = (access: string) => {
     setAccesses((prevAccesses) =>
       prevAccesses.filter((item) => item !== access)
     );
-  }
+  };
+
+  const handleAddAccess = () => {
+    console.log("Add Access");
+  };
 
   return (
     <>
@@ -106,7 +110,12 @@ function CreateRole() {
         <SectionContainer>
           <HeaderContainer>
             <SectionTitle>دسترسی های گروه</SectionTitle>
-            <Button variant="outlined" size="small" colorType="primary">
+            <Button
+              variant="outlined"
+              size="small"
+              colorType="primary"
+              onClick={handleAddAccess}
+            >
               افزودن دسترسی
             </Button>
           </HeaderContainer>
@@ -122,21 +131,16 @@ function CreateRole() {
               >
                 {accesses.map((access, index) => (
                   <Tag key={index}>
-                    <IconButton
-                      iconName="close"
-                      onClick={() => deleteAccess(access)}
+                    <Icon
+                      name="close"
+                      onClick={() => handleDeleteAccess(access)}
                     />
                     {access}
                   </Tag>
                 ))}
               </Box>
             ) : (
-              // <Box sx={{ display: "flex", justifyContent: "center" }}>
-              //   <Typography variant="body2" color="neutral.200">
-              //     در حال حاضر هیچ دسترسی اضافه نشده است !
-              //   </Typography>
-              // </Box>
-              <EmptyData label="دسترسی" />
+              <EmptyData handleClick={handleAddAccess} label="دسترسی" />
             )}
           </MainContainer>
         </SectionContainer>

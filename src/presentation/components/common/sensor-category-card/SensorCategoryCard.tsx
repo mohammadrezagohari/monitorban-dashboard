@@ -1,4 +1,4 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 
 import BaseDashboardCard from "@/presentation/components/common/dashboard-card/BaseDashboardCard";
 import {
@@ -6,6 +6,7 @@ import {
   Text,
   TextBox,
 } from "@/presentation/components/common/dashboard-card/BaseDashboardCard.style";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { IconButtonWithBorder } from "../IconButtonWithBorder";
 import { IconWrapper } from "../icons/IconWrapper.style";
 import { Icon } from "../icons/components/Icon";
@@ -21,8 +22,7 @@ const SensorCategoryCard = ({
 }: SensorCategoryCardProps) => {
   const totalSensor = normalSensor + warningSensor + dangerSensor;
 
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <BaseDashboardCard
@@ -31,7 +31,7 @@ const SensorCategoryCard = ({
         <DataContainer>
           <Text
             color="neutral.100"
-            variant={isDesktop ? "h4" : "body2"}
+            variant={isMediumScreen ? "h4" : "body2"}
             component="h5"
           >
             <IconWrapper bgcolor="#F7F5FA26">

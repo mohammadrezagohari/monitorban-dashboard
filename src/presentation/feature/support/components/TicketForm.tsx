@@ -1,20 +1,21 @@
+import { useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useMediaQuery, useTheme } from "@mui/material";
 
-import Input from "@/presentation/components/common/input/Input";
-import Select from "@/presentation/components/common/select/Select";
 import Button from "@/presentation/components/common/buttons/Button";
-import FormRow from "@/presentation/components/common/input/FormRow";
 import { Form } from "@/presentation/components/common/Form";
 import { GridBox } from "@/presentation/components/common/GridBox";
-import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
 import { TextField } from "@/presentation/components/common/input/TextField";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
-import { ButtonBox, StyledMessageBox } from "./FAQ.styles";
 import {
   HeaderContainer,
   MainContainer,
 } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import Select from "@/presentation/components/common/select/Select";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { ButtonBox, StyledMessageBox } from "./FAQ.styles";
 
 const ticketOptions = [
   { id: 1, value: "user1", label: "کاربر 1" },
@@ -25,7 +26,7 @@ const ticketOptions = [
 function TicketForm() {
   const { control, handleSubmit, register } = useForm();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   const ticketSubmitHandler = (data) => {
     console.log("Ticket submitted:", data);
@@ -77,7 +78,7 @@ function TicketForm() {
             <ButtonBox>
               <Button
                 variant="contained"
-                size={isDesktop ? "small" : "xxsmall"}
+                size={isMediumScreen ? "small" : "xxsmall"}
                 colorType="primary"
                 type="submit"
               >

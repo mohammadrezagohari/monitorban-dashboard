@@ -1,12 +1,9 @@
-import {
-  HeaderContainer,
-  MainContainer,
-} from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import { HeaderContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
 import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
-import GroupCard from "./GroupCard";
-import { useState } from "react";
 import { groupsList } from "@/presentation/data/data";
+import { useState } from "react";
+import GroupCard from "./GroupCard";
 import { GroupListMainContainer } from "./GroupsPage.styles";
 
 function GroupsList() {
@@ -19,7 +16,7 @@ function GroupsList() {
       </HeaderContainer>
       <GroupListMainContainer>
         {groups.map((group) => (
-          <GroupCard group={group} />
+          <GroupCard group={group} key={group.id} />
         ))}
       </GroupListMainContainer>
     </SectionContainer>

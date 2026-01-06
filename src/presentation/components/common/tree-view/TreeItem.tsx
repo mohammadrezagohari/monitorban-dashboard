@@ -1,4 +1,5 @@
-import { Collapse, useMediaQuery, useTheme } from "@mui/material";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { Collapse, useTheme } from "@mui/material";
 import { useState } from "react";
 import ControledCheckbox from "../checkbox/ControledCheckbox";
 import IconButton from "../icon-button/IconButton";
@@ -12,7 +13,8 @@ import {
 export default function TreeItem({ node, control, level = 0 }: TreeItemProps) {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   // const [checked, setChecked] = useState(false);
 
   function handleToggle() {
@@ -79,7 +81,7 @@ export default function TreeItem({ node, control, level = 0 }: TreeItemProps) {
           timeout="auto"
           unmountOnExit
           sx={{
-            mr: isDesktop ? 7.5 : 7,
+            mr: isMediumScreen ? 7.5 : 7,
             paddingInlineStart: 2,
             borderRight: "1px solid #9B92A6",
             mt: 1.5,

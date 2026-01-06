@@ -1,19 +1,20 @@
+import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useMediaQuery, useTheme } from "@mui/material";
 
 import Button from "@/presentation/components/common/buttons/Button";
-import FAQCard from "./FAQCard";
-import { FAQs } from "@/presentation/data/data";
-import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import { FAQs } from "@/presentation/data/data";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import { SectionHeader } from "../../ContentManagementPage.styles";
+import FAQCard from "./FAQCard";
 import { StyledQuestionsBox } from "./FAQManagement.styles";
 
 function FAQManagement() {
   const visibleFAQs = FAQs.slice(0, 3);
   const navigate = useNavigate();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   function handleViewAll() {
     navigate("/content-management/FAQs");
@@ -26,7 +27,7 @@ function FAQManagement() {
 
         <Button
           variant="outlined"
-          size={isDesktop ? "large" : "xxsmall"}
+          size={isMediumScreen ? "large" : "xxsmall"}
           colorType="primary"
           onClick={handleViewAll}
         >

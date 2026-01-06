@@ -1,19 +1,18 @@
 import { Outlet } from "react-router-dom";
-import { useMediaQuery, useTheme } from "@mui/material";
 
+import useScreenSize from "@/presentation/hooks/useScreenSize";
 import Main from "../../components/main/Main";
 import Header from "../header/Header";
-import Sidebar from "../sidebar/Sidebar";
 import { MobileHeader } from "../header/MobileHeader";
+import Sidebar from "../sidebar/Sidebar";
 import { StyledAppLayout } from "./AppLayout.style";
 
 function AppLayout() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <StyledAppLayout>
-      {isDesktop ? <Sidebar /> : <MobileHeader />}
+      {isMediumScreen ? <Sidebar /> : <MobileHeader />}
       <Header />
 
       <Main>

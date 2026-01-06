@@ -1,17 +1,18 @@
 // import { ChartProps } from "../../App";
 
-import { Bar } from "react-chartjs-2";
-import { BarChartProps } from "./IBarChart";
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { Box, useTheme } from "@mui/material";
 import {
-  Chart as ChartJS,
   BarElement,
   CategoryScale,
+  Chart as ChartJS,
   Legend,
   LinearScale,
   Title,
   Tooltip,
 } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import { BarChartProps } from "./IBarChart";
 
 ChartJS.register(
   CategoryScale,
@@ -24,7 +25,8 @@ ChartJS.register(
 
 const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
+
   const BarChartData = {
     labels: [
       "معاونت درمان",
@@ -45,7 +47,7 @@ const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
         // @ts-ignore
         backgroundColor: theme.palette.primary[300],
         borderRadius: 50,
-        barThickness: isDesktop ? 28 : 16,
+        barThickness: isMediumScreen ? 28 : 16,
         // height: 193,
         // width: "100%",
         barPercentage: 0.2,
@@ -97,8 +99,8 @@ const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
         },
         ticks: {
           padding: 16,
-          maxRotation: isDesktop ? 0 : 90,
-          minRotation: isDesktop ? 0 : 90,
+          maxRotation: isMediumScreen ? 0 : 90,
+          minRotation: isMediumScreen ? 0 : 90,
           color: theme.palette.neutral[200],
           font: {
             family: "Dana-Regular",
@@ -115,7 +117,7 @@ const BarChartjs = ({ data }: { data: BarChartProps[] }) => {
       <Bar
         options={options}
         data={BarChartData}
-        height={isDesktop ? 214 : 334}
+        height={isMediumScreen ? 214 : 334}
       />
     </Box>
   );

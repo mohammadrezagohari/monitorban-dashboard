@@ -31,6 +31,7 @@ export default function OperationMenu({
     <>
       <Icon
         name="more"
+        className="pointer"
         color={theme.palette.neutral.main}
         onClick={handleClick}
       />

@@ -1,20 +1,20 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
-import Input from "@/presentation/components/common/input/Input";
 import Button from "@/presentation/components/common/buttons/Button";
-import FormRow from "@/presentation/components/common/input/FormRow";
-import { Form } from "@/presentation/components/common/Form";
-import TreeView from "@/presentation/components/common/tree-view/TreeView";
 import FileUpload from "@/presentation/components/common/file-upload/FileUpload";
+import { Form } from "@/presentation/components/common/Form";
 import { GridBox } from "@/presentation/components/common/GridBox";
-import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import FormRow from "@/presentation/components/common/input/FormRow";
+import Input from "@/presentation/components/common/input/Input";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
-import { StyledServerRoomContainer } from "./CreateEditServerRoomForm.styles";
 import {
   HeaderContainer,
   MainContainer,
 } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import SectionTitle from "@/presentation/components/common/section-title/SectionTitle";
+import TreeView from "@/presentation/components/common/tree-view/TreeView";
+import useScreenSize from "@/presentation/hooks/useScreenSize";
+import { StyledServerRoomContainer } from "./CreateEditServerRoomForm.styles";
 
 function CreateEditServerRoom({ roomToEdit = {} }) {
   const { id: editId, ...editValues } = roomToEdit;
@@ -23,8 +23,7 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
     defaultValues: isEditSession ? editValues : {},
   });
 
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { isMediumScreen } = useScreenSize();
 
   return (
     <>
@@ -91,7 +90,7 @@ function CreateEditServerRoom({ roomToEdit = {} }) {
           <HeaderContainer>
             <SectionTitle>انتخاب سنسورها</SectionTitle>
 
-            {isDesktop && (
+            {isMediumScreen && (
               <Button variant="outlined" size="small" colorType="primary">
                 افزودن سنسور جدید
               </Button>
