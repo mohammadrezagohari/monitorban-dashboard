@@ -26,7 +26,7 @@ function SecurityInfo() {
           <Input
             id="password"
             type="password"
-            icon
+            icon="eye"
             placeholder="رمز عبور را وارد کنید"
           />
         </FormRow>

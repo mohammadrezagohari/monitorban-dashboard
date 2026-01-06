@@ -22,6 +22,14 @@ const queryClient = new QueryClient({
   },
 });
 
+if (process.env.NODE_ENV === "development") {
+  import("hide-cra-error-overlay").then(({ initHideOverlay }) => {
+    initHideOverlay({
+      withRestoreButton: false,
+    });
+  });
+}
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

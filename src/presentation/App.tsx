@@ -29,7 +29,7 @@ export default function App() {
   const theme = useTheme();
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
 
       <Router>
         <ScrollToTop />

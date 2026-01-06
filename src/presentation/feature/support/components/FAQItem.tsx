@@ -23,6 +23,7 @@ export default function FAQItem({
           {question}
         </Typography>
         <IconButton
+          variant="outlined"
           onClick={() => onChange(panel)}
           iconName={expanded === panel ? "arrowUp" : "arrowDown"}
         />

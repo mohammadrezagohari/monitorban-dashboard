@@ -19,11 +19,12 @@ function Input({ id, icon, type = "text", placeholder, ...props }: InputProps) {
       endAdornment={
         <InputAdornment position="end">
           {type === "password" ? (
-            <IconButton
-              iconName={
+            <Icon
+              name={
                 icon && type === "password" && showPassword ? "eye" : "eyeSlash"
               }
               onClick={() => setShowPassword(!showPassword)}
+              className="pointer"
             />
           ) : (
             icon && <Icon name={icon} />

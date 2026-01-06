@@ -2,9 +2,9 @@ import { useMediaQuery, useTheme } from "@mui/material"
 
 const useScreenSize = () => {
     const theme = useTheme();
-    const isDeskto = useMediaQuery(theme.breakpoints.up("md"));
+    const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-    return { isDeskto };
+    return { isDesktop };
 }
 
 export default useScreenSize;

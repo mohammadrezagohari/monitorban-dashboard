@@ -5,10 +5,25 @@ import { Link } from "react-router-dom";
 import { Icon } from "@/presentation/components/common/icons/components/Icon";
 import SectionContainer from "@/presentation/components/common/section-container/SectionContainer";
 import { MainContainer } from "@/presentation/components/common/section-container/SectionContainer.styles";
+import { useEffect, useRef } from "react";
 
 export default function Map() {
   const theme = useTheme();
   const { isDesktop } = useScreenSize();
+  const sariRef = useRef<SVGAElement>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (sariRef.current) {
+        sariRef.current.setAttribute("fill", theme.palette.error.main);
+        sariRef.current.setAttribute("stroke", theme.palette.error.main);
+      }
+    }, 5_000);
+
+    return () => {
+      clearTimeout(t);
+    };
+  }, [theme.palette.error.main]);
 
   return (
     <SectionContainer width="100%" sx={{ flexShrink: 1 }}>
@@ -48,6 +63,7 @@ export default function Map() {
               strokeWidth="5.2631578947368425"
               strokeOpacity="1"
               transform="matrix(0.38,0,0,0.38,0,0)"
+              ref={sariRef}
               stroke={theme.palette.success.main}
               fill={theme.palette.success.main}
             ></path>
